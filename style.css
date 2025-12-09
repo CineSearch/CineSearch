@@ -811,39 +811,6 @@ section h2::before {
   color: #dddddd;
 }
 
-.backup-tools {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-}
-
-.backup-tools input[type="text"] {
-  padding: 10px 14px;
-  font-size: 1rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  min-width: 250px;
-  max-width: 100%;
-}
-
-.backup-tools button {
-  padding: 10px 16px;
-  font-size: 1rem;
-  background-color: #2a09e5;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.2s ease;
-}
-
-.backup-tools button:hover {
-  background-color: #c40812;
-}
-
 .vix-carousel {
   display: flex;
   align-items: center;
