@@ -3,26 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/solid/film.svg">
     <title>CineSearch</title>
-
-    <!-- Video.js CDN - Latest stable version -->
     <link href="https://vjs.zencdn.net/8.16.1/video-js.css" rel="stylesheet" />
     <script src="https://vjs.zencdn.net/8.16.1/video.min.js"></script>
-
-    <!-- Video.js HLS Quality Selector Plugin -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/videojs-hls-quality-selector@2.0.0/dist/videojs-hls-quality-selector.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/videojs-hls-quality-selector@2.0.0/dist/videojs-hls-quality-selector.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lz-string@1.4.4/libs/lz-string.min.js"></script>
-    
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <header id="header">
-      <div class="logo">CineSearch</div>
+<div class="logo">
+  <i class="fas fa-film"></i>
+  <span>CineSearch</span>
+</div>
       <div class="header-controls">
         <div class="cors-selector">
           <label class="cors-label" for="cors-select">🌐 CORS Proxy</label>
@@ -70,8 +69,6 @@
             </div>
           </div>
         </section>
-        
-        <!-- CONTINUA VISIONE -->
         <section id="continua-visione" style="display: none;">
           <h2>▶️ Continua visione</h2>
           <div class="carousel-wrapper">
@@ -82,8 +79,6 @@
             <button class="arrow right" data-target="continua-carousel">▶</button>
           </div>
         </section>
-
-        <!-- PREFERITI -->
         <section id="preferiti" style="display: none;">
           <h2>⭐ Preferiti</h2>
           <div class="carousel-wrapper">
@@ -94,8 +89,6 @@
             <button class="arrow right" data-target="preferiti-carousel">▶</button>
           </div>
         </section>
-
-        <!-- TRENDING -->
         <section id="trending">
           <h2>🔥 Trending</h2>
           <div class="carousel-wrapper">
@@ -106,8 +99,6 @@
             <button class="arrow right" data-target="trending-carousel">▶</button>
           </div>
         </section>
-
-        <!-- ULTIMI FILM -->
         <section id="nowPlaying">
           <h2>🎬 Ultimi Film</h2>
           <div class="carousel-wrapper">
@@ -118,8 +109,6 @@
             <button class="arrow right" data-target="nowPlaying-carousel">▶</button>
           </div>
         </section>
-
-        <!-- FILM POPOLARI -->
         <section id="popularMovies">
           <h2>⭐ Film Popolari</h2>
           <div class="carousel-wrapper">
@@ -130,8 +119,6 @@
             <button class="arrow right" data-target="popularMovies-carousel">▶</button>
           </div>
         </section>
-
-        <!-- ULTIME SERIE -->
         <section id="onTheAir">
           <h2>📺 Ultime Serie</h2>
           <div class="carousel-wrapper">
@@ -142,8 +129,6 @@
             <button class="arrow right" data-target="onTheAir-carousel">▶</button>
           </div>
         </section>
-
-        <!-- SERIE POPOLARI -->
         <section id="popularTV">
           <h2>🏆 Serie Popolari</h2>
           <div class="carousel-wrapper">
@@ -171,7 +156,6 @@
 
         <div class="player-content">
           <div class="video-container">
-            <!-- Episode Selection Warning -->
             <div
               id="episode-warning"
               class="select-episode-warning"
@@ -218,8 +202,6 @@
         </div>
       </div>
     </main>
-<!-- Aggiungi queste nuove sezioni dopo le sezioni esistenti nel main -->
-<!-- TUTTI I FILM -->
 <section id="allMovies" style="display: none;">
   <h2>🎬 Tutti i Film</h2>
   <div class="carousel-wrapper">
@@ -233,8 +215,6 @@
     <button id="loadMoreMovies" class="load-more-btn" onclick="loadMoreMovies()">Carica più film</button>
   </div>
 </section>
-
-<!-- TUTTE LE SERIE TV -->
 <section id="allTV" style="display: none;">
   <h2>📺 Tutte le Serie TV</h2>
   <div class="carousel-wrapper">
@@ -248,23 +228,17 @@
     <button id="loadMoreTV" class="load-more-btn" onclick="loadMoreTV()">Carica più serie</button>
   </div>
 </section>
-
-<!-- CATEGORIE -->
 <section id="categories">
   <h2>🎭 Categorie</h2>
   <div class="categories-grid" id="categories-grid">
-    <!-- Le categorie verranno caricate dinamicamente -->
   </div>
 </section>
-
-<!-- Aggiungi questi pulsanti di navigazione nel hero (dopo il backup-tools) -->
 <div class="navigation-buttons" style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
   <button class="nav-btn" onclick="showAllMovies()">🎬 Tutti i Film</button>
   <button class="nav-btn" onclick="showAllTV()">📺 Tutte le Serie TV</button>
   <button class="nav-btn" onclick="showTrending()">🔥 Trending</button>
   <button class="nav-btn" onclick="showCategories()">🎭 Categorie</button>
 </div>
-    <!-- JavaScript -->
     <script src="script.js"></script>
   </body>
 </html>
