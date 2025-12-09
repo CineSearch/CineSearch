@@ -5,7 +5,6 @@ let totalTVPages = 0;
 let currentCategory = null;
 let currentCategoryPage = 1;
 
-// Aggiungi questo oggetto delle categorie/genere
 const categories = [
   { id: 28, name: "Azione", icon: "💥" },
   { id: 12, name: "Avventura", icon: "🗺️" },
@@ -28,7 +27,6 @@ const categories = [
   { id: 37, name: "Western", icon: "🤠" }
 ];
 
-// Funzioni per mostrare/nascondere sezioni
 function showAllMovies() {
   hideAllSections();
   document.getElementById("allMovies").style.display = "block";
@@ -60,7 +58,6 @@ function hideAllSections() {
   });
 }
 
-// Funzioni per caricare tutti i film
 async function loadAllMovies(page = 1) {
   try {
     const res = await fetch(
@@ -73,7 +70,6 @@ async function loadAllMovies(page = 1) {
     
     const carousel = document.getElementById("allMovies-carousel");
     
-    // Pulisci solo se è la prima pagina
     if (page === 1) {
       carousel.innerHTML = "";
     }
@@ -83,10 +79,8 @@ async function loadAllMovies(page = 1) {
       carousel.appendChild(createCard(movie));
     });
     
-    // Mostra la sezione
     document.getElementById("allMovies").style.display = "block";
-    
-    // Aggiorna il pulsante "Carica più"
+
     const loadMoreBtn = document.getElementById("loadMoreMovies");
     if (currentMoviePage >= totalMoviePages) {
       loadMoreBtn.style.display = "none";
@@ -101,7 +95,6 @@ async function loadAllMovies(page = 1) {
   }
 }
 
-// Funzioni per caricare tutte le serie TV
 async function loadAllTV(page = 1) {
   try {
     const res = await fetch(
@@ -114,7 +107,6 @@ async function loadAllTV(page = 1) {
     
     const carousel = document.getElementById("allTV-carousel");
     
-    // Pulisci solo se è la prima pagina
     if (page === 1) {
       carousel.innerHTML = "";
     }
@@ -124,10 +116,8 @@ async function loadAllTV(page = 1) {
       carousel.appendChild(createCard(tv));
     });
     
-    // Mostra la sezione
     document.getElementById("allTV").style.display = "block";
     
-    // Aggiorna il pulsante "Carica più"
     const loadMoreBtn = document.getElementById("loadMoreTV");
     if (currentTVPage >= totalTVPages) {
       loadMoreBtn.style.display = "none";
@@ -142,21 +132,18 @@ async function loadAllTV(page = 1) {
   }
 }
 
-// Funzione per caricare più film
 async function loadMoreMovies() {
   if (currentMoviePage < totalMoviePages) {
     await loadAllMovies(currentMoviePage + 1);
   }
 }
 
-// Funzione per caricare più serie TV
 async function loadMoreTV() {
   if (currentTVPage < totalTVPages) {
     await loadAllTV(currentTVPage + 1);
   }
 }
 
-// Funzione per caricare le categorie
 async function loadCategories() {
   const grid = document.getElementById("categories-grid");
   grid.innerHTML = "";
@@ -176,8 +163,6 @@ async function loadCategories() {
     grid.appendChild(categoryCard);
   });
 }
-
-// Funzione per caricare contenuti di una categoria
 async function loadCategoryContent(category, page = 1) {
   currentCategory = category;
   currentCategoryPage = page;
@@ -188,10 +173,8 @@ async function loadCategoryContent(category, page = 1) {
     );
     const data = await res.json();
     
-    // Nascondi la griglia delle categorie
     document.getElementById("categories").style.display = "none";
     
-    // Crea una sezione per i risultati della categoria
     let resultsSection = document.getElementById("category-results");
     if (!resultsSection) {
       resultsSection = document.createElement("section");
@@ -217,7 +200,6 @@ async function loadCategoryContent(category, page = 1) {
     
     const carousel = document.getElementById("category-carousel");
     
-    // Pulisci solo se è la prima pagina
     if (page === 1) {
       carousel.innerHTML = "";
       resultsSection.querySelector("h2").textContent = `${category.icon} ${category.name}`;
@@ -228,7 +210,6 @@ async function loadCategoryContent(category, page = 1) {
       carousel.appendChild(createCard(item));
     });
     
-    // Aggiorna il pulsante "Carica più"
     const loadMoreBtn = document.getElementById("loadMoreCategory");
     if (page >= data.total_pages) {
       loadMoreBtn.style.display = "none";
@@ -245,14 +226,12 @@ async function loadCategoryContent(category, page = 1) {
   }
 }
 
-// Funzione per caricare più contenuti della categoria
 async function loadMoreCategory() {
   if (currentCategory) {
     await loadCategoryContent(currentCategory, currentCategoryPage + 1);
   }
 }
 
-// Funzione per tornare alle categorie
 function backToCategories() {
   const resultsSection = document.getElementById("category-results");
   if (resultsSection) {
@@ -475,7 +454,6 @@ async function fetchList(type) {
 
 async function fetchTVSeasons(tvId) {
   if (tvId === 87623) {
-    // Hercai: override stagioni personalizzate
     return [
       { season_number: 1, name: "Stagione 1" },
       { season_number: 2, name: "Stagione 2" },
