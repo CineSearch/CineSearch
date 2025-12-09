@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CineSearch</title>
+
+    <!-- Video.js CDN - Latest stable version -->
+    <link href="https://vjs.zencdn.net/8.16.1/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/8.16.1/video.min.js"></script>
+
+    <!-- Video.js HLS Quality Selector Plugin -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/videojs-hls-quality-selector@2.0.0/dist/videojs-hls-quality-selector.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/videojs-hls-quality-selector@2.0.0/dist/videojs-hls-quality-selector.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lz-string@1.4.4/libs/lz-string.min.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header id="header">
+      <div class="logo">CineSearch</div>
+      <div class="header-controls">
+        <div class="cors-selector">
+          <label class="cors-label" for="cors-select">🌐 CORS Proxy</label>
+          <select id="cors-select"></select>
+        </div>
+        <div class="search-container">
+          <input
+            type="text"
+            id="search"
+            placeholder="🔍 Cerca film, serie TV..."
+          />
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div id="home">
+        <section class="hero">
+          <div class="hero-content">
+            <h1>Benvenuto su CineSearch</h1>
+            <p>Esporta e importa i tuoi preferiti su qualsiasi dispositivo</p>
+
+            <div class="backup-tools" style="margin-top: 2rem;">
+              <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 600px; margin: 0 auto;">
+                <button onclick="esportaBackup()" class="btn btn-success">
+                  📤 Esporta backup
+                </button>
+
+                <input
+                  type="text"
+                  id="backupInput"
+                  class="form-control"
+                  placeholder="Incolla qui il link TinyURL"
+                />
+
+                <button
+                  onclick="importaBackup(document.getElementById('backupInput').value)"
+                  class="btn btn-primary"
+                >
+                  📥 Importa backup
+                </button>
+
+                <p id="codiceGenerato" style="text-align: center;"></p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- CONTINUA VISIONE -->
+        <section id="continua-visione" style="display: none;">
+          <h2>▶️ Continua visione</h2>
+          <div class="carousel-wrapper">
+            <button class="arrow left" data-target="continua-carousel">◀</button>
+            <div class="carousel-container">
+              <div class="carousel" id="continua-carousel"></div>
+            </div>
+            <button class="arrow right" data-target="continua-carousel">▶</button>
+          </div>
+        </section>
+
+        <!-- PREFERITI -->
+        <section id="preferiti" style="display: none;">
+          <h2>⭐ Preferiti</h2>
+          <div class="carousel-wrapper">
+            <button class="arrow left" data-target="preferiti-carousel">◀</button>
+            <div class="carousel-container">
+              <div class="carousel" id="preferiti-carousel"></div>
+            </div>
+            <button class="arrow right" data-target="preferiti-carousel">▶</button>
+          </div>
+        </section>
+
+        <!-- TRENDING -->
+        <section id="trending">
+          <h2>🔥 Trending</h2>
+          <div class="carousel-wrapper">
+            <button class="arrow left" data-target="trending-carousel">◀</button>
+            <div class="carousel-container">
+              <div class="carousel" id="trending-carousel"></div>
+            </div>
+            <button class="arrow right" data-target="trending-carousel">▶</button>
+          </div>
+        </section>
+
+        <!-- ULTIMI FILM -->
+        <section id="nowPlaying">
+          <h2>🎬 Ultimi Film</h2>
+          <div class="carousel-wrapper">
+            <button class="arrow left" data-target="nowPlaying-carousel">◀</button>
+            <div class="carousel-container">
+              <div class="carousel" id="nowPlaying-carousel"></div>
+            </div>
+            <button class="arrow right" data-target="nowPlaying-carousel">▶</button>
+          </div>
+        </section>
+
+        <!-- FILM POPOLARI -->
+        <section id="popularMovies">
+          <h2>⭐ Film Popolari</h2>
+          <div class="carousel-wrapper">
+            <button class="arrow left" data-target="popularMovies-carousel">◀</button>
+            <div class="carousel-container">
+              <div class="carousel" id="popularMovies-carousel"></div>
+            </div>
+            <button class="arrow right" data-target="popularMovies-carousel">▶</button>
+          </div>
+        </section>
+
+        <!-- ULTIME SERIE -->
+        <section id="onTheAir">
+          <h2>📺 Ultime Serie</h2>
+          <div class="carousel-wrapper">
+            <button class="arrow left" data-target="onTheAir-carousel">◀</button>
+            <div class="carousel-container">
+              <div class="carousel" id="onTheAir-carousel"></div>
+            </div>
+            <button class="arrow right" data-target="onTheAir-carousel">▶</button>
+          </div>
+        </section>
+
+        <!-- SERIE POPOLARI -->
+        <section id="popularTV">
+          <h2>🏆 Serie Popolari</h2>
+          <div class="carousel-wrapper">
+            <button class="arrow left" data-target="popularTV-carousel">◀</button>
+            <div class="carousel-container">
+              <div class="carousel" id="popularTV-carousel"></div>
+            </div>
+            <button class="arrow right" data-target="popularTV-carousel">▶</button>
+          </div>
+        </section>
+      </div>
+
+      <div id="results"></div>
+
+      <div id="player">
+        <div class="player-header">
+          <button class="back-btn" onclick="goBack()">← Torna indietro</button>
+        </div>
+
+        <div class="player-info" id="player-info">
+          <h1 id="player-title"></h1>
+          <div class="meta" id="player-meta"></div>
+          <div class="overview" id="player-overview"></div>
+        </div>
+
+        <div class="player-content">
+          <div class="video-container">
+            <!-- Episode Selection Warning -->
+            <div
+              id="episode-warning"
+              class="select-episode-warning"
+              style="display: none"
+            >
+              <div class="icon">📺</div>
+              <h3>Seleziona un episodio</h3>
+              <p>
+                Scegli una stagione e un episodio dalla lista a destra per
+                iniziare la riproduzione
+              </p>
+            </div>
+
+            <video
+              id="player-video"
+              class="video-js vjs-theme-vixflix vjs-big-play-centered"
+              controls
+              preload="auto"
+              playsinline
+              crossorigin="anonymous"
+            ></video>
+
+            <div
+              id="loading-overlay"
+              class="loading-overlay"
+              style="display: none"
+            >
+              <div class="loading"></div>
+              <div class="loading-text">Caricamento stream...</div>
+            </div>
+          </div>
+          <div
+            class="episode-selector"
+            id="episode-selector"
+            style="display: none"
+          >
+            <h3>Seleziona episodio</h3>
+            <div class="season-selector">
+              <label>Stagione:</label>
+              <select id="season-select"></select>
+            </div>
+            <div class="episodes-list" id="episodes-list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+<!-- Aggiungi queste nuove sezioni dopo le sezioni esistenti nel main -->
+<!-- TUTTI I FILM -->
+<section id="allMovies" style="display: none;">
+  <h2>🎬 Tutti i Film</h2>
+  <div class="carousel-wrapper">
+    <button class="arrow left" data-target="allMovies-carousel">◀</button>
+    <div class="carousel-container">
+      <div class="carousel" id="allMovies-carousel"></div>
+    </div>
+    <button class="arrow right" data-target="allMovies-carousel">▶</button>
+  </div>
+  <div class="load-more-container">
+    <button id="loadMoreMovies" class="load-more-btn" onclick="loadMoreMovies()">Carica più film</button>
+  </div>
+</section>
+
+<!-- TUTTE LE SERIE TV -->
+<section id="allTV" style="display: none;">
+  <h2>📺 Tutte le Serie TV</h2>
+  <div class="carousel-wrapper">
+    <button class="arrow left" data-target="allTV-carousel">◀</button>
+    <div class="carousel-container">
+      <div class="carousel" id="allTV-carousel"></div>
+    </div>
+    <button class="arrow right" data-target="allTV-carousel">▶</button>
+  </div>
+  <div class="load-more-container">
+    <button id="loadMoreTV" class="load-more-btn" onclick="loadMoreTV()">Carica più serie</button>
+  </div>
+</section>
+
+<!-- CATEGORIE -->
+<section id="categories">
+  <h2>🎭 Categorie</h2>
+  <div class="categories-grid" id="categories-grid">
+    <!-- Le categorie verranno caricate dinamicamente -->
+  </div>
+</section>
+
+<!-- Aggiungi questi pulsanti di navigazione nel hero (dopo il backup-tools) -->
+<div class="navigation-buttons" style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+  <button class="nav-btn" onclick="showAllMovies()">🎬 Tutti i Film</button>
+  <button class="nav-btn" onclick="showAllTV()">📺 Tutte le Serie TV</button>
+  <button class="nav-btn" onclick="showTrending()">🔥 Trending</button>
+  <button class="nav-btn" onclick="showCategories()">🎭 Categorie</button>
+</div>
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>
