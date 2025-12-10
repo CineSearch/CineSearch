@@ -42,8 +42,7 @@ async function loadCategories() {
   });
 }
 
-// Funzione per caricare contenuti di una categoria
-// Funzione per caricare contenuti di una categoria (MODIFICATA CORRETTAMENTE)
+// Funzione per caricare contenuti di una categoria (GRIGLIA VERTICALE)
 async function loadCategoryContent(category, page = 1, minYear = null, maxYear = null) {
   currentCategory = category;
   currentCategoryPage = page;
@@ -53,7 +52,6 @@ async function loadCategoryContent(category, page = 1, minYear = null, maxYear =
   try {
     let apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=it-IT&sort_by=popularity.desc&page=${page}&with_genres=${category.id}`;
     
-    // Aggiungi filtri per anno se specificati
     if (minYear) {
       apiUrl += `&primary_release_date.gte=${minYear}-01-01`;
     }
@@ -67,22 +65,28 @@ async function loadCategoryContent(category, page = 1, minYear = null, maxYear =
     // Nascondi la griglia delle categorie
     document.getElementById("categories").style.display = "none";
     
-    // Crea una sezione per i risultati della categoria
+    // Crea o aggiorna la sezione dei risultati
     let resultsSection = document.getElementById("category-results");
     if (!resultsSection) {
       resultsSection = document.createElement("section");
       resultsSection.id = "category-results";
-      resultsSection.innerHTML = `
-        <div class="category-header">
-          <button class="back-to-categories" onclick="goBackToCategories()" style="background: #2a09e5; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer; margin-bottom: 15px; display: inline-block;">
-            ← Torna alle Categorie
-          </button>
-          <h2>${category.icon} ${category.name}</h2>
-          <div class="year-filter" style="margin-top: 1rem;">
-            <label style="color: #fff; margin-right: 10px;">Filtra per anno:</label>
-            <input type="number" id="minYear" placeholder="Da anno" style="padding: 8px; border-radius: 4px; border: 1px solid #333; margin-right: 10px; width: 100px;" 
+      document.querySelector("main").appendChild(resultsSection);
+    }
+    
+    // Aggiorna il contenuto della sezione
+    resultsSection.innerHTML = `
+      <div class="grid-header">
+        <button class="back-to-categories" onclick="goBackToCategories()" style="background: #2a09e5; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer;">
+          ← Torna alle Categorie
+        </button>
+        <h2 id="category-results-title">${category.icon} ${category.name}</h2>
+        <div class="grid-controls">
+          <div class="year-filter" style="display: flex; align-items: center; gap: 10px;">
+            <label style="color: #fff;">Filtra per anno:</label>
+            <input type="number" id="minYear" placeholder="Da" style="padding: 8px; width: 80px; border-radius: 4px; border: 1px solid #333;" 
                    value="${minYear || ''}">
-            <input type="number" id="maxYear" placeholder="A anno" style="padding: 8px; border-radius: 4px; border: 1px solid #333; width: 100px;"
+            <span>-</span>
+            <input type="number" id="maxYear" placeholder="A" style="padding: 8px; width: 80px; border-radius: 4px; border: 1px solid #333;"
                    value="${maxYear || ''}">
             <button onclick="applyYearFilter()" style="background: #2a09e5; color: white; border: none; padding: 8px 16px; border-radius: 4px; margin-left: 10px; cursor: pointer;">
               Applica
@@ -90,94 +94,92 @@ async function loadCategoryContent(category, page = 1, minYear = null, maxYear =
             <button onclick="clearYearFilter()" style="background: #666; color: white; border: none; padding: 8px 16px; border-radius: 4px; margin-left: 10px; cursor: pointer;">
               Reset
             </button>
-            ${minYear || maxYear ? `<span style="margin-left: 15px; color: #ccc;">Filtro attivo: ${minYear || '...'} - ${maxYear || '...'}</span>` : ''}
           </div>
         </div>
-        <div class="carousel-wrapper">
-          <button class="arrow left" data-target="category-carousel">◀</button>
-          <div class="carousel-container">
-            <div class="carousel" id="category-carousel"></div>
-          </div>
-          <button class="arrow right" data-target="category-carousel">▶</button>
-        </div>
-        <div class="load-more-container">
-          <button id="loadMoreCategory" class="load-more-btn" onclick="loadMoreCategory()">Carica più contenuti</button>
+      </div>
+      <div class="pagination-info" id="category-pagination-info" style="margin: 0 4% 1rem; color: #aaa;"></div>
+      <div class="vertical-grid" id="category-grid"></div>
+      <div class="pagination-controls">
+        <button class="page-btn prev" onclick="prevCategoryPage()" ${page <= 1 ? 'disabled' : ''}>◀ Precedente</button>
+        <span class="page-info" id="category-page-info">Pagina ${page} di ${data.total_pages}</span>
+        <button class="page-btn next" onclick="nextCategoryPage()" ${page >= data.total_pages ? 'disabled' : ''}>Successiva ▶</button>
+      </div>
+    `;
+    
+    const grid = document.getElementById("category-grid");
+    
+    // Filtra solo film disponibili
+    const availableMovies = [];
+    for (const movie of data.results.slice(0, 50)) {
+      movie.media_type = "movie";
+      const isAvailable = await checkAvailabilityOnVixsrc(movie.id, true);
+      
+      if (isAvailable) {
+        grid.appendChild(createCard(movie));
+        availableMovies.push(movie);
+      }
+      
+      if (availableMovies.length >= itemsPerPage) break;
+    }
+    
+    // Aggiorna info paginazione
+    updateCategoryPaginationInfo(data.total_results);
+    updateCategoryPageInfo(data.total_pages);
+    
+    // Se non ci sono risultati
+    if (availableMovies.length === 0) {
+      grid.innerHTML = `
+        <div class="no-results" style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+          Nessun film disponibile trovato in "${category.name}"${minYear || maxYear ? ` per gli anni ${minYear || '...'} - ${maxYear || '...'}` : ''}
         </div>
       `;
-      document.querySelector("main").appendChild(resultsSection);
-    } else {
-      // Aggiorna i filtri se già esistono
-      const minYearInput = document.getElementById("minYear");
-      const maxYearInput = document.getElementById("maxYear");
-      if (minYearInput) minYearInput.value = minYear || '';
-      if (maxYearInput) maxYearInput.value = maxYear || '';
-      
-      // Aggiorna il testo del filtro attivo
-      const activeFilterText = resultsSection.querySelector(".year-filter span");
-      if (activeFilterText) {
-        activeFilterText.textContent = `Filtro attivo: ${minYear || '...'} - ${maxYear || '...'}`;
-      }
-      
-      // Aggiorna il tasto indietro (assicurati che sia "Torna alle Categorie")
-      const backBtn = resultsSection.querySelector(".back-to-categories");
-      if (backBtn) {
-        backBtn.onclick = () => goBackToCategories();
-        backBtn.textContent = "← Torna alle Categorie";
-      }
     }
     
-    const carousel = document.getElementById("category-carousel");
-    
-    // Pulisci solo se è la prima pagina
-    if (page === 1) {
-      carousel.innerHTML = "";
-      resultsSection.querySelector("h2").textContent = `${category.icon} ${category.name}${minYear || maxYear ? ` (${minYear || '...'} - ${maxYear || '...'})` : ''}`;
-    }
-    
-    data.results.forEach(item => {
-      item.media_type = "movie";
-      carousel.appendChild(createCard(item));
-    });
-    
-    // Aggiorna il pulsante "Carica più"
-    const loadMoreBtn = document.getElementById("loadMoreCategory");
-    if (page >= data.total_pages) {
-      loadMoreBtn.style.display = "none";
-    } else {
-      loadMoreBtn.style.display = "block";
-      loadMoreBtn.textContent = `Carica più ${category.name} (${page}/${data.total_pages})`;
-    }
-    
-    checkContinuaVisione(data.results);
+    checkContinuaVisione(availableMovies);
     resultsSection.style.display = "block";
+    window.scrollTo(0, 0);
     
   } catch (error) {
     console.error(`Errore nel caricamento della categoria ${category.name}:`, error);
   }
 }
 
-// Funzione per caricare più contenuti della categoria
-async function loadMoreCategory() {
+// Funzioni di paginazione per categorie
+function nextCategoryPage() {
   if (currentCategory) {
-    await loadCategoryContent(
+    loadCategoryContent(
       currentCategory, 
       currentCategoryPage + 1,
-      currentMinYear,  // Mantieni i filtri anno
+      currentMinYear,
       currentMaxYear
     );
   }
 }
-// Funzione per tornare alle categorie
-// Funzione per tornare alle categorie (SOSTITUISCI l'esistente)
-function backToCategories() {
-  const resultsSection = document.getElementById("category-results");
-  if (resultsSection) {
-    resultsSection.style.display = "none";
+
+function prevCategoryPage() {
+  if (currentCategory && currentCategoryPage > 1) {
+    loadCategoryContent(
+      currentCategory, 
+      currentCategoryPage - 1,
+      currentMinYear,
+      currentMaxYear
+    );
   }
-  document.getElementById("categories").style.display = "block";
-  window.scrollTo(0, 0);
 }
 
+function updateCategoryPageInfo(totalPages) {
+  const infoElement = document.getElementById("category-page-info");
+  if (infoElement) {
+    infoElement.textContent = `Pagina ${currentCategoryPage} di ${totalPages}`;
+  }
+}
+
+function updateCategoryPaginationInfo(totalItems) {
+  const infoDiv = document.getElementById("category-pagination-info");
+  if (infoDiv) {
+    infoDiv.textContent = `${totalItems} film totali nella categoria`;
+  }
+}
 // Filtri anno per categorie
 function applyYearFilter() {
   const minYearInput = document.getElementById("minYear");

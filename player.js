@@ -81,83 +81,7 @@ async function loadTVSeasons(tvId) {
     await loadEpisodes(tvId, currentSeasons[0].season_number);
   }
 }
-async function openPlayer(item) {
-  currentItem = item;
 
-  document.getElementById("home").style.display = "none";
-  document.getElementById("results").style.display = "none";
-  document.getElementById("player").style.display = "block";
-
-  // Reset completo del player se esiste già
-  if (player) {
-    player.dispose();
-    player = null;
-    
-    // Rimuovi l'elemento video esistente
-    const oldVideo = document.getElementById("player-video");
-    if (oldVideo) {
-      oldVideo.remove();
-    }
-    
-    // Crea un nuovo elemento video
-    const videoContainer = document.querySelector(".video-container");
-    const newVideo = document.createElement("video");
-    newVideo.id = "player-video";
-    newVideo.className = "video-js vjs-theme-vixflix vjs-big-play-centered";
-    newVideo.setAttribute("controls", "");
-    newVideo.setAttribute("preload", "auto");
-    newVideo.setAttribute("playsinline", "");
-    newVideo.setAttribute("crossorigin", "anonymous");
-    
-    // Posiziona il nuovo video sopra il loading overlay
-    const loadingOverlay = document.getElementById("loading-overlay");
-    videoContainer.insertBefore(newVideo, loadingOverlay);
-  }
-
-  const title = item.title || item.name;
-  const releaseDate = item.release_date || item.first_air_date || "N/A";
-  const mediaType = item.media_type || (item.title ? "movie" : "tv");
-
-  document.getElementById("player-title").textContent = title;
-  document.getElementById("player-meta").innerHTML = `...`;
-  document.getElementById("player-overview").textContent =
-    item.overview || "...";
-
-  if (mediaType === "tv") {
-    document.getElementById("episode-warning").style.display = "flex";
-    await loadTVSeasons(item.id);
-  } else {
-    document.getElementById("episode-warning").style.display = "none";
-    document.getElementById("episode-selector").style.display = "none";
-    await loadVideo(true, item.id);
-  }
-
-  window.scrollTo(0, 0);
-}
-
-// Carica stagioni TV
-async function loadTVSeasons(tvId) {
-  const seasons = await fetchTVSeasons(tvId);
-  currentSeasons = seasons.filter((s) => s.season_number > 0);
-
-  const selector = document.getElementById("season-select");
-  selector.innerHTML = "";
-
-  currentSeasons.forEach((season) => {
-    const opt = document.createElement("option");
-    opt.value = season.season_number;
-    opt.textContent = `Stagione ${season.season_number}`;
-    selector.appendChild(opt);
-  });
-
-  selector.onchange = () => loadEpisodes(tvId, parseInt(selector.value));
-
-  document.getElementById("episode-selector").style.display = "block";
-
-  if (currentSeasons.length > 0) {
-    await loadEpisodes(tvId, currentSeasons[0].season_number);
-  }
-}
 
 // Carica episodi
 async function loadEpisodes(tvId, seasonNum) {
@@ -417,12 +341,6 @@ function goBack() {
   window.scrollTo(0, 0);
 }
 
-// Shortcut da tastiera
-function setupKeyboardShortcuts() {
-  document.removeEventListener("keydown", handleKeyboardShortcuts);
-  document.addEventListener("keydown", handleKeyboardShortcuts);
-}
-
 function handleKeyboardShortcuts(event) {
   if (!player || !player.readyState()) {
     return;
@@ -573,96 +491,6 @@ function showLoading(show, message = "Caricamento stream...") {
   overlay.querySelector(".loading-text").textContent = message;
 }
 
-function showError(message, details = "") {
-  showLoading(false);
-  const container = document.querySelector(".video-container");
-  const errorDiv = document.createElement("div");
-  errorDiv.className = "error-message";
-  errorDiv.innerHTML = `<h3>⚠️ Errore</h3><p>${message}</p>${details ? `<p style="font-size:0.9em;opacity:0.7;margin-top:0.5em;">${details}</p>` : ""}`;
-  container.appendChild(errorDiv);
-
-  setTimeout(() => {
-    errorDiv.remove();
-  }, 5000);
-}
-// Ottieni stream diretto
-async function getDirectStream(tmdbId, isMovie, season = null, episode = null) {
-  try {
-    showLoading(true, "Connessione al server...");
-
-    let vixsrcUrl = `https://${VIXSRC_URL}/${isMovie ? "movie" : "tv"}/${tmdbId}`;
-    if (!isMovie && season !== null && episode !== null) {
-      vixsrcUrl += `/${season}/${episode}`;
-    }
-
-    showLoading(true, "Recupero pagina vixsrc...");
-    const response = await fetch(applyCorsProxy(vixsrcUrl));
-    const html = await response.text();
-
-    showLoading(true, "Estrazione parametri stream...");
-
-    const playlistParamsRegex =
-      /window\.masterPlaylist[^:]+params:[^{]+({[^<]+?})/;
-    const playlistParamsMatch = html.match(playlistParamsRegex);
-
-    if (!playlistParamsMatch) {
-      throw new Error("Impossibile trovare i parametri della playlist");
-    }
-
-    let playlistParamsStr = playlistParamsMatch[1]
-      .replace(/'/g, '"')
-      .replace(/\s+/g, "")
-      .replace(/\n/g, "")
-      .replace(/\\n/g, "")
-      .replace(",}", "}");
-
-    let playlistParams;
-    try {
-      playlistParams = JSON.parse(playlistParamsStr);
-    } catch (e) {
-      throw new Error("Errore nel parsing dei parametri: " + e.message);
-    }
-
-    const playlistUrlRegex =
-      /window\.masterPlaylist\s*=\s*\{[\s\S]*?url:\s*'([^']+)'/;
-    const playlistUrlMatch = html.match(playlistUrlRegex);
-
-    if (!playlistUrlMatch) {
-      throw new Error("Impossibile trovare l'URL della playlist");
-    }
-
-    const playlistUrl = playlistUrlMatch[1];
-
-    const canPlayFHDRegex = /window\.canPlayFHD\s+?=\s+?(\w+)/;
-    const canPlayFHDMatch = html.match(canPlayFHDRegex);
-    const canPlayFHD = canPlayFHDMatch && canPlayFHDMatch[1] === "true";
-
-    const hasQuery = /\?[^#]+/.test(playlistUrl);
-    const separator = hasQuery ? "&" : "?";
-
-    const m3u8Url =
-      playlistUrl +
-      separator +
-      "expires=" +
-      playlistParams.expires +
-      "&token=" +
-      playlistParams.token +
-      (canPlayFHD ? "&h=1" : "");
-
-    baseStreamUrl = extractBaseUrl(m3u8Url);
-
-    showLoading(false);
-    return {
-      iframeUrl: vixsrcUrl,
-      m3u8Url: m3u8Url,
-    };
-  } catch (error) {
-    showLoading(false);
-    showError("Errore durante l'estrazione dello stream", error.message);
-    return null;
-  }
-}
-
 // Shortcut da tastiera
 function setupKeyboardShortcuts() {
   document.removeEventListener("keydown", handleKeyboardShortcuts);
@@ -810,13 +638,6 @@ function showVolumeFeedback(volumePercent) {
   volumeDisplay.timeoutId = setTimeout(() => {
     volumeDisplay.style.opacity = "0";
   }, 1000);
-}
-
-// Funzioni di utilità del player
-function showLoading(show, message = "Caricamento stream...") {
-  const overlay = document.getElementById("loading-overlay");
-  overlay.style.display = show ? "flex" : "none";
-  overlay.querySelector(".loading-text").textContent = message;
 }
 
 function showError(message, details = "") {

@@ -21,10 +21,10 @@
   </head>
   <body>
     <header id="header">
-      <div class="logo">
-        <i class="fas fa-film"></i>
-        <span>CineSearch</span>
-      </div>
+<div class="logo">
+  <i class="fas fa-film"></i>
+  <span>CineSearch</span>
+</div>
       <div class="header-controls">
         <div class="cors-selector">
           <label class="cors-label" for="cors-select">🌐 CORS Proxy</label>
@@ -43,7 +43,6 @@
         <span id="preferiti-count">0</span>
       </div>
     </header>
-
     <main>
       <div id="home">
         <section class="hero">
@@ -59,17 +58,6 @@
             </div>
           </div>
         </section>
-        
-        <section id="preferiti" style="display: none;">
-          <h2>⭐ Preferiti</h2>
-          <div class="carousel-wrapper">
-            <button class="arrow left" data-target="preferiti-carousel">◀</button>
-            <div class="carousel-container">
-              <div class="carousel" id="preferiti-carousel"></div>
-            </div>
-            <button class="arrow right" data-target="preferiti-carousel">▶</button>
-          </div>
-        </section>
 
         <section id="continua-visione" style="display: none;">
           <h2>▶️ Continua visione</h2>
@@ -81,7 +69,18 @@
             <button class="arrow right" data-target="continua-carousel">▶</button>
           </div>
         </section>
-        
+
+        <section id="preferiti" style="display: none;">
+          <h2>⭐ Preferiti</h2>
+          <div class="carousel-wrapper">
+            <button class="arrow left" data-target="preferiti-carousel">◀</button>
+            <div class="carousel-container">
+              <div class="carousel" id="preferiti-carousel"></div>
+            </div>
+            <button class="arrow right" data-target="preferiti-carousel">▶</button>
+          </div>
+        </section>
+
         <section id="trending">
           <h2>🔥 Trending</h2>
           <div class="carousel-wrapper">
@@ -198,72 +197,135 @@
           </div>
         </div>
       </div>
-      
-      <!-- TUTTI I FILM -->
-      <section id="allMovies" style="display: none;">
-        <h2>🎬 Tutti i Film</h2>
-        <div class="carousel-wrapper">
-          <button class="arrow left" data-target="allMovies-carousel">◀</button>
-          <div class="carousel-container">
-            <div class="carousel" id="allMovies-carousel"></div>
-          </div>
-          <button class="arrow right" data-target="allMovies-carousel">▶</button>
-        </div>
-        <div class="load-more-container">
-          <button id="loadMoreMovies" class="load-more-btn" onclick="loadMoreMovies()">Carica più film</button>
-        </div>
-      </section>
-      
-      <!-- TUTTE LE SERIE TV -->
-      <section id="allTV" style="display: none;">
-        <h2>📺 Tutte le Serie TV</h2>
-        <div class="carousel-wrapper">
-          <button class="arrow left" data-target="allTV-carousel">◀</button>
-          <div class="carousel-container">
-            <div class="carousel" id="allTV-carousel"></div>
-          </div>
-          <button class="arrow right" data-target="allTV-carousel">▶</button>
-        </div>
-        <div class="load-more-container">
-          <button id="loadMoreTV" class="load-more-btn" onclick="loadMoreTV()">Carica più serie</button>
-        </div>
-      </section>
-      
-      <!-- CATEGORIE -->
-      <section id="categories" style="display: none;">
-        <div class="categories-grid" id="categories-grid"></div>
-      </section>
-      
-      <!-- SEZIONE PREFERITI -->
-      <section id="preferiti-section" style="display: none;">
-        <h2>⭐ I tuoi Preferiti</h2>
-        <div class="carousel-wrapper">
-          <button class="arrow left" onclick="scrollCarouselPreferiti(-1)">◀</button>
-          <div class="carousel-container">
-            <div class="carousel" id="preferiti-section-carousel"></div>
-          </div>
-          <button class="arrow right" onclick="scrollCarouselPreferiti(1)">▶</button>
-        </div>
-        <div class="preferiti-message" id="preferiti-message" style="text-align: center; padding: 2rem; color: #888;">
-          Aggiungi contenuti ai preferiti per vederli qui
-        </div>
-      </section>
     </main>
+<!-- TUTTI I FILM -->
+<section id="allMovies" style="display: none;">
+  <div class="grid-header">
+    <button class="back-to-home" onclick="goBackToHome()" style="background: #2a09e5; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer;">
+      ← Torna alla Home
+    </button>
+    <h2>🎬 Tutti i Film</h2>
+    <div class="grid-controls">
+      <div class="year-filter" style="display: flex; align-items: center; gap: 10px;">
+        <label style="color: #fff;">Filtra per anno:</label>
+        <input type="number" id="movieMinYear" placeholder="Da" style="padding: 8px; width: 80px; border-radius: 4px; border: 1px solid #333;">
+        <span>-</span>
+        <input type="number" id="movieMaxYear" placeholder="A" style="padding: 8px; width: 80px; border-radius: 4px; border: 1px solid #333;">
+        <button onclick="applyMovieYearFilter()" style="background: #2a09e5; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">
+          Applica
+        </button>
+        <button onclick="clearMovieYearFilter()" style="background: #666; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">
+          Reset
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="pagination-info" id="movie-pagination-info" style="margin: 0 4% 1rem; color: #aaa;"></div>
+  <div class="vertical-grid" id="allMovies-grid"></div>
+  <div class="pagination-controls">
+    <button class="page-btn prev" onclick="prevMoviePage()" disabled>◀ Precedente</button>
+    <span class="page-info" id="movie-page-info">Pagina 1</span>
+    <button class="page-btn next" onclick="nextMoviePage()">Successiva ▶</button>
+  </div>
+</section>
 
-    <!-- Includi tutti i file JavaScript in ORDINE CORRETTO -->
-    <script src="script.js"></script>          <!-- Primo: dichiara le variabili globali -->
-    <script src="api.js"></script>             <!-- Funzioni API -->
-    <script src="cors.js"></script>            <!-- Gestione CORS -->
-    <script src="preferiti.js"></script>       <!-- Gestione preferiti -->
-    <script src="continua-visione.js"></script> <!-- Continua visione -->
-    <script src="card.js"></script>            <!-- Creazione card -->
-    <script src="categorie.js"></script>       <!-- Categorie -->
-    <script src="film-serie.js"></script>      <!-- Film e serie -->
-    <script src="ricerca.js"></script>         <!-- Ricerca -->
-    <script src="player.js"></script>          <!-- Player (ultimo, usa le funzioni sopra) -->
+<!-- TUTTE LE SERIE TV -->
+<section id="allTV" style="display: none;">
+  <div class="grid-header">
+    <button class="back-to-home" onclick="goBackToHome()" style="background: #2a09e5; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer;">
+      ← Torna alla Home
+    </button>
+    <h2>📺 Tutte le Serie TV</h2>
+    <div class="grid-controls">
+      <div class="year-filter" style="display: flex; align-items: center; gap: 10px;">
+        <label style="color: #fff;">Filtra per anno:</label>
+        <input type="number" id="tvMinYear" placeholder="Da" style="padding: 8px; width: 80px; border-radius: 4px; border: 1px solid #333;">
+        <span>-</span>
+        <input type="number" id="tvMaxYear" placeholder="A" style="padding: 8px; width: 80px; border-radius: 4px; border: 1px solid #333;">
+        <button onclick="applyTVYearFilter()" style="background: #2a09e5; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">
+          Applica
+        </button>
+        <button onclick="clearTVYearFilter()" style="background: #666; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">
+          Reset
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="pagination-info" id="tv-pagination-info" style="margin: 0 4% 1rem; color: #aaa;"></div>
+  <div class="vertical-grid" id="allTV-grid"></div>
+  <div class="pagination-controls">
+    <button class="page-btn prev" onclick="prevTVPage()" disabled>◀ Precedente</button>
+    <span class="page-info" id="tv-page-info">Pagina 1</span>
+    <button class="page-btn next" onclick="nextTVPage()">Successiva ▶</button>
+  </div>
+</section>
 
-    <footer style="text-align: center; padding: 2rem; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 3rem;">
-      <p>© 2025 Copyright AIMODS | Forked by VixSrc</p>
-    </footer>
+<!-- CATEGORIE -->
+<section id="categories" style="display: none;">
+  <div class="grid-header">
+    <button class="back-to-home" onclick="goBackToHome()" style="background: #2a09e5; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer;">
+      ← Torna alla Home
+    </button>
+    <h2>🎭 Categorie</h2>
+  </div>
+  <div class="categories-grid" id="categories-grid"></div>
+</section>
+
+<!-- RISULTATI CATEGORIA -->
+<section id="category-results" style="display: none;">
+  <div class="grid-header">
+    <button class="back-to-categories" onclick="goBackToCategories()" style="background: #2a09e5; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer;">
+      ← Torna alle Categorie
+    </button>
+    <h2 id="category-results-title">Categoria</h2>
+    <div class="grid-controls">
+      <div class="year-filter" style="display: flex; align-items: center; gap: 10px;">
+        <label style="color: #fff;">Filtra per anno:</label>
+        <input type="number" id="minYear" placeholder="Da" style="padding: 8px; width: 80px; border-radius: 4px; border: 1px solid #333;">
+        <span>-</span>
+        <input type="number" id="maxYear" placeholder="A" style="padding: 8px; width: 80px; border-radius: 4px; border: 1px solid #333;">
+        <button onclick="applyYearFilter()" style="background: #2a09e5; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">
+          Applica
+        </button>
+        <button onclick="clearYearFilter()" style="background: #666; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">
+          Reset
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="pagination-info" id="category-pagination-info" style="margin: 0 4% 1rem; color: #aaa;"></div>
+  <div class="vertical-grid" id="category-grid"></div>
+  <div class="pagination-controls">
+    <button class="page-btn prev" onclick="prevCategoryPage()" disabled>◀ Precedente</button>
+    <span class="page-info" id="category-page-info">Pagina 1</span>
+    <button class="page-btn next" onclick="nextCategoryPage()">Successiva ▶</button>
+  </div>
+</section>
+<section id="preferiti-section" style="display: none;">
+  <h2>⭐ I tuoi Preferiti</h2>
+  <div class="carousel-wrapper">
+    <button class="arrow left" onclick="scrollCarouselPreferiti(-1)">◀</button>
+    <div class="carousel-container">
+      <div class="carousel" id="preferiti-section-carousel"></div>
+    </div>
+    <button class="arrow right" onclick="scrollCarouselPreferiti(1)">▶</button>
+  </div>
+  <div class="preferiti-message" id="preferiti-message" style="text-align: center; padding: 2rem; color: #888;">
+    Aggiungi contenuti ai preferiti per vederli qui
+  </div>
+</section>
+    <script src="script.js"></script>
+<script src="api.js"></script>
+<script src="cors.js"></script>
+<script src="preferiti.js"></script>
+<script src="continua-visione.js"></script>
+<script src="card.js"></script>
+<script src="categorie.js"></script>
+<script src="film-serie.js"></script>
+<script src="ricerca.js"></script>
+<script src="player.js"></script>
+<footer style="text-align: center; padding: 2rem; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 3rem;">
+  <p>© 2025 Copyright AIMODS | Forked by VixSrc</p>
+</footer>
   </body>
 </html>

@@ -151,14 +151,44 @@ function scrollCarousel(carouselId, direction) {
 }
 
 // Event listener per le frecce
+// Event listener per le frecce
 document.querySelectorAll('.arrow').forEach(btn => {
   btn.addEventListener('click', () => {
     const targetId = btn.getAttribute('data-target');
     const carousel = document.getElementById(targetId);
-    if (!carousel) return;
+    
+    // DEBUG: Verifica che gli elementi esistano    
+    if (!carousel) {
+      console.error('❌ Carosello non trovato con ID:', targetId);
+      return;
+    }
 
+    // Se il carosello è vuoto o non c'è contenuto da scrollare
+    if (carousel.children.length === 0) {
+      console.warn('⚠️ Carosello vuoto! Nessun elemento da scrollare.');
+      return;
+    }
+    
+    // Se non c'è spazio per scrollare
+    if (carousel.scrollWidth <= carousel.clientWidth) {
+      console.warn('⚠️ Nessuno scroll necessario! scrollWidth <= clientWidth');
+      return;
+    }
+    
     const direction = btn.classList.contains('left') ? -1 : 1;
     const scrollAmount = carousel.clientWidth * 0.8;
+     
+    // Verifica che lo scroll sia possibile
+    if (direction === 1 && carousel.scrollLeft >= (carousel.scrollWidth - carousel.clientWidth - 10)) {
+      // console.log('➡️ Già alla fine destra');
+      return;
+    }
+    
+    if (direction === -1 && carousel.scrollLeft <= 10) {
+      // console.log('⬅️ Già all\'inizio sinistra');
+      return;
+    }
+    
     carousel.scrollBy({
       left: direction * scrollAmount,
       behavior: 'smooth'

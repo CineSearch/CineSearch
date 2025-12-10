@@ -34,6 +34,12 @@ let currentTVMaxYear = null;
 let currentMinYear = null;
 let currentMaxYear = null;
 
+// Variabili per la paginazione
+let currentNavigationSection = null;
+let currentNavigationPage = 1;
+let navigationItems = [];
+let itemsPerPage = 30;
+
 const endpoints = {
   trending: `trending/all/week`,
   nowPlaying: `movie/now_playing`,
@@ -171,17 +177,229 @@ function cleanupExpiredStorage() {
   }
 }
 
-// Funzioni per mostrare/nascondere sezioni
+// NUOVE FUNZIONI PER NAVIGATION-BUTTONS A PAGINAZIONE
+function showNavigationSection(section) {
+  hideAllSections();
+  currentNavigationSection = section;
+  currentNavigationPage = 1;
+  navigationItems = [];
+  
+  const navigationSection = document.getElementById("navigation-section");
+  if (!navigationSection) {
+    const main = document.querySelector("main");
+    const navSection = document.createElement("section");
+    navSection.id = "navigation-section";
+    navSection.innerHTML = `
+      <div class="navigation-header">
+        <button class="back-to-home" onclick="goBackToHome()">← Torna alla Home</button>
+        <h2 id="navigation-title"></h2>
+        <div class="pagination-info" id="pagination-info"></div>
+      </div>
+      <div class="navigation-grid" id="navigation-grid"></div>
+      <div class="navigation-pagination" id="navigation-pagination">
+        <button class="pagination-btn prev" onclick="prevNavigationPage()" disabled>◀ Precedente</button>
+        <span class="page-info" id="page-info">Pagina 1</span>
+        <button class="pagination-btn next" onclick="nextNavigationPage()">Successiva ▶</button>
+      </div>
+    `;
+    main.appendChild(navSection);
+  }
+  
+  document.getElementById("navigation-section").style.display = "block";
+  document.getElementById("navigation-title").textContent = getNavigationTitle(section);
+  
+  loadNavigationContent(section);
+}
+
+function getNavigationTitle(section) {
+  switch(section) {
+    case 'movies': return '🎬 Tutti i Film';
+    case 'tv': return '📺 Tutte le Serie TV';
+    case 'categories': return '🎭 Categorie';
+    case 'favorites': return '⭐ Preferiti';
+    default: return 'Navigazione';
+  }
+}
+
+async function loadNavigationContent(section, page = 1) {
+  currentNavigationPage = page;
+  const grid = document.getElementById("navigation-grid");
+  grid.innerHTML = '<div class="loading">Caricamento...</div>';
+  
+  try {
+    let items = [];
+    
+    switch(section) {
+      case 'movies':
+        items = await loadMoviesForNavigation(page);
+        break;
+      case 'tv':
+        items = await loadTVForNavigation(page);
+        break;
+      case 'categories':
+        // Per le categorie, mostriamo la griglia di categorie
+        loadCategories();
+        return;
+      case 'favorites':
+        items = await loadFavoritesForNavigation();
+        break;
+    }
+    
+    navigationItems = items;
+    displayNavigationItems(items, page);
+    updatePaginationControls(items.length);
+    
+  } catch (error) {
+    console.error(`Errore nel caricamento ${section}:`, error);
+    grid.innerHTML = '<div class="error">Errore nel caricamento dei contenuti</div>';
+  }
+}
+
+async function loadMoviesForNavigation(page) {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=it-IT&sort_by=popularity.desc&page=${page}`
+  );
+  const data = await res.json();
+  
+  const availableMovies = [];
+  for (const movie of data.results.slice(0, 50)) { // Limita a 50 per performance
+    const isAvailable = await checkAvailabilityOnVixsrc(movie.id, true);
+    if (isAvailable) {
+      movie.media_type = "movie";
+      availableMovies.push(movie);
+    }
+    if (availableMovies.length >= itemsPerPage) break;
+  }
+  
+  return availableMovies;
+}
+
+async function loadTVForNavigation(page) {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&language=it-IT&sort_by=popularity.desc&page=${page}`
+  );
+  const data = await res.json();
+  
+  const availableTV = [];
+  for (const tv of data.results.slice(0, 50)) {
+    const isAvailable = await checkTvSeriesAvailability(tv.id);
+    if (isAvailable) {
+      tv.media_type = "tv";
+      availableTV.push(tv);
+    }
+    if (availableTV.length >= itemsPerPage) break;
+  }
+  
+  return availableTV;
+}
+
+async function loadFavoritesForNavigation() {
+  const preferiti = getPreferiti();
+  const items = [];
+  
+  for (const itemId of preferiti) {
+    const [mediaType, tmdbId] = itemId.split("-");
+    try {
+      const res = await fetch(
+        `https://api.themoviedb.org/3/${mediaType}/${tmdbId}?api_key=${API_KEY}&language=it-IT`
+      );
+      const item = await res.json();
+      item.media_type = mediaType;
+      items.push(item);
+    } catch (error) {
+      console.error(`Errore nel caricamento del preferito ${itemId}:`, error);
+    }
+  }
+  
+  return items;
+}
+
+function displayNavigationItems(items, currentPage) {
+  const grid = document.getElementById("navigation-grid");
+  grid.innerHTML = '';
+  
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const pageItems = items.slice(startIndex, endIndex);
+  
+  if (pageItems.length === 0) {
+    grid.innerHTML = '<div class="no-results">Nessun contenuto trovato</div>';
+    return;
+  }
+  
+  pageItems.forEach(item => {
+    const card = createCard(item, [], false);
+    grid.appendChild(card);
+  });
+  
+  // Aggiorna info paginazione
+  document.getElementById("page-info").textContent = 
+    `Pagina ${currentPage} di ${Math.ceil(items.length / itemsPerPage)}`;
+  document.getElementById("pagination-info").textContent = 
+    `${items.length} contenuti totali, ${pageItems.length} in questa pagina`;
+}
+
+function updatePaginationControls(totalItems) {
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const prevBtn = document.querySelector(".pagination-btn.prev");
+  const nextBtn = document.querySelector(".pagination-btn.next");
+  
+  prevBtn.disabled = currentNavigationPage <= 1;
+  nextBtn.disabled = currentNavigationPage >= totalPages || totalItems <= itemsPerPage;
+}
+
+function nextNavigationPage() {
+  const totalPages = Math.ceil(navigationItems.length / itemsPerPage);
+  if (currentNavigationPage < totalPages) {
+    displayNavigationItems(navigationItems, currentNavigationPage + 1);
+    currentNavigationPage++;
+    updatePaginationControls(navigationItems.length);
+    window.scrollTo(0, 0);
+  }
+}
+
+function prevNavigationPage() {
+  if (currentNavigationPage > 1) {
+    displayNavigationItems(navigationItems, currentNavigationPage - 1);
+    currentNavigationPage--;
+    updatePaginationControls(navigationItems.length);
+    window.scrollTo(0, 0);
+  }
+}
+
+// Aggiorna le funzioni di navigazione esistenti
 function showAllMovies() {
   hideAllSections();
   document.getElementById("allMovies").style.display = "block";
-  loadAllMovies(1, currentMovieMinYear, currentMovieMaxYear);
+  loadAllMovies();
+  window.scrollTo(0, 0);
 }
 
 function showAllTV() {
   hideAllSections();
   document.getElementById("allTV").style.display = "block";
-  loadAllTV(1, currentTVMinYear, currentTVMaxYear);
+  loadAllTV();
+  window.scrollTo(0, 0);
+}
+
+function showCategories() {
+  hideAllSections();
+  document.getElementById("categories").style.display = "block";
+  loadCategories();
+  window.scrollTo(0, 0);
+}
+
+function goBackToCategories() {
+  hideAllSections();
+  document.getElementById("categories").style.display = "block";
+  window.scrollTo(0, 0);
+}
+
+function showPreferiti() {
+  hideAllSections();
+  document.getElementById("preferiti-section").style.display = "block";
+  loadPreferitiSection();
+  window.scrollTo(0, 0);
 }
 
 function showTrending() {
@@ -190,56 +408,19 @@ function showTrending() {
   window.scrollTo(0, 0);
 }
 
-function showCategories() {
-  hideAllSections();
-  const categoriesSection = document.getElementById("categories");
-  categoriesSection.style.display = "block";
-  
-  // Aggiungi il tasto "Torna alla Home" se non esiste già
-  let backButton = document.querySelector("#categories .back-to-home");
-  if (!backButton) {
-    const grid = document.getElementById("categories-grid");
-    const backBtn = document.createElement("button");
-    backBtn.className = "back-to-home";
-    backBtn.textContent = "← Torna alla Home";
-    backBtn.style.margin = "0 4% 20px";
-    backBtn.onclick = goBackToHome;
-    categoriesSection.insertBefore(backBtn, grid);
-  }
-  
-  loadCategories();
-}
-
-function showPreferiti() {
-  hideAllSections();
-  const preferitiSection = document.getElementById("preferiti-section");
-  preferitiSection.style.display = "block";
-  
-  // Aggiungi il tasto "Torna alla Home" se non esiste già
-  let backButton = document.querySelector("#preferiti-section .back-to-home");
-  if (!backButton) {
-    const h2 = preferitiSection.querySelector("h2");
-    const backBtn = document.createElement("button");
-    backBtn.className = "back-to-home";
-    backBtn.textContent = "← Torna alla Home";
-    backBtn.style.margin = "0 4% 20px";
-    backBtn.onclick = goBackToHome;
-    preferitiSection.insertBefore(backBtn, h2);
-  }
-  
-  loadPreferitiSection();
-}
 function hideAllSections() {
   const sections = [
     "home", 
     "allMovies", 
     "allTV", 
     "categories", 
+    "category-results",  // AGGIUNGI questa
     "results", 
     "player", 
     "preferiti-section",
-    "category-results"  // Aggiungi questa sezione
+    "navigation-section"
   ];
+  
   sections.forEach(id => {
     const element = document.getElementById(id);
     if (element) {
@@ -247,11 +428,16 @@ function hideAllSections() {
     }
   });
 }
+
 function goBackToCategories() {
-  hideAllSections();
+  const resultsSection = document.getElementById("category-results");
+  if (resultsSection) {
+    resultsSection.style.display = "none";
+  }
   document.getElementById("categories").style.display = "block";
   window.scrollTo(0, 0);
 }
+
 // Setup iniziale
 document.getElementById("cors-select").addEventListener("change", (e) => {
   CORS = e.target.value;
@@ -292,6 +478,7 @@ document.getElementById("search").addEventListener("input", (e) => {
 
   searchTimeout = setTimeout(() => performSearch(query), 500);
 });
+
 function debugCookies() {
   // console.log("🔍 DEBUG - Tutti i cookie:");
   const allCookies = document.cookie.split(";").map((c) => c.trim());
@@ -299,6 +486,7 @@ function debugCookies() {
     // console.log("🍪", cookie);
   });
 }
+
 function goBackToHome() {
   hideAllSections();
   document.getElementById("home").style.display = "block";
@@ -327,7 +515,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   corsSelect.value = CORS;
   
   // PRIMA carica "Continua visione"
-  await loadContinuaDaStorage(); // Nome cambiato!
+  await loadContinuaDaStorage();
   
   // Poi carica i preferiti
   await loadPreferiti();
@@ -362,21 +550,31 @@ window.addEventListener("DOMContentLoaded", async () => {
   
   updatePreferitiCounter();
 });
+
+window.addEventListener("scroll", () => {
+  const header = document.getElementById("header");
+  if (window.scrollY > 50) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+});
+
+document.querySelectorAll(".arrow").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const targetId = btn.getAttribute("data-target");
+    const container = document.getElementById(targetId).parentElement;
+    const scrollAmount = container.offsetWidth * 0.8;
+    container.scrollBy({
+      left: btn.classList.contains("left") ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
+  });
+});
+
+
 window.formatTime = function(seconds) {
   const mins = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60);
   return `${mins}:${secs.toString().padStart(2, "0")}`;
 };
-// Aggiungi stili per le animazioni
-const style = document.createElement("style");
-style.textContent = `
-  @keyframes slideIn {
-    from { transform: translateX(400px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-  }
-  @keyframes slideOut {
-    from { transform: translateX(0); opacity: 1; }
-    to { transform: translateX(400px); opacity: 0; }
-  }
-`;
-document.head.appendChild(style);
