@@ -21,10 +21,10 @@
   </head>
   <body>
     <header id="header">
-<div class="logo">
-  <i class="fas fa-film"></i>
-  <span>CineSearch</span>
-</div>
+      <div class="logo">
+        <i class="fas fa-film"></i>
+        <span>CineSearch</span>
+      </div>
       <div class="header-controls">
         <div class="cors-selector">
           <label class="cors-label" for="cors-select">🌐 CORS Proxy</label>
@@ -38,11 +38,12 @@
           />
         </div>
       </div>
+      <div class="preferiti-counter" onclick="showPreferiti()" style="cursor: pointer;">
+        <span class="fav-icon">⭐</span>
+        <span id="preferiti-count">0</span>
+      </div>
     </header>
-<div class="preferiti-counter" onclick="showPreferiti()" style="cursor: pointer;">
-  <span class="fav-icon">⭐</span>
-  <span id="preferiti-count">0</span>
-</div>
+
     <main>
       <div id="home">
         <section class="hero">
@@ -58,18 +59,7 @@
             </div>
           </div>
         </section>
-
-        <section id="continua-visione" style="display: none;">
-          <h2>▶️ Continua visione</h2>
-          <div class="carousel-wrapper">
-            <button class="arrow left" data-target="continua-carousel">◀</button>
-            <div class="carousel-container">
-              <div class="carousel" id="continua-carousel"></div>
-            </div>
-            <button class="arrow right" data-target="continua-carousel">▶</button>
-          </div>
-        </section>
-
+        
         <section id="preferiti" style="display: none;">
           <h2>⭐ Preferiti</h2>
           <div class="carousel-wrapper">
@@ -81,6 +71,17 @@
           </div>
         </section>
 
+        <section id="continua-visione" style="display: none;">
+          <h2>▶️ Continua visione</h2>
+          <div class="carousel-wrapper">
+            <button class="arrow left" data-target="continua-carousel">◀</button>
+            <div class="carousel-container">
+              <div class="carousel" id="continua-carousel"></div>
+            </div>
+            <button class="arrow right" data-target="continua-carousel">▶</button>
+          </div>
+        </section>
+        
         <section id="trending">
           <h2>🔥 Trending</h2>
           <div class="carousel-wrapper">
@@ -197,57 +198,72 @@
           </div>
         </div>
       </div>
+      
+      <!-- TUTTI I FILM -->
+      <section id="allMovies" style="display: none;">
+        <h2>🎬 Tutti i Film</h2>
+        <div class="carousel-wrapper">
+          <button class="arrow left" data-target="allMovies-carousel">◀</button>
+          <div class="carousel-container">
+            <div class="carousel" id="allMovies-carousel"></div>
+          </div>
+          <button class="arrow right" data-target="allMovies-carousel">▶</button>
+        </div>
+        <div class="load-more-container">
+          <button id="loadMoreMovies" class="load-more-btn" onclick="loadMoreMovies()">Carica più film</button>
+        </div>
+      </section>
+      
+      <!-- TUTTE LE SERIE TV -->
+      <section id="allTV" style="display: none;">
+        <h2>📺 Tutte le Serie TV</h2>
+        <div class="carousel-wrapper">
+          <button class="arrow left" data-target="allTV-carousel">◀</button>
+          <div class="carousel-container">
+            <div class="carousel" id="allTV-carousel"></div>
+          </div>
+          <button class="arrow right" data-target="allTV-carousel">▶</button>
+        </div>
+        <div class="load-more-container">
+          <button id="loadMoreTV" class="load-more-btn" onclick="loadMoreTV()">Carica più serie</button>
+        </div>
+      </section>
+      
+      <!-- CATEGORIE -->
+      <section id="categories" style="display: none;">
+        <div class="categories-grid" id="categories-grid"></div>
+      </section>
+      
+      <!-- SEZIONE PREFERITI -->
+      <section id="preferiti-section" style="display: none;">
+        <h2>⭐ I tuoi Preferiti</h2>
+        <div class="carousel-wrapper">
+          <button class="arrow left" onclick="scrollCarouselPreferiti(-1)">◀</button>
+          <div class="carousel-container">
+            <div class="carousel" id="preferiti-section-carousel"></div>
+          </div>
+          <button class="arrow right" onclick="scrollCarouselPreferiti(1)">▶</button>
+        </div>
+        <div class="preferiti-message" id="preferiti-message" style="text-align: center; padding: 2rem; color: #888;">
+          Aggiungi contenuti ai preferiti per vederli qui
+        </div>
+      </section>
     </main>
-<!-- Aggiungi queste nuove sezioni dopo le sezioni esistenti nel main -->
-<!-- TUTTI I FILM -->
-<section id="allMovies" style="display: none;">
-  <h2>🎬 Tutti i Film</h2>
-  <div class="carousel-wrapper">
-    <button class="arrow left" data-target="allMovies-carousel">◀</button>
-    <div class="carousel-container">
-      <div class="carousel" id="allMovies-carousel"></div>
-    </div>
-    <button class="arrow right" data-target="allMovies-carousel">▶</button>
-  </div>
-  <div class="load-more-container">
-    <button id="loadMoreMovies" class="load-more-btn" onclick="loadMoreMovies()">Carica più film</button>
-  </div>
-</section>
-    
-<section id="allTV" style="display: none;">
-  <h2>📺 Tutte le Serie TV</h2>
-  <div class="carousel-wrapper">
-    <button class="arrow left" data-target="allTV-carousel">◀</button>
-    <div class="carousel-container">
-      <div class="carousel" id="allTV-carousel"></div>
-    </div>
-    <button class="arrow right" data-target="allTV-carousel">▶</button>
-  </div>
-  <div class="load-more-container">
-    <button id="loadMoreTV" class="load-more-btn" onclick="loadMoreTV()">Carica più serie</button>
-  </div>
-</section>
 
-<section id="categories">
-  <div class="categories-grid" id="categories-grid">
-  </div>
-</section>
-<section id="preferiti-section" style="display: none;">
-  <h2>⭐ I tuoi Preferiti</h2>
-  <div class="carousel-wrapper">
-    <button class="arrow left" onclick="scrollCarouselPreferiti(-1)">◀</button>
-    <div class="carousel-container">
-      <div class="carousel" id="preferiti-section-carousel"></div>
-    </div>
-    <button class="arrow right" onclick="scrollCarouselPreferiti(1)">▶</button>
-  </div>
-  <div class="preferiti-message" id="preferiti-message" style="text-align: center; padding: 2rem; color: #888;">
-    Aggiungi contenuti ai preferiti per vederli qui
-  </div>
-</section>
-    <script src="script.js"></script>
-<footer style="text-align: center; padding: 2rem; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 3rem;">
-  <p>© 2025 Copyright AIMODS | Forked by VixSrc</p>
-</footer>
+    <!-- Includi tutti i file JavaScript in ORDINE CORRETTO -->
+    <script src="script.js"></script>          <!-- Primo: dichiara le variabili globali -->
+    <script src="api.js"></script>             <!-- Funzioni API -->
+    <script src="cors.js"></script>            <!-- Gestione CORS -->
+    <script src="preferiti.js"></script>       <!-- Gestione preferiti -->
+    <script src="continua-visione.js"></script> <!-- Continua visione -->
+    <script src="card.js"></script>            <!-- Creazione card -->
+    <script src="categorie.js"></script>       <!-- Categorie -->
+    <script src="film-serie.js"></script>      <!-- Film e serie -->
+    <script src="ricerca.js"></script>         <!-- Ricerca -->
+    <script src="player.js"></script>          <!-- Player (ultimo, usa le funzioni sopra) -->
+
+    <footer style="text-align: center; padding: 2rem; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 3rem;">
+      <p>© 2025 Copyright AIMODS | Forked by VixSrc</p>
+    </footer>
   </body>
 </html>
