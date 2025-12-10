@@ -97,7 +97,7 @@ async function loadAllMovies(page = 1) {
     
     checkContinuaVisione(data.results);
   } catch (error) {
-    console.error("Errore nel caricamento dei film:", error);
+    // console.error("Errore nel caricamento dei film:", error);
   }
 }
 
@@ -138,7 +138,7 @@ async function loadAllTV(page = 1) {
     
     checkContinuaVisione(data.results);
   } catch (error) {
-    console.error("Errore nel caricamento delle serie TV:", error);
+    // console.error("Errore nel caricamento delle serie TV:", error);
   }
 }
 
@@ -241,7 +241,7 @@ async function loadCategoryContent(category, page = 1) {
     resultsSection.style.display = "block";
     
   } catch (error) {
-    console.error(`Errore nel caricamento della categoria ${category.name}:`, error);
+    // console.error(`Errore nel caricamento della categoria ${category.name}:`, error);
   }
 }
 
@@ -303,18 +303,18 @@ async function loadAllowedContent() {
     allowedTV = (await tvRes.json()).map((t) => t.tmdb_id);
     allowedEpisodes = await episodesRes.json();
 
-    console.log("✅ Contenuti caricati da JSON:");
-    console.log("🎬 Film:", allowedMovies);
-    console.log("📺 Serie TV:", allowedTV);
-    console.log("🎞️ Episodi:", allowedEpisodes);
+    // console.log("✅ Contenuti caricati da JSON:");
+    // console.log("🎬 Film:", allowedMovies);
+    // console.log("📺 Serie TV:", allowedTV);
+    // console.log("🎞️ Episodi:", allowedEpisodes);
   } catch (err) {
-    console.error("❌ Errore nel caricamento dei file JSON:", err);
+    // console.error("❌ Errore nel caricamento dei file JSON:", err);
   }
 }
 
 document.getElementById("cors-select").addEventListener("change", (e) => {
   CORS = e.target.value;
-  console.log("🌐 CORS proxy changed to:", CORS);
+  // console.log("🌐 CORS proxy changed to:", CORS);
 
   const notification = document.createElement("div");
   notification.style.cssText = `
@@ -338,8 +338,8 @@ document.getElementById("cors-select").addEventListener("change", (e) => {
   }, 2000);
 });
 
-const originalConsoleWarn = console.warn;
-console.warn = function (...args) {
+const original// consoleWarn = // console.warn;
+// console.warn = function (...args) {
   const message = args[0];
   if (
     typeof message === "string" &&
@@ -349,7 +349,7 @@ console.warn = function (...args) {
   ) {
     return;
   }
-  originalConsoleWarn.apply(console, args);
+  original// consoleWarn.apply(// console, args);
 };
 
 function extractBaseUrl(url) {
@@ -363,7 +363,7 @@ function extractBaseUrl(url) {
     const urlObj = new URL(cleanUrl);
     return `${urlObj.protocol}//${urlObj.host}`;
   } catch (e) {
-    console.error("Error extracting base URL:", e);
+    // console.error("Error extracting base URL:", e);
     return "";
   }
 }
@@ -398,7 +398,7 @@ function applyCorsProxy(url) {
     !cleanUrl.startsWith("https://")
   ) {
     cleanUrl = resolveUrl(cleanUrl);
-    console.log("🔗 Resolved relative URL:", url, "->", cleanUrl);
+    // console.log("🔗 Resolved relative URL:", url, "->", cleanUrl);
   }
   if (
     cleanUrl.startsWith("data:") ||
@@ -408,7 +408,7 @@ function applyCorsProxy(url) {
     return url;
   }
 
-  console.log("🔒 Applying CORS proxy to:", cleanUrl);
+  // console.log("🔒 Applying CORS proxy to:", cleanUrl);
   if (requiresEncoding) {
     return `https://${CORS}${encodeURIComponent(cleanUrl)}`;
   } else {
@@ -420,28 +420,28 @@ const xhrRequestHook = (options) => {
   const originalUri = options.uri;
   options.uri = applyCorsProxy(originalUri);
 
-  console.log("📡 XHR Request intercepted:");
-  console.log("   Original:", originalUri);
-  console.log("   Proxied:", options.uri);
+  // console.log("📡 XHR Request intercepted:");
+  // console.log("   Original:", originalUri);
+  // console.log("   Proxied:", options.uri);
 
   return options;
 };
 
 function setupVideoJsXhrHook() {
   if (typeof videojs === "undefined" || !videojs.Vhs) {
-    console.warn("⚠️ Video.js or Vhs not loaded yet");
+    // console.warn("⚠️ Video.js or Vhs not loaded yet");
     return;
   }
 
   if (requestHookInstalled) {
-    console.log("✅ XHR hook already installed");
+    // console.log("✅ XHR hook already installed");
     return;
   }
 
-  console.log("🔧 Setting up Video.js XHR hook");
+  // console.log("🔧 Setting up Video.js XHR hook");
   videojs.Vhs.xhr.onRequest(xhrRequestHook);
   requestHookInstalled = true;
-  console.log("✅ Video.js XHR hook installed");
+  // console.log("✅ Video.js XHR hook installed");
 }
 
 function removeVideoJsXhrHook() {
@@ -450,7 +450,7 @@ function removeVideoJsXhrHook() {
     videojs.Vhs &&
     requestHookInstalled
   ) {
-    console.log("🧹 Removing XHR hook");
+    // console.log("🧹 Removing XHR hook");
     videojs.Vhs.xhr.offRequest(xhrRequestHook);
     requestHookInstalled = false;
   }
@@ -604,7 +604,7 @@ function createCard(item, cookieNames = [], isRemovable = false) {
         });
         card.remove();
         shownContinuaIds.delete(item.id);
-        console.log(`🗑️ Rimosso ${rawTitle} e cancellati cookie:`, cookieNames);
+        // console.log(`🗑️ Rimosso ${rawTitle} e cancellati cookie:`, cookieNames);
 
         const container = document.getElementById("continua-carousel");
         if (container.children.length === 0) {
@@ -713,13 +713,13 @@ async function getDirectStream(
       vixsrcUrl += `/${season}/${episode}`;
     }
 
-    console.log("🎬 Fetching stream from:", vixsrcUrl);
+    // console.log("🎬 Fetching stream from:", vixsrcUrl);
 
     showLoading(true, "Recupero pagina vixsrc...");
     const response = await fetch(applyCorsProxy(vixsrcUrl));
     const html = await response.text();
 
-    console.log("✅ Page fetched successfully, length:", html.length);
+    // console.log("✅ Page fetched successfully, length:", html.length);
 
     showLoading(true, "Estrazione parametri stream...");
 
@@ -728,7 +728,7 @@ async function getDirectStream(
     const playlistParamsMatch = html.match(playlistParamsRegex);
 
     if (!playlistParamsMatch) {
-      console.error("❌ HTML Preview:", html.substring(0, 1000));
+      // console.error("❌ HTML Preview:", html.substring(0, 1000));
       throw new Error("Impossibile trovare i parametri della playlist");
     }
 
@@ -739,17 +739,17 @@ async function getDirectStream(
       .replace(/\\n/g, "")
       .replace(",}", "}");
 
-    console.log("📋 Playlist params string:", playlistParamsStr);
+    // console.log("📋 Playlist params string:", playlistParamsStr);
 
     let playlistParams;
     try {
       playlistParams = JSON.parse(playlistParamsStr);
     } catch (e) {
-      console.error("❌ Failed to parse params:", playlistParamsStr);
+      // console.error("❌ Failed to parse params:", playlistParamsStr);
       throw new Error("Errore nel parsing dei parametri: " + e.message);
     }
 
-    console.log("✅ Parsed params:", playlistParams);
+    // console.log("✅ Parsed params:", playlistParams);
 
     const playlistUrlRegex =
       /window\.masterPlaylist\s*=\s*\{[\s\S]*?url:\s*'([^']+)'/;
@@ -760,13 +760,13 @@ async function getDirectStream(
     }
 
     const playlistUrl = playlistUrlMatch[1];
-    console.log("🔗 Playlist URL:", playlistUrl);
+    // console.log("🔗 Playlist URL:", playlistUrl);
 
     const canPlayFHDRegex = /window\.canPlayFHD\s+?=\s+?(\w+)/;
     const canPlayFHDMatch = html.match(canPlayFHDRegex);
     const canPlayFHD = canPlayFHDMatch && canPlayFHDMatch[1] === "true";
 
-    console.log("🎥 Can play FHD:", canPlayFHD);
+    // console.log("🎥 Can play FHD:", canPlayFHD);
 
     const hasQuery = /\?[^#]+/.test(playlistUrl);
     const separator = hasQuery ? "&" : "?";
@@ -780,10 +780,10 @@ async function getDirectStream(
       playlistParams.token +
       (canPlayFHD ? "&h=1" : "");
 
-    console.log("🎬 Generated m3u8 URL:", m3u8Url);
+    // console.log("🎬 Generated m3u8 URL:", m3u8Url);
 
     baseStreamUrl = extractBaseUrl(m3u8Url);
-    console.log("🏠 Base stream URL:", baseStreamUrl);
+    // console.log("🏠 Base stream URL:", baseStreamUrl);
 
     showLoading(false);
     return {
@@ -791,7 +791,7 @@ async function getDirectStream(
       m3u8Url: m3u8Url,
     };
   } catch (error) {
-    console.error("❌ Error in getDirectStream:", error);
+    // console.error("❌ Error in getDirectStream:", error);
     showLoading(false);
     showError("Errore durante l'estrazione dello stream", error.message);
     return null;
@@ -826,7 +826,7 @@ function handleKeyboardShortcuts(event) {
       } else {
         player.pause();
       }
-      console.log("⌨️ Play/Pause toggled");
+      // console.log("⌨️ Play/Pause toggled");
       break;
 
     case "arrowright":
@@ -836,7 +836,7 @@ function handleKeyboardShortcuts(event) {
         player.duration()
       );
       player.currentTime(newTimeForward);
-      console.log("⌨️ Seek forward +5s to", newTimeForward.toFixed(2));
+      // console.log("⌨️ Seek forward +5s to", newTimeForward.toFixed(2));
       showSeekFeedback("+5s");
       break;
 
@@ -844,7 +844,7 @@ function handleKeyboardShortcuts(event) {
       event.preventDefault();
       const newTimeBackward = Math.max(player.currentTime() - 5, 0);
       player.currentTime(newTimeBackward);
-      console.log("⌨️ Seek backward -5s to", newTimeBackward.toFixed(2));
+      // console.log("⌨️ Seek backward -5s to", newTimeBackward.toFixed(2));
       showSeekFeedback("-5s");
       break;
 
@@ -852,7 +852,7 @@ function handleKeyboardShortcuts(event) {
       event.preventDefault();
       const newVolumeUp = Math.min(player.volume() + 0.1, 1);
       player.volume(newVolumeUp);
-      console.log(
+      // console.log(
         "⌨️ Volume increased to",
         Math.round(newVolumeUp * 100) + "%"
       );
@@ -863,7 +863,7 @@ function handleKeyboardShortcuts(event) {
       event.preventDefault();
       const newVolumeDown = Math.max(player.volume() - 0.1, 0);
       player.volume(newVolumeDown);
-      console.log(
+      // console.log(
         "⌨️ Volume decreased to",
         Math.round(newVolumeDown * 100) + "%"
       );
@@ -877,13 +877,13 @@ function handleKeyboardShortcuts(event) {
       } else {
         player.requestFullscreen();
       }
-      console.log("⌨️ Fullscreen toggled");
+      // console.log("⌨️ Fullscreen toggled");
       break;
 
     case "m":
       event.preventDefault();
       player.muted(!player.muted());
-      console.log("⌨️ Mute toggled:", player.muted() ? "ON" : "OFF");
+      // console.log("⌨️ Mute toggled:", player.muted() ? "ON" : "OFF");
       break;
   }
 }
@@ -1025,10 +1025,10 @@ async function loadVideo(isMovie, id, season = null, episode = null) {
       throw new Error("Impossibile ottenere l'URL dello stream");
     }
 
-    console.log("🎬 Loading stream:", streamData.m3u8Url);
+    // console.log("🎬 Loading stream:", streamData.m3u8Url);
 
     const proxiedM3u8Url = applyCorsProxy(streamData.m3u8Url);
-    console.log("🔒 Proxied m3u8 URL:", proxiedM3u8Url);
+    // console.log("🔒 Proxied m3u8 URL:", proxiedM3u8Url);
 
     player = videojs("player-video", {
       controls: true,
@@ -1071,7 +1071,7 @@ async function loadVideo(isMovie, id, season = null, episode = null) {
     player.ready(function () {
       setupKeyboardShortcuts();
       showLoading(false);
-      console.log("✅ Player ready");
+      // console.log("✅ Player ready");
       
       trackVideoProgress(
         currentItem.id,
@@ -1082,20 +1082,20 @@ async function loadVideo(isMovie, id, season = null, episode = null) {
       );
 
       player.play().catch((e) => {
-        console.log("Auto-play prevented:", e);
+        // console.log("Auto-play prevented:", e);
       });
     });
 
     player.on("error", function () {
-      console.error("❌ Video.js error:", player.error());
+      // console.error("❌ Video.js error:", player.error());
       showError("Errore durante il caricamento del video");
     });
 
     player.on("loadeddata", function () {
-      console.log("✅ Video data loaded");
+      // console.log("✅ Video data loaded");
     });
   } catch (err) {
-    console.error("❌ Error loading video:", err);
+    // console.error("❌ Error loading video:", err);
     showError("Impossibile caricare il video. Riprova più tardi.");
   }
 }
@@ -1173,14 +1173,14 @@ function trackVideoProgress(tmdbId, mediaType, videoElement, season = null, epis
   const savedTime = getCookie(cookieName);
   if (savedTime && parseFloat(savedTime) > 10) {
     videoElement.currentTime = parseFloat(savedTime);
-    console.log(`⏪ Ripreso ${cookieName} da ${formatTime(savedTime)}`);
+    // console.log(`⏪ Ripreso ${cookieName} da ${formatTime(savedTime)}`);
   }
 
   setInterval(() => {
     if (!videoElement.paused && !videoElement.ended) {
       const currentTime = videoElement.currentTime;
       setCookie(cookieName, currentTime, 365);
-      console.log(`💾 Salvato ${cookieName} a ${formatTime(currentTime)}`);
+      // console.log(`💾 Salvato ${cookieName} a ${formatTime(currentTime)}`);
     }
   }, 5000);
 }
@@ -1231,7 +1231,7 @@ async function loadContinuaDaCookie() {
       data.media_type = mediaType;
       items.push(data);
     } catch (err) {
-      console.error("Errore nel recupero TMDB:", err);
+      // console.error("Errore nel recupero TMDB:", err);
     }
   }
 
@@ -1250,7 +1250,7 @@ async function loadPreferiti() {
       data.media_type = mediaType;
       items.push(data);
     } catch (err) {
-      console.error("❌ Errore nel recupero TMDB:", err);
+      // console.error("❌ Errore nel recupero TMDB:", err);
     }
   }
 
