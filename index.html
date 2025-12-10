@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/solid/film.svg">
-
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
     <title>CineSearch</title>
 
     <link href="https://vjs.zencdn.net/8.16.1/video-js.css" rel="stylesheet" />
@@ -267,5 +268,10 @@
       <p>© 2025 Copyright AIMODS | Forked by VixSrc</p>
     </footer>
     </div>
+      <script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js");
+  }
+</script>
   </body>
 </html>
