@@ -1475,3 +1475,31 @@ footer {
 #allTV .year-filter button:last-of-type:hover {
   background: #555;
 }
+.availability-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ccc;
+  font-size: 0.9rem;
+  margin: 10px 4%;
+}
+
+.availability-check .loading-small {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #2a09e5;
+  animation: spin 1s ease-in-out infinite;
+}
+
+.availability-check .available-count {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.availability-check .checking {
+  font-style: italic;
+  color: #ffcc00;
+}

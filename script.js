@@ -1,3 +1,111 @@
+const AVAILABILITY_CHECK_TIMEOUT = 5000; 
+async function checkAvailabilityOnVixsrc(tmdbId, isMovie, season = null, episode = null) {
+  return new Promise((resolve) => {
+    const timeout = setTimeout(() => resolve(false), AVAILABILITY_CHECK_TIMEOUT);
+    
+    (async () => {
+      try {
+        let vixsrcUrl;
+        
+        if (isMovie) {
+          // Per film: usa il formato standard
+          vixsrcUrl = `https://${VIXSRC_URL}/movie/${tmdbId}`;
+        } else {
+          // Per serie TV: se non sono specificati stagione/episodio, usa il primo episodio
+          if (season === null || episode === null) {
+            vixsrcUrl = `https://${VIXSRC_URL}/tv/${tmdbId}/1/1`;
+          } else {
+            vixsrcUrl = `https://${VIXSRC_URL}/tv/${tmdbId}/${season}/${episode}`;
+          }
+        }
+        
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 3000);
+        
+        const response = await fetch(applyCorsProxy(vixsrcUrl), {
+          signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+        
+        const html = await response.text();
+        
+        // Verifica rapida
+        const hasPlaylist = /window\.masterPlaylist/.test(html);
+        const notFound = /not found|not available|no sources found|error 404/i.test(html);
+        
+        clearTimeout(timeout);
+        resolve(hasPlaylist && !notFound);
+        
+      } catch (error) {
+        clearTimeout(timeout);
+        resolve(false);
+      }
+    })();
+  });
+}
+
+// Funzione per verificare disponibilità di una serie TV (controlla almeno un episodio)
+async function checkTvSeriesAvailability(tmdbId) {
+  try {
+    // Prova direttamente con il primo episodio della prima stagione
+    const firstEpisodeUrl = `https://${VIXSRC_URL}/tv/${tmdbId}/1/1`;
+    const response = await fetch(applyCorsProxy(firstEpisodeUrl));
+    
+    if (!response.ok) {
+      return false;
+    }
+    
+    const html = await response.text();
+    
+    // Verifica se la pagina contiene la playlist
+    const hasPlaylist = /window\.masterPlaylist/.test(html);
+    const notFound = /not found|not available|no sources found|error 404/i.test(html);
+    
+    return hasPlaylist && !notFound;
+    
+  } catch (error) {
+    // console.error("❌ Error checking TV series availability:", error);
+    return false;
+  }
+}
+// Modifica le funzioni di caricamento per filtrare i disponibili
+async function fetchAndFilterAvailable(type, page = 1) {
+  try {
+    const res = await fetch(
+      `https://api.themoviedb.org/3/${endpoints[type]}?api_key=${API_KEY}&language=it-IT&page=${page}`
+    );
+    const data = await res.json();
+    
+    const availableItems = [];
+    
+    // Verifica disponibilità per ogni item
+    for (const item of data.results) {
+      const mediaType = item.media_type || (item.title ? "movie" : "tv");
+      const isAvailable = mediaType === "movie" 
+        ? await checkAvailabilityOnVixsrc(item.id, true)
+        : await checkTvSeriesAvailability(item.id);
+      
+      if (isAvailable) {
+        item.media_type = mediaType;
+        availableItems.push(item);
+      }
+      
+      // Limita il numero di controlli per performance
+      if (availableItems.length >= 10) break;
+    }
+    
+    return {
+      results: availableItems,
+      total_pages: data.total_pages,
+      total_results: data.total_results
+    };
+    
+  } catch (error) {
+    // console.error("❌ Error in fetchAndFilterAvailable:", error);
+    return { results: [], total_pages: 0, total_results: 0 };
+  }
+}
+
 let currentMovieMinYear = null;
 let currentMovieMaxYear = null;
 let currentTVMinYear = null;
@@ -190,7 +298,6 @@ async function loadAllMovies(page = 1, minYear = null, maxYear = null) {
     
     let apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=it-IT&sort_by=popularity.desc&page=${page}`;
     
-    // Aggiungi filtri per anno se specificati
     if (minYear) {
       apiUrl += `&primary_release_date.gte=${minYear}-01-01`;
     }
@@ -206,7 +313,6 @@ async function loadAllMovies(page = 1, minYear = null, maxYear = null) {
     
     const carousel = document.getElementById("allMovies-carousel");
     
-    // Pulisci solo se è la prima pagina
     if (page === 1) {
       carousel.innerHTML = "";
       
@@ -252,26 +358,36 @@ async function loadAllMovies(page = 1, minYear = null, maxYear = null) {
       }
     }
     
-    data.results.forEach(movie => {
+    // Filtra solo film disponibili
+    const availableMovies = [];
+    for (const movie of data.results) {
       movie.media_type = "movie";
-      carousel.appendChild(createCard(movie));
-    });
+      const isAvailable = await checkAvailabilityOnVixsrc(movie.id, true);
+      
+      if (isAvailable) {
+        carousel.appendChild(createCard(movie));
+        availableMovies.push(movie);
+      }
+      
+      // Limita per performance
+      if (availableMovies.length >= 15) break;
+    }
     
     // Mostra la sezione
     document.getElementById("allMovies").style.display = "block";
     
     // Aggiorna il pulsante "Carica più"
     const loadMoreBtn = document.getElementById("loadMoreMovies");
-    if (currentMoviePage >= totalMoviePages) {
+    if (currentMoviePage >= totalMoviePages || availableMovies.length === 0) {
       loadMoreBtn.style.display = "none";
     } else {
       loadMoreBtn.style.display = "block";
       loadMoreBtn.textContent = `Carica più film (${currentMoviePage}/${totalMoviePages})`;
     }
     
-    checkContinuaVisione(data.results);
+    checkContinuaVisione(availableMovies);
   } catch (error) {
-    // console.error("Errore nel caricamento dei film:", error);
+    console.error("Errore nel caricamento dei film:", error);
   }
 }
 
@@ -283,7 +399,6 @@ async function loadAllTV(page = 1, minYear = null, maxYear = null) {
     
     let apiUrl = `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&language=it-IT&sort_by=popularity.desc&page=${page}`;
     
-    // Aggiungi filtri per anno se specificati
     if (minYear) {
       apiUrl += `&first_air_date.gte=${minYear}-01-01`;
     }
@@ -299,7 +414,6 @@ async function loadAllTV(page = 1, minYear = null, maxYear = null) {
     
     const carousel = document.getElementById("allTV-carousel");
     
-    // Pulisci solo se è la prima pagina
     if (page === 1) {
       carousel.innerHTML = "";
       
@@ -345,26 +459,36 @@ async function loadAllTV(page = 1, minYear = null, maxYear = null) {
       }
     }
     
-    data.results.forEach(tv => {
+    // Filtra solo serie TV disponibili
+    const availableTV = [];
+    for (const tv of data.results) {
       tv.media_type = "tv";
-      carousel.appendChild(createCard(tv));
-    });
+      const isAvailable = await checkTvSeriesAvailability(tv.id);
+      
+      if (isAvailable) {
+        carousel.appendChild(createCard(tv));
+        availableTV.push(tv);
+      }
+      
+      // Limita per performance
+      if (availableTV.length >= 15) break;
+    }
     
     // Mostra la sezione
     document.getElementById("allTV").style.display = "block";
     
     // Aggiorna il pulsante "Carica più"
     const loadMoreBtn = document.getElementById("loadMoreTV");
-    if (currentTVPage >= totalTVPages) {
+    if (currentTVPage >= totalTVPages || availableTV.length === 0) {
       loadMoreBtn.style.display = "none";
     } else {
       loadMoreBtn.style.display = "block";
       loadMoreBtn.textContent = `Carica più serie (${currentTVPage}/${totalTVPages})`;
     }
     
-    checkContinuaVisione(data.results);
+    checkContinuaVisione(availableTV);
   } catch (error) {
-    // console.error("Errore nel caricamento delle serie TV:", error);
+    console.error("Errore nel caricamento delle serie TV:", error);
   }
 }
 
@@ -1834,33 +1958,74 @@ function scrollRisultati(direction) {
   });
 }
 
+// Modifica la parte di performSearch dove verifichi la disponibilità
 async function performSearch(query) {
   const res = await fetch(
     `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&language=it-IT&query=${encodeURIComponent(query)}`
   );
   const data = await res.json();
-
+  
   const resultsDiv = document.getElementById("results");
   resultsDiv.innerHTML = `
     <h2>Risultati della ricerca</h2>
+    <div class="availability-check" id="search-checking">
+      <div class="loading-small"></div>
+      <span class="checking">Verifica disponibilità...</span>
+    </div>
     <div class="vix-carousel">
       <button class="vix-arrow sinistra" onclick="scrollRisultati(-1)">&#10094;</button>
       <div class="carousel" id="searchCarousel"></div>
       <button class="vix-arrow destra" onclick="scrollRisultati(1)">&#10095;</button>
     </div>
   `;
+  
   const carousel = resultsDiv.querySelector(".carousel");
-
+  const checkingDiv = document.getElementById("search-checking");
+  
   const filteredResults = data.results.filter(
     (item) => item.media_type !== "person" && item.poster_path
   );
-
-  filteredResults.forEach((item) => {
-    carousel.appendChild(createCard(item));
-  });
-
-  checkContinuaVisione(filteredResults);
-
+  
+  let availableCount = 0;
+  
+  // Filtra solo quelli disponibili
+  for (const item of filteredResults) {
+    const mediaType = item.media_type || (item.title ? "movie" : "tv");
+    let isAvailable = false;
+    
+    if (mediaType === "movie") {
+      isAvailable = await checkAvailabilityOnVixsrc(item.id, true);
+    } else if (mediaType === "tv") {
+      // Per le serie TV, prova con il primo episodio
+      isAvailable = await checkAvailabilityOnVixsrc(item.id, false, 1, 1);
+    }
+    
+    if (isAvailable) {
+      item.media_type = mediaType;
+      carousel.appendChild(createCard(item));
+      availableCount++;
+    }
+    
+    // Aggiorna l'indicatore
+    checkingDiv.innerHTML = `
+      <div class="loading-small"></div>
+      <span class="checking">Verificati ${availableCount}/${filteredResults.length}</span>
+    `;
+  }
+  
+  // Finalizza l'indicatore
+  checkingDiv.innerHTML = `
+    <span class="available-count">✓ Disponibili: ${availableCount} risultati</span>
+  `;
+  
+  if (availableCount === 0) {
+    checkingDiv.innerHTML = `
+      <span style="color: #e50914;">❌ Nessun risultato disponibile su Vixsrc</span>
+    `;
+  }
+  
+  checkContinuaVisione(data.results);
+  
   document.getElementById("home").style.display = "none";
   document.getElementById("player").style.display = "none";
   resultsDiv.style.display = "block";
@@ -1902,18 +2067,31 @@ window.addEventListener("DOMContentLoaded", async () => {
     window.addEventListener("load", setupVideoJsXhrHook);
   }
 
-  for (const [key, endpoint] of Object.entries(endpoints)) {
-    const items = await fetchList(key);
-    const section = document.getElementById(key);
-    const carousel = section.querySelector(".carousel");
-
-    items.forEach((item) => {
-      carousel.appendChild(createCard(item));
-    });
-    checkContinuaVisione(items);
-    await loadContinuaDaCookie();
-    await loadPreferiti();
+ for (const [key, endpoint] of Object.entries(endpoints)) {
+    try {
+      const data = await fetchAndFilterAvailable(key);
+      const section = document.getElementById(key);
+      const carousel = section.querySelector(".carousel");
+      
+      carousel.innerHTML = ""; // Pulisci prima
+      
+      data.results.forEach((item) => {
+        carousel.appendChild(createCard(item));
+      });
+      
+      // Nascondi sezione se non ci sono risultati
+      if (data.results.length === 0) {
+        section.style.display = "none";
+      }
+      
+    } catch (error) {
+      // console.error(`❌ Error loading ${key}:`, error);
+      document.getElementById(key).style.display = "none";
+    }
   }
+  
+  await loadContinuaDaCookie();
+  await loadPreferiti();
 });
 
 const style = document.createElement("style");
