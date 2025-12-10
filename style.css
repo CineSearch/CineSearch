@@ -5,12 +5,34 @@
 }
 
 body {
-  zoom: 80%;
   background: #141414;
   color: #fff;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  font-size: 20px;
+  font-size: 16px; /* Dimensione base più piccola */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Aggiungi media queries per diverse risoluzioni */
+@media screen and (min-width: 1200px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  body {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  body {
+    font-size: 22px;
+  }
 }
 
 header {
@@ -128,9 +150,11 @@ header.scrolled {
 
 /* MODIFICHE CRITICHE AGGIUNTE QUI */
 #categories,
-#preferiti-section {
+#preferiti-section,
+#allMovies,
+#allTV {
   position: fixed;
-  top: 80px; /* Altezza dell'header */
+  top: 80px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -138,8 +162,79 @@ header.scrolled {
   z-index: 99;
   overflow-y: auto;
   padding: 2rem 4%;
+  width: 100vw; /* Assicura larghezza completa viewport */
+  margin-left: 0;
+  box-sizing: border-box;
 }
 
+/* Per Smart TV e schermi grandi */
+@media screen and (min-width: 1920px) {
+  #categories,
+  #preferiti-section,
+  #allMovies,
+  #allTV {
+    padding: 2rem calc((100vw - 1920px) / 2 + 4%);
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .hero-content h1 {
+    font-size: 3.5rem;
+  }
+  
+  .card {
+    min-width: 220px;
+  }
+  
+  .carousel {
+    gap: 20px;
+  }
+}
+
+/* 2K (2560x1440) */
+@media screen and (min-width: 2560px) {
+  .hero-content h1 {
+    font-size: 4rem;
+  }
+  
+  .card {
+    min-width: 250px;
+  }
+  
+  .main-container {
+    max-width: 2560px;
+  }
+}
+
+/* 4K (3840x2160) */
+@media screen and (min-width: 3840px) {
+  .hero-content h1 {
+    font-size: 5rem;
+  }
+  
+  .card {
+    min-width: 300px;
+  }
+  
+  .main-container {
+    max-width: 3840px;
+  }
+  
+  body {
+    font-size: 24px;
+  }
+}
+
+/* Risoluzioni più piccole */
+@media screen and (max-width: 1366px) {
+  .card {
+    min-width: 180px;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+}
 #allMovies,
 #allTV {
   position: fixed;
@@ -153,9 +248,22 @@ header.scrolled {
   padding: 2rem 4%;
 }
 
+
+/* Contenitore principale */
+.main-container {
+  width: 100%;
+  max-width: 1920px; /* Massima larghezza */
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Assicurati che tutti gli elementi principali siano dentro questo contenitore */
 main {
   margin-top: 80px;
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Assicurati che quando queste sezioni sono visibili, il main sia nascosto */
@@ -964,7 +1072,6 @@ section h2::before {
 /* Smart TV layout senza zoom eccessivo */
 @media screen and (min-width: 1600px) {
   html, body {
-    zoom: 80%;
     font-size: 24px;
     overflow-x: hidden;
   }
