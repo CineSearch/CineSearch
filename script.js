@@ -155,7 +155,134 @@ async function loadMoreTV() {
     await loadAllTV(currentTVPage + 1);
   }
 }
+// Funzione per aggiornare il contatore dei preferiti nell'header
+function updatePreferitiCounter() {
+  const preferiti = getPreferiti();
+  const counter = document.getElementById("preferiti-count");
+  if (counter) {
+    counter.textContent = preferiti.length;
+  }
+}
 
+// Funzione per caricare la sezione dedicata ai preferiti
+async function loadPreferitiSection() {
+  const preferiti = getPreferiti();
+  const carousel = document.getElementById("preferiti-section-carousel");
+  const message = document.getElementById("preferiti-message");
+  
+  if (!carousel) return;
+  
+  carousel.innerHTML = "";
+  
+  if (preferiti.length === 0) {
+    if (message) message.style.display = "block";
+    return;
+  }
+  
+  if (message) message.style.display = "none";
+  
+  for (const itemId of preferiti) {
+    const [mediaType, tmdbId] = itemId.split("-");
+    
+    try {
+      const res = await fetch(
+        `https://api.themoviedb.org/3/${mediaType}/${tmdbId}?api_key=${API_KEY}&language=it-IT`
+      );
+      const item = await res.json();
+      item.media_type = mediaType;
+      
+      const card = createCard(item, [], false);
+      
+      // Aggiungi pulsante per rimuovere dai preferiti
+      const removeBtn = document.createElement("button");
+      removeBtn.className = "remove-btn preferiti-remove";
+      removeBtn.innerHTML = "❌ Rimuovi";
+      removeBtn.style.cssText = `
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #e50914;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 20;
+        transition: all 0.3s ease;
+      `;
+      
+      removeBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const confirmRemove = confirm(`Rimuovere "${item.title || item.name}" dai preferiti?`);
+        if (confirmRemove) {
+          removePreferito(item);
+          card.remove();
+          
+          // Aggiorna il contatore
+          updatePreferitiCounter();
+          
+          // Se non ci sono più preferiti, mostra il messaggio
+          const updatedPreferiti = getPreferiti();
+          if (updatedPreferiti.length === 0 && message) {
+            message.style.display = "block";
+          }
+        }
+      });
+      
+      card.appendChild(removeBtn);
+      carousel.appendChild(card);
+      
+    } catch (error) {
+      // console.error(`Errore nel caricamento del preferito ${itemId}:`, error);
+    }
+  }
+}
+
+// Funzione per mostrare la sezione preferiti
+function showPreferiti() {
+  hideAllSections();
+  document.getElementById("preferiti-section").style.display = "block";
+  loadPreferitiSection();
+}
+
+// Aggiungi "preferiti-section" alla lista delle sezioni da nascondere
+function hideAllSections() {
+  const sections = ["home", "allMovies", "allTV", "categories", "results", "player", "preferiti-section"];
+  sections.forEach(id => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.style.display = "none";
+    }
+  });
+}
+
+// Chiamala quando aggiungi/rimuovi preferiti
+function addPreferito(item) {
+  const preferiti = getPreferiti();
+  const id = `${item.media_type || (item.title ? "movie" : "tv")}-${item.id}`;
+  if (!preferiti.includes(id)) {
+    preferiti.push(id);
+    localStorage.setItem("preferiti", JSON.stringify(preferiti));
+    updatePreferitiCounter();
+  }
+}
+
+function removePreferito(item) {
+  const preferiti = getPreferiti();
+  const id = `${item.media_type || (item.title ? "movie" : "tv")}-${item.id}`;
+  const updated = preferiti.filter((p) => p !== id);
+  localStorage.setItem("preferiti", JSON.stringify(updated));
+  updatePreferitiCounter();
+}
+
+// Aggiorna il contatore al caricamento della pagina
+window.addEventListener("DOMContentLoaded", () => {
+  updatePreferitiCounter();
+
+});
 // Funzione per caricare le categorie
 async function loadCategories() {
   const grid = document.getElementById("categories-grid");
@@ -260,7 +387,106 @@ function backToCategories() {
   }
   document.getElementById("categories").style.display = "block";
 }
+function showPreferiti() {
+  hideAllSections();
+  document.getElementById("preferiti-section").style.display = "block";
+  loadPreferitiSection();
+}
 
+// Funzione per caricare i preferiti nella sezione dedicata
+async function loadPreferitiSection() {
+  const preferiti = getPreferiti();
+  const carousel = document.getElementById("preferiti-section-carousel");
+  const message = document.getElementById("preferiti-message");
+  
+  carousel.innerHTML = "";
+  
+  if (preferiti.length === 0) {
+    message.style.display = "block";
+    return;
+  }
+  
+  message.style.display = "none";
+  
+  for (const itemId of preferiti) {
+    const [mediaType, tmdbId] = itemId.split("-");
+    
+    try {
+      const res = await fetch(
+        `https://api.themoviedb.org/3/${mediaType}/${tmdbId}?api_key=${API_KEY}&language=it-IT`
+      );
+      const item = await res.json();
+      item.media_type = mediaType;
+      
+      const card = createCard(item, [], false);
+      
+      // Aggiungi pulsante per rimuovere dai preferiti
+      const removeBtn = document.createElement("button");
+      removeBtn.className = "remove-btn preferiti-remove";
+      removeBtn.innerHTML = "❌ Rimuovi";
+      removeBtn.style.cssText = `
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #e50914;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 20;
+        transition: all 0.3s ease;
+      `;
+      
+      removeBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const confirmRemove = confirm(`Rimuovere "${item.title || item.name}" dai preferiti?`);
+        if (confirmRemove) {
+          removePreferito(item);
+          card.remove();
+          
+          // Aggiorna il contatore
+          const updatedPreferiti = getPreferiti();
+          if (updatedPreferiti.length === 0) {
+            message.style.display = "block";
+          }
+          
+          // Aggiorna anche la sezione preferiti nella home
+          loadPreferiti();
+        }
+      });
+      
+      card.appendChild(removeBtn);
+      carousel.appendChild(card);
+      
+    } catch (error) {
+      // console.error(`Errore nel caricamento del preferito ${itemId}:`, error);
+    }
+  }
+}
+
+// Funzione per scorrere i preferiti
+function scrollCarouselPreferiti(direction) {
+  const carousel = document.getElementById("preferiti-section-carousel");
+  if (!carousel) return;
+  
+  const scrollAmount = carousel.clientWidth * 0.8;
+  carousel.scrollBy({
+    left: direction * scrollAmount,
+    behavior: "smooth"
+  });
+}
+
+// Modifica la funzione showCategories per nascondere anche la sezione preferiti
+function hideAllSections() {
+  const sections = ["home", "allMovies", "allTV", "categories", "results", "player", "preferiti-section"];
+  sections.forEach(id => {
+    document.getElementById(id).style.display = "none";
+  });
+}
 const API_KEY = "f75aac685f3389aa89c4f8580c078a28";
 const VIXSRC_URL = "vixsrc.to";
 const CORS_PROXIES_REQUIRING_ENCODING = [""];
@@ -338,8 +564,8 @@ document.getElementById("cors-select").addEventListener("change", (e) => {
   }, 2000);
 });
 
-const original// consoleWarn = // console.warn;
-// console.warn = function (...args) {
+const originalconsoleWarn = console.warn;
+console.warn = function (...args) {
   const message = args[0];
   if (
     typeof message === "string" &&
@@ -349,7 +575,7 @@ const original// consoleWarn = // console.warn;
   ) {
     return;
   }
-  original// consoleWarn.apply(// console, args);
+  originalconsoleWarn.apply( console, args);
 };
 
 function extractBaseUrl(url) {
@@ -568,6 +794,11 @@ function createCard(item, cookieNames = [], isRemovable = false) {
     }
   });
 
+  // Verifica se l'item è già nei preferiti
+  const preferiti = getPreferiti();
+  const itemId = `${mediaType}-${item.id}`;
+  const isInPreferiti = preferiti.includes(itemId);
+  
   card.innerHTML = `
     <div class="card-image-wrapper">
       <img src="${poster}" alt="${rawTitle}">
@@ -582,15 +813,52 @@ function createCard(item, cookieNames = [], isRemovable = false) {
       </div>
       <div class="card-buttons">
         ${isRemovable ? `<button class="remove-btn" title="Rimuovi">❌</button>` : ""}
-        <button class="fav-btn" title="Preferito">♥</button>
+        <button class="fav-btn" title="${isInPreferiti ? 'Rimuovi dai preferiti' : 'Aggiungi ai preferiti'}">
+          ${isInPreferiti ? '❤️' : '🤍'}
+        </button>
       </div>
     </div>
   `;
 
+  // Aggiungi classe se è nei preferiti
+  if (isInPreferiti) {
+    card.classList.add('in-preferiti');
+  }
+
+  // Gestione click sul pulsante preferiti
   card.querySelector(".fav-btn").addEventListener("click", (e) => {
     e.stopPropagation();
-    addPreferito(item);
-    alert(`⭐ "${rawTitle}" aggiunto ai preferiti`);
+    const preferiti = getPreferiti();
+    const itemId = `${mediaType}-${item.id}`;
+    const favBtn = card.querySelector('.fav-btn');
+    
+    if (preferiti.includes(itemId)) {
+      // Rimuovi dai preferiti
+      removePreferito(item);
+      card.classList.remove('in-preferiti');
+      favBtn.innerHTML = '🤍';
+      favBtn.title = 'Aggiungi ai preferiti';
+    } else {
+      // Aggiungi ai preferiti
+      addPreferito(item);
+      card.classList.add('in-preferiti');
+      favBtn.innerHTML = '❤️';
+      favBtn.title = 'Rimuovi dai preferiti';
+    }
+    
+    // Aggiorna la sezione preferiti se è visibile
+    if (document.getElementById("preferiti-section") && 
+        document.getElementById("preferiti-section").style.display === "block") {
+      loadPreferitiSection();
+    }
+    
+    // Aggiorna la sezione preferiti nella home
+    if (document.getElementById("preferiti")) {
+      loadPreferiti();
+    }
+    
+    // Aggiorna il contatore
+    updatePreferitiCounter();
   });
 
   if (isRemovable) {
@@ -852,10 +1120,6 @@ function handleKeyboardShortcuts(event) {
       event.preventDefault();
       const newVolumeUp = Math.min(player.volume() + 0.1, 1);
       player.volume(newVolumeUp);
-      // console.log(
-        "⌨️ Volume increased to",
-        Math.round(newVolumeUp * 100) + "%"
-      );
       showVolumeFeedback(Math.round(newVolumeUp * 100));
       break;
 
@@ -863,10 +1127,6 @@ function handleKeyboardShortcuts(event) {
       event.preventDefault();
       const newVolumeDown = Math.max(player.volume() - 0.1, 0);
       player.volume(newVolumeDown);
-      // console.log(
-        "⌨️ Volume decreased to",
-        Math.round(newVolumeDown * 100) + "%"
-      );
       showVolumeFeedback(Math.round(newVolumeDown * 100));
       break;
 
@@ -1346,7 +1606,6 @@ async function performSearch(query) {
       <button class="vix-arrow destra" onclick="scrollRisultati(1)">&#10095;</button>
     </div>
   `;
-
   const carousel = resultsDiv.querySelector(".carousel");
 
   const filteredResults = data.results.filter(

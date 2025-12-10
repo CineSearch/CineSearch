@@ -1259,3 +1259,81 @@ section h2::before {
     font-size: 1.3rem;
   }
 }
+/* Stili per la sezione preferiti */
+.preferiti-remove:hover {
+  background: #b20710 !important;
+  transform: translateX(-50%) scale(1.05) !important;
+  box-shadow: 0 4px 10px rgba(229, 9, 20, 0.4) !important;
+}
+
+#preferiti-section h2 {
+  color: #ffcc00;
+}
+
+#preferiti-section h2::before {
+  background: #ffcc00;
+}
+
+/* Migliora il pulsante preferiti nella card */
+.card .fav-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 204, 0, 0.95);
+  color: #000;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card .fav-btn:hover {
+  background: #ffdb4d;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(255, 204, 0, 0.5);
+}
+
+/* Indicatore visivo quando è nei preferiti */
+.card.in-preferiti .fav-btn {
+  background: #e50914;
+  color: white;
+}
+
+.card.in-preferiti .fav-btn:hover {
+  background: #b20710;
+}
+.preferiti-counter {
+  background: rgba(255, 204, 0, 0.2);
+  border: 2px solid rgba(255, 204, 0, 0.5);
+  border-radius: 20px;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.preferiti-counter:hover {
+  background: rgba(255, 204, 0, 0.3);
+  border-color: #ffcc00;
+  transform: scale(1.05);
+}
+
+.fav-icon {
+  font-size: 1.2rem;
+}
+
+#preferiti-count {
+  font-size: 1rem;
+}

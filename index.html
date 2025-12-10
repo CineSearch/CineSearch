@@ -39,7 +39,10 @@
         </div>
       </div>
     </header>
-
+<div class="preferiti-counter" onclick="showPreferiti()" style="cursor: pointer;">
+  <span class="fav-icon">⭐</span>
+  <span id="preferiti-count">0</span>
+</div>
     <main>
       <div id="home">
         <section class="hero">
@@ -51,6 +54,7 @@
               <button class="nav-btn" onclick="showAllMovies()">🎬 Tutti i Film</button>
               <button class="nav-btn" onclick="showAllTV()">📺 Tutte le Serie TV</button>
               <button class="nav-btn" onclick="showCategories()">🎭 Categorie</button>
+              <button class="nav-btn" onclick="showPreferiti()">⭐ Preferiti</button>
             </div>
           </div>
         </section>
@@ -228,7 +232,19 @@
   <div class="categories-grid" id="categories-grid">
   </div>
 </section>
-
+<section id="preferiti-section" style="display: none;">
+  <h2>⭐ I tuoi Preferiti</h2>
+  <div class="carousel-wrapper">
+    <button class="arrow left" onclick="scrollCarouselPreferiti(-1)">◀</button>
+    <div class="carousel-container">
+      <div class="carousel" id="preferiti-section-carousel"></div>
+    </div>
+    <button class="arrow right" onclick="scrollCarouselPreferiti(1)">▶</button>
+  </div>
+  <div class="preferiti-message" id="preferiti-message" style="text-align: center; padding: 2rem; color: #888;">
+    Aggiungi contenuti ai preferiti per vederli qui
+  </div>
+</section>
     <script src="script.js"></script>
   </body>
 </html>
