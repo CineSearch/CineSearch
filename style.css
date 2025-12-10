@@ -1337,3 +1337,141 @@ section h2::before {
 #preferiti-count {
   font-size: 1rem;
 }
+/* Aggiungi questi stili per i filtri anno */
+.year-filter {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.year-filter input {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: 1px solid #444;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.year-filter input:focus {
+  border-color: #2a09e5;
+  outline: none;
+  box-shadow: 0 0 5px rgba(42, 9, 229, 0.3);
+}
+
+.year-filter button {
+  background: #2a09e5;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.year-filter button:hover {
+  background: #1a0566;
+  transform: translateY(-2px);
+}
+
+.year-filter button:last-of-type {
+  background: #666;
+}
+
+.year-filter button:last-of-type:hover {
+  background: #555;
+}
+
+/* Footer style */
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  font-size: 0.9rem;
+  border-top: 1px solid #333;
+  margin-top: 3rem;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+/* Responsive per i filtri */
+@media (max-width: 768px) {
+  .year-filter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .year-filter input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .year-filter button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+#allMovies .year-filter,
+#allTV .year-filter {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#allMovies .year-filter input,
+#allTV .year-filter input {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: 1px solid #444;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+#allMovies .year-filter input:focus,
+#allTV .year-filter input:focus {
+  border-color: #2a09e5;
+  outline: none;
+  box-shadow: 0 0 5px rgba(42, 9, 229, 0.3);
+}
+
+#allMovies .year-filter button,
+#allTV .year-filter button {
+  background: #2a09e5;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+#allMovies .year-filter button:hover,
+#allTV .year-filter button:hover {
+  background: #1a0566;
+  transform: translateY(-2px);
+}
+
+#allMovies .year-filter button:last-of-type,
+#allTV .year-filter button:last-of-type {
+  background: #666;
+}
+
+#allMovies .year-filter button:last-of-type:hover,
+#allTV .year-filter button:last-of-type:hover {
+  background: #555;
+}
