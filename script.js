@@ -513,30 +513,6 @@ let player = null;
 let baseStreamUrl = "";
 let requestHookInstalled = false;
 
-let allowedMovies = [];
-let allowedTV = [];
-let allowedEpisodes = [];
-
-async function loadAllowedContent() {
-  try {
-    const [moviesRes, tvRes, episodesRes] = await Promise.all([
-      fetch("movies.json"),
-      fetch("tv.json"),
-      fetch("episodes.json"),
-    ]);
-
-    allowedMovies = (await moviesRes.json()).map((m) => m.tmdb_id);
-    allowedTV = (await tvRes.json()).map((t) => t.tmdb_id);
-    allowedEpisodes = await episodesRes.json();
-
-    // console.log("✅ Contenuti caricati da JSON:");
-    // console.log("🎬 Film:", allowedMovies);
-    // console.log("📺 Serie TV:", allowedTV);
-    // console.log("🎞️ Episodi:", allowedEpisodes);
-  } catch (err) {
-    // console.error("❌ Errore nel caricamento dei file JSON:", err);
-  }
-}
 
 document.getElementById("cors-select").addEventListener("change", (e) => {
   CORS = e.target.value;
@@ -1643,8 +1619,8 @@ function scrollCarousel(id, direction) {
 }
 
 window.addEventListener("DOMContentLoaded", async () => {
-  await loadAllowedContent();
   const corsSelect = document.getElementById("cors-select");
+  
   CORS_LIST.forEach((proxy) => {
     const option = document.createElement("option");
     option.value = proxy;
@@ -1652,6 +1628,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     corsSelect.appendChild(option);
   });
   corsSelect.value = CORS;
+  
   if (typeof videojs !== "undefined") {
     setupVideoJsXhrHook();
   } else {
