@@ -41,7 +41,7 @@ function createCard(item, cookieNames = [], isRemovable = false) {
       console.error("Errore lettura storage in card:", e);
     }
   });
-  const preferiti = getPreferiti();
+    const preferiti = getPreferiti();
   const itemId = `${mediaType}-${item.id}`;
   const isInPreferiti = preferiti.includes(itemId);
   
@@ -60,7 +60,7 @@ function createCard(item, cookieNames = [], isRemovable = false) {
       <div class="card-buttons">
         ${isRemovable ? `<button class="remove-btn" title="Rimuovi" tabindex="-1">❌</button>` : ""}
         <button class="fav-btn" title="${isInPreferiti ? 'Rimuovi dai preferiti' : 'Aggiungi ai preferiti'}" tabindex="-1">
-          ${isInPreferiti ? '❤️' : '🤍'}
+          ${isInPreferiti ? '⭐' : '☆'}
         </button>
       </div>
     </div>
@@ -79,12 +79,12 @@ function createCard(item, cookieNames = [], isRemovable = false) {
     if (preferiti.includes(itemId)) {
       removePreferito(item);
       card.classList.remove('in-preferiti');
-      favBtn.innerHTML = '🤍';
+      favBtn.innerHTML = '☆';
       favBtn.title = 'Aggiungi ai preferiti';
     } else {
       addPreferito(item);
       card.classList.add('in-preferiti');
-      favBtn.innerHTML = '❤️';
+      favBtn.innerHTML = '⭐';
       favBtn.title = 'Rimuovi dai preferiti';
     }
     if (document.getElementById("preferiti-section") && 

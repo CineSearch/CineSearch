@@ -1293,9 +1293,9 @@ section h2::before {
   background: rgba(255, 204, 0, 0.95);
   color: #000;
   border: none;
-  padding: 8px 12px;
+  padding: 8px;
   border-radius: 50%;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
   z-index: 10;
@@ -1316,12 +1316,24 @@ section h2::before {
 
 /* Indicatore visivo quando è nei preferiti */
 .card.in-preferiti .fav-btn {
-  background: #e50914;
-  color: white;
+  background: #ffcc00;
+  color: #000;
 }
 
 .card.in-preferiti .fav-btn:hover {
-  background: #b20710;
+  background: #e6b800;
+}
+
+/* Aggiungi questo stile per le stelline vuote */
+.card .fav-btn:not(.in-preferiti) {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ccc;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.card .fav-btn:not(.in-preferiti):hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
 }
 .preferiti-counter {
   background: rgba(255, 204, 0, 0.2);

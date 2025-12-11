@@ -45,7 +45,7 @@ async function loadPreferitiSection() {
   
   if (message) message.style.display = "none";
   
-  for (const itemId of preferiti) {
+for (const itemId of preferiti) {
     const [mediaType, tmdbId] = itemId.split("-");
     
     try {
@@ -59,7 +59,7 @@ async function loadPreferitiSection() {
       
       const removeBtn = document.createElement("button");
       removeBtn.className = "remove-btn preferiti-remove";
-      removeBtn.innerHTML = "❌ Rimuovi";
+      removeBtn.innerHTML = "⭐ Rimuovi";
       removeBtn.style.cssText = `
         position: absolute;
         bottom: 10px;
@@ -127,17 +127,18 @@ async function loadPreferiti() {
     const card = createCard(item, [], false);
 
     const removeBtn = document.createElement("button");
-    removeBtn.textContent = "Rimuovi dai preferiti";
+    removeBtn.innerHTML = "⭐ Rimuovi";
     removeBtn.className = "remove-btn";
     removeBtn.style.position = "absolute";
     removeBtn.style.bottom = "10px";
-    removeBtn.style.left = "10px";
+    removeBtn.style.left = "50%";
+    removeBtn.style.transform = "translateX(-50%)";
     removeBtn.style.background = "#e50914";
     removeBtn.style.color = "white";
     removeBtn.style.border = "none";
-    removeBtn.style.padding = "6px 12px";
+    removeBtn.style.padding = "8px 16px";
     removeBtn.style.borderRadius = "6px";
-    removeBtn.style.fontSize = "0.85rem";
+    removeBtn.style.fontSize = "0.9rem";
     removeBtn.style.fontWeight = "bold";
     removeBtn.style.cursor = "pointer";
     removeBtn.style.zIndex = "10";
