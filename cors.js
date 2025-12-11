@@ -1,4 +1,3 @@
-// Gestione CORS e Video.js hooks
 const xhrRequestHook = (options) => {
   const originalUri = options.uri;
   options.uri = applyCorsProxy(originalUri);
@@ -29,7 +28,6 @@ function removeVideoJsXhrHook() {
   }
 }
 
-// Nascondi warning non necessari
 const originalconsoleWarn = console.warn;
 console.warn = function (...args) {
   const message = args[0];

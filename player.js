@@ -1,9 +1,7 @@
-// Variabili globali del player
 let player = null;
 let currentItem = null;
 let currentSeasons = [];
 
-// Funzione per aprire il player
 async function openPlayer(item) {
   currentItem = item;
 
@@ -11,18 +9,14 @@ async function openPlayer(item) {
   document.getElementById("results").style.display = "none";
   document.getElementById("player").style.display = "block";
 
-  // Reset completo del player se esiste già
   if (player) {
     player.dispose();
     player = null;
-    
-    // Rimuovi l'elemento video esistente
     const oldVideo = document.getElementById("player-video");
     if (oldVideo) {
       oldVideo.remove();
     }
     
-    // Crea un nuovo elemento video
     const videoContainer = document.querySelector(".video-container");
     const newVideo = document.createElement("video");
     newVideo.id = "player-video";
@@ -32,7 +26,6 @@ async function openPlayer(item) {
     newVideo.setAttribute("playsinline", "");
     newVideo.setAttribute("crossorigin", "anonymous");
     
-    // Posiziona il nuovo video sopra il loading overlay
     const loadingOverlay = document.getElementById("loading-overlay");
     videoContainer.insertBefore(newVideo, loadingOverlay);
   }
@@ -58,7 +51,6 @@ async function openPlayer(item) {
   window.scrollTo(0, 0);
 }
 
-// Carica stagioni TV
 async function loadTVSeasons(tvId) {
   const seasons = await fetchTVSeasons(tvId);
   currentSeasons = seasons.filter((s) => s.season_number > 0);
@@ -83,7 +75,6 @@ async function loadTVSeasons(tvId) {
 }
 
 
-// Carica episodi
 async function loadEpisodes(tvId, seasonNum) {
   const episodes = await fetchEpisodes(tvId, seasonNum);
   const container = document.getElementById("episodes-list");
@@ -108,15 +99,11 @@ async function loadEpisodes(tvId, seasonNum) {
   });
 }
 
-// Carica il video
 async function loadVideo(isMovie, id, season = null, episode = null) {
   showLoading(true);
 
   try {
-    // Assicurati che l'hook XHR sia installato
     setupVideoJsXhrHook();
-
-    // Se c'è già un player, rimuovilo completamente
     if (player) {
       player.dispose();
       player = null;
@@ -135,7 +122,6 @@ async function loadVideo(isMovie, id, season = null, episode = null) {
 
     const proxiedM3u8Url = applyCorsProxy(streamData.m3u8Url);
 
-    // Assicurati che l'elemento video esista
     let videoElement = document.getElementById("player-video");
     if (!videoElement) {
       const videoContainer = document.querySelector(".video-container");
@@ -202,7 +188,7 @@ async function loadVideo(isMovie, id, season = null, episode = null) {
       );
 
       player.play().catch((e) => {
-        // // console.log("Auto-play prevented:", e);
+        // console.log("Auto-play prevented:", e);
       });
     });
 
@@ -211,14 +197,13 @@ async function loadVideo(isMovie, id, season = null, episode = null) {
     });
 
     player.on("loadeddata", function () {
-      // // console.log("✅ Video data loaded");
+      // console.log("✅ Video data loaded");
     });
   } catch (err) {
     showError("Impossibile caricare il video. Riprova più tardi.");
   }
 }
 
-// Ottieni stream diretto
 async function getDirectStream(tmdbId, isMovie, season = null, episode = null) {
   try {
     showLoading(true, "Connessione al server...");
@@ -296,48 +281,35 @@ async function getDirectStream(tmdbId, isMovie, season = null, episode = null) {
   }
 }
 
-// Torna indietro dal player
 function goBack() {
   // console.log("🔙 Tornando indietro dal player...");
   
-  // Pulisci il player
   if (player) {
     player.dispose();
     player = null;
   }
   
-  // Rimuovi elemento video
   const videoElement = document.getElementById("player-video");
   if (videoElement) {
     videoElement.remove();
   }
-  
-  // Reset variabili
+
   currentItem = null;
   currentSeasons = [];
-  
-  // Nascondi player e mostra home
+
   document.getElementById("player").style.display = "none";
   document.getElementById("home").style.display = "block";
   
-  // RIMUOVI hook CORS (importante!)
   removeVideoJsXhrHook();
-  
-  // 🎯 QUI AGGIORNA "CONTINUA VISIONE"!
   // console.log("🔄 Aggiorno 'Continua visione' dopo aver guardato...");
-  
-  // Forza un breve ritardo per assicurarsi che localStorage sia stato salvato
+
   setTimeout(async () => {
     await loadContinuaDaStorage();
-    
-    // Se non ci sono elementi, assicurati che la sezione sia nascosta
     const carousel = document.getElementById("continua-carousel");
     if (carousel && carousel.children.length === 0) {
       document.getElementById("continua-visione").style.display = "none";
     }
   }, 300);
-  
-  // Scrolla in cima
   window.scrollTo(0, 0);
 }
 
@@ -413,7 +385,6 @@ function handleKeyboardShortcuts(event) {
   }
 }
 
-// Feedback visivi
 function showSeekFeedback(text) {
   const feedback = document.createElement("div");
   feedback.className = "keyboard-feedback";
@@ -484,14 +455,12 @@ function showVolumeFeedback(volumePercent) {
   }, 1000);
 }
 
-// Funzioni di utilità del player
 function showLoading(show, message = "Caricamento stream...") {
   const overlay = document.getElementById("loading-overlay");
   overlay.style.display = show ? "flex" : "none";
   overlay.querySelector(".loading-text").textContent = message;
 }
 
-// Shortcut da tastiera
 function setupKeyboardShortcuts() {
   document.removeEventListener("keydown", handleKeyboardShortcuts);
   document.addEventListener("keydown", handleKeyboardShortcuts);
@@ -569,7 +538,6 @@ function handleKeyboardShortcuts(event) {
   }
 }
 
-// Feedback visivi
 function showSeekFeedback(text) {
   const feedback = document.createElement("div");
   feedback.className = "keyboard-feedback";

@@ -1,4 +1,3 @@
-// Funzioni per gestire i preferiti
 function getPreferiti() {
   const raw = localStorage.getItem("preferiti");
   return raw ? JSON.parse(raw) : [];
@@ -22,7 +21,6 @@ function removePreferito(item) {
   updatePreferitiCounter();
 }
 
-// Funzione per aggiornare il contatore dei preferiti nell'header
 function updatePreferitiCounter() {
   const preferiti = getPreferiti();
   const counter = document.getElementById("preferiti-count");
@@ -31,7 +29,6 @@ function updatePreferitiCounter() {
   }
 }
 
-// Funzione per caricare la sezione dedicata ai preferiti
 async function loadPreferitiSection() {
   const preferiti = getPreferiti();
   const carousel = document.getElementById("preferiti-section-carousel");
@@ -60,7 +57,6 @@ async function loadPreferitiSection() {
       
       const card = createCard(item, [], false);
       
-      // Aggiungi pulsante per rimuovere dai preferiti
       const removeBtn = document.createElement("button");
       removeBtn.className = "remove-btn preferiti-remove";
       removeBtn.innerHTML = "❌ Rimuovi";
@@ -88,10 +84,8 @@ async function loadPreferitiSection() {
           removePreferito(item);
           card.remove();
           
-          // Aggiorna il contatore
           updatePreferitiCounter();
           
-          // Se non ci sono più preferiti, mostra il messaggio
           const updatedPreferiti = getPreferiti();
           if (updatedPreferiti.length === 0 && message) {
             message.style.display = "block";
@@ -108,7 +102,6 @@ async function loadPreferitiSection() {
   }
 }
 
-// Funzione per caricare i preferiti nella home
 async function loadPreferiti() {
   const ids = getPreferiti();
   const items = [];
@@ -167,7 +160,6 @@ async function loadPreferiti() {
   document.getElementById("preferiti").style.display = items.length > 0 ? "block" : "none";
 }
 
-// Funzione per scorrere i preferiti
 function scrollCarouselPreferiti(direction) {
   const carousel = document.getElementById("preferiti-section-carousel");
   if (!carousel) return;

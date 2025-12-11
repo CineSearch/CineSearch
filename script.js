@@ -10,15 +10,12 @@ const CORS_LIST = [
   ...CORS_PROXIES_REQUIRING_ENCODING,
 ];
 
-// Impostiamo automaticamente corsproxy.io
 let CORS = "corsproxy.io/";
 
-// Dichiarazione delle variabili globali (senza re-inizializzare in altri file)
 let shownContinuaIds = new Set();
 let baseStreamUrl = "";
 let requestHookInstalled = false;
 
-// Variabili per gestire lo stato corrente
 let currentMoviePage = 1;
 let currentTVPage = 1;
 let totalMoviePages = 0;
@@ -26,7 +23,6 @@ let totalTVPages = 0;
 let currentCategory = null;
 let currentCategoryPage = 1;
 
-// Filtri anno
 let currentMovieMinYear = null;
 let currentMovieMaxYear = null;
 let currentTVMinYear = null;
@@ -34,7 +30,6 @@ let currentTVMaxYear = null;
 let currentMinYear = null;
 let currentMaxYear = null;
 
-// Variabili per la paginazione
 let currentNavigationSection = null;
 let currentNavigationPage = 1;
 let navigationItems = [];
@@ -48,7 +43,6 @@ const endpoints = {
   popularTV: `tv/popular`,
 };
 
-// Funzioni di utilità
 function applyCorsProxy(url) {
   const CORS = document.getElementById("cors-select").value;
   const requiresEncoding = CORS_PROXIES_REQUIRING_ENCODING.some(
@@ -131,12 +125,10 @@ function getFromStorage(name) {
     const item = localStorage.getItem(name);
     if (item) {
       const data = JSON.parse(item);
-      // Controlla se è scaduto
       if (!data.expires || data.expires > new Date().getTime()) {
         // console.log(`📖 localStorage letto: ${name}=${data.value}`);
         return data.value;
       } else {
-        // Rimuovi se scaduto
         localStorage.removeItem(name);
         // console.log(`🗑️ Rimosso scaduto: ${name}`);
       }
@@ -147,7 +139,6 @@ function getFromStorage(name) {
   return null;
 }
 
-// Funzione per pulire tutti i dati scaduti
 function cleanupExpiredStorage() {
   try {
     const now = new Date().getTime();
@@ -161,10 +152,10 @@ function cleanupExpiredStorage() {
           if (data.expires && data.expires < now) {
             localStorage.removeItem(key);
             removed++;
-            i--; // Adjust index after removal
+            i--; 
           }
         } catch (e) {
-          // Ignora errori di parsing
+
         }
       }
     }
@@ -177,7 +168,6 @@ function cleanupExpiredStorage() {
   }
 }
 
-// NUOVE FUNZIONI PER NAVIGATION-BUTTONS A PAGINAZIONE
 function showNavigationSection(section) {
   hideAllSections();
   currentNavigationSection = section;
@@ -237,7 +227,6 @@ async function loadNavigationContent(section, page = 1) {
         items = await loadTVForNavigation(page);
         break;
       case 'categories':
-        // Per le categorie, mostriamo la griglia di categorie
         loadCategories();
         return;
       case 'favorites':
@@ -262,7 +251,7 @@ async function loadMoviesForNavigation(page) {
   const data = await res.json();
   
   const availableMovies = [];
-  for (const movie of data.results.slice(0, 50)) { // Limita a 50 per performance
+  for (const movie of data.results.slice(0, 50)) {
     const isAvailable = await checkAvailabilityOnVixsrc(movie.id, true);
     if (isAvailable) {
       movie.media_type = "movie";
@@ -332,7 +321,6 @@ function displayNavigationItems(items, currentPage) {
     grid.appendChild(card);
   });
   
-  // Aggiorna info paginazione
   document.getElementById("page-info").textContent = 
     `Pagina ${currentPage} di ${Math.ceil(items.length / itemsPerPage)}`;
   document.getElementById("pagination-info").textContent = 
@@ -367,7 +355,6 @@ function prevNavigationPage() {
   }
 }
 
-// Aggiorna le funzioni di navigazione esistenti
 function showAllMovies() {
   hideAllSections();
   document.getElementById("allMovies").style.display = "block";
@@ -414,7 +401,7 @@ function hideAllSections() {
     "allMovies", 
     "allTV", 
     "categories", 
-    "category-results",  // AGGIUNGI questa
+    "category-results", 
     "results", 
     "player", 
     "preferiti-section",
@@ -438,7 +425,6 @@ function goBackToCategories() {
   window.scrollTo(0, 0);
 }
 
-// Setup iniziale
 document.getElementById("cors-select").addEventListener("change", (e) => {
   CORS = e.target.value;
   
@@ -464,7 +450,6 @@ document.getElementById("cors-select").addEventListener("change", (e) => {
   }, 2000);
 });
 
-// Event listener per la ricerca
 let searchTimeout;
 document.getElementById("search").addEventListener("input", (e) => {
   clearTimeout(searchTimeout);
@@ -494,7 +479,6 @@ function goBackToHome() {
 }
 
 function handleRemoteNavigation(event) {
-  // Gestione specifica per telecomandi TV
   switch(event.key) {
     case 'Enter':
     case ' ':
@@ -516,11 +500,9 @@ function handleRemoteNavigation(event) {
 }
 
 
-// Caricamento iniziale
 window.addEventListener("DOMContentLoaded", async () => {
   // console.log("🚀 Pagina caricata");
   
-  // Mostra debug storage
   // console.log("💽 localStorage totale:", localStorage.length, "elementi");
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
@@ -536,11 +518,9 @@ window.addEventListener("DOMContentLoaded", async () => {
     corsSelect.appendChild(option);
   });
   corsSelect.value = CORS;
-  
-  // PRIMA carica "Continua visione"
+
   await loadContinuaDaStorage();
-  
-  // Poi carica i preferiti
+
   await loadPreferiti();
   
   if (typeof videojs !== "undefined") {
@@ -550,14 +530,12 @@ window.addEventListener("DOMContentLoaded", async () => {
   }
   document.addEventListener('keydown', handleRemoteNavigation);
   
-  // Imposta focus iniziale
   setTimeout(() => {
     const firstCard = document.querySelector('.card');
     if (firstCard) {
       firstCard.focus();
     }
   }, 1000);
-  // Carica altre sezioni...
   for (const [key, endpoint] of Object.entries(endpoints)) {
     try {
       const data = await fetchAndFilterAvailable(key);

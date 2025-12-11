@@ -1,4 +1,3 @@
-// Oggetto delle categorie/genere
 const categories = [
   { id: 28, name: "Azione", icon: "💥" },
   { id: 12, name: "Avventura", icon: "🗺️" },
@@ -21,7 +20,6 @@ const categories = [
   { id: 37, name: "Western", icon: "🤠" }
 ];
 
-// Funzione per caricare le categorie
 async function loadCategories() {
   const grid = document.getElementById("categories-grid");
   grid.innerHTML = "";
@@ -42,7 +40,6 @@ async function loadCategories() {
   });
 }
 
-// Funzione per caricare contenuti di una categoria (GRIGLIA VERTICALE)
 async function loadCategoryContent(category, page = 1, minYear = null, maxYear = null) {
   currentCategory = category;
   currentCategoryPage = page;
@@ -62,10 +59,8 @@ async function loadCategoryContent(category, page = 1, minYear = null, maxYear =
     const res = await fetch(apiUrl);
     const data = await res.json();
     
-    // Nascondi la griglia delle categorie
     document.getElementById("categories").style.display = "none";
     
-    // Crea o aggiorna la sezione dei risultati
     let resultsSection = document.getElementById("category-results");
     if (!resultsSection) {
       resultsSection = document.createElement("section");
@@ -73,7 +68,6 @@ async function loadCategoryContent(category, page = 1, minYear = null, maxYear =
       document.querySelector("main").appendChild(resultsSection);
     }
     
-    // Aggiorna il contenuto della sezione
     resultsSection.innerHTML = `
       <div class="grid-header">
         <button class="back-to-categories" onclick="goBackToCategories()" style="background: #2a09e5; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer;">
@@ -108,7 +102,6 @@ async function loadCategoryContent(category, page = 1, minYear = null, maxYear =
     
     const grid = document.getElementById("category-grid");
     
-    // Filtra solo film disponibili
     const availableMovies = [];
     for (const movie of data.results.slice(0, 50)) {
       movie.media_type = "movie";
@@ -122,11 +115,9 @@ async function loadCategoryContent(category, page = 1, minYear = null, maxYear =
       if (availableMovies.length >= itemsPerPage) break;
     }
     
-    // Aggiorna info paginazione
     updateCategoryPaginationInfo(data.total_results);
     updateCategoryPageInfo(data.total_pages);
     
-    // Se non ci sono risultati
     if (availableMovies.length === 0) {
       grid.innerHTML = `
         <div class="no-results" style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
@@ -144,7 +135,6 @@ async function loadCategoryContent(category, page = 1, minYear = null, maxYear =
   }
 }
 
-// Funzioni di paginazione per categorie
 function nextCategoryPage() {
   if (currentCategory) {
     loadCategoryContent(
@@ -180,15 +170,14 @@ function updateCategoryPaginationInfo(totalItems) {
     infoDiv.textContent = `${totalItems} film totali nella categoria`;
   }
 }
-// Filtri anno per categorie
+
 function applyYearFilter() {
   const minYearInput = document.getElementById("minYear");
   const maxYearInput = document.getElementById("maxYear");
   
   const minYear = minYearInput ? minYearInput.value : null;
   const maxYear = maxYearInput ? maxYearInput.value : null;
-  
-  // Validazione base
+
   if (minYear && (parseInt(minYear) < 1888 || parseInt(minYear) > new Date().getFullYear() + 5)) {
     alert("Inserisci un anno valido (1888 - " + (new Date().getFullYear() + 5) + ")");
     return;
@@ -203,12 +192,11 @@ function applyYearFilter() {
     alert("L'anno 'Da' non può essere maggiore dell'anno 'A'");
     return;
   }
-  
-  // Ricarica i contenuti con i nuovi filtri
+
   if (currentCategory) {
     loadCategoryContent(
       currentCategory, 
-      1, // Torna alla prima pagina
+      1, 
       minYear || null, 
       maxYear || null
     );

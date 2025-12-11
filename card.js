@@ -1,10 +1,9 @@
-// Funzione per creare una card
 function createCard(item, cookieNames = [], isRemovable = false) {
   const card = document.createElement("div");
   card.className = "card";
-  card.setAttribute("tabindex", "0"); // AGGIUNGI QUESTO
-  card.setAttribute("role", "button"); // AGGIUNGI QUESTO
-  card.setAttribute("aria-label", `${item.title || item.name || "Contenuto"} - Premi Invio o Spazio per aprire`); // AGGIUNGI QUESTO
+  card.setAttribute("tabindex", "0");
+  card.setAttribute("role", "button");
+  card.setAttribute("aria-label", `${item.title || item.name || "Contenuto"} - Premi Invio o Spazio per aprire`);
 
   const poster = item.poster_path
     ? `https://image.tmdb.org/t/p/w500${item.poster_path}`
@@ -42,8 +41,6 @@ function createCard(item, cookieNames = [], isRemovable = false) {
       console.error("Errore lettura storage in card:", e);
     }
   });
-
-  // Verifica se l'item è già nei preferiti
   const preferiti = getPreferiti();
   const itemId = `${mediaType}-${item.id}`;
   const isInPreferiti = preferiti.includes(itemId);
@@ -69,12 +66,10 @@ function createCard(item, cookieNames = [], isRemovable = false) {
     </div>
   `;
 
-  // Aggiungi classe se è nei preferiti
   if (isInPreferiti) {
     card.classList.add('in-preferiti');
   }
 
-  // Gestione click sul pulsante preferiti
   const favBtn = card.querySelector(".fav-btn");
   favBtn.addEventListener("click", (e) => {
     e.stopPropagation();
@@ -82,35 +77,26 @@ function createCard(item, cookieNames = [], isRemovable = false) {
     const itemId = `${mediaType}-${item.id}`;
     
     if (preferiti.includes(itemId)) {
-      // Rimuovi dai preferiti
       removePreferito(item);
       card.classList.remove('in-preferiti');
       favBtn.innerHTML = '🤍';
       favBtn.title = 'Aggiungi ai preferiti';
     } else {
-      // Aggiungi ai preferiti
       addPreferito(item);
       card.classList.add('in-preferiti');
       favBtn.innerHTML = '❤️';
       favBtn.title = 'Rimuovi dai preferiti';
     }
-    
-    // Aggiorna la sezione preferiti se è visibile
     if (document.getElementById("preferiti-section") && 
         document.getElementById("preferiti-section").style.display === "block") {
       loadPreferitiSection();
     }
-    
-    // Aggiorna la sezione preferiti nella home
     if (document.getElementById("preferiti")) {
       loadPreferiti();
     }
-    
-    // Aggiorna il contatore
     updatePreferitiCounter();
   });
 
-  // Gestione tasto Invio/Spazio sulla card
   card.addEventListener("keydown", (e) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
@@ -118,7 +104,6 @@ function createCard(item, cookieNames = [], isRemovable = false) {
     }
   });
 
-  // Gestione click sulla card
   card.addEventListener("click", () => {
     card.classList.add("clicked");
     setTimeout(() => {
@@ -126,7 +111,6 @@ function createCard(item, cookieNames = [], isRemovable = false) {
     }, 300);
   });
 
-  // Gestione rimozione
   if (isRemovable) {
     const removeBtn = card.querySelector(".remove-btn");
     removeBtn.addEventListener("click", (e) => {
@@ -150,7 +134,6 @@ function createCard(item, cookieNames = [], isRemovable = false) {
   return card;
 }
 
-// Funzione per scorrere i caroselli
 function scrollCarousel(carouselId, direction) {
   const carousel = document.getElementById(carouselId);
   if (!carousel) return;
@@ -162,35 +145,24 @@ function scrollCarousel(carouselId, direction) {
   });
 }
 
-// Event listener per le frecce
-// Event listener per le frecce
 document.querySelectorAll('.arrow').forEach(btn => {
   btn.addEventListener('click', () => {
     const targetId = btn.getAttribute('data-target');
     const carousel = document.getElementById(targetId);
-    
-    // DEBUG: Verifica che gli elementi esistano    
+     
     if (!carousel) {
-      console.error('❌ Carosello non trovato con ID:', targetId);
       return;
     }
 
-    // Se il carosello è vuoto o non c'è contenuto da scrollare
     if (carousel.children.length === 0) {
-      console.warn('⚠️ Carosello vuoto! Nessun elemento da scrollare.');
       return;
     }
-    
-    // Se non c'è spazio per scrollare
     if (carousel.scrollWidth <= carousel.clientWidth) {
-      console.warn('⚠️ Nessuno scroll necessario! scrollWidth <= clientWidth');
       return;
     }
     
     const direction = btn.classList.contains('left') ? -1 : 1;
     const scrollAmount = carousel.clientWidth * 0.8;
-     
-    // Verifica che lo scroll sia possibile
     if (direction === 1 && carousel.scrollLeft >= (carousel.scrollWidth - carousel.clientWidth - 10)) {
       // console.log('➡️ Già alla fine destra');
       return;

@@ -1,4 +1,3 @@
-// Funzioni per caricare tutti i film (GRIGLIA VERTICALE)
 async function loadAllMovies(page = 1, minYear = null, maxYear = null) {
   try {
     currentMovieMinYear = minYear;
@@ -25,8 +24,7 @@ async function loadAllMovies(page = 1, minYear = null, maxYear = null) {
       grid.innerHTML = "";
       updateMoviePageInfo();
     }
-    
-    // Filtra solo film disponibili
+
     const availableMovies = [];
     for (const movie of data.results.slice(0, 50)) {
       movie.media_type = "movie";
@@ -40,15 +38,12 @@ async function loadAllMovies(page = 1, minYear = null, maxYear = null) {
       if (availableMovies.length >= itemsPerPage) break;
     }
     
-    // Mostra la sezione
     document.getElementById("allMovies").style.display = "block";
     
-    // Aggiorna info paginazione
     updateMoviePaginationInfo(data.total_results);
     updateMoviePageInfo();
     updateMoviePaginationControls();
-    
-    // Se non ci sono risultati
+
     if (availableMovies.length === 0 && page === 1) {
       grid.innerHTML = `
         <div class="no-results" style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
@@ -65,7 +60,6 @@ async function loadAllMovies(page = 1, minYear = null, maxYear = null) {
   }
 }
 
-// Funzioni per caricare tutte le serie TV (GRIGLIA VERTICALE)
 async function loadAllTV(page = 1, minYear = null, maxYear = null) {
   try {
     currentTVMinYear = minYear;
@@ -92,8 +86,7 @@ async function loadAllTV(page = 1, minYear = null, maxYear = null) {
       grid.innerHTML = "";
       updateTVPageInfo();
     }
-    
-    // Filtra solo serie TV disponibili
+
     const availableTV = [];
     for (const tv of data.results.slice(0, 50)) {
       tv.media_type = "tv";
@@ -107,15 +100,12 @@ async function loadAllTV(page = 1, minYear = null, maxYear = null) {
       if (availableTV.length >= itemsPerPage) break;
     }
     
-    // Mostra la sezione
     document.getElementById("allTV").style.display = "block";
-    
-    // Aggiorna info paginazione
+
     updateTVPaginationInfo(data.total_results);
     updateTVPageInfo();
     updateTVPaginationControls();
     
-    // Se non ci sono risultati
     if (availableTV.length === 0 && page === 1) {
       grid.innerHTML = `
         <div class="no-results" style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
@@ -132,7 +122,6 @@ async function loadAllTV(page = 1, minYear = null, maxYear = null) {
   }
 }
 
-// Funzioni di paginazione per film
 function nextMoviePage() {
   if (currentMoviePage < totalMoviePages) {
     loadAllMovies(currentMoviePage + 1, currentMovieMinYear, currentMovieMaxYear);
@@ -164,7 +153,6 @@ function updateMoviePaginationControls() {
   }
 }
 
-// Funzioni di paginazione per serie TV
 function nextTVPage() {
   if (currentTVPage < totalTVPages) {
     loadAllTV(currentTVPage + 1, currentTVMinYear, currentTVMaxYear);
@@ -195,7 +183,7 @@ function updateTVPaginationControls() {
     nextBtn.disabled = currentTVPage >= totalTVPages;
   }
 }
-// Filtri anno per film
+
 function applyMovieYearFilter() {
   const minYearInput = document.getElementById("movieMinYear");
   const maxYearInput = document.getElementById("movieMaxYear");
@@ -203,7 +191,7 @@ function applyMovieYearFilter() {
   const minYear = minYearInput ? minYearInput.value : null;
   const maxYear = maxYearInput ? maxYearInput.value : null;
   
-  // Validazione base
+
   if (minYear && (parseInt(minYear) < 1888 || parseInt(minYear) > new Date().getFullYear() + 5)) {
     alert("Inserisci un anno valido (1888 - " + (new Date().getFullYear() + 5) + ")");
     return;
@@ -219,31 +207,26 @@ function applyMovieYearFilter() {
     return;
   }
   
-  // Ricarica dalla prima pagina con i nuovi filtri
   loadAllMovies(1, minYear || null, maxYear || null);
 }
 
 function clearMovieYearFilter() {
-  // Pulisci i campi input
   const minYearInput = document.getElementById("movieMinYear");
   const maxYearInput = document.getElementById("movieMaxYear");
   
   if (minYearInput) minYearInput.value = '';
   if (maxYearInput) maxYearInput.value = '';
   
-  // Ricarica senza filtri
   loadAllMovies(1, null, null);
 }
 
-// Filtri anno per serie TV
 function applyTVYearFilter() {
   const minYearInput = document.getElementById("tvMinYear");
   const maxYearInput = document.getElementById("tvMaxYear");
   
   const minYear = minYearInput ? minYearInput.value : null;
   const maxYear = maxYearInput ? maxYearInput.value : null;
-  
-  // Validazione base
+
   if (minYear && (parseInt(minYear) < 1888 || parseInt(minYear) > new Date().getFullYear() + 5)) {
     alert("Inserisci un anno valido (1888 - " + (new Date().getFullYear() + 5) + ")");
     return;
@@ -258,23 +241,20 @@ function applyTVYearFilter() {
     alert("L'anno 'Da' non può essere maggiore dell'anno 'A'");
     return;
   }
-  
-  // Ricarica dalla prima pagina con i nuovi filtri
+
   loadAllTV(1, minYear || null, maxYear || null);
 }
 
 function clearTVYearFilter() {
-  // Pulisci i campi input
   const minYearInput = document.getElementById("tvMinYear");
   const maxYearInput = document.getElementById("tvMaxYear");
   
   if (minYearInput) minYearInput.value = '';
   if (maxYearInput) maxYearInput.value = '';
   
-  // Ricarica senza filtri
   loadAllTV(1, null, null);
 }
-// Funzione per aggiornare le info di paginazione dei film
+
 function updateMoviePaginationInfo(totalItems) {
   const infoDiv = document.getElementById("movie-pagination-info");
   if (infoDiv) {
@@ -283,7 +263,6 @@ function updateMoviePaginationInfo(totalItems) {
   }
 }
 
-// Funzione per aggiornare le info di paginazione delle serie TV
 function updateTVPaginationInfo(totalItems) {
   const infoDiv = document.getElementById("tv-pagination-info");
   if (infoDiv) {

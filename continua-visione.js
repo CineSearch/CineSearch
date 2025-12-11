@@ -1,6 +1,4 @@
-// Gestione "Continua visione"
 function trackVideoProgress(tmdbId, mediaType, videoElement, season = null, episode = null) {
-  // Usa la stessa convenzione di nomi
   let storageKey = `videoTime_${mediaType}_${tmdbId}`;
   if (mediaType === "tv" && season !== null && episode !== null) {
     storageKey += `_S${season}_E${episode}`;
@@ -8,29 +6,23 @@ function trackVideoProgress(tmdbId, mediaType, videoElement, season = null, epis
 
   // console.log("🎬 trackVideoProgress chiamato per:", storageKey);
   
-  // Riprendi da dove eri rimasto
   const savedTime = getFromStorage(storageKey);
   if (savedTime && parseFloat(savedTime) > 60) {
     // console.log("⏪ Riprendo da:", savedTime, "secondi");
     videoElement.currentTime = parseFloat(savedTime);
   }
 
-  // Salva progresso ogni 5 secondi
   const saveInterval = setInterval(() => {
     if (!videoElement.paused && !videoElement.ended) {
       const currentTime = videoElement.currentTime;
-      // Salva solo se almeno 60 secondi di visione
       if (currentTime > 60) {
         saveToStorage(storageKey, currentTime, 365);
       }
     }
   }, 5000);
-
-  // Memorizza l'ID dell'intervallo per pulizia
   videoElement._saveIntervalId = saveInterval;
 }
 
-// Gestione "Continua visione"
 function checkContinuaVisione(items) {
   const carousel = document.getElementById("continua-carousel");
   if (!carousel) {
@@ -40,17 +32,14 @@ function checkContinuaVisione(items) {
   
   // console.log(`🎯 Creando card per ${items.length} contenuti...`);
   
-  // Pulisci e ricrea
   carousel.innerHTML = "";
   shownContinuaIds.clear();
   
   items.forEach((item) => {
-    // Trova tutte le chiavi per questo item
     const mediaType = item.media_type || (item.title ? "movie" : "tv");
     const baseKey = `videoTime_${mediaType}_${item.id}`;
     const storageKeys = [];
     
-    // Cerca tutte le varianti
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       if (key && key.startsWith(baseKey)) {
@@ -77,12 +66,10 @@ function checkContinuaVisione(items) {
 async function loadContinuaDaStorage() {
   // console.log("🔄 loadContinuaDaStorage chiamato");
   
-  cleanupExpiredStorage(); // Pulisci elementi scaduti
+  cleanupExpiredStorage();
   
   const items = [];
   const ids = new Set();
-  
-  // Scansiona tutto il localStorage
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
     
@@ -90,29 +77,24 @@ async function loadContinuaDaStorage() {
       try {
         const data = JSON.parse(localStorage.getItem(key));
         const now = new Date().getTime();
-        
-        // Salta se scaduto
         if (data.expires && data.expires < now) {
           continue;
         }
         
         const value = parseFloat(data.value);
         
-        if (value > 60) { // Almeno 60 secondi
+        if (value > 60) {
           // console.log(`✅ Trovato: ${key} = ${value}s`);
-          
-          // Estrai info dalla chiave
+
           const match = key.match(/videoTime_(movie|tv)_(\d+)/);
           if (match) {
             const [, mediaType, tmdbId] = match;
             const idKey = `${mediaType}-${tmdbId}`;
-            
-            // Evita duplicati
+
             if (!ids.has(idKey)) {
               ids.add(idKey);
               
               try {
-                // Recupera info TMDB
                 const res = await fetch(`https://api.themoviedb.org/3/${mediaType}/${tmdbId}?api_key=${API_KEY}&language=it-IT`);
                 
                 if (!res.ok) {
@@ -121,8 +103,6 @@ async function loadContinuaDaStorage() {
                 }
                 
                 const itemData = await res.json();
-                
-                // Verifica che l'oggetto sia valido
                 if (itemData && itemData.id) {
                   itemData.media_type = mediaType;
                   itemData.id = parseInt(tmdbId);
@@ -148,7 +128,6 @@ async function loadContinuaDaStorage() {
     checkContinuaVisione(items);
   } else {
     // console.log("📭 Nessun contenuto per 'Continua visione'");
-    // Forza la visualizzazione della sezione per debug
     const section = document.getElementById("continua-visione");
     if (section) {
       section.style.display = "block";

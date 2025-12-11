@@ -1,4 +1,3 @@
-// Funzioni API per TMDB
 async function fetchList(type) {
   const res = await fetch(
     `https://api.themoviedb.org/3/${endpoints[type]}?api_key=${API_KEY}&language=it-IT`
@@ -9,7 +8,6 @@ async function fetchList(type) {
 
 async function fetchTVSeasons(tvId) {
   if (tvId === 87623) {
-    // Hercai: override stagioni personalizzate
     return [
       { season_number: 1, name: "Stagione 1" },
       { season_number: 2, name: "Stagione 2" },
@@ -47,7 +45,6 @@ async function fetchEpisodes(tvId, seasonNum) {
   return j.episodes || [];
 }
 
-// Verifica disponibilità su Vixsrc
 async function checkAvailabilityOnVixsrc(tmdbId, isMovie, season = null, episode = null) {
   return new Promise((resolve) => {
     const timeout = setTimeout(() => {
@@ -84,7 +81,6 @@ async function checkAvailabilityOnVixsrc(tmdbId, isMovie, season = null, episode
         
         // console.log("📡 Risposta per", vixsrcUrl, ":", response.status, response.statusText);
         
-        // Se la risposta è 404, non è disponibile
         if (response.status === 404) {
           // console.log("❌ 404 - Non disponibile:", vixsrcUrl);
           clearTimeout(timeout);
@@ -93,8 +89,6 @@ async function checkAvailabilityOnVixsrc(tmdbId, isMovie, season = null, episode
         }
         
         const html = await response.text();
-        
-        // Verifica rapida
         const hasPlaylist = /window\.masterPlaylist/.test(html);
         const notFound = /not found|not available|no sources found|error 404/i.test(html);
         
@@ -110,10 +104,8 @@ async function checkAvailabilityOnVixsrc(tmdbId, isMovie, season = null, episode
   });
 }
 
-// Funzione per verificare disponibilità di una serie TV (controlla almeno un episodio)
 async function checkTvSeriesAvailability(tmdbId) {
   try {
-    // Prova direttamente con il primo episodio della prima stagione
     const firstEpisodeUrl = `https://${VIXSRC_URL}/tv/${tmdbId}/1/1`;
     const response = await fetch(applyCorsProxy(firstEpisodeUrl));
     
@@ -134,7 +126,6 @@ async function checkTvSeriesAvailability(tmdbId) {
   }
 }
 
-// Modifica le funzioni di caricamento per filtrare i disponibili
 async function fetchAndFilterAvailable(type, page = 1) {
   try {
     const res = await fetch(
@@ -143,8 +134,6 @@ async function fetchAndFilterAvailable(type, page = 1) {
     const data = await res.json();
     
     const availableItems = [];
-    
-    // Verifica disponibilità per ogni item
     for (const item of data.results) {
       const mediaType = item.media_type || (item.title ? "movie" : "tv");
       const isAvailable = mediaType === "movie" 
@@ -155,8 +144,6 @@ async function fetchAndFilterAvailable(type, page = 1) {
         item.media_type = mediaType;
         availableItems.push(item);
       }
-      
-      // Limita il numero di controlli per performance
       if (availableItems.length >= 10) break;
     }
     

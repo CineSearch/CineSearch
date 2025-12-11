@@ -1,4 +1,3 @@
-// Funzione per eseguire la ricerca
 async function performSearch(query) {
   const res = await fetch(
     `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&language=it-IT&query=${encodeURIComponent(query)}`
@@ -28,7 +27,6 @@ async function performSearch(query) {
   
   let availableCount = 0;
   
-  // Filtra solo quelli disponibili
   for (const item of filteredResults) {
     const mediaType = item.media_type || (item.title ? "movie" : "tv");
     let isAvailable = false;
@@ -36,7 +34,6 @@ async function performSearch(query) {
     if (mediaType === "movie") {
       isAvailable = await checkAvailabilityOnVixsrc(item.id, true);
     } else if (mediaType === "tv") {
-      // Per le serie TV, prova con il primo episodio
       isAvailable = await checkAvailabilityOnVixsrc(item.id, false, 1, 1);
     }
     
@@ -45,16 +42,13 @@ async function performSearch(query) {
       carousel.appendChild(createCard(item));
       availableCount++;
     }
-    
-    // Aggiorna l'indicatore
+
     checkingDiv.innerHTML = `
       <div class="loading-small"></div>
       <span class="checking">Verificati ${availableCount}/${filteredResults.length}</span>
     `;
   }
-  
-  // Finalizza l'indicatore
-  checkingDiv.innerHTML = `
+    checkingDiv.innerHTML = `
     <span class="available-count">✓ Disponibili: ${availableCount} risultati</span>
   `;
   
@@ -71,7 +65,6 @@ async function performSearch(query) {
   resultsDiv.style.display = "block";
 }
 
-// Funzione per scorrere i risultati
 function scrollRisultati(direction) {
   const container = document.getElementById("searchCarousel");
   if (!container) return;
