@@ -493,6 +493,29 @@ function goBackToHome() {
   window.scrollTo(0, 0);
 }
 
+function handleRemoteNavigation(event) {
+  // Gestione specifica per telecomandi TV
+  switch(event.key) {
+    case 'Enter':
+    case ' ':
+      const focusedElement = document.activeElement;
+      if (focusedElement && focusedElement.classList.contains('card')) {
+        event.preventDefault();
+        focusedElement.click();
+      }
+      break;
+      
+    case 'Backspace':
+    case 'Escape':
+      if (document.getElementById("player").style.display === "block") {
+        event.preventDefault();
+        goBack();
+      }
+      break;
+  }
+}
+
+
 // Caricamento iniziale
 window.addEventListener("DOMContentLoaded", async () => {
   // console.log("🚀 Pagina caricata");
@@ -525,7 +548,15 @@ window.addEventListener("DOMContentLoaded", async () => {
   } else {
     window.addEventListener("load", setupVideoJsXhrHook);
   }
-
+  document.addEventListener('keydown', handleRemoteNavigation);
+  
+  // Imposta focus iniziale
+  setTimeout(() => {
+    const firstCard = document.querySelector('.card');
+    if (firstCard) {
+      firstCard.focus();
+    }
+  }, 1000);
   // Carica altre sezioni...
   for (const [key, endpoint] of Object.entries(endpoints)) {
     try {

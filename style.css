@@ -1609,3 +1609,68 @@ footer {
 .vertical-grid-container {
   display: block;
 }
+
+/* Aggiungi alla fine di style.css */
+
+/* Stili per la navigazione TV/telecomando */
+.card:focus {
+  outline: 3px solid #2a09e5;
+  outline-offset: 3px;
+  transform: scale(1.05);
+  z-index: 20;
+  box-shadow: 0 0 20px rgba(42, 9, 229, 0.7);
+}
+
+.card:focus .card-title-overlay {
+  background: linear-gradient(to top, rgba(42, 9, 229, 0.8), transparent);
+}
+
+/* Migliora la visibilità dei pulsanti quando la card è in focus */
+.card:focus .card-buttons button {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #000;
+}
+
+/* Migliora l'interazione per TV/telecomandi */
+.vix-arrow:focus,
+.nav-btn:focus,
+.back-btn:focus,
+.carousel-btn:focus,
+.page-btn:focus,
+#search:focus,
+#cors-select:focus {
+  outline: 3px solid #2a09e5;
+  outline-offset: 2px;
+  box-shadow: 0 0 15px rgba(42, 9, 229, 0.5);
+}
+
+/* Migliora il focus per gli episodi */
+.episode-item:focus {
+  outline: 3px solid #2a09e5;
+  outline-offset: 2px;
+  background: rgba(229, 9, 20, 0.3);
+}
+
+/* Stile per la navigazione con tab */
+.category-card {
+  position: relative;
+}
+
+.category-card:focus {
+  outline: 3px solid #2a09e5;
+  outline-offset: 3px;
+  transform: translateY(-5px) scale(1.05);
+  z-index: 10;
+}
+
+/* Scroll smooth per TV */
+.carousel-container {
+  scroll-behavior: smooth;
+}
+
+/* Migliora la visibilità dei pulsanti nei caroselli */
+.arrow:focus {
+  background: #2a09e5;
+  color: white;
+  transform: scale(1.1);
+}

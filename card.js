@@ -2,6 +2,9 @@
 function createCard(item, cookieNames = [], isRemovable = false) {
   const card = document.createElement("div");
   card.className = "card";
+  card.setAttribute("tabindex", "0"); // AGGIUNGI QUESTO
+  card.setAttribute("role", "button"); // AGGIUNGI QUESTO
+  card.setAttribute("aria-label", `${item.title || item.name || "Contenuto"} - Premi Invio o Spazio per aprire`); // AGGIUNGI QUESTO
 
   const poster = item.poster_path
     ? `https://image.tmdb.org/t/p/w500${item.poster_path}`
@@ -19,26 +22,26 @@ function createCard(item, cookieNames = [], isRemovable = false) {
       ? rawTitle.replace(/(.{21})/, "$1\n")
       : rawTitle;
 
-let badge = "";
-cookieNames.forEach((storageKey) => {
-  try {
-    const item = localStorage.getItem(storageKey);
-    if (item) {
-      const data = JSON.parse(item);
-      const savedTime = parseFloat(data.value);
-      if (savedTime > 60) {
-        const match = storageKey.match(/_S(\d+)_E(\d+)/);
-        if (match) {
-          badge = `<div class="resume-badge">📺 S${match[1]} • E${match[2]}<br>⏪ ${formatTime(savedTime)}</div>`;
-        } else {
-          badge = `<div class="resume-badge">⏪ ${formatTime(savedTime)}</div>`;
+  let badge = "";
+  cookieNames.forEach((storageKey) => {
+    try {
+      const item = localStorage.getItem(storageKey);
+      if (item) {
+        const data = JSON.parse(item);
+        const savedTime = parseFloat(data.value);
+        if (savedTime > 60) {
+          const match = storageKey.match(/_S(\d+)_E(\d+)/);
+          if (match) {
+            badge = `<div class="resume-badge">📺 S${match[1]} • E${match[2]}<br>⏪ ${formatTime(savedTime)}</div>`;
+          } else {
+            badge = `<div class="resume-badge">⏪ ${formatTime(savedTime)}</div>`;
+          }
         }
       }
+    } catch (e) {
+      console.error("Errore lettura storage in card:", e);
     }
-  } catch (e) {
-    console.error("Errore lettura storage in card:", e);
-  }
-});
+  });
 
   // Verifica se l'item è già nei preferiti
   const preferiti = getPreferiti();
@@ -58,8 +61,8 @@ cookieNames.forEach((storageKey) => {
         <div>${tipo}</div>
       </div>
       <div class="card-buttons">
-        ${isRemovable ? `<button class="remove-btn" title="Rimuovi">❌</button>` : ""}
-        <button class="fav-btn" title="${isInPreferiti ? 'Rimuovi dai preferiti' : 'Aggiungi ai preferiti'}">
+        ${isRemovable ? `<button class="remove-btn" title="Rimuovi" tabindex="-1">❌</button>` : ""}
+        <button class="fav-btn" title="${isInPreferiti ? 'Rimuovi dai preferiti' : 'Aggiungi ai preferiti'}" tabindex="-1">
           ${isInPreferiti ? '❤️' : '🤍'}
         </button>
       </div>
@@ -72,11 +75,11 @@ cookieNames.forEach((storageKey) => {
   }
 
   // Gestione click sul pulsante preferiti
-  card.querySelector(".fav-btn").addEventListener("click", (e) => {
+  const favBtn = card.querySelector(".fav-btn");
+  favBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     const preferiti = getPreferiti();
     const itemId = `${mediaType}-${item.id}`;
-    const favBtn = card.querySelector('.fav-btn');
     
     if (preferiti.includes(itemId)) {
       // Rimuovi dai preferiti
@@ -107,33 +110,42 @@ cookieNames.forEach((storageKey) => {
     updatePreferitiCounter();
   });
 
-if (isRemovable) {
-  const removeBtn = card.querySelector(".remove-btn");
-  removeBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const confirmDelete = confirm(`Vuoi rimuovere "${rawTitle}" dalla visione?`);
-    if (confirmDelete) {
-      cookieNames.forEach((storageKey) => {
-        localStorage.removeItem(storageKey);
-        // console.log(`🗑️ Rimosso: ${storageKey}`);
-      });
-      card.remove();
-      shownContinuaIds.delete(item.id);
-
-      const container = document.getElementById("continua-carousel");
-      if (container.children.length === 0) {
-        document.getElementById("continua-visione").style.display = "none";
-      }
+  // Gestione tasto Invio/Spazio sulla card
+  card.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      card.click();
     }
   });
-}
 
+  // Gestione click sulla card
   card.addEventListener("click", () => {
     card.classList.add("clicked");
     setTimeout(() => {
       openPlayer(item);
     }, 300);
   });
+
+  // Gestione rimozione
+  if (isRemovable) {
+    const removeBtn = card.querySelector(".remove-btn");
+    removeBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const confirmDelete = confirm(`Vuoi rimuovere "${rawTitle}" dalla visione?`);
+      if (confirmDelete) {
+        cookieNames.forEach((storageKey) => {
+          localStorage.removeItem(storageKey);
+        });
+        card.remove();
+        shownContinuaIds.delete(item.id);
+
+        const container = document.getElementById("continua-carousel");
+        if (container.children.length === 0) {
+          document.getElementById("continua-visione").style.display = "none";
+        }
+      }
+    });
+  }
 
   return card;
 }
