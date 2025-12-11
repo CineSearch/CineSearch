@@ -450,19 +450,22 @@ document.getElementById("cors-select").addEventListener("change", (e) => {
   }, 2000);
 });
 
-let searchTimeout;
-document.getElementById("search").addEventListener("input", (e) => {
-  clearTimeout(searchTimeout);
-  const query = e.target.value.trim();
-
-  if (query.length < 2) {
-    document.getElementById("results").style.display = "none";
-    document.getElementById("home").style.display = "block";
-    return;
+document.getElementById("search").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    const query = e.target.value.trim();
+    
+    if (query.length < 2) {
+      alert("Inserisci almeno 2 caratteri per la ricerca");
+      return;
+    }
+    
+    performSearch(query);
   }
-
-  searchTimeout = setTimeout(() => performSearch(query), 500);
 });
+
+// Opzionale: se vuoi supportare anche il click su un'icona di ricerca
+
 
 function debugCookies() {
   // console.log("🔍 DEBUG - Tutti i cookie:");

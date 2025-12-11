@@ -314,7 +314,7 @@ section h2::before {
 
 #results {
   display: none;
-  padding: 2rem 4%;
+  padding: 2rem 0;
 }
 
 #player {
@@ -1109,7 +1109,7 @@ section h2::before {
 .categories-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
+  gap: 1.5rem;
   padding: 0 4%;
   margin-top: 2rem;
 }
@@ -1545,10 +1545,10 @@ footer {
 }
 .vertical-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 20px;
-  padding: 0 4%;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
+  padding: 20px 4%;
+  margin: 1rem 0;
 }
 
 .grid-header {
@@ -1562,6 +1562,8 @@ footer {
 
 .grid-header h2 {
   margin: 0;
+  font-size: 2rem;
+  color: #fff;
 }
 
 .grid-controls {
@@ -1577,25 +1579,28 @@ footer {
   margin: 2rem auto;
   justify-content: center;
   background: rgba(255, 255, 255, 0.05);
-  padding: 1rem;
+  padding: 1rem 2rem;
   border-radius: 10px;
   max-width: 400px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .page-btn {
   background: #2a09e5;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s ease;
+  font-size: 0.95rem;
 }
 
 .page-btn:hover:not(:disabled) {
   background: #1a0566;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(42, 9, 229, 0.3);
 }
 
 .page-btn:disabled {
@@ -1609,6 +1614,7 @@ footer {
   font-weight: bold;
   min-width: 120px;
   text-align: center;
+  font-size: 0.95rem;
 }
 
 #allMovies .carousel-wrapper,
@@ -1685,4 +1691,84 @@ footer {
   background: #2a09e5;
   color: white;
   transform: scale(1.1);
+}
+
+/* Migliora lo spazio tra le card nei caroselli */
+.carousel {
+  gap: 15px;
+  padding: 10px 60px;
+}
+
+/* Stili per le card nella griglia */
+.vertical-grid .card {
+  width: 100%;
+  min-width: 200px;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.vertical-grid .card:hover {
+  border-color: #2a09e5;
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-5px) scale(1.02);
+}
+
+.vertical-grid .card img {
+  height: 280px;
+  border-radius: 8px 8px 0 0;
+}
+
+.vertical-grid .card-content {
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0 0 8px 8px;
+}
+
+.vertical-grid .card-meta {
+  font-size: 0.85rem;
+  color: #ddd;
+  margin-bottom: 8px;
+}
+
+.vertical-grid .card-buttons {
+  margin-top: 8px;
+  justify-content: space-around;
+}
+
+/* Responsive per la griglia verticale */
+@media (max-width: 768px) {
+  .vertical-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 15px 4%;
+  }
+  
+  .vertical-grid .card img {
+    height: 220px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .vertical-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+  }
+  
+  .vertical-grid .card img {
+    height: 300px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .vertical-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 35px;
+    padding: 25px 6%;
+  }
+  
+  .vertical-grid .card img {
+    height: 320px;
+  }
 }

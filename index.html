@@ -137,7 +137,20 @@
         </section>
       </div>
 
-      <div id="results"></div>
+      <!-- RISULTATI RICERCA - Modificato per usare griglia verticale -->
+      <section id="results" style="display: none;">
+        <div class="grid-header">
+          <button class="back-to-home" onclick="goBackToHome()" style="background: #2a09e5; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer;">
+            ← Torna alla Home
+          </button>
+          <h2 id="results-title">Risultati ricerca</h2>
+        </div>
+        <div class="availability-check" id="search-checking" style="margin: 0 4% 1rem;"></div>
+        <div class="vertical-grid" id="search-grid"></div>
+        <div class="no-results" id="search-no-results" style="display: none; grid-column: 1 / -1; text-align: center; padding: 3rem; margin: 0 4%;">
+          Nessun risultato disponibile trovato
+        </div>
+      </section>
 
       <div id="player">
         <div class="player-header">

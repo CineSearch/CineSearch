@@ -4,22 +4,30 @@ async function performSearch(query) {
   );
   const data = await res.json();
   
+  // Nascondi tutte le sezioni e mostra solo results
+  hideAllSections();
+  
   const resultsDiv = document.getElementById("results");
   resultsDiv.innerHTML = `
-    <h2>Risultati della ricerca</h2>
+    <div class="grid-header">
+      <button class="back-to-home" onclick="goBackToHome()" style="background: #2a09e5; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer;">
+        ← Torna alla Home
+      </button>
+      <h2>Risultati per: "${query}"</h2>
+    </div>
     <div class="availability-check" id="search-checking">
       <div class="loading-small"></div>
       <span class="checking">Verifica disponibilità...</span>
     </div>
-    <div class="vix-carousel">
-      <button class="vix-arrow sinistra" onclick="scrollRisultati(-1)">&#10094;</button>
-      <div class="carousel" id="searchCarousel"></div>
-      <button class="vix-arrow destra" onclick="scrollRisultati(1)">&#10095;</button>
+    <div class="vertical-grid" id="search-grid"></div>
+    <div class="no-results" id="search-no-results" style="display: none; grid-column: 1 / -1; text-align: center; padding: 3rem;">
+      Nessun risultato disponibile trovato
     </div>
   `;
   
-  const carousel = resultsDiv.querySelector(".carousel");
+  const grid = document.getElementById("search-grid");
   const checkingDiv = document.getElementById("search-checking");
+  const noResultsDiv = document.getElementById("search-no-results");
   
   const filteredResults = data.results.filter(
     (item) => item.media_type !== "person" && item.poster_path
@@ -39,7 +47,7 @@ async function performSearch(query) {
     
     if (isAvailable) {
       item.media_type = mediaType;
-      carousel.appendChild(createCard(item));
+      grid.appendChild(createCard(item));
       availableCount++;
     }
 
@@ -48,30 +56,31 @@ async function performSearch(query) {
       <span class="checking">Verificati ${availableCount}/${filteredResults.length}</span>
     `;
   }
-    checkingDiv.innerHTML = `
-    <span class="available-count">✓ Disponibili: ${availableCount} risultati</span>
+  
+  // Aggiorna il contatore finale
+  checkingDiv.innerHTML = `
+    <span class="available-count">✓ Trovati ${availableCount} risultati disponibili su Vixsrc</span>
   `;
   
+  // Mostra/nascondi il messaggio "nessun risultato"
   if (availableCount === 0) {
-    checkingDiv.innerHTML = `
-      <span style="color: #e50914;">❌ Nessun risultato disponibile su Vixsrc</span>
-    `;
+    noResultsDiv.style.display = "block";
+    grid.style.display = "none";
+  } else {
+    noResultsDiv.style.display = "none";
+    grid.style.display = "grid";
   }
   
-  checkContinuaVisione(data.results);
+  // Aggiungi i risultati alla sezione "Continua visione"
+  checkContinuaVisione(filteredResults);
   
-  document.getElementById("home").style.display = "none";
-  document.getElementById("player").style.display = "none";
+  // Mostra la sezione risultati
   resultsDiv.style.display = "block";
+  window.scrollTo(0, 0);
 }
 
+// Rimuovi la funzione scrollRisultati poiché non serve più con la griglia
 function scrollRisultati(direction) {
-  const container = document.getElementById("searchCarousel");
-  if (!container) return;
-
-  const scrollAmount = 300 * direction;
-  container.scrollBy({
-    left: scrollAmount,
-    behavior: "smooth"
-  });
+  // Funzione rimossa - non più necessaria con la griglia verticale
+  console.warn("La funzione scrollRisultati è obsoleta. Usa la navigazione tramite griglia.");
 }
