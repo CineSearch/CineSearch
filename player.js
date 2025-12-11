@@ -3,6 +3,8 @@ let currentItem = null;
 let currentSeasons = [];
 
 async function openPlayer(item) {
+  console.log('🎬 player.js - openPlayer chiamato per:', item);
+  
   currentItem = item;
 
   document.getElementById("home").style.display = "none";
@@ -10,6 +12,7 @@ async function openPlayer(item) {
   document.getElementById("player").style.display = "block";
 
   if (player) {
+    console.log('🎬 player.js - Pulizia player esistente');
     player.dispose();
     player = null;
     const oldVideo = document.getElementById("player-video");
@@ -40,9 +43,11 @@ async function openPlayer(item) {
     item.overview || "...";
 
   if (mediaType === "tv") {
+    console.log('🎬 player.js - Serie TV, carico stagioni');
     document.getElementById("episode-warning").style.display = "flex";
     await loadTVSeasons(item.id);
   } else {
+    console.log('🎬 player.js - Film, carico direttamente');
     document.getElementById("episode-warning").style.display = "none";
     document.getElementById("episode-selector").style.display = "none";
     await loadVideo(true, item.id);
@@ -52,6 +57,7 @@ async function openPlayer(item) {
 }
 
 async function loadTVSeasons(tvId) {
+  console.log('🎬 player.js - loadTVSeasons per ID:', tvId);
   const seasons = await fetchTVSeasons(tvId);
   currentSeasons = seasons.filter((s) => s.season_number > 0);
 
@@ -76,6 +82,7 @@ async function loadTVSeasons(tvId) {
 
 
 async function loadEpisodes(tvId, seasonNum) {
+  console.log('🎬 player.js - loadEpisodes S:', seasonNum, 'per TV ID:', tvId);
   const episodes = await fetchEpisodes(tvId, seasonNum);
   const container = document.getElementById("episodes-list");
   container.innerHTML = "";
@@ -100,15 +107,26 @@ async function loadEpisodes(tvId, seasonNum) {
 }
 
 async function loadVideo(isMovie, id, season = null, episode = null) {
+  console.log('🎬 player.js - loadVideo chiamato:', {
+    isMovie,
+    id,
+    season,
+    episode
+  });
+  
   showLoading(true);
 
   try {
+    console.log('🎬 player.js - Setup video.js xhr hook');
     setupVideoJsXhrHook();
+    
     if (player) {
+      console.log('🎬 player.js - Pulizia player esistente');
       player.dispose();
       player = null;
     }
 
+    console.log('🎬 player.js - Ottenimento stream...');
     const streamData = await getDirectStream(
       id,
       isMovie,
@@ -116,14 +134,18 @@ async function loadVideo(isMovie, id, season = null, episode = null) {
       episode
     );
 
+    console.log('🎬 player.js - Stream data ottenuto:', streamData);
+
     if (!streamData || !streamData.m3u8Url) {
       throw new Error("Impossibile ottenere l'URL dello stream");
     }
 
     const proxiedM3u8Url = applyCorsProxy(streamData.m3u8Url);
+    console.log('🎬 player.js - M3U8 URL con proxy:', proxiedM3u8Url);
 
     let videoElement = document.getElementById("player-video");
     if (!videoElement) {
+      console.log('🎬 player.js - Creazione nuovo elemento video');
       const videoContainer = document.querySelector(".video-container");
       videoElement = document.createElement("video");
       videoElement.id = "player-video";
@@ -137,6 +159,7 @@ async function loadVideo(isMovie, id, season = null, episode = null) {
       videoContainer.insertBefore(videoElement, loadingOverlay);
     }
 
+    console.log('🎬 player.js - Inizializzazione video.js');
     player = videojs("player-video", {
       controls: true,
       fluid: true,
@@ -146,16 +169,27 @@ async function loadVideo(isMovie, id, season = null, episode = null) {
         vhs: {
           overrideNative: true,
           bandwidth: 1000000,
+          // AGGIUNGI QUESTA OPZIONE
+          limitRenditionByPlayerDimensions: false
         },
       },
+      // IMPOSTAZIONI MIGLIORATE PER LA TIMELINE
+      userActions: {
+        hotkeys: true,
+        click: true,
+        doubleClick: true
+      },
       controlBar: {
+        volumePanel: {
+          inline: false
+        },
         children: [
           "playToggle",
           "volumePanel",
           "currentTimeDisplay",
           "timeDivider",
           "durationDisplay",
-          "progressControl",
+          "progressControl", // ASSICURATI CHE SIA PRESENTE
           "remainingTimeDisplay",
           "playbackRateMenuButton",
           "chaptersButton",
@@ -168,14 +202,17 @@ async function loadVideo(isMovie, id, season = null, episode = null) {
       },
     });
 
+    console.log('🎬 player.js - Impostazione sorgente video');
     player.src({
       src: proxiedM3u8Url,
       type: "application/x-mpegURL",
     });
 
+    console.log('🎬 player.js - Aggiunta quality selector');
     player.hlsQualitySelector();
 
     player.ready(function () {
+      console.log('🎬 player.js - Video.js ready');
       setupKeyboardShortcuts();
       showLoading(false);
       
@@ -187,24 +224,56 @@ async function loadVideo(isMovie, id, season = null, episode = null) {
         episode
       );
 
+      // FIX FINALE PER TIMELINE - Forza il ridisegno
+      setTimeout(() => {
+        const progressControl = player.controlBar.getChild('progressControl');
+        if (progressControl) {
+          console.log('🎬 player.js - Aggiornamento progress control');
+          // Forza il ridisegno della timeline
+          progressControl.el().style.display = 'none';
+          progressControl.el().offsetHeight; // Trigger reflow
+          progressControl.el().style.display = '';
+        }
+      }, 100);
+
+      console.log('🎬 player.js - Tentativo di avvio riproduzione');
       player.play().catch((e) => {
-        // console.log("Auto-play prevented:", e);
+        console.log('🎬 player.js - Auto-play prevented:', e);
       });
     });
 
+    // AGGIUNGI QUESTO LISTENER PER IL MOUSE MOVE
+    player.on('mousemove', function() {
+      const mouseDisplay = player.controlBar.progressControl.mouseDisplay;
+      if (mouseDisplay) {
+        mouseDisplay.el().style.zIndex = '1000';
+      }
+    });
+
     player.on("error", function () {
+      console.error('🎬 player.js - Errore video.js:', player.error());
       showError("Errore durante il caricamento del video");
     });
 
-    player.on("loadeddata", function () {
-      // console.log("✅ Video data loaded");
+    // Aggiungi listener per debug
+    player.on('loadedmetadata', function() {
+      console.log('🎬 player.js - Metadata loaded, duration:', player.duration());
     });
+    
   } catch (err) {
+    console.error('🎬 player.js - Errore in loadVideo:', err);
     showError("Impossibile caricare il video. Riprova più tardi.");
   }
 }
 
 async function getDirectStream(tmdbId, isMovie, season = null, episode = null) {
+  console.log('🎬 player.js - getDirectStream chiamato:', {
+    tmdbId,
+    isMovie,
+    season,
+    episode
+  });
+  
   try {
     showLoading(true, "Connessione al server...");
 
@@ -212,16 +281,26 @@ async function getDirectStream(tmdbId, isMovie, season = null, episode = null) {
     if (!isMovie && season !== null && episode !== null) {
       vixsrcUrl += `/${season}/${episode}`;
     }
+    
+    console.log('🎬 player.js - vixsrc URL:', vixsrcUrl);
 
     showLoading(true, "Recupero pagina vixsrc...");
-    const response = await fetch(applyCorsProxy(vixsrcUrl));
+    const proxiedUrl = applyCorsProxy(vixsrcUrl);
+    console.log('🎬 player.js - vixsrc URL con proxy:', proxiedUrl);
+    
+    const response = await fetch(proxiedUrl);
+    console.log('🎬 player.js - Risposta vixsrc status:', response.status);
+    
     const html = await response.text();
+    console.log('🎬 player.js - HTML ricevuto, lunghezza:', html.length);
 
     showLoading(true, "Estrazione parametri stream...");
 
     const playlistParamsRegex =
       /window\.masterPlaylist[^:]+params:[^{]+({[^<]+?})/;
     const playlistParamsMatch = html.match(playlistParamsRegex);
+
+    console.log('🎬 player.js - Playlist params match:', playlistParamsMatch);
 
     if (!playlistParamsMatch) {
       throw new Error("Impossibile trovare i parametri della playlist");
@@ -234,9 +313,12 @@ async function getDirectStream(tmdbId, isMovie, season = null, episode = null) {
       .replace(/\\n/g, "")
       .replace(",}", "}");
 
+    console.log('🎬 player.js - Playlist params string:', playlistParamsStr);
+
     let playlistParams;
     try {
       playlistParams = JSON.parse(playlistParamsStr);
+      console.log('🎬 player.js - Playlist params parsed:', playlistParams);
     } catch (e) {
       throw new Error("Errore nel parsing dei parametri: " + e.message);
     }
@@ -245,15 +327,20 @@ async function getDirectStream(tmdbId, isMovie, season = null, episode = null) {
       /window\.masterPlaylist\s*=\s*\{[\s\S]*?url:\s*'([^']+)'/;
     const playlistUrlMatch = html.match(playlistUrlRegex);
 
+    console.log('🎬 player.js - Playlist URL match:', playlistUrlMatch);
+
     if (!playlistUrlMatch) {
       throw new Error("Impossibile trovare l'URL della playlist");
     }
 
     const playlistUrl = playlistUrlMatch[1];
+    console.log('🎬 player.js - Playlist URL:', playlistUrl);
 
     const canPlayFHDRegex = /window\.canPlayFHD\s+?=\s+?(\w+)/;
     const canPlayFHDMatch = html.match(canPlayFHDRegex);
     const canPlayFHD = canPlayFHDMatch && canPlayFHDMatch[1] === "true";
+    
+    console.log('🎬 player.js - Can play FHD:', canPlayFHD);
 
     const hasQuery = /\?[^#]+/.test(playlistUrl);
     const separator = hasQuery ? "&" : "?";
@@ -267,6 +354,8 @@ async function getDirectStream(tmdbId, isMovie, season = null, episode = null) {
       playlistParams.token +
       (canPlayFHD ? "&h=1" : "");
 
+    console.log('🎬 player.js - M3U8 URL finale:', m3u8Url);
+
     baseStreamUrl = extractBaseUrl(m3u8Url);
 
     showLoading(false);
@@ -275,10 +364,42 @@ async function getDirectStream(tmdbId, isMovie, season = null, episode = null) {
       m3u8Url: m3u8Url,
     };
   } catch (error) {
+    console.error('🎬 player.js - Errore in getDirectStream:', error);
     showLoading(false);
     showError("Errore durante l'estrazione dello stream", error.message);
     return null;
   }
+}
+
+function goBack() {
+  console.log("🎬 player.js - goBack chiamato");
+  
+  if (player) {
+    player.dispose();
+    player = null;
+  }
+  
+  const videoElement = document.getElementById("player-video");
+  if (videoElement) {
+    videoElement.remove();
+  }
+
+  currentItem = null;
+  currentSeasons = [];
+
+  document.getElementById("player").style.display = "none";
+  document.getElementById("home").style.display = "block";
+  
+  removeVideoJsXhrHook();
+
+  setTimeout(async () => {
+    await loadContinuaDaStorage();
+    const carousel = document.getElementById("continua-carousel");
+    if (carousel && carousel.children.length === 0) {
+      document.getElementById("continua-visione").style.display = "none";
+    }
+  }, 300);
+  window.scrollTo(0, 0);
 }
 
 function goBack() {

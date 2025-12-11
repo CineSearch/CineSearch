@@ -128,7 +128,6 @@ async function loadCategoryContent(category, page = 1, minYear = null, maxYear =
     
     checkContinuaVisione(availableMovies);
     resultsSection.style.display = "block";
-    window.scrollTo(0, 0);
     
   } catch (error) {
     console.error(`Errore nel caricamento della categoria ${category.name}:`, error);

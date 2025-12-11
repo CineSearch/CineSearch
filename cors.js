@@ -1,23 +1,35 @@
 const xhrRequestHook = (options) => {
   const originalUri = options.uri;
-  options.uri = applyCorsProxy(originalUri);
+  console.log('🔧 cors.js - xhrRequestHook - URL originale:', originalUri);
+  
+  const proxiedUri = applyCorsProxy(originalUri);
+  console.log('🔧 cors.js - xhrRequestHook - URL con proxy:', proxiedUri);
+  
+  options.uri = proxiedUri;
   return options;
 };
 
 function setupVideoJsXhrHook() {
+  console.log('🔧 cors.js - setupVideoJsXhrHook chiamata');
+  
   if (typeof videojs === "undefined" || !videojs.Vhs) {
+    console.log('🔧 cors.js - Video.js o VHS non disponibile');
     return;
   }
 
   if (requestHookInstalled) {
+    console.log('🔧 cors.js - Hook già installato');
     return;
   }
 
   videojs.Vhs.xhr.onRequest(xhrRequestHook);
   requestHookInstalled = true;
+  console.log('🔧 cors.js - Hook installato con successo');
 }
 
 function removeVideoJsXhrHook() {
+  console.log('🔧 cors.js - removeVideoJsXhrHook chiamata');
+  
   if (
     typeof videojs !== "undefined" &&
     videojs.Vhs &&
@@ -25,6 +37,7 @@ function removeVideoJsXhrHook() {
   ) {
     videojs.Vhs.xhr.offRequest(xhrRequestHook);
     requestHookInstalled = false;
+    console.log('🔧 cors.js - Hook rimosso');
   }
 }
 

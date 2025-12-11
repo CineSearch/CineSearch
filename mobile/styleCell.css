@@ -718,3 +718,223 @@ body {
         font-size: 14px;
         cursor: pointer;
     }
+/* Video.js Mobile Styling */
+.vjs-theme-vixflix {
+    --vjs-theme-vixflix--primary: #e50914;
+}
+
+.video-js {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.vjs-poster {
+    background-size: cover;
+}
+
+/* Fullscreen mobile */
+.video-js.vjs-fullscreen {
+    height: 100vh;
+    aspect-ratio: unset;
+    border-radius: 0;
+}
+
+/* Loading spinner per mobile */
+.vjs-loading-spinner {
+    border: 6px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #e50914;
+    border-radius: 50%;
+    animation: vjs-spinner-spin 1.1s linear infinite;
+}
+
+@keyframes vjs-spinner-spin {
+    100% { transform: rotate(360deg); }
+}
+
+/* Controlli per touch */
+.vjs-control-bar {
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.vjs-button > .vjs-icon-placeholder:before {
+    font-size: 1.8em;
+}
+
+/* Adatta i controlli per mobile */
+@media (max-width: 768px) {
+    .vjs-control-bar {
+        height: 50px;
+    }
+    
+    .vjs-progress-control {
+        height: 30px;
+    }
+    
+    .vjs-playback-rate {
+        display: none; /* Nascondi su mobile per spazio */
+    }
+}
+/* Aggiungi alla fine di styleCell.css */
+
+/* Controlli aggiuntivi player mobile */
+.mobile-additional-controls {
+    display: none;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.mobile-control-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 150px;
+}
+
+.mobile-control-group label {
+    color: #fff;
+    font-size: 12px;
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+.mobile-control-select {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+}
+
+.mobile-control-select option {
+    background: #222;
+    color: #fff;
+}
+
+.mobile-control-select:focus {
+    border-color: #e50914;
+    box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.3);
+}
+
+/* Bottoni azioni rapide */
+.mobile-quick-actions {
+    display: flex;
+    gap: 10px;
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.mobile-quick-btn {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mobile-quick-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #e50914;
+}
+
+.mobile-quick-btn i {
+    margin-right: 5px;
+}
+
+/* Pulsante apri controlli */
+.mobile-toggle-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.mobile-toggle-controls:hover {
+    background: rgba(229, 9, 20, 0.8);
+    transform: scale(1.1);
+}
+
+/* Player header migliorato */
+.mobile-player-header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: linear-gradient(to bottom, #000, transparent);
+    position: relative;
+    z-index: 5;
+}
+
+.mobile-player-header h2 {
+    flex: 1;
+    margin: 0 15px;
+    color: #fff;
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .mobile-additional-controls {
+        flex-direction: column;
+    }
+    
+    .mobile-control-group {
+        min-width: 100%;
+    }
+    
+    .mobile-quick-actions {
+        flex-wrap: wrap;
+    }
+    
+    .mobile-quick-btn {
+        min-width: calc(50% - 5px);
+    }
+}
+
+/* Animazione per comparizione controlli */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mobile-additional-controls.show {
+    display: flex;
+    animation: fadeInUp 0.3s ease-out;
+}

@@ -53,7 +53,6 @@ async function loadAllMovies(page = 1, minYear = null, maxYear = null) {
     }
     
     checkContinuaVisione(availableMovies);
-    window.scrollTo(0, 0);
     
   } catch (error) {
     console.error("Errore nel caricamento dei film:", error);
@@ -115,7 +114,6 @@ async function loadAllTV(page = 1, minYear = null, maxYear = null) {
     }
     
     checkContinuaVisione(availableTV);
-    window.scrollTo(0, 0);
     
   } catch (error) {
     console.error("Errore nel caricamento delle serie TV:", error);

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <!-- Script per reindirizzare gli utenti mobile alla versione mobile del sito
+    <!--
     <script>
         function isDesktopDevice() {
             return window.innerWidth > 768 && !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -13,13 +13,16 @@
             window.location.href = '../index.html';
         }
     </script>
--->
+    -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/solid/film.svg">
     <title>CineSearch Mobile</title>
     
     <link href="https://vjs.zencdn.net/8.16.1/video-js.css" rel="stylesheet" />
     <script src="https://vjs.zencdn.net/8.16.1/video.min.js"></script>
+    <script src="https://unpkg.com/@videojs/http-streaming@latest/dist/videojs-http-streaming.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/videojs-hls-quality-selector@1.1.4/dist/videojs-hls-quality-selector.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/videojs-hls-quality-selector@1.1.4/dist/videojs-hls-quality-selector.css" />
     
     <link rel="stylesheet" href="styleCell.css">
 </head>
@@ -250,29 +253,73 @@
         
         <!-- Player Mobile -->
         <section id="mobile-player" class="mobile-section">
-            <div class="mobile-player-header">
-                <button class="mobile-back-btn" onclick="closePlayerMobile()">
-                    <i class="fas fa-arrow-left"></i>
-                </button>
-                <h2 id="mobile-player-title"></h2>
+    <div class="mobile-player-header">
+        <button class="mobile-back-btn" onclick="closePlayerMobile()">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <h2 id="mobile-player-title"></h2>
+        <button class="mobile-toggle-controls" onclick="toggleControls()" id="mobile-toggle-controls">
+            <i class="fas fa-cog"></i>
+        </button>
+    </div>
+    
+    <div class="mobile-video-container">
+        <video id="mobile-player-video" class="video-js vjs-theme-vixflix" controls playsinline></video>
+        
+        <!-- Controlli aggiuntivi -->
+        <div class="mobile-additional-controls" id="mobile-additional-controls">
+            <div class="mobile-control-group">
+                <label for="mobile-quality-select"><i class="fas fa-hd"></i> Qualità</label>
+                <select id="mobile-quality-select" class="mobile-control-select">
+                    <option value="auto">Auto</option>
+                </select>
             </div>
             
-            <div class="mobile-video-container">
-                <video id="mobile-player-video" class="video-js vjs-theme-vixflix" controls playsinline></video>
-                
-                <div class="mobile-player-info">
-                    <div id="mobile-player-meta"></div>
-                    <div id="mobile-player-overview"></div>
-                </div>
-                
-                <div class="mobile-episode-selector" id="mobile-episode-selector">
-                    <div class="season-selector-mobile">
-                        <select id="mobile-season-select"></select>
-                    </div>
-                    <div class="episodes-list-mobile" id="mobile-episodes-list"></div>
-                </div>
+            <div class="mobile-control-group">
+                <label for="mobile-audio-select"><i class="fas fa-volume-up"></i> Lingua Audio</label>
+                <select id="mobile-audio-select" class="mobile-control-select">
+                    <option value="0">Italiano</option>
+                </select>
             </div>
-        </section>
+            
+            <div class="mobile-control-group">
+                <label for="mobile-subtitle-select"><i class="fas fa-closed-captioning"></i> Sottotitoli</label>
+                <select id="mobile-subtitle-select" class="mobile-control-select">
+                    <option value="-1">Nessun sottotitolo</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- Azioni rapide -->
+        <div class="mobile-quick-actions">
+            <button class="mobile-quick-btn" onclick="showMobileQualitySelector()">
+                <i class="fas fa-hd"></i> Qualità
+            </button>
+            <button class="mobile-quick-btn" onclick="showMobileAudioSelector()">
+                <i class="fas fa-volume-up"></i> Audio
+            </button>
+            <button class="mobile-quick-btn" onclick="showMobileSubtitleSelector()">
+                <i class="fas fa-closed-captioning"></i> Sottotitoli
+            </button>
+            <button class="mobile-quick-btn" onclick="refreshMobilePlayerControls()">
+                <i class="fas fa-sync"></i> Aggiorna
+            </button>
+        </div>
+        
+        <div class="mobile-player-info">
+            <div id="mobile-player-meta"></div>
+            <div id="mobile-player-overview"></div>
+        </div>
+        
+        <div class="mobile-episode-selector" id="mobile-episode-selector">
+            <div class="season-selector-mobile">
+                <select id="mobile-season-select"></select>
+            </div>
+            <div class="episodes-list-mobile" id="mobile-episodes-list"></div>
+        </div>
+    </div>
+</section>
+
         
         <!-- Risultati Ricerca -->
         <section id="mobile-results" class="mobile-section">
@@ -322,6 +369,13 @@
         <p>© 2025 Copyright AIMODS | Forked by VixFlix</p>
     </footer>
     
- <script src="mobile.js"></script>
+<script src="mobile-cors.js"></script>
+<script src="mobile-ui.js"></script>
+<script src="mobile-card.js"></script>
+<script src="mobile-api.js"></script>
+<script src="mobile-storage.js"></script>
+<script src="mobile-content.js"></script>
+<script src="mobile-player.js"></script>
+<script src="mobile-main.js"></script>
 </body>
 </html>
