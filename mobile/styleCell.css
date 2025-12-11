@@ -680,3 +680,41 @@ body {
         padding-bottom: 90px; /* Extra spazio per iOS */
     }
 }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    .mobile-video-element {
+        width: 100%;
+        height: auto;
+        max-height: 80vh;
+        background: #000;
+    }
+    
+    .mobile-video-container {
+        position: relative;
+        width: 100%;
+        margin: 20px 0;
+        background: #000;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+    .mobile-player-controls {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 15px 0;
+    }
+    
+    .mobile-control-btn {
+        background: #e50914;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 14px;
+        cursor: pointer;
+    }
