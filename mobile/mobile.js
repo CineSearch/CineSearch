@@ -870,11 +870,11 @@ async function openMobilePlayer(item) {
         console.error('Errore caricamento dettagli:', error);
     }
     
-    // Prepara container video
-    const playerContainer = document.getElementById('mobile-player-content');
+    // AGGIUNGI CONTENITORE VIDEO FISSO
+    let playerContainer = document.getElementById('mobile-player-content');
     if (playerContainer) {
         playerContainer.innerHTML = `
-            <div id="mobile-video-container"></div>
+            <div id="mobile-video-container" style="width: 100%; height: 250px; background: #000;"></div>
             <div class="mobile-player-controls">
                 <button class="mobile-control-btn" onclick="playItemMobile(${item.id}, '${mediaType}')">
                     <i class="fas fa-play"></i> Riproduci
@@ -884,13 +884,29 @@ async function openMobilePlayer(item) {
                 </button>
             </div>
         `;
+        
+        // Se è una serie TV, carica le stagioni
+        if (mediaType === 'tv') {
+            // Aggiungi selettori per serie TV
+            const controlsDiv = playerContainer.querySelector('.mobile-player-controls');
+            const tvControls = `
+                <div class="mobile-tv-controls" style="margin-top: 15px; width: 100%;">
+                    <select id="mobile-season-select" class="mobile-season-select" style="width: 100%; padding: 10px; margin-bottom: 10px;">
+                        <option value="">Caricamento stagioni...</option>
+                    </select>
+                    <div id="mobile-episodes-list" class="mobile-episodes-list" style="max-height: 200px; overflow-y: auto;"></div>
+                </div>
+            `;
+            
+            controlsDiv.insertAdjacentHTML('beforebegin', tvControls);
+            await loadTVSeasonsMobile(item.id);
+        }
     }
     
-    // Se è una serie TV, carica le stagioni
-    if (mediaType === 'tv') {
-        await loadTVSeasonsMobile(item.id);
-    }
+    // Salva le informazioni dell'item per il player
+    window.currentMobileItem = item;
 }
+
 
 async function loadTVSeasonsMobile(tvId) {
     try {
@@ -899,31 +915,92 @@ async function loadTVSeasonsMobile(tvId) {
         
         const seasonSelect = document.getElementById('mobile-season-select');
         if (seasonSelect) {
-            seasonSelect.innerHTML = '';
+            seasonSelect.innerHTML = '<option value="">Seleziona stagione...</option>';
             
             seasons.forEach(season => {
                 if (season.season_number > 0) {
                     const option = document.createElement('option');
                     option.value = season.season_number;
-                    option.textContent = `Stagione ${season.season_number}`;
+                    option.textContent = `Stagione ${season.season_number} (${season.episode_count} episodi)`;
                     seasonSelect.appendChild(option);
                 }
             });
             
             seasonSelect.onchange = () => {
-                loadEpisodesMobile(tvId, parseInt(seasonSelect.value));
+                const selectedSeason = parseInt(seasonSelect.value);
+                if (selectedSeason) {
+                    loadEpisodesMobile(tvId, selectedSeason);
+                }
             };
             
-            // Carica prima stagione
-            if (seasons.length > 0) {
-                loadEpisodesMobile(tvId, seasons[0].season_number);
+            // Carica prima stagione disponibile
+            const firstSeason = seasons.find(s => s.season_number > 0);
+            if (firstSeason) {
+                seasonSelect.value = firstSeason.season_number;
+                loadEpisodesMobile(tvId, firstSeason.season_number);
             }
         }
     } catch (error) {
         console.error('Errore caricamento stagioni:', error);
+        showMobileError('Impossibile caricare le stagioni');
     }
 }
 
+async function loadEpisodesMobile(tvId, seasonNum) {
+    try {
+        const data = await fetchTMDB(`tv/${tvId}/season/${seasonNum}`);
+        const episodes = data.episodes || [];
+        
+        const episodesList = document.getElementById('mobile-episodes-list');
+        if (episodesList) {
+            episodesList.innerHTML = '';
+            
+            episodes.forEach(ep => {
+                const episodeItem = document.createElement('div');
+                episodeItem.className = 'mobile-episode-item';
+                episodeItem.style.cssText = `
+                    padding: 12px;
+                    border-bottom: 1px solid #333;
+                    cursor: pointer;
+                    transition: background 0.3s;
+                `;
+                episodeItem.innerHTML = `
+                    <div style="display: flex; align-items: center;">
+                        <div style="width: 40px; height: 40px; background: #e50914; color: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 12px;">
+                            ${ep.episode_number}
+                        </div>
+                        <div>
+                            <div class="mobile-episode-title" style="font-weight: bold; margin-bottom: 4px;">${ep.name || "Senza titolo"}</div>
+                            <div style="font-size: 12px; color: #aaa;">${ep.runtime ? ep.runtime + ' min' : 'Durata non disponibile'}</div>
+                        </div>
+                    </div>
+                `;
+                
+                episodeItem.onclick = () => {
+                    // Rimuovi active da tutti
+                    document.querySelectorAll('.mobile-episode-item').forEach(e => {
+                        e.style.background = 'transparent';
+                    });
+                    // Aggiungi active a quello cliccato
+                    episodeItem.style.background = '#222';
+                    
+                    // Riproduci episodio
+                    playItemMobile(tvId, 'tv', seasonNum, ep.episode_number);
+                };
+                
+                episodesList.appendChild(episodeItem);
+            });
+            
+            // Se ci sono episodi, riproduci automaticamente il primo
+            if (episodes.length > 0 && !document.querySelector('.mobile-episode-item.active')) {
+                episodesList.firstChild.click();
+            }
+        }
+    } catch (error) {
+        console.error('Errore caricamento episodi:', error);
+        showMobileError('Impossibile caricare gli episodi');
+    }
+}
 async function loadEpisodesMobile(tvId, seasonNum) {
     try {
         const data = await fetchTMDB(`tv/${tvId}/season/${seasonNum}`);
@@ -962,6 +1039,19 @@ async function playItemMobile(id, type, season = null, episode = null) {
     showMobileLoading(true, "Preparazione video...");
     
     try {
+        // Verifica che il container esista, altrimenti crealo
+        let videoContainer = document.getElementById('mobile-video-container');
+        if (!videoContainer) {
+            console.warn('Container video non trovato, creazione...');
+            const playerContent = document.getElementById('mobile-player-content');
+            if (playerContent) {
+                playerContent.insertAdjacentHTML('afterbegin', '<div id="mobile-video-container" style="width: 100%; height: 250px; background: #000;"></div>');
+                videoContainer = document.getElementById('mobile-video-container');
+            } else {
+                throw new Error('Impossibile trovare o creare il container video');
+            }
+        }
+        
         // Costruisci URL vixsrc
         let vixsrcUrl;
         if (type === 'movie') {
@@ -972,29 +1062,31 @@ async function playItemMobile(id, type, season = null, episode = null) {
         
         console.log('URL sorgente:', vixsrcUrl);
         
-        // Estrai stream M3U8
+        // Estrai stream M3U8 usando la stessa funzione di player.js
         const streamData = await getDirectStreamMobile(id, type === 'movie', season, episode);
         
         if (!streamData || !streamData.m3u8Url) {
             throw new Error('Impossibile ottenere lo stream');
         }
         
-        // Crea elemento video
-        const videoContainer = document.getElementById('mobile-video-container');
-        if (!videoContainer) {
-            throw new Error('Container video non trovato');
-        }
-        
-        // Pulisci container
+        // Pulisci container e crea video element
         videoContainer.innerHTML = '';
         
-        // Crea elemento video
+        // Crea elemento video con stili migliorati
         const video = document.createElement('video');
         video.id = 'mobile-video-player';
         video.className = 'mobile-video-element';
+        video.style.cssText = `
+            width: 100%;
+            height: 100%;
+            background: #000;
+            object-fit: contain;
+        `;
         video.setAttribute('controls', 'true');
         video.setAttribute('playsinline', 'true');
-        video.setAttribute('preload', 'metadata');
+        video.setAttribute('preload', 'auto');
+        video.setAttribute('webkit-playsinline', 'true');
+        video.setAttribute('x-webkit-airplay', 'allow');
         
         // Crea sorgente HLS
         const source = document.createElement('source');
@@ -1007,22 +1099,53 @@ async function playItemMobile(id, type, season = null, episode = null) {
         // Nascondi loading
         showMobileLoading(false);
         
-        // Riproduci automaticamente
-        video.play().catch(err => {
-            console.log('Auto-play bloccato:', err);
-        });
+        // Tentativo di riproduzione
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(err => {
+                console.log('Auto-play bloccato:', err);
+                // Mostra bottone play manuale
+                const playBtn = document.createElement('button');
+                playBtn.style.cssText = `
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: #e50914;
+                    color: white;
+                    border: none;
+                    padding: 15px 30px;
+                    border-radius: 50px;
+                    font-size: 18px;
+                    cursor: pointer;
+                    z-index: 10;
+                `;
+                playBtn.innerHTML = '<i class="fas fa-play"></i> Play';
+                playBtn.onclick = () => {
+                    video.play();
+                    playBtn.remove();
+                };
+                videoContainer.appendChild(playBtn);
+            });
+        }
         
         // Gestione errori video
         video.addEventListener('error', (e) => {
-            console.error('Errore video:', e);
+            console.error('Errore video:', video.error);
             showMobileError('Errore nel caricamento del video');
         });
         
+        video.addEventListener('loadeddata', () => {
+            console.log('✅ Video caricato con successo');
+        });
+        
         // Traccia progressi per "Continua visione"
-        if (type === 'movie') {
-            trackVideoProgressMobile(id, type, video);
-        } else if (season && episode) {
-            trackVideoProgressMobile(id, type, video, season, episode);
+        if (window.currentMobileItem) {
+            if (type === 'movie') {
+                trackVideoProgressMobile(id, type, video);
+            } else if (season && episode) {
+                trackVideoProgressMobile(id, type, video, season, episode);
+            }
         }
         
     } catch (error) {
@@ -1030,13 +1153,12 @@ async function playItemMobile(id, type, season = null, episode = null) {
         showMobileLoading(false);
         showMobileError(`Impossibile riprodurre: ${error.message}`);
         
-        // Mostra opzione alternativa
+        // Mostra opzione alternativa dopo 2 secondi
         setTimeout(() => {
-            const useExternal = confirm('Riproduzione fallita. Vuoi aprire in un player esterno?');
-            if (useExternal) {
+            if (confirm('Riproduzione fallita. Vuoi provare con un player esterno?')) {
                 openInExternalPlayer(id, type, season, episode);
             }
-        }, 1000);
+        }, 2000);
     }
 }
 
@@ -1223,7 +1345,324 @@ function openInExternalPlayer(tmdbId, mediaType, season, episode) {
 }
 
 
+// mobile.js - MODIFICA LA FUNZIONE openMobilePlayer e playItemMobile
+
+async function openMobilePlayer(item) {
+    showMobileSection('mobile-player');
+    
+    const title = item.title || item.name;
+    const mediaType = item.media_type || (item.title ? 'movie' : 'tv');
+    
+    document.getElementById('mobile-player-title').textContent = title;
+    
+    // Mostra metadati
+    try {
+        const details = await fetchTMDB(`${mediaType}/${item.id}`);
+        
+        const metaDiv = document.getElementById('mobile-player-meta');
+        const overviewDiv = document.getElementById('mobile-player-overview');
+        
+        if (metaDiv) {
+            let meta = [];
+            if (details.release_date || details.first_air_date) {
+                meta.push(new Date(details.release_date || details.first_air_date).getFullYear());
+            }
+            if (details.vote_average) {
+                meta.push(`⭐ ${details.vote_average.toFixed(1)}/10`);
+            }
+            metaDiv.textContent = meta.join(' • ');
+        }
+        
+        if (overviewDiv) {
+            overviewDiv.textContent = details.overview || "Nessuna descrizione disponibile.";
+        }
+        
+    } catch (error) {
+        console.error('Errore caricamento dettagli:', error);
+    }
+    
+    // AGGIUNGI CONTENITORE VIDEO FISSO
+    let playerContainer = document.getElementById('mobile-player-content');
+    if (playerContainer) {
+        playerContainer.innerHTML = `
+            <div id="mobile-video-container" style="width: 100%; height: 250px; background: #000;"></div>
+            <div class="mobile-player-controls">
+                <button class="mobile-control-btn" onclick="playItemMobile(${item.id}, '${mediaType}')">
+                    <i class="fas fa-play"></i> Riproduci
+                </button>
+                <button class="mobile-control-btn" onclick="closePlayerMobile()">
+                    <i class="fas fa-times"></i> Chiudi
+                </button>
+            </div>
+        `;
+        
+        // Se è una serie TV, carica le stagioni
+        if (mediaType === 'tv') {
+            // Aggiungi selettori per serie TV
+            const controlsDiv = playerContainer.querySelector('.mobile-player-controls');
+            const tvControls = `
+                <div class="mobile-tv-controls" style="margin-top: 15px; width: 100%;">
+                    <select id="mobile-season-select" class="mobile-season-select" style="width: 100%; padding: 10px; margin-bottom: 10px;">
+                        <option value="">Caricamento stagioni...</option>
+                    </select>
+                    <div id="mobile-episodes-list" class="mobile-episodes-list" style="max-height: 200px; overflow-y: auto;"></div>
+                </div>
+            `;
+            
+            controlsDiv.insertAdjacentHTML('beforebegin', tvControls);
+            await loadTVSeasonsMobile(item.id);
+        }
+    }
+    
+    // Salva le informazioni dell'item per il player
+    window.currentMobileItem = item;
+}
+
+async function playItemMobile(id, type, season = null, episode = null) {
+    console.log(`Riproduzione ${type} ${id}`, season ? `S${season}E${episode}` : '');
+    
+    // Mostra loading
+    showMobileLoading(true, "Preparazione video...");
+    
+    try {
+        // Verifica che il container esista, altrimenti crealo
+        let videoContainer = document.getElementById('mobile-video-container');
+        if (!videoContainer) {
+            console.warn('Container video non trovato, creazione...');
+            const playerContent = document.getElementById('mobile-player-content');
+            if (playerContent) {
+                playerContent.insertAdjacentHTML('afterbegin', '<div id="mobile-video-container" style="width: 100%; height: 250px; background: #000;"></div>');
+                videoContainer = document.getElementById('mobile-video-container');
+            } else {
+                throw new Error('Impossibile trovare o creare il container video');
+            }
+        }
+        
+        // Costruisci URL vixsrc
+        let vixsrcUrl;
+        if (type === 'movie') {
+            vixsrcUrl = `https://${VIXSRC_URL}/movie/${id}`;
+        } else {
+            vixsrcUrl = `https://${VIXSRC_URL}/tv/${id}/${season || 1}/${episode || 1}`;
+        }
+        
+        console.log('URL sorgente:', vixsrcUrl);
+        
+        // Estrai stream M3U8 usando la stessa funzione di player.js
+        const streamData = await getDirectStreamMobile(id, type === 'movie', season, episode);
+        
+        if (!streamData || !streamData.m3u8Url) {
+            throw new Error('Impossibile ottenere lo stream');
+        }
+        
+        // Pulisci container e crea video element
+        videoContainer.innerHTML = '';
+        
+        // Crea elemento video con stili migliorati
+        const video = document.createElement('video');
+        video.id = 'mobile-video-player';
+        video.className = 'mobile-video-element';
+        video.style.cssText = `
+            width: 100%;
+            height: 100%;
+            background: #000;
+            object-fit: contain;
+        `;
+        video.setAttribute('controls', 'true');
+        video.setAttribute('playsinline', 'true');
+        video.setAttribute('preload', 'auto');
+        video.setAttribute('webkit-playsinline', 'true');
+        video.setAttribute('x-webkit-airplay', 'allow');
+        
+        // Crea sorgente HLS
+        const source = document.createElement('source');
+        source.src = applyCorsProxy(streamData.m3u8Url);
+        source.type = 'application/x-mpegURL';
+        
+        video.appendChild(source);
+        videoContainer.appendChild(video);
+        
+        // Nascondi loading
+        showMobileLoading(false);
+        
+        // Tentativo di riproduzione
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(err => {
+                console.log('Auto-play bloccato:', err);
+                // Mostra bottone play manuale
+                const playBtn = document.createElement('button');
+                playBtn.style.cssText = `
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: #e50914;
+                    color: white;
+                    border: none;
+                    padding: 15px 30px;
+                    border-radius: 50px;
+                    font-size: 18px;
+                    cursor: pointer;
+                    z-index: 10;
+                `;
+                playBtn.innerHTML = '<i class="fas fa-play"></i> Play';
+                playBtn.onclick = () => {
+                    video.play();
+                    playBtn.remove();
+                };
+                videoContainer.appendChild(playBtn);
+            });
+        }
+        
+        // Gestione errori video
+        video.addEventListener('error', (e) => {
+            console.error('Errore video:', video.error);
+            showMobileError('Errore nel caricamento del video');
+        });
+        
+        video.addEventListener('loadeddata', () => {
+            console.log('✅ Video caricato con successo');
+        });
+        
+        // Traccia progressi per "Continua visione"
+        if (window.currentMobileItem) {
+            if (type === 'movie') {
+                trackVideoProgressMobile(id, type, video);
+            } else if (season && episode) {
+                trackVideoProgressMobile(id, type, video, season, episode);
+            }
+        }
+        
+    } catch (error) {
+        console.error('Errore riproduzione mobile:', error);
+        showMobileLoading(false);
+        showMobileError(`Impossibile riprodurre: ${error.message}`);
+        
+        // Mostra opzione alternativa dopo 2 secondi
+        setTimeout(() => {
+            if (confirm('Riproduzione fallita. Vuoi provare con un player esterno?')) {
+                openInExternalPlayer(id, type, season, episode);
+            }
+        }, 2000);
+    }
+}
+
+// MODIFICA ANCHE loadTVSeasonsMobile e loadEpisodesMobile per gestire meglio le serie TV:
+async function loadTVSeasonsMobile(tvId) {
+    try {
+        const details = await fetchTMDB(`tv/${tvId}`);
+        const seasons = details.seasons || [];
+        
+        const seasonSelect = document.getElementById('mobile-season-select');
+        if (seasonSelect) {
+            seasonSelect.innerHTML = '<option value="">Seleziona stagione...</option>';
+            
+            seasons.forEach(season => {
+                if (season.season_number > 0) {
+                    const option = document.createElement('option');
+                    option.value = season.season_number;
+                    option.textContent = `Stagione ${season.season_number} (${season.episode_count} episodi)`;
+                    seasonSelect.appendChild(option);
+                }
+            });
+            
+            seasonSelect.onchange = () => {
+                const selectedSeason = parseInt(seasonSelect.value);
+                if (selectedSeason) {
+                    loadEpisodesMobile(tvId, selectedSeason);
+                }
+            };
+            
+            // Carica prima stagione disponibile
+            const firstSeason = seasons.find(s => s.season_number > 0);
+            if (firstSeason) {
+                seasonSelect.value = firstSeason.season_number;
+                loadEpisodesMobile(tvId, firstSeason.season_number);
+            }
+        }
+    } catch (error) {
+        console.error('Errore caricamento stagioni:', error);
+        showMobileError('Impossibile caricare le stagioni');
+    }
+}
+
+async function loadEpisodesMobile(tvId, seasonNum) {
+    try {
+        const data = await fetchTMDB(`tv/${tvId}/season/${seasonNum}`);
+        const episodes = data.episodes || [];
+        
+        const episodesList = document.getElementById('mobile-episodes-list');
+        if (episodesList) {
+            episodesList.innerHTML = '';
+            
+            episodes.forEach(ep => {
+                const episodeItem = document.createElement('div');
+                episodeItem.className = 'mobile-episode-item';
+                episodeItem.style.cssText = `
+                    padding: 12px;
+                    border-bottom: 1px solid #333;
+                    cursor: pointer;
+                    transition: background 0.3s;
+                `;
+                episodeItem.innerHTML = `
+                    <div style="display: flex; align-items: center;">
+                        <div style="width: 40px; height: 40px; background: #e50914; color: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 12px;">
+                            ${ep.episode_number}
+                        </div>
+                        <div>
+                            <div class="mobile-episode-title" style="font-weight: bold; margin-bottom: 4px;">${ep.name || "Senza titolo"}</div>
+                            <div style="font-size: 12px; color: #aaa;">${ep.runtime ? ep.runtime + ' min' : 'Durata non disponibile'}</div>
+                        </div>
+                    </div>
+                `;
+                
+                episodeItem.onclick = () => {
+                    // Rimuovi active da tutti
+                    document.querySelectorAll('.mobile-episode-item').forEach(e => {
+                        e.style.background = 'transparent';
+                    });
+                    // Aggiungi active a quello cliccato
+                    episodeItem.style.background = '#222';
+                    
+                    // Riproduci episodio
+                    playItemMobile(tvId, 'tv', seasonNum, ep.episode_number);
+                };
+                
+                episodesList.appendChild(episodeItem);
+            });
+            
+            // Se ci sono episodi, riproduci automaticamente il primo
+            if (episodes.length > 0 && !document.querySelector('.mobile-episode-item.active')) {
+                episodesList.firstChild.click();
+            }
+        }
+    } catch (error) {
+        console.error('Errore caricamento episodi:', error);
+        showMobileError('Impossibile caricare gli episodi');
+    }
+}
+
+// AGGIUNGI QUESTA FUNZIONE PER CHIUDERE IL PLAYER CORRETTAMENTE
 function closePlayerMobile() {
+    // Ferma il video se in riproduzione
+    const video = document.getElementById('mobile-video-player');
+    if (video) {
+        video.pause();
+        video.src = '';
+        video.load();
+    }
+    
+    // Pulisci il container
+    const container = document.getElementById('mobile-video-container');
+    if (container) {
+        container.innerHTML = '';
+    }
+    
+    // Rimuovi l'item corrente
+    delete window.currentMobileItem;
+    
+    // Torna alla home
     showHomeMobile();
 }
 
