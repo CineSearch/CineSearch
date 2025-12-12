@@ -1,5 +1,3 @@
-// mobile-content.js - Gestione contenuti (film, serie, categorie, preferiti)
-
 // ============ VARIABILI CONTENUTI ============
 let mobileMoviePage = 1;
 let mobileTVPage = 1;
@@ -37,14 +35,11 @@ async function loadMoviesMobile(page = 1) {
         }
         
         grid.innerHTML = '<div class="mobile-episode-item">Verifica disponibilità film...</div>';
-        
-        // Filtra solo film con poster
+
         const moviesWithPoster = data.results.filter(movie => movie.poster_path);
-        
-        // Verifica disponibilità in batch
+
         const availableMovies = await batchCheckAvailability(moviesWithPoster, true);
         
-        // Mostra risultati
         grid.innerHTML = '';
         
         if (availableMovies.length > 0) {
@@ -67,7 +62,6 @@ async function loadMoviesMobile(page = 1) {
             `;
         }
         
-        // Aggiorna paginazione
         updateMoviePaginationMobile(data.total_pages, data.total_results);
         
         showMobileLoading(false);
@@ -123,17 +117,14 @@ async function loadTVMobile(page = 1) {
         if (!grid) return;
         
         grid.innerHTML = '';
-        
-        // Carica disponibilità per ogni serie
+
         const availableTV = [];
         for (const tv of data.results) {
             tv.media_type = "tv";
             
-            // Verifica disponibilità (più veloce)
             const isAvailable = await checkTvSeriesAvailability(tv.id);
             
             if (isAvailable) {
-                // Carica dettagli serie per ottenere numero di stagioni
                 try {
                     const details = await fetchTMDB(`tv/${tv.id}`);
                     tv.seasons_count = details.seasons ? details.seasons.length : 0;
@@ -141,16 +132,13 @@ async function loadTVMobile(page = 1) {
                     grid.appendChild(createMobileCard(tv));
                     availableTV.push(tv);
                 } catch (error) {
-                    // In caso di errore, aggiungi comunque la serie
-                    grid.appendChild(createMobileCard(tv));
-                    availableTV.push(tv);
+
                 }
             }
             
             if (availableTV.length >= ITEMS_PER_PAGE) break;
         }
         
-        // Aggiorna paginazione
         updateTVPaginationMobile(data.total_pages, data.total_results);
         
         if (availableTV.length === 0) {
@@ -219,8 +207,7 @@ function loadPreferitiMobile() {
     
     if (emptyState) emptyState.style.display = 'none';
     container.innerHTML = '';
-    
-    // Carica i preferiti
+
     preferiti.forEach(itemId => {
         const [mediaType, tmdbId] = itemId.split('-');
         
@@ -230,8 +217,7 @@ function loadPreferitiMobile() {
                 item.media_type = mediaType;
                 
                 const card = createMobileCard(item);
-                
-                // Aggiungi bottone rimuovi
+
                 const removeBtn = document.createElement('button');
                 removeBtn.className = 'mobile-remove-btn';
                 removeBtn.innerHTML = '<i class="fas fa-trash"></i>';
@@ -260,7 +246,6 @@ async function loadContinuaMobile() {
         
         console.log("📱 Caricamento Continua Visione...");
         
-        // Trova TUTTE le chiavi di storage di progresso
         const progressKeys = [];
         for (let i = 0; i < localStorage.length; i++) {
             const key = localStorage.key(i);
@@ -282,22 +267,18 @@ async function loadContinuaMobile() {
         
         let loadedCount = 0;
         
-        // Per ogni progresso salvato
         for (const storageKey of progressKeys) {
             try {
-                // Estrai dati dalla chiave
                 const savedData = localStorage.getItem(storageKey);
                 if (!savedData) continue;
                 
                 const data = JSON.parse(savedData);
                 console.log("📱 Dati salvati:", data);
-                
-                // Verifica validità dei dati
+
                 if (!data.tmdbId || !data.mediaType) continue;
                 
-                // Verifica se il salvataggio è recente (entro 60 giorni)
                 const dataAge = Date.now() - (data.timestamp || 0);
-                const maxAge = 60 * 24 * 60 * 60 * 1000; // 60 giorni
+                const maxAge = 60 * 24 * 60 * 60 * 1000;
                 
                 if (dataAge > maxAge) {
                     console.log("📱 Dati scaduti, rimuovo:", storageKey);
@@ -305,10 +286,8 @@ async function loadContinuaMobile() {
                     continue;
                 }
                 
-                // MODIFICA: Mostra anche se guardato poco (per test)
-                // Soglia minima: 30 secondi OPPURE più del 5%
-                const minTimeToShow = 30; // secondi
-                const minPercentToShow = 2; // percentuale
+                const minTimeToShow = 30;
+                const minPercentToShow = 2;
                 
                 const meetsTimeCriteria = data.time > minTimeToShow;
                 const meetsPercentCriteria = data.totalDuration > 0 && 
@@ -332,7 +311,6 @@ async function loadContinuaMobile() {
             }
         }
         
-        // Se non ci sono contenuti validi
         if (loadedCount === 0) {
             if (emptyState) emptyState.style.display = 'block';
             container.innerHTML = `
@@ -351,7 +329,6 @@ async function loadContinuaMobile() {
     }
 }
 
-// Funzione per creare una card "Continua Visione"
 function createContinuaCard(item, savedTime, season = null, episode = null) {
     const isMovie = item.media_type === 'movie';
     const mediaType = isMovie ? 'movie' : 'tv';
@@ -365,31 +342,26 @@ function createContinuaCard(item, savedTime, season = null, episode = null) {
     
     const title = isMovie ? item.title : item.name;
     
-    // Formatta il titolo
     const displayTitle = title.length > 25 ? title.substring(0, 22) + '...' : title;
     
-    // Info episodio se serie TV
     let episodeInfo = '';
     if (!isMovie && season && episode) {
         episodeInfo = `<div class="continua-episode">S${season}E${episode}</div>`;
     }
     
-    // Calcola percentuale guardata
-    let totalDuration = item.runtime ? item.runtime * 60 : // film in secondi
+    let totalDuration = item.runtime ? item.runtime * 60 :
                         (item.episode_run_time && item.episode_run_time.length > 0) ? 
-                        item.episode_run_time[0] * 60 : 0; // serie in secondi
+                        item.episode_run_time[0] * 60 : 0;
     
     const percentWatched = totalDuration > 0 ? 
         Math.min(Math.round((savedTime / totalDuration) * 100), 100) : 0;
     
-    // Formatta il tempo rimanente
     const remainingSeconds = Math.max(0, totalDuration - savedTime);
     const remainingMinutes = Math.floor(remainingSeconds / 60);
     const remainingText = remainingMinutes > 0 ? 
         `${remainingMinutes} min rimanenti` : 
         (percentWatched >= 95 ? 'Completato' : 'Quasi finito');
     
-    // DEBUG info
     card.dataset.debug = `saved:${savedTime.toFixed(0)}s, total:${totalDuration}s, ${percentWatched}%`;
     
     card.innerHTML = `
@@ -425,19 +397,15 @@ function createContinuaCard(item, savedTime, season = null, episode = null) {
     return card;
 }
 
-// Funzione per riprendere la visione
 async function resumeWatching(mediaType, tmdbId, season, episode, event) {
     if (event) event.stopPropagation();
     
     try {
-        // Carica i dettagli dell'item
         const item = await fetchTMDB(`${mediaType}/${tmdbId}`);
         item.media_type = mediaType;
-        
-        // Apri il player
+    
         openMobilePlayer(item);
         
-        // Se è una serie TV con stagione/episodio, carica quell'episodio
         if (mediaType === 'tv' && season && episode && season !== 'null' && episode !== 'null') {
             setTimeout(() => {
                 playTVEpisodeMobile(tmdbId, season, episode);
@@ -450,7 +418,7 @@ async function resumeWatching(mediaType, tmdbId, season, episode, event) {
     }
 }
 
-// Funzione per rimuovere dalla lista "Continua Visione"
+
 function removeContinuaItem(mediaType, tmdbId, season, episode, event) {
     if (event) event.stopPropagation();
     
@@ -459,13 +427,11 @@ function removeContinuaItem(mediaType, tmdbId, season, episode, event) {
         storageKey += `_S${season}_E${episode}`;
     }
     
-    // Rimuovi dallo storage
     localStorage.removeItem(storageKey);
     
-    // Ricarica la lista
+
     loadContinuaMobile();
     
-    // Aggiorna il badge se necessario
     updateMobileFavCount();
 }
 // ============ RICERCA ============
@@ -509,8 +475,7 @@ async function performMobileSearch(query) {
             `;
             return;
         }
-        
-        // Verifica disponibilità
+
         let availableCount = 0;
         for (const item of filteredResults.slice(0, 20)) {
             const mediaType = item.media_type || (item.title ? "movie" : "tv");
@@ -551,7 +516,6 @@ function applyMovieFilterMobile() {
     const minYear = minYearInput ? minYearInput.value : null;
     const maxYear = maxYearInput ? maxYearInput.value : null;
     
-    // Validazione
     if (minYear && (parseInt(minYear) < 1888 || parseInt(minYear) > new Date().getFullYear() + 5)) {
         alert("Inserisci un anno valido (1888 - " + (new Date().getFullYear() + 5) + ")");
         return;
@@ -579,8 +543,7 @@ function applyTVFilterMobile() {
     
     const minYear = minYearInput ? minYearInput.value : null;
     const maxYear = maxYearInput ? maxYearInput.value : null;
-    
-    // Validazione
+
     if (minYear && (parseInt(minYear) < 1888 || parseInt(minYear) > new Date().getFullYear() + 5)) {
         alert("Inserisci un anno valido (1888 - " + (new Date().getFullYear() + 5) + ")");
         return;

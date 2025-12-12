@@ -955,20 +955,9 @@ async function getDirectStreamMobile(tmdbId, isMovie, season = null, episode = n
         if (!isMovie && season !== null && episode !== null) {
             vixsrcUrl += `/${season}/${episode}`;
         }
-        
-        // Forza User-Agent per iOS
-        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-        const userAgent = isIOS ? 
-            'Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1' :
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
-        
     
         const proxiedVixsrcUrl = applyCorsProxy(vixsrcUrl);
-        const response = await fetch(proxiedVixsrcUrl, {
-            headers: {
-                'User-Agent': userAgent
-            }
-        });
+        const response = await fetch(proxiedVixsrcUrl);
         const html = await response.text();
         
         const playlistParamsRegex = /window\.masterPlaylist[^:]+params:[^{]+({[^<]+?})/;
@@ -1162,15 +1151,6 @@ function trackVideoProgressMobile(tmdbId, mediaType, videoElement, season = null
 function closePlayerMobile() {
     // console.log("Chiusura player mobile...");
     
-    const videoElement = document.getElementById('mobile-player-video');
-    if (videoElement) {
-        const currentTime = videoElement.currentTime;
-        if (currentTime > 60) {
-            let storageKey = `videoTime_${currentMobileItem.media_type || (currentMobileItem.title ? 'movie' : 'tv')}_${currentMobileItem.id}`;
-            saveToStorage(storageKey, currentTime, 365);
-        }
-    }
-    
     if (mobilePlayer) {
         mobilePlayer.dispose();
         mobilePlayer = null;
@@ -1181,13 +1161,15 @@ function closePlayerMobile() {
     
     removeVideoJsXhrHook();
     
-    const videoElementToRemove = document.getElementById('mobile-player-video');
-    if (videoElementToRemove) {
-        videoElementToRemove.remove();
+    // Pulisci elemento video
+    const videoElement = document.getElementById('mobile-player-video');
+    if (videoElement) {
+        videoElement.remove();
     }
     
     showHomeMobile();
     
+    // Aggiorna "Continua visione"
     setTimeout(() => {
         updateMobileFavCount();
     }, 300);

@@ -1,5 +1,3 @@
-// mobile-main.js - File principale che collega tutto
-
 // ============ INIZIALIZZAZIONE ============
 document.addEventListener('DOMContentLoaded', function() {
     // console.log('CineSearch Mobile inizializzato');
@@ -8,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     loadMobileHomeData();
     cleanupExpiredStorage();
     
-    // Aggiungi stili per lo spinner
     const style = document.createElement('style');
     style.textContent = `
         @keyframes spin {
@@ -21,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ============ EVENT LISTENERS GLOBALI ============
 document.addEventListener('keydown', function(e) {
-    // Gestione tasti per TV/remote
     const focusedElement = document.activeElement;
     
     if (focusedElement && focusedElement.classList.contains('mobile-card')) {
@@ -38,7 +34,7 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// Esponi funzioni globali necessarie
+
 window.showHomeMobile = showHomeMobile;
 window.showAllMoviesMobile = showAllMoviesMobile;
 window.showAllTVMobile = showAllTVMobile;
