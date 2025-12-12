@@ -1071,10 +1071,6 @@ function trackVideoProgressMobile(tmdbId, mediaType, videoElement, season = null
                 };
                 
                 localStorage.setItem(storageKey, JSON.stringify(saveData));
-                // console.log("📱 Progresso salvato:", {
-                    time: currentTime,
-                    percent: saveData.watchedPercentage.toFixed(1) + "%"
-                });
             }
         }
     }, 10000);
