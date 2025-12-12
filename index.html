@@ -3,35 +3,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script>
-    function isMobileDevice() {
-        const ua = navigator.userAgent.toLowerCase();
-
-        // Riconoscimento TV → NON considerati mobile
-        const isTV =
-            ua.includes("smarttv") ||
-            ua.includes("appletv") ||
-            ua.includes("googletv") ||
-            ua.includes("android tv") ||
-            ua.includes("fire tv") ||
-            ua.includes("aft") ||              // Fire Stick (AFTS, AFTM ecc.)
-            ua.includes("tv");                 // fallback generico, ma utile
-
-        // Riconoscimento mobile "vero"
-        const isMobile =
-            /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua) ||
-            (window.innerWidth <= 768);
-
-        // È mobile *solo se non è una TV*
-        return isMobile && !isTV;
-    }
-
-    // Redirect solo se mobile e non già nella versione mobile
-    if (isMobileDevice() && !window.location.pathname.includes('mobile')) {
-        window.location.href = 'mobile/indexmobile.html';
-    }
-</script>
-
+    <script>
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                   (window.innerWidth <= 768);
+        }
+        if (isMobileDevice() && !window.location.pathname.includes('mobile')) {
+            window.location.href = 'mobile/index.html';
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/solid/film.svg">
 

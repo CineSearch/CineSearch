@@ -4,7 +4,6 @@ async function performSearch(query) {
   );
   const data = await res.json();
   
-  // Nascondi tutte le sezioni e mostra solo results
   hideAllSections();
   
   const resultsDiv = document.getElementById("results");
@@ -57,12 +56,10 @@ async function performSearch(query) {
     `;
   }
   
-  // Aggiorna il contatore finale
   checkingDiv.innerHTML = `
     <span class="available-count">✓ Trovati ${availableCount} risultati disponibili su Vixsrc</span>
   `;
   
-  // Mostra/nascondi il messaggio "nessun risultato"
   if (availableCount === 0) {
     noResultsDiv.style.display = "block";
     grid.style.display = "none";
@@ -71,16 +68,12 @@ async function performSearch(query) {
     grid.style.display = "grid";
   }
   
-  // Aggiungi i risultati alla sezione "Continua visione"
   checkContinuaVisione(filteredResults);
   
-  // Mostra la sezione risultati
   resultsDiv.style.display = "block";
   window.scrollTo(0, 0);
 }
 
-// Rimuovi la funzione scrollRisultati poiché non serve più con la griglia
 function scrollRisultati(direction) {
-  // Funzione rimossa - non più necessaria con la griglia verticale
   console.warn("La funzione scrollRisultati è obsoleta. Usa la navigazione tramite griglia.");
 }
