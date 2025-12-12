@@ -221,7 +221,224 @@ function loadPreferitiMobile() {
             });
     });
 }
+// ============ CONTINUA VISIONE ============
+async function loadContinuaMobile() {
+    try {
+        const container = document.getElementById('mobile-continua-grid');
+        const emptyState = document.getElementById('mobile-empty-continua');
+        
+        if (!container) return;
+        
+        console.log("📱 Caricamento Continua Visione...");
+        
+        // Trova TUTTE le chiavi di storage di progresso
+        const progressKeys = [];
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (key && key.startsWith("videoProgress_")) {
+                progressKeys.push(key);
+            }
+        }
+        
+        console.log("📱 Chiavi trovate:", progressKeys.length, progressKeys);
+        
+        if (progressKeys.length === 0) {
+            if (emptyState) emptyState.style.display = 'block';
+            container.innerHTML = '';
+            return;
+        }
+        
+        if (emptyState) emptyState.style.display = 'none';
+        container.innerHTML = '';
+        
+        let loadedCount = 0;
+        
+        // Per ogni progresso salvato
+        for (const storageKey of progressKeys) {
+            try {
+                // Estrai dati dalla chiave
+                const savedData = localStorage.getItem(storageKey);
+                if (!savedData) continue;
+                
+                const data = JSON.parse(savedData);
+                console.log("📱 Dati salvati:", data);
+                
+                // Verifica validità dei dati
+                if (!data.tmdbId || !data.mediaType) continue;
+                
+                // Verifica se il salvataggio è recente (entro 60 giorni)
+                const dataAge = Date.now() - (data.timestamp || 0);
+                const maxAge = 60 * 24 * 60 * 60 * 1000; // 60 giorni
+                
+                if (dataAge > maxAge) {
+                    console.log("📱 Dati scaduti, rimuovo:", storageKey);
+                    localStorage.removeItem(storageKey);
+                    continue;
+                }
+                
+                // MODIFICA: Mostra anche se guardato poco (per test)
+                // Soglia minima: 30 secondi OPPURE più del 5%
+                const minTimeToShow = 30; // secondi
+                const minPercentToShow = 2; // percentuale
+                
+                const meetsTimeCriteria = data.time > minTimeToShow;
+                const meetsPercentCriteria = data.totalDuration > 0 && 
+                    (data.time / data.totalDuration) * 100 > minPercentToShow;
+                
+                if (meetsTimeCriteria || meetsPercentCriteria) {
+                    // Carica i dettagli da TMDB
+                    const item = await fetchTMDB(`${data.mediaType}/${data.tmdbId}`);
+                    item.media_type = data.mediaType;
+                    
+                    // Crea card
+                    const card = createContinuaCard(item, data.time, data.season, data.episode);
+                    container.appendChild(card);
+                    loadedCount++;
+                    
+                    if (loadedCount >= 20) break; // Limita a 20 card
+                }
+                
+            } catch (error) {
+                console.error(`Errore caricamento progresso ${storageKey}:`, error);
+            }
+        }
+        
+        // Se non ci sono contenuti validi
+        if (loadedCount === 0) {
+            if (emptyState) emptyState.style.display = 'block';
+            container.innerHTML = `
+                <div class="empty-state">
+                    <i class="fas fa-play-circle"></i>
+                    <p>Nessun contenuto da continuare</p>
+                    <p style="font-size: 12px; opacity: 0.7;">Guarda almeno 30 secondi di un contenuto per vederlo qui</p>
+                </div>
+            `;
+        }
+        
+        console.log("📱 Caricamento completato:", loadedCount, "contenuti");
+        
+    } catch (error) {
+        console.error('Errore caricamento continua visione:', error);
+    }
+}
 
+// Funzione per creare una card "Continua Visione"
+function createContinuaCard(item, savedTime, season = null, episode = null) {
+    const isMovie = item.media_type === 'movie';
+    const mediaType = isMovie ? 'movie' : 'tv';
+    
+    const card = document.createElement('div');
+    card.className = 'mobile-card continua-card';
+    
+    const imageUrl = item.poster_path 
+        ? `https://image.tmdb.org/t/p/w342${item.poster_path}`
+        : 'https://via.placeholder.com/342x513?text=No+Image';
+    
+    const title = isMovie ? item.title : item.name;
+    
+    // Formatta il titolo
+    const displayTitle = title.length > 25 ? title.substring(0, 22) + '...' : title;
+    
+    // Info episodio se serie TV
+    let episodeInfo = '';
+    if (!isMovie && season && episode) {
+        episodeInfo = `<div class="continua-episode">S${season}E${episode}</div>`;
+    }
+    
+    // Calcola percentuale guardata
+    let totalDuration = item.runtime ? item.runtime * 60 : // film in secondi
+                        (item.episode_run_time && item.episode_run_time.length > 0) ? 
+                        item.episode_run_time[0] * 60 : 0; // serie in secondi
+    
+    const percentWatched = totalDuration > 0 ? 
+        Math.min(Math.round((savedTime / totalDuration) * 100), 100) : 0;
+    
+    // Formatta il tempo rimanente
+    const remainingSeconds = Math.max(0, totalDuration - savedTime);
+    const remainingMinutes = Math.floor(remainingSeconds / 60);
+    const remainingText = remainingMinutes > 0 ? 
+        `${remainingMinutes} min rimanenti` : 
+        (percentWatched >= 95 ? 'Completato' : 'Quasi finito');
+    
+    // DEBUG info
+    card.dataset.debug = `saved:${savedTime.toFixed(0)}s, total:${totalDuration}s, ${percentWatched}%`;
+    
+    card.innerHTML = `
+        <img src="${imageUrl}" alt="${title}" class="mobile-card-image">
+        <div class="mobile-card-content">
+            <div class="mobile-card-title" title="${title}">${displayTitle}</div>
+            <div class="mobile-card-meta">
+                ${isMovie ? '🎬 Film' : '📺 Serie'} ${episodeInfo}
+                <div style="font-size: 10px; color: #666; margin-top: 2px;">
+                    ${percentWatched}% guardato
+                </div>
+            </div>
+            <div class="continua-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: ${percentWatched}%"></div>
+                </div>
+                <div class="progress-info">
+                    <span>${formatTime(savedTime)} / ${totalDuration > 0 ? formatTime(totalDuration) : '??:??'}</span>
+                    <span>${remainingText}</span>
+                </div>
+            </div>
+            <div class="mobile-card-buttons">
+                <button class="mobile-card-btn play" onclick="resumeWatching('${mediaType}', ${item.id}, ${season || 'null'}, ${episode || 'null'}, event)">
+                    <i class="fas fa-play"></i> Continua
+                </button>
+                <button class="mobile-card-btn remove" onclick="removeContinuaItem('${mediaType}', ${item.id}, ${season || 'null'}, ${episode || 'null'}, event)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    `;
+    
+    return card;
+}
+
+// Funzione per riprendere la visione
+async function resumeWatching(mediaType, tmdbId, season, episode, event) {
+    if (event) event.stopPropagation();
+    
+    try {
+        // Carica i dettagli dell'item
+        const item = await fetchTMDB(`${mediaType}/${tmdbId}`);
+        item.media_type = mediaType;
+        
+        // Apri il player
+        openMobilePlayer(item);
+        
+        // Se è una serie TV con stagione/episodio, carica quell'episodio
+        if (mediaType === 'tv' && season && episode && season !== 'null' && episode !== 'null') {
+            setTimeout(() => {
+                playTVEpisodeMobile(tmdbId, season, episode);
+            }, 500);
+        }
+        
+    } catch (error) {
+        console.error('Errore ripresa visione:', error);
+        showMobileError('Errore nel riprendere la visione');
+    }
+}
+
+// Funzione per rimuovere dalla lista "Continua Visione"
+function removeContinuaItem(mediaType, tmdbId, season, episode, event) {
+    if (event) event.stopPropagation();
+    
+    let storageKey = `videoTime_${mediaType}_${tmdbId}`;
+    if (mediaType === 'tv' && season && episode && season !== 'null' && episode !== 'null') {
+        storageKey += `_S${season}_E${episode}`;
+    }
+    
+    // Rimuovi dallo storage
+    localStorage.removeItem(storageKey);
+    
+    // Ricarica la lista
+    loadContinuaMobile();
+    
+    // Aggiorna il badge se necessario
+    updateMobileFavCount();
+}
 // ============ RICERCA ============
 function handleMobileSearch(e) {
     const query = e.target.value.trim();
