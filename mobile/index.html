@@ -13,20 +13,7 @@
     <script src="https://unpkg.com/@videojs/http-streaming@latest/dist/videojs-http-streaming.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/videojs-hls-quality-selector@1.1.4/dist/videojs-hls-quality-selector.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/videojs-hls-quality-selector@1.1.4/dist/videojs-hls-quality-selector.css" />
-<script>
-    // Funzione per rilevare iOS (iPhone, iPad, iPod, iPadOS moderno)
-    const isIOS = () => {
-        return /iPad|iPhone|iPod/.test(navigator.userAgent)
-            || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-    };
-
-    // Carica CSS corretto
-    const css = document.createElement('link');
-    css.rel = 'stylesheet';
-    css.href = isIOS() ? 'styleCellOS.css' : 'styleCell.css';
-    document.head.appendChild(css);
-</script>
-
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header id="mobile-header">
@@ -352,12 +339,7 @@
 <script src="mobile-api.js"></script>
 <script src="mobile-storage.js"></script>
 <script src="mobile-content.js"></script>
-<script>
-    // Carica player corretto per iOS o altri dispositivi
-    const playerScript = document.createElement('script');
-    playerScript.src = isIOS() ? 'mobile-playerIOS.js' : 'mobile-player.js';
-    document.head.appendChild(playerScript);
-</script>
+<script src="mobile-player.js"></script>
 <script src="mobile-main.js"></script>
 </body>
 </html>
