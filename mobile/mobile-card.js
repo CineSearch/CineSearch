@@ -1,3 +1,5 @@
+// mobile-card.js - Gestione card contenuti
+
 function createMobileCard(item) {
     const isMovie = item.media_type === 'movie' || item.title;
     const mediaType = isMovie ? 'movie' : 'tv';
@@ -14,8 +16,11 @@ function createMobileCard(item) {
         : (item.first_air_date ? new Date(item.first_air_date).getFullYear() : 'N/A');
     
     const isFav = checkIfFavorite(item.id, mediaType);
+    
+    // Formatta il titolo per mobile
     const displayTitle = title.length > 25 ? title.substring(0, 22) + '...' : title;
     
+    // Info aggiuntive per serie TV
     let extraInfo = '';
     if (mediaType === 'tv') {
         if (item.seasons_count > 0) {
@@ -43,6 +48,7 @@ card.innerHTML = `
     </div>
 `;
     
+    // Apri player al click sulla card
     card.addEventListener('click', (e) => {
         if (!e.target.closest('.mobile-card-btn')) {
             openMobilePlayer(item);

@@ -15,7 +15,7 @@ body {
     padding-bottom: 70px; /* Spazio per la bottom nav */
 }
 
-/* ============ HEADER MOBILE ============ */
+/* Header Mobile */
 #mobile-header {
     position: fixed;
     top: 0;
@@ -68,7 +68,7 @@ body {
     cursor: pointer;
 }
 
-/* ============ SIDEBAR MOBILE ============ */
+/* Sidebar Mobile */
 .mobile-sidebar {
     position: fixed;
     top: 0;
@@ -213,7 +213,7 @@ body {
     color: #aaa;
 }
 
-/* ============ MAIN CONTENT ============ */
+/* Main Content */
 #mobile-main {
     margin-top: 60px;
     padding: 15px;
@@ -300,7 +300,7 @@ body {
     padding-bottom: 10px;
 }
 
-/* ============ CARD MOBILE ============ */
+/* Card Mobile */
 .mobile-card {
     flex: 0 0 auto;
     width: 140px;
@@ -354,27 +354,10 @@ body {
 }
 
 .mobile-card-btn.fav {
-    color: #ccc;
-    transition: all 0.3s ease;
-}
-
-.mobile-card-btn.fav.active {
-    color: #ffcc00 !important;
-}
-
-.mobile-card-btn.fav .far {
-    color: #ccc;
-}
-
-.mobile-card-btn.fav .fas {
     color: #ffcc00;
 }
 
-.mobile-card-btn.fav i {
-    font-size: 1.2rem;
-}
-
-/* ============ PAGE HEADER ============ */
+/* Page Header */
 .mobile-page-header {
     display: flex;
     align-items: center;
@@ -395,7 +378,7 @@ body {
     cursor: pointer;
 }
 
-/* ============ FILTERS ============ */
+/* Filters */
 .mobile-filters {
     display: flex;
     flex-wrap: wrap;
@@ -439,14 +422,14 @@ body {
     font-weight: bold;
 }
 
-/* ============ GRID MOBILE ============ */
+/* Grid Mobile */
 .mobile-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
 }
 
-/* ============ PAGINATION ============ */
+/* Pagination */
 .mobile-pagination {
     display: flex;
     align-items: center;
@@ -480,7 +463,7 @@ body {
     text-align: center;
 }
 
-/* ============ CATEGORIES GRID ============ */
+/* Categories Grid */
 .mobile-categories-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -516,7 +499,7 @@ body {
     font-weight: bold;
 }
 
-/* ============ PLAYER MOBILE ============ */
+/* Player Mobile */
 #mobile-player {
     position: fixed;
     top: 0;
@@ -554,6 +537,14 @@ body {
     padding: 15px;
 }
 
+#mobile-player-video {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
 .mobile-player-info {
     padding: 15px 0;
 }
@@ -571,173 +562,18 @@ body {
     line-height: 1.6;
 }
 
-/* ============ VIDEO.JS STYLING ============ */
-.video-js {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16/9;
-    background: #000;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.video-js.vjs-fullscreen {
-    height: 100vh;
-    aspect-ratio: unset;
-    border-radius: 0;
-}
-
-.vjs-theme-vixflix {
-    --vjs-theme-vixflix--primary: #e50914;
-}
-
-.vjs-poster {
-    background-size: cover;
-}
-
-/* Loading spinner */
-.vjs-loading-spinner {
-    border: 6px solid rgba(255, 255, 255, 0.3);
-    border-top-color: #e50914;
-    border-radius: 50%;
-    animation: vjs-spinner-spin 1.1s linear infinite;
-}
-
-@keyframes vjs-spinner-spin {
-    100% { transform: rotate(360deg); }
-}
-
-/* Control bar */
-.video-js .vjs-control-bar {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-    height: 50px;
-    padding: 0 10px;
-    display: flex !important;
-    align-items: center !important;
-}
-
-.video-js .vjs-button > .vjs-icon-placeholder:before {
-    font-size: 1.5em;
-    line-height: 2;
-}
-
-.video-js .vjs-play-progress {
-    background: #e50914;
-}
-
-.video-js .vjs-slider {
-    background-color: rgba(255, 255, 255, 0.3);
-}
-
-/* ============ QUALITY SELECTOR FIXED ============ */
-.video-js .vjs-quality-selector {
-    font-size: 1.2em;
-    cursor: pointer;
-    display: flex !important;
-    align-items: center !important;
-    margin-left: 10px !important;
-}
-
-.vjs-quality-selector .vjs-icon-placeholder {
-    font-family: VideoJS !important;
-    font-size: 1.5em !important;
-    line-height: 1.67 !important;
-    width: 100% !important;
-    height: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-/* Icona HD personalizzata */
-.vjs-quality-selector .vjs-icon-placeholder:before {
-    content: 'HD' !important;
-    font-family: inherit !important;
-    font-weight: bold !important;
-    font-size: 0.8em !important;
-}
-
-/* Menu qualità - Posizionamento CORRETTO */
-.vjs-quality-selector .vjs-menu {
-    width: 150px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    bottom: 100% !important;
-    margin-bottom: 5px !important;
-    z-index: 100 !important;
-    position: absolute !important;
-}
-
-/* Contenuto menu */
-.vjs-quality-selector .vjs-menu-content {
-    background: rgba(0, 0, 0, 0.95) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    border-radius: 8px !important;
-    padding: 8px 0 !important;
-    backdrop-filter: blur(10px) !important;
-    overflow: hidden !important;
-}
-
-/* Elementi menu */
-.vjs-quality-selector .vjs-menu-item {
-    color: #fff !important;
-    font-size: 13px !important;
-    padding: 10px 15px !important;
-    cursor: pointer !important;
-    text-align: center !important;
-    white-space: nowrap !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-    transition: all 0.2s ease !important;
-}
-
-.vjs-quality-selector .vjs-menu-item:last-child {
-    border-bottom: none !important;
-}
-
-.vjs-quality-selector .vjs-menu-item:hover {
-    background: rgba(229, 9, 20, 0.5) !important;
-}
-
-.vjs-quality-selector .vjs-menu-item.vjs-selected {
-    background: #e50914 !important;
-    color: white !important;
-    font-weight: bold !important;
-}
-
-/* Riordina elementi della control bar */
-.vjs-control-bar {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-}
-
-.vjs-control-bar > * {
-    flex-shrink: 0 !important;
-}
-
-/* ============ EPISODE SELECTOR ============ */
 .mobile-episode-selector {
     margin-top: 20px;
 }
 
-.season-selector-mobile {
-    margin-bottom: 15px;
-}
-
 .season-selector-mobile select {
     width: 100%;
-    padding: 12px 15px;
+    padding: 12px;
     background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
     color: #fff;
-    font-size: 14px;
-    outline: none;
-}
-
-.season-selector-mobile select:focus {
-    border-color: #e50914;
-    box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.3);
+    margin-bottom: 15px;
 }
 
 .episodes-list-mobile {
@@ -745,128 +581,19 @@ body {
     overflow-y: auto;
 }
 
-.episodes-list-mobile::-webkit-scrollbar {
-    width: 5px;
-}
-
-.episodes-list-mobile::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-}
-
-.episodes-list-mobile::-webkit-scrollbar-thumb {
-    background: rgba(229, 9, 20, 0.5);
-    border-radius: 10px;
-}
-
 .mobile-episode-item {
-    padding: 12px 15px;
+    padding: 12px;
     margin-bottom: 8px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.mobile-episode-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(229, 9, 20, 0.3);
-    transform: translateX(5px);
 }
 
 .mobile-episode-item.active {
-    background: rgba(229, 9, 20, 0.2);
-    border-color: #e50914;
+    background: rgba(42, 9, 229, 0.3);
 }
 
-/* ============ ADDITIONAL CONTROLS ============ */
-.mobile-additional-controls {
-    display: none;
-    background: rgba(0, 0, 0, 0.9);
-    padding: 15px;
-    border-radius: 10px;
-    margin: 15px 0;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.mobile-additional-controls.show {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.mobile-control-group {
-    flex: 1;
-    min-width: 200px;
-}
-
-.mobile-control-group label {
-    display: block;
-    color: #fff;
-    font-size: 12px;
-    margin-bottom: 5px;
-    opacity: 0.8;
-}
-
-.mobile-control-select {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 14px;
-}
-
-.mobile-control-select:focus {
-    outline: none;
-    border-color: #e50914;
-    box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.3);
-}
-
-.mobile-control-btn {
-    background: rgba(42, 9, 229, 0.8);
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 6px;
-    font-size: 14px;
-    cursor: pointer;
-    width: 100%;
-    transition: all 0.3s ease;
-}
-
-.mobile-control-btn:hover {
-    background: rgba(42, 9, 229, 1);
-}
-
-/* Pulsante per mostrare/nascondere controlli aggiuntivi */
-.mobile-controls-toggle {
-    display: block;
-    margin: 10px auto;
-    background: rgba(229, 9, 20, 0.8);
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.mobile-controls-toggle:hover {
-    background: #e50914;
-    transform: scale(1.05);
-}
-
-/* ============ BOTTOM NAVIGATION ============ */
+/* Bottom Navigation */
 .mobile-bottom-nav {
     position: fixed;
     bottom: 0;
@@ -907,7 +634,7 @@ body {
     font-size: 0.8rem;
 }
 
-/* ============ FOOTER MOBILE ============ */
+/* Footer Mobile */
 .mobile-footer {
     text-align: center;
     padding: 20px;
@@ -916,7 +643,7 @@ body {
     background: rgba(0, 0, 0, 0.5);
 }
 
-/* ============ EMPTY STATES ============ */
+/* Empty States */
 .empty-state {
     text-align: center;
     padding: 40px 20px;
@@ -929,7 +656,375 @@ body {
     opacity: 0.5;
 }
 
-/* ============ CONTINUA VISIONE ============ */
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+    .mobile-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .mobile-categories-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #0a0a0a;
+    }
+}
+
+/* Supporto per iOS */
+@supports (-webkit-touch-callout: none) {
+    body {
+        padding-bottom: 90px; /* Extra spazio per iOS */
+    }
+}
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    .mobile-video-element {
+        width: 100%;
+        height: auto;
+        max-height: 80vh;
+        background: #000;
+    }
+    
+    .mobile-video-container {
+        position: relative;
+        width: 100%;
+        margin: 20px 0;
+        background: #000;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+    .mobile-player-controls {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 15px 0;
+    }
+    
+    .mobile-control-btn {
+        background: #e50914;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+/* Video.js Mobile Styling */
+.vjs-theme-vixflix {
+    --vjs-theme-vixflix--primary: #e50914;
+}
+
+.video-js {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.vjs-poster {
+    background-size: cover;
+}
+
+/* Fullscreen mobile */
+.video-js.vjs-fullscreen {
+    height: 100vh;
+    aspect-ratio: unset;
+    border-radius: 0;
+}
+
+/* Loading spinner per mobile */
+.vjs-loading-spinner {
+    border: 6px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #e50914;
+    border-radius: 50%;
+    animation: vjs-spinner-spin 1.1s linear infinite;
+}
+
+@keyframes vjs-spinner-spin {
+    100% { transform: rotate(360deg); }
+}
+
+/* Controlli per touch */
+.vjs-control-bar {
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.vjs-button > .vjs-icon-placeholder:before {
+    font-size: 1.8em;
+}
+
+/* Adatta i controlli per mobile */
+@media (max-width: 768px) {
+    .vjs-control-bar {
+        height: 50px;
+    }
+    
+    .vjs-progress-control {
+        height: 30px;
+    }
+    
+    .vjs-playback-rate {
+        display: none; /* Nascondi su mobile per spazio */
+    }
+}
+/* Aggiungi alla fine di styleCell.css */
+
+/* Controlli aggiuntivi player mobile */
+.mobile-additional-controls {
+    display: none;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.mobile-control-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 150px;
+}
+
+.mobile-control-group label {
+    color: #fff;
+    font-size: 12px;
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+.mobile-control-select {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+}
+
+.mobile-control-select option {
+    background: #222;
+    color: #fff;
+}
+
+.mobile-control-select:focus {
+    border-color: #e50914;
+    box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.3);
+}
+
+/* Bottoni azioni rapide */
+.mobile-quick-actions {
+    display: flex;
+    gap: 10px;
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.mobile-quick-btn {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mobile-quick-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #e50914;
+}
+
+.mobile-quick-btn i {
+    margin-right: 5px;
+}
+
+/* Pulsante apri controlli */
+.mobile-toggle-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.mobile-toggle-controls:hover {
+    background: rgba(229, 9, 20, 0.8);
+    transform: scale(1.1);
+}
+
+/* Player header migliorato */
+.mobile-player-header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: linear-gradient(to bottom, #000, transparent);
+    position: relative;
+    z-index: 5;
+}
+
+.mobile-player-header h2 {
+    flex: 1;
+    margin: 0 15px;
+    color: #fff;
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .mobile-additional-controls {
+        flex-direction: column;
+    }
+    
+    .mobile-control-group {
+        min-width: 100%;
+    }
+    
+    .mobile-quick-actions {
+        flex-wrap: wrap;
+    }
+    
+    .mobile-quick-btn {
+        min-width: calc(50% - 5px);
+    }
+}
+
+/* Animazione per comparizione controlli */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mobile-additional-controls.show {
+    display: flex;
+    animation: fadeInUp 0.3s ease-out;
+}
+
+/* Stili per selettore episodi mobile */
+.season-selector-mobile {
+    margin-bottom: 15px;
+}
+
+.season-selector-mobile select {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+}
+
+.season-selector-mobile select:focus {
+    border-color: #e50914;
+    box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.3);
+}
+
+.episodes-list-mobile {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.episodes-list-mobile::-webkit-scrollbar {
+    width: 5px;
+}
+
+.episodes-list-mobile::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.episodes-list-mobile::-webkit-scrollbar-thumb {
+    background: rgba(229, 9, 20, 0.5);
+    border-radius: 10px;
+}
+
+.mobile-episode-item {
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-episode-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(229, 9, 20, 0.3);
+    transform: translateX(5px);
+}
+
+.mobile-episode-item.active {
+    background: rgba(229, 9, 20, 0.2);
+    border-color: #e50914;
+}
+
+/* Bottone play episodio */
+.mobile-control-btn {
+    background: #e50914;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mobile-control-btn:hover {
+    background: #ff0000;
+    transform: scale(1.1);
+}
+
+.mobile-control-btn i {
+    font-size: 14px;
+}
+/* Stili per "Continua Visione" */
 .continua-card {
     position: relative;
 }
@@ -1001,341 +1096,29 @@ body {
 .mobile-card-btn.remove:hover {
     background: rgba(255, 0, 0, 0.4);
 }
+/* Aggiungi queste regole CSS */
 
-/* ============ CONTROLS BUTTONS ============ */
-.mobile-control-btn {
-    background: #e50914;
-    color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+/* Stile per stelle vuote */
+.mobile-card-btn.fav {
+    color: #ccc; /* Colore stella vuota */
     transition: all 0.3s ease;
 }
 
-.mobile-control-btn:hover {
-    background: #ff0000;
-    transform: scale(1.1);
+/* Stile per stelle piene (preferiti) */
+.mobile-card-btn.fav.active {
+    color: #ffcc00 !important; /* Giallo per stella piena */
 }
 
-.mobile-control-btn i {
-    font-size: 14px;
+/* Icone Font Awesome specifiche */
+.mobile-card-btn.fav .far {
+    color: #ccc; /* Stella vuota */
 }
 
-/* ============ RESPONSIVE ADJUSTMENTS ============ */
-@media (min-width: 768px) {
-    .mobile-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .mobile-categories-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
+.mobile-card-btn.fav .fas {
+    color: #ffcc00; /* Stella piena */
 }
 
-@media (max-width: 768px) {
-    .video-js .vjs-control-bar {
-        height: 40px;
-    }
-    
-    .video-js .vjs-button {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .video-js .vjs-volume-panel {
-        width: 40px;
-    }
-    
-    .vjs-quality-selector .vjs-menu {
-        width: 100px;
-    }
-    
-    .vjs-quality-selector .vjs-menu-item {
-        font-size: 11px;
-        padding: 5px 8px;
-    }
-    
-    .video-js .vjs-playback-rate {
-        display: none;
-    }
-}
-
-@media (max-width: 480px) {
-    .mobile-additional-controls {
-        flex-direction: column;
-    }
-    
-    .mobile-control-group {
-        min-width: 100%;
-    }
-}
-
-/* ============ DARK MODE ADJUSTMENTS ============ */
-@media (prefers-color-scheme: dark) {
-    body {
-        background: #0a0a0a;
-    }
-}
-
-/* ============ iOS SUPPORT ============ */
-@supports (-webkit-touch-callout: none) {
-    body {
-        padding-bottom: 90px;
-    }
-}
-
-/* ============ ANIMATIONS ============ */
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ============ HIDE DUPLICATE CONTROLS ============ */
-#mobile-additional-controls .mobile-control-group {
-    display: none !important;
-}
-
-.mobile-quick-actions {
-    display: none !important;
-}
-
-/* ============ PLAYER CONTROLS IMPROVEMENT ============ */
-.video-js .vjs-control-bar .vjs-quality-selector {
-    order: 8 !important;
-    margin-left: auto !important;
-}
-
-.vjs-play-toggle { order: 1 !important; }
-.vjs-volume-panel { order: 2 !important; }
-.vjs-current-time { order: 3 !important; }
-.vjs-time-divider { order: 4 !important; }
-.vjs-duration { order: 5 !important; }
-.vjs-progress-control { order: 6 !important; flex: 1 !important; }
-.vjs-playback-rate { order: 7 !important; }
-.vjs-quality-selector { order: 8 !important; }
-.vjs-fullscreen-toggle { order: 9 !important; }
-/* Aggiungi questi stili alla fine del file */
-
-/* ============ QUALITY SELECTOR BADGE ============ */
-.vjs-quality-selector .vjs-icon-placeholder {
-    position: relative;
-}
-
-/* Pallino indicatore qualità attiva */
-.quality-badge {
-    position: absolute;
-    top: -3px;
-    right: -3px;
-    width: 8px;
-    height: 8px;
-    background: #e50914;
-    border-radius: 50%;
-    border: 1px solid #fff;
-    font-size: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-}
-
-/* Testo qualità corrente */
-.current-quality-label {
-    font-size: 10px;
-    color: #fff;
-    background: rgba(229, 9, 20, 0.8);
-    padding: 2px 4px;
-    border-radius: 3px;
-    margin-left: 5px;
-    font-weight: bold;
-}
-
-/* Menu qualità migliorato */
-.vjs-quality-selector .vjs-menu-content {
-    background: rgba(0, 0, 0, 0.95) !important;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    min-width: 120px;
-}
-
-.vjs-quality-selector .vjs-menu-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 12px;
-    font-size: 13px;
-}
-
-/* Indicatore qualità corrente nel menu */
-.vjs-quality-selector .vjs-menu-item.vjs-selected::after {
-    content: '✓';
-    color: #e50914;
-    font-weight: bold;
-    margin-left: 10px;
-}
-
-/* Fullscreen button styling */
-.video-js .vjs-fullscreen-toggle {
-    order: 10 !important;
-    margin-left: 5px !important;
-}
-
-/* ============ FIX CONTROL BAR ORDER ============ */
-.video-js .vjs-control-bar {
-    display: flex !important;
-    align-items: center !important;
-}
-
-.vjs-play-toggle { order: 1 !important; }
-.vjs-volume-panel { order: 2 !important; }
-.vjs-current-time { order: 3 !important; }
-.vjs-time-divider { order: 4 !important; }
-.vjs-duration { order: 5 !important; }
-.vjs-progress-control { order: 6 !important; flex: 1 !important; }
-.vjs-playback-rate { order: 7 !important; }
-.vjs-quality-selector { order: 8 !important; }
-.vjs-fullscreen-toggle { order: 9 !important; }
-
-/* Nascondi elementi duplicati */
-.video-js .vjs-remaining-time {
-    display: none !important;
-}
-
-/* ============ QUALITY BUTTON STYLES ============ */
-.mobile-quality-btn {
-    order: 7 !important;
-    margin-left: 5px !important;
-    position: relative !important;
-}
-
-.mobile-quality-btn .vjs-icon-placeholder {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-family: VideoJS !important;
-    font-weight: bold !important;
-    font-size: 14px !important;
-    width: 40px !important;
-    height: 40px !important;
-}
-
-.mobile-quality-menu {
-    animation: fadeIn 0.2s ease !important;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(5px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.quality-menu-item:hover {
-    background: rgba(229, 9, 20, 0.3) !important;
-}
-
-.quality-menu-item.selected {
-    background: rgba(229, 9, 20, 0.2) !important;
-}
-
-.quality-check {
-    font-weight: bold !important;
-}
-
-/* ============ CONTROL BAR ORDER ============ */
-.video-js .vjs-control-bar {
-    display: flex !important;
-    align-items: center !important;
-    padding: 0 10px !important;
-}
-
-.vjs-play-toggle { order: 1 !important; }
-.vjs-volume-panel { order: 2 !important; }
-.vjs-current-time { order: 3 !important; }
-.vjs-time-divider { order: 4 !important; }
-.vjs-duration { order: 5 !important; }
-.vjs-progress-control { order: 6 !important; flex: 1 !important; min-width: 50px !important; }
-.mobile-quality-btn { order: 7 !important; }
-.vjs-playback-rate { order: 8 !important; }
-.vjs-fullscreen-toggle { order: 9 !important; }
-
-/* Nascondi remaining time su mobile */
-.video-js .vjs-remaining-time {
-    display: none !important;
-}
-
-/* Fullscreen button styling */
-.vjs-fullscreen-toggle {
-    min-width: 40px !important;
-}
-/* ============ QUALITY BUTTON STYLES ============ */
-.vjs-quality-button {
-    order: 7 !important;
-    margin-left: 5px !important;
-    min-width: 40px !important;
-    height: 40px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-.vjs-quality-button .vjs-icon-placeholder {
-    font-family: Arial, sans-serif !important;
-    font-weight: bold !important;
-    font-size: 12px !important;
-    color: white !important;
-}
-
-/* Menu qualità */
-.vjs-quality-menu {
-    animation: fadeIn 0.2s ease !important;
-}
-
-.vjs-quality-menu-item {
-    padding: 10px 15px !important;
-    color: white !important;
-    cursor: pointer !important;
-    font-size: 14px !important;
-    transition: background 0.2s !important;
-}
-
-.vjs-quality-menu-item:hover {
-    background: rgba(229, 9, 20, 0.5) !important;
-}
-
-.vjs-quality-menu-item.selected {
-    background: rgba(229, 9, 20, 0.8) !important;
-    font-weight: bold !important;
-}
-
-/* Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Per dispositivi mobili */
-@media (max-width: 768px) {
-    .vjs-quality-button {
-        min-width: 35px !important;
-        height: 35px !important;
-    }
-    
-    .vjs-quality-button .vjs-icon-placeholder {
-        font-size: 10px !important;
-    }
+/* Assicurati che non ci siano override */
+.mobile-card-btn.fav i {
+    font-size: 1.2rem;
 }

@@ -1,3 +1,5 @@
+// mobile-api.js - Gestione chiamate API
+
 const API_KEY = "f75aac685f3389aa89c4f8580c078a28";
 const VIXSRC_URL = "vixsrc.to";
 const AVAILABILITY_CHECK_TIMEOUT = 5000;
@@ -7,6 +9,7 @@ const ITEMS_PER_PAGE = 20;
 async function fetchTMDB(endpoint, params = {}) {
     let url = `https://api.themoviedb.org/3/${endpoint}?api_key=${API_KEY}&language=it-IT`;
     
+    // Aggiungi parametri
     Object.keys(params).forEach(key => {
         if (params[key] !== undefined && params[key] !== null) {
             url += `&${key}=${encodeURIComponent(params[key])}`;
@@ -46,7 +49,7 @@ async function checkAvailabilityOnVixsrc(tmdbId, isMovie, season = null, episode
                     }
                 }
                 
-                // console.log(`Verifica disponibilità: ${vixsrcUrl}`);
+                console.log(`Verifica disponibilità: ${vixsrcUrl}`);
                 
                 const controller = new AbortController();
                 const timeoutId = setTimeout(() => controller.abort(), 4000);
@@ -61,7 +64,7 @@ async function checkAvailabilityOnVixsrc(tmdbId, isMovie, season = null, episode
                 clearTimeout(timeoutId);
                 
                 if (response.status === 404) {
-                    // console.log(`❌ Contenuto non trovato (404): ${tmdbId}`);
+                    console.log(`❌ Contenuto non trovato (404): ${tmdbId}`);
                     clearTimeout(timeout);
                     resolve(false);
                     return;
@@ -69,12 +72,20 @@ async function checkAvailabilityOnVixsrc(tmdbId, isMovie, season = null, episode
                 
                 const html = await response.text();
                 
+                // Pattern più robusti per verificare disponibilità
                 const hasPlaylist = /window\.masterPlaylist|\.m3u8|"playlist"/i.test(html);
                 const notFound = /not found|not available|no sources found|error 404|content unavailable|this movie is not available/i.test(html);
                 const hasSources = /sources:\s*\[|video sources|streaming links/i.test(html);
                 
                 const isAvailable = (hasPlaylist || hasSources) && !notFound;
-                                
+                
+                console.log(`📊 Risultato verifica ${isMovie ? 'Film' : 'Serie'} ${tmdbId}:`, {
+                    hasPlaylist,
+                    hasSources,
+                    notFound,
+                    isAvailable
+                });
+                
                 clearTimeout(timeout);
                 resolve(isAvailable);
                 
@@ -87,19 +98,22 @@ async function checkAvailabilityOnVixsrc(tmdbId, isMovie, season = null, episode
     });
 }
 
+// NUOVA FUNZIONE: Verifica completa film
 async function checkMovieAvailability(tmdbId) {
     try {
         const movieUrl = `https://${VIXSRC_URL}/movie/${tmdbId}`;
-        // console.log(`🎬 Verifica film: ${movieUrl}`);
+        console.log(`🎬 Verifica film: ${movieUrl}`);
         
         const response = await fetch(applyCorsProxy(movieUrl));
         const html = await response.text();
         
+        // Controlla se è una pagina valida
         if (html.includes('window.masterPlaylist')) {
-            // console.log(`✅ Film ${tmdbId} disponibile su vixsrc`);
+            console.log(`✅ Film ${tmdbId} disponibile su vixsrc`);
             return true;
         }
         
+        // Cerca pattern alternativi
         const patterns = [
             /sources:\s*\[.*?\]/s,
             /"playlist".*?\.m3u8/,
@@ -109,11 +123,12 @@ async function checkMovieAvailability(tmdbId) {
         
         for (const pattern of patterns) {
             if (pattern.test(html)) {
-                // console.log(`✅ Film ${tmdbId} disponibile (pattern trovato)`);
+                console.log(`✅ Film ${tmdbId} disponibile (pattern trovato)`);
                 return true;
             }
         }
         
+        // Controlla se è una pagina 404 o errore
         const errorPatterns = [
             /movie not found/i,
             /this movie is not available/i,
@@ -123,12 +138,13 @@ async function checkMovieAvailability(tmdbId) {
         
         for (const pattern of errorPatterns) {
             if (pattern.test(html)) {
-                // console.log(`❌ Film ${tmdbId} non disponibile`);
+                console.log(`❌ Film ${tmdbId} non disponibile`);
                 return false;
             }
         }
         
-        // console.log(`⚠️ Film ${tmdbId}: stato indeterminato`);
+        // Fallback: se la pagina carica ma non trova pattern specifici
+        console.log(`⚠️ Film ${tmdbId}: stato indeterminato`);
         return false;
         
     } catch (error) {
@@ -137,25 +153,29 @@ async function checkMovieAvailability(tmdbId) {
     }
 }
 
+// NUOVA FUNZIONE: Verifica serie TV con cache
 async function checkTvSeriesAvailability(tmdbId) {
     try {
+        // Cache per evitare controlli ripetuti
         const cacheKey = `tv_availability_${tmdbId}`;
         const cached = localStorage.getItem(cacheKey);
         
         if (cached) {
             const cacheData = JSON.parse(cached);
             if (cacheData.expiry > Date.now()) {
-                // console.log(`📺 Serie ${tmdbId}: risultato cache ${cacheData.available ? '✅' : '❌'}`);
+                console.log(`📺 Serie ${tmdbId}: risultato cache ${cacheData.available ? '✅' : '❌'}`);
                 return cacheData.available;
             }
         }
         
-        // console.log(`📺 Verifica serie TV: ${tmdbId}`);
+        console.log(`📺 Verifica serie TV: ${tmdbId}`);
         
+        // Prova prima il metodo standard
         const firstEpisodeUrl = `https://${VIXSRC_URL}/tv/${tmdbId}/1/1`;
         const response = await fetch(applyCorsProxy(firstEpisodeUrl));
         
         if (!response.ok) {
+            // Salva in cache negativo per 1 ora
             const cacheData = {
                 available: false,
                 expiry: Date.now() + (60 * 60 * 1000)
@@ -166,6 +186,7 @@ async function checkTvSeriesAvailability(tmdbId) {
         
         const html = await response.text();
         
+        // Pattern di disponibilità
         const availablePatterns = [
             /window\.masterPlaylist/,
             /sources:\s*\[/,
@@ -174,6 +195,7 @@ async function checkTvSeriesAvailability(tmdbId) {
             /class=["']video-container["']/
         ];
         
+        // Pattern di errore
         const errorPatterns = [
             /tv show not found/i,
             /no episodes available/i,
@@ -181,6 +203,7 @@ async function checkTvSeriesAvailability(tmdbId) {
             /this series is not available/i
         ];
         
+        // Verifica disponibilità
         let isAvailable = false;
         
         for (const pattern of availablePatterns) {
@@ -190,6 +213,7 @@ async function checkTvSeriesAvailability(tmdbId) {
             }
         }
         
+        // Verifica errori
         for (const pattern of errorPatterns) {
             if (pattern.test(html)) {
                 isAvailable = false;
@@ -197,13 +221,14 @@ async function checkTvSeriesAvailability(tmdbId) {
             }
         }
         
+        // Salva in cache per 2 ore
         const cacheData = {
             available: isAvailable,
             expiry: Date.now() + (2 * 60 * 60 * 1000)
         };
         localStorage.setItem(cacheKey, JSON.stringify(cacheData));
         
-        // console.log(`📺 Serie ${tmdbId}: ${isAvailable ? '✅ Disponibile' : '❌ Non disponibile'}`);
+        console.log(`📺 Serie ${tmdbId}: ${isAvailable ? '✅ Disponibile' : '❌ Non disponibile'}`);
         return isAvailable;
         
     } catch (error) {
@@ -212,11 +237,12 @@ async function checkTvSeriesAvailability(tmdbId) {
     }
 }
 
+// NUOVA FUNZIONE: Verifica batch multipli per performance
 async function batchCheckAvailability(items, isMovie = true) {
-    // console.log(`🔍 Verifica batch di ${items.length} ${isMovie ? 'film' : 'serie'}`);
+    console.log(`🔍 Verifica batch di ${items.length} ${isMovie ? 'film' : 'serie'}`);
     
     const results = [];
-    const batchSize = 5;
+    const batchSize = 5; // Controlla 5 alla volta per non sovraccaricare
     
     for (let i = 0; i < items.length; i += batchSize) {
         const batch = items.slice(i, i + batchSize);
@@ -228,23 +254,26 @@ async function batchCheckAvailability(items, isMovie = true) {
         
         const batchResults = await Promise.all(batchPromises);
         
+        // Aggiungi risultati al batch corrente
         batch.forEach((item, index) => {
             if (batchResults[index]) {
                 results.push(item);
             }
         });
         
+        // Pausa tra batch per non sovraccaricare
         if (i + batchSize < items.length) {
             await new Promise(resolve => setTimeout(resolve, 1000));
         }
     }
     
-    // console.log(`✅ Trovati ${results.length} ${isMovie ? 'film' : 'serie'} disponibili su ${items.length}`);
+    console.log(`✅ Trovati ${results.length} ${isMovie ? 'film' : 'serie'} disponibili su ${items.length}`);
     return results;
 }
 
 async function checkTvSeriesAvailability(tmdbId) {
     try {
+        // Prima verifica che la serie esista su vixsrc
         const seriesUrl = `https://${VIXSRC_URL}/tv/${tmdbId}`;
         const seriesResponse = await fetch(applyCorsProxy(seriesUrl));
         
@@ -254,14 +283,18 @@ async function checkTvSeriesAvailability(tmdbId) {
         
         const seriesHtml = await seriesResponse.text();
         
+        // Cerca pattern di episodi disponibili
         const episodesPattern = /season-data.*?data-season="(\d+)"/g;
         const seasonsMatch = [...seriesHtml.matchAll(episodesPattern)];
         
+        // Se ci sono stagioni/episodi nel markup
         if (seasonsMatch.length > 0) {
+            // Verifica almeno il primo episodio della prima stagione
             const firstSeason = seasonsMatch[0][1];
             return await checkEpisodeAvailability(tmdbId, firstSeason, 1);
         }
         
+        // Fallback: prova il classico metodo
         const firstEpisodeUrl = `https://${VIXSRC_URL}/tv/${tmdbId}/1/1`;
         const response = await fetch(applyCorsProxy(firstEpisodeUrl));
         
@@ -317,16 +350,19 @@ async function loadMobileHomeData() {
     try {
         // console.log('Caricamento dati home mobile...');
         
+        // Carica trending
         const trendingData = await fetchTMDB('trending/all/day');
         if (trendingData.results && trendingData.results.length > 0) {
             populateMobileCarousel('mobile-trending-carousel', trendingData.results);
         }
         
+        // Carica ultimi film
         const nowPlayingData = await fetchTMDB('movie/now_playing');
         if (nowPlayingData.results && nowPlayingData.results.length > 0) {
             populateMobileCarousel('mobile-nowPlaying-carousel', nowPlayingData.results);
         }
         
+        // Carica ultime serie
         const onAirData = await fetchTMDB('tv/on_the_air');
         if (onAirData.results && onAirData.results.length > 0) {
             populateMobileCarousel('mobile-onTheAir-carousel', onAirData.results);

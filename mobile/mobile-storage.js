@@ -1,3 +1,5 @@
+// mobile-storage.js - Gestione localStorage
+
 // ============ PREFERITI ============
 function getPreferiti() {
     const raw = localStorage.getItem("preferiti");
@@ -44,19 +46,22 @@ function toggleFavoriteMobile(id, type, title, button, event) {
     const itemId = `${type}-${id}`;
     
     if (preferiti.includes(itemId)) {
+        // Rimuovi dai preferiti
         removePreferito({id: id, media_type: type, title: title});
         if (button) {
             button.classList.remove('active');
             button.innerHTML = '<i class="far fa-star"></i>';
         }
     } else {
+        // Aggiungi ai preferiti
         addPreferito({id: id, media_type: type, title: title});
         if (button) {
             button.classList.add('active');
             button.innerHTML = '<i class="fas fa-star"></i>';
         }
     }
-
+    
+    // Se siamo nella sezione preferiti, ricarica
     if (currentMobileSection === 'preferiti') {
         loadPreferitiMobile();
     }
@@ -103,7 +108,7 @@ function cleanupExpiredStorage() {
                         i--;
                     }
                 } catch (e) {
-
+                    // Ignora errori di parsing
                 }
             }
         }

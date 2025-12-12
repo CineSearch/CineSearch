@@ -1,3 +1,5 @@
+// mobile-ui.js - Gestione interfaccia mobile
+
 // ============ VARIABILI UI ============
 let currentMobileSection = 'home';
 let requestHookInstalled = false;
@@ -29,6 +31,7 @@ function initMobileHamburgerMenu() {
         });
     }
     
+    // Chiudi sidebar cliccando fuori
     document.addEventListener('click', (e) => {
         if (sidebar && menuBtn && !sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
             sidebar.classList.remove('active');
@@ -61,19 +64,23 @@ function initMobileBottomNav() {
 
 // ============ GESTIONE SEZIONI ============
 function showMobileSection(sectionId) {
+    // Nascondi tutte le sezioni
     document.querySelectorAll('.mobile-section').forEach(section => {
         section.classList.remove('active');
     });
     
+    // Mostra la sezione richiesta
     const section = document.getElementById(sectionId);
     if (section) {
         section.classList.add('active');
         currentMobileSection = sectionId.replace('mobile-', '');
     }
-
+    
+    // Nascondi la sidebar
     const sidebar = document.getElementById('mobile-sidebar');
     if (sidebar) sidebar.classList.remove('active');
     
+    // Aggiorna bottom nav
     updateBottomNav(sectionId.replace('mobile-', ''));
 }
 
@@ -237,29 +244,8 @@ function toggleControls() {
         }
     }
 }
-function toggleMobileControls() {
-    const controls = document.getElementById('mobile-additional-controls');
-    const toggleBtn = document.getElementById('mobile-controls-toggle');
-    
-    if (controls) {
-        if (controls.classList.contains('show')) {
-            controls.classList.remove('show');
-            setTimeout(() => {
-                controls.style.display = 'none';
-            }, 300);
-            if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-cog"></i> Mostra Controlli';
-        } else {
-            controls.style.display = 'flex';
-            setTimeout(() => {
-                controls.classList.add('show');
-            }, 10);
-            if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-times"></i> Nascondi Controlli';
-        }
-    }
-}
 
-
-window.toggleMobileControls = toggleMobileControls;
+// Esponi le funzioni globalmente
 window.toggleControls = toggleControls;
 window.refreshMobilePlayerControls = refreshMobilePlayerControls;
 window.showMobileQualitySelector = showMobileQualitySelector;
