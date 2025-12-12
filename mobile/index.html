@@ -340,7 +340,16 @@
 <script src="mobile-api.js"></script>
 <script src="mobile-storage.js"></script>
 <script src="mobile-content.js"></script>
-<script src="mobile-player.js"></script>
+<script>
+    // Rileva se è iOS (iPhone, iPad, iPod)
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) 
+                  || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    // Crea dinamicamente il tag <script>
+    const script = document.createElement('script');
+    script.src = isIOS ? 'mobile-playerIOS.js' : 'mobile-player.js';
+    document.head.appendChild(script);
+</script>
 <script src="mobile-main.js"></script>
 </body>
 </html>
