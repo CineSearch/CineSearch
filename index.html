@@ -4,30 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script>
-    function isMobileDevice() {
+    function getDeviceType() {
         const ua = navigator.userAgent.toLowerCase();
 
-        // Riconoscimento TV → NON considerati mobile
         const isTV =
             ua.includes("smarttv") ||
             ua.includes("appletv") ||
             ua.includes("googletv") ||
             ua.includes("android tv") ||
             ua.includes("fire tv") ||
-            ua.includes("aft") ||              // Fire Stick (AFTS, AFTM ecc.)
-            ua.includes("tv");                 // fallback generico, ma utile
+            ua.includes("aft") ||
+            ua.includes("tv");
 
-        // Riconoscimento mobile "vero"
-        const isMobile =
-            /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua)
+        const isIOS =
+            ua.includes("iphone") ||
+            ua.includes("ipad") ||
+            ua.includes("ipod");
 
-        // È mobile *solo se non è una TV*
-        return isMobile && !isTV;
+        const isMobileNonIOS =
+            /android|webos|blackberry|iemobile|opera mini/i.test(ua);
+
+        if (isTV) return "tv";
+        if (isIOS) return "ios";
+        if (isMobileNonIOS) return "mobile";
+        return "desktop";
     }
 
-    // Redirect solo se mobile e non già nella versione mobile
-    if (isMobileDevice() && !window.location.pathname.includes('mobile')) {
-        window.location.href = 'mobile/index.html';
+    const device = getDeviceType();
+
+    if (!window.location.pathname.includes("mobile")) {
+        if (device === "ios") {
+            window.location.href = "mobileIOS/indexIOS.html";
+        } else if (device === "mobile") {
+            window.location.href = "mobile/index.html";
+        }
     }
 </script>
 
