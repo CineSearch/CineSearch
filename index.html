@@ -19,8 +19,7 @@
 
         // Riconoscimento mobile "vero"
         const isMobile =
-            /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua) ||
-            (window.innerWidth <= 768);
+            /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua)
 
         // È mobile *solo se non è una TV*
         return isMobile && !isTV;
