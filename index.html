@@ -6,7 +6,8 @@
 <script>
     function getDeviceType() {
         const ua = navigator.userAgent.toLowerCase();
-
+        
+        // Prima controlla per TV - ordine importante!
         const isTV =
             ua.includes("smarttv") ||
             ua.includes("appletv") ||
@@ -14,7 +15,10 @@
             ua.includes("android tv") ||
             ua.includes("fire tv") ||
             ua.includes("aft") ||
-            ua.includes("tv");
+            ua.includes("tv") ||
+            // Aggiungi controlli specifici per Android TV
+            (ua.includes("android") && !ua.includes("mobile")) ||
+            (/android.*(tv|set-top|box)/i.test(ua));
 
         const isIOS =
             ua.includes("iphone") ||
@@ -22,7 +26,7 @@
             ua.includes("ipod");
 
         const isMobileNonIOS =
-            /android|webos|blackberry|iemobile|opera mini/i.test(ua);
+            /android.*mobile|webos|blackberry|iemobile|opera mini/i.test(ua);
 
         if (isTV) return "tv";
         if (isIOS) return "ios";
@@ -38,6 +42,7 @@
         } else if (device === "mobile") {
             window.location.href = "mobile/index.html";
         }
+        // Per Android TV non reindirizza, lascia la versione desktop
     }
 </script>
 
