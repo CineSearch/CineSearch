@@ -74,14 +74,7 @@ async function checkAvailabilityOnVixsrc(tmdbId, isMovie, season = null, episode
                 const hasSources = /sources:\s*\[|video sources|streaming links/i.test(html);
                 
                 const isAvailable = (hasPlaylist || hasSources) && !notFound;
-                
-                // console.log(`📊 Risultato verifica ${isMovie ? 'Film' : 'Serie'} ${tmdbId}:`, {
-                    hasPlaylist,
-                    hasSources,
-                    notFound,
-                    isAvailable
-                });
-                
+                                
                 clearTimeout(timeout);
                 resolve(isAvailable);
                 
