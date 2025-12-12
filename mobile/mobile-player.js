@@ -66,194 +66,6 @@ async function openMobilePlayer(item) {
         showMobileError('Errore nel caricamento dei dettagli');
     }
 }
-
-function hideAdditionalControls() {
-    const controls = document.getElementById('mobile-additional-controls');
-    if (controls) {
-        controls.style.display = 'none';
-    }
-}
-
-function showAdditionalControls() {
-    const controls = document.getElementById('mobile-additional-controls');
-    if (controls) {
-        controls.style.display = 'flex';
-    }
-}
-
-async function playItemMobile(id, type, season = null, episode = null) {
-    console.log(`Riproduzione ${type} ${id}`, season ? `S${season}E${episode}` : '');
-    
-    showMobileLoading(true, "Preparazione video...");
-    
-    try {
-        // Distruggi player precedente
-        if (mobilePlayer) {
-            mobilePlayer.dispose();
-            mobilePlayer = null;
-        }
-        
-        const videoContainer = document.querySelector('.mobile-video-container');
-        let videoElement = document.getElementById('mobile-player-video');
-        
-        if (!videoElement) {
-            videoElement = document.createElement('video');
-            videoElement.id = 'mobile-player-video';
-            videoElement.className = 'video-js vjs-theme-vixflix';
-            videoElement.setAttribute('controls', '');
-            videoElement.setAttribute('preload', 'auto');
-            videoElement.setAttribute('playsinline', '');
-            videoElement.setAttribute('crossorigin', 'anonymous');
-            videoContainer.insertBefore(videoElement, videoContainer.firstChild);
-        }
-        
-        // Ottieni stream M3U8
-        const streamData = await getDirectStreamMobile(id, type === 'movie', season, episode);
-        currentStreamData = streamData;
-        
-        if (!streamData || !streamData.m3u8Url) {
-            throw new Error('Impossibile ottenere lo stream');
-        }
-        
-        // IMPORTANTE: Applica il proxy all'M3U8 URL
-        const proxiedM3u8Url = applyCorsProxy(streamData.m3u8Url);
-        console.log('M3U8 con proxy:', proxiedM3u8Url);
-        
-        // Configura Video.js
-        setupVideoJsXhrHook();
-        
-        // Inizializza il player SENZA plugin nella configurazione iniziale
-        mobilePlayer = videojs('mobile-player-video', {
-            controls: true,
-            fluid: true,
-            aspectRatio: "16:9",
-            playbackRates: [0.5, 0.75, 1, 1.25, 1.5, 2],
-            html5: {
-                vhs: {
-                    overrideNative: true,
-                    bandwidth: 1000000,
-                    withCredentials: false,
-                },
-            },
-            controlBar: {
-                children: [
-                    'playToggle',
-                    'volumePanel',
-                    'currentTimeDisplay',
-                    'timeDivider',
-                    'durationDisplay',
-                    'progressControl',
-                    'remainingTimeDisplay',
-                    'playbackRateMenuButton',
-                    'fullscreenToggle',
-                ],
-            }
-            // NON aggiungere plugins qui
-        });
-        
-        // REGISTRA E APPLICA IL PLUGIN DOPO aver creato il player
-
-        
-        // Imposta sorgente CON proxy
-        mobilePlayer.src({
-            src: proxiedM3u8Url,
-            type: 'application/x-mpegURL',
-        });
-            initQualitySelectorPlugin();
-        mobilePlayer.ready(() => {
-            showMobileLoading(false);
-            
-            console.log('✅ Player ready');
-                const progressTracker = trackVideoProgressMobile(
-        currentMobileItem.id,
-        currentMobileItem.media_type || (currentMobileItem.title ? 'movie' : 'tv'),
-        mobilePlayer.el().querySelector('video'),
-        season,
-        episode
-        
-    );
-            mobilePlayer.progressTracker = progressTracker;
-
-            setTimeout(() => {
-                extractAvailableQualities();
-            }, 500);
-            // Estrai tracce audio e sottotitoli
-            setTimeout(() => {
-                extractAudioTracks();
-                extractSubtitles();
-                showAdditionalControls();
-            }, 1500);
-            
-            // Traccia progressi
-            trackVideoProgressMobile(
-                currentMobileItem.id,
-                currentMobileItem.media_type || (currentMobileItem.title ? 'movie' : 'tv'),
-                mobilePlayer.el().querySelector('video'),
-                season,
-                episode
-            );
-            
-            // Riproduci automaticamente
-            mobilePlayer.play().catch(e => {
-                console.log('Auto-play prevented:', e);
-            });
-        });
-        
-        mobilePlayer.on('error', function (e) {
-            console.error('Video.js error:', mobilePlayer.error());
-            showMobileError('Errore durante il caricamento del video');
-        });
-        
-        mobilePlayer.on('loadeddata', function () {
-            console.log('✅ Video data loaded');
-        });
-        
-        mobilePlayer.on('loadedmetadata', function () {
-            console.log('✅ Metadata loaded');
-        });
-        
-    } catch (error) {
-        console.error('Errore riproduzione mobile:', error);
-        showMobileLoading(false);
-        showMobileError(`Impossibile riprodurre: ${error.message}`);
-    }
-}
-function initQualitySelectorPlugin() {
-    try {
-        // Controlla se il plugin esiste come oggetto globale
-        if (typeof window.videojsHlsQualitySelector !== 'undefined') {
-            // Registra solo se non è già registrato
-            if (typeof videojs.getPlugin('hlsQualitySelector') === 'undefined') {
-                videojs.registerPlugin('hlsQualitySelector', window.videojsHlsQualitySelector);
-                console.log('✅ Plugin qualità registrato');
-            }
-            
-            // Applica il plugin
-            mobilePlayer.hlsQualitySelector({
-                displayCurrentQuality: true,
-                placementIndex: 7
-            });
-            console.log('✅ Plugin qualità inizializzato');
-            return true;
-        }
-        
-        // Se il plugin è già registrato globalmente
-        if (typeof videojs.getPlugin('hlsQualitySelector') !== 'undefined') {
-            mobilePlayer.hlsQualitySelector({
-                displayCurrentQuality: true
-            });
-            console.log('✅ Plugin qualità già attivo');
-            return true;
-        }
-        
-        console.warn('⚠️ Plugin qualità non trovato');
-        return false;
-    } catch (error) {
-        console.error('Errore inizializzazione plugin qualità:', error);
-        return false;
-    }
-}
-
 // ============ GESTIONE STAGIONI ED EPISODI ============
 async function loadTVSeasonsMobile(tmdbId) {
     try {
@@ -417,6 +229,186 @@ async function openMobilePlayer(item) {
     } catch (error) {
         console.error('Errore caricamento dettagli:', error);
         showMobileError('Errore nel caricamento dei dettagli');
+    }
+}
+
+function hideAdditionalControls() {
+    const controls = document.getElementById('mobile-additional-controls');
+    if (controls) {
+        controls.style.display = 'none';
+    }
+}
+
+function showAdditionalControls() {
+    const controls = document.getElementById('mobile-additional-controls');
+    if (controls) {
+        controls.style.display = 'flex';
+    }
+}
+
+async function playItemMobile(id, type, season = null, episode = null) {
+    console.log(`Riproduzione ${type} ${id}`, season ? `S${season}E${episode}` : '');
+    
+    showMobileLoading(true, "Preparazione video...");
+    
+    try {
+        // Distruggi player precedente
+        if (mobilePlayer) {
+            mobilePlayer.dispose();
+            mobilePlayer = null;
+        }
+        
+        const videoContainer = document.querySelector('.mobile-video-container');
+        let videoElement = document.getElementById('mobile-player-video');
+        
+        if (!videoElement) {
+            videoElement = document.createElement('video');
+            videoElement.id = 'mobile-player-video';
+            videoElement.className = 'video-js vjs-theme-vixflix';
+            videoElement.setAttribute('controls', '');
+            videoElement.setAttribute('preload', 'auto');
+            videoElement.setAttribute('playsinline', '');
+            videoElement.setAttribute('crossorigin', 'anonymous');
+            videoContainer.insertBefore(videoElement, videoContainer.firstChild);
+        }
+        
+        // Ottieni stream M3U8
+        const streamData = await getDirectStreamMobile(id, type === 'movie', season, episode);
+        currentStreamData = streamData;
+        
+        if (!streamData || !streamData.m3u8Url) {
+            throw new Error('Impossibile ottenere lo stream');
+        }
+        
+        // IMPORTANTE: Applica il proxy all'M3U8 URL
+        const proxiedM3u8Url = applyCorsProxy(streamData.m3u8Url);
+        console.log('M3U8 con proxy:', proxiedM3u8Url);
+        
+        // Configura Video.js
+        setupVideoJsXhrHook();
+        
+        // Inizializza il player SENZA plugin nella configurazione iniziale
+        mobilePlayer = videojs('mobile-player-video', {
+            controls: true,
+            fluid: true,
+            aspectRatio: "16:9",
+            playbackRates: [0.5, 0.75, 1, 1.25, 1.5, 2],
+            html5: {
+                vhs: {
+                    overrideNative: true,
+                    bandwidth: 1000000,
+                    withCredentials: false,
+                },
+            },
+            controlBar: {
+                children: [
+                    'playToggle',
+                    'volumePanel',
+                    'currentTimeDisplay',
+                    'timeDivider',
+                    'durationDisplay',
+                    'progressControl',
+                    'remainingTimeDisplay',
+                    'playbackRateMenuButton',
+                    'fullscreenToggle',
+                ],
+            }
+            // NON aggiungere plugins qui
+        });
+        
+        // REGISTRA E APPLICA IL PLUGIN DOPO aver creato il player
+
+        
+        // Imposta sorgente CON proxy
+        mobilePlayer.src({
+            src: proxiedM3u8Url,
+            type: 'application/x-mpegURL',
+        });
+            initQualitySelectorPlugin();
+        mobilePlayer.ready(() => {
+            showMobileLoading(false);
+            
+            console.log('✅ Player ready');
+            
+            // Estrai qualità disponibili
+
+            setTimeout(() => {
+                extractAvailableQualities();
+            }, 500);
+            // Estrai tracce audio e sottotitoli
+            setTimeout(() => {
+                extractAudioTracks();
+                extractSubtitles();
+                showAdditionalControls();
+            }, 1500);
+            
+            // Traccia progressi
+            trackVideoProgressMobile(
+                currentMobileItem.id,
+                currentMobileItem.media_type || (currentMobileItem.title ? 'movie' : 'tv'),
+                mobilePlayer.el().querySelector('video'),
+                season,
+                episode
+            );
+            
+            // Riproduci automaticamente
+            mobilePlayer.play().catch(e => {
+                console.log('Auto-play prevented:', e);
+            });
+        });
+        
+        mobilePlayer.on('error', function (e) {
+            console.error('Video.js error:', mobilePlayer.error());
+            showMobileError('Errore durante il caricamento del video');
+        });
+        
+        mobilePlayer.on('loadeddata', function () {
+            console.log('✅ Video data loaded');
+        });
+        
+        mobilePlayer.on('loadedmetadata', function () {
+            console.log('✅ Metadata loaded');
+        });
+        
+    } catch (error) {
+        console.error('Errore riproduzione mobile:', error);
+        showMobileLoading(false);
+        showMobileError(`Impossibile riprodurre: ${error.message}`);
+    }
+}
+function initQualitySelectorPlugin() {
+    try {
+        // Controlla se il plugin esiste come oggetto globale
+        if (typeof window.videojsHlsQualitySelector !== 'undefined') {
+            // Registra solo se non è già registrato
+            if (typeof videojs.getPlugin('hlsQualitySelector') === 'undefined') {
+                videojs.registerPlugin('hlsQualitySelector', window.videojsHlsQualitySelector);
+                console.log('✅ Plugin qualità registrato');
+            }
+            
+            // Applica il plugin
+            mobilePlayer.hlsQualitySelector({
+                displayCurrentQuality: true,
+                placementIndex: 7
+            });
+            console.log('✅ Plugin qualità inizializzato');
+            return true;
+        }
+        
+        // Se il plugin è già registrato globalmente
+        if (typeof videojs.getPlugin('hlsQualitySelector') !== 'undefined') {
+            mobilePlayer.hlsQualitySelector({
+                displayCurrentQuality: true
+            });
+            console.log('✅ Plugin qualità già attivo');
+            return true;
+        }
+        
+        console.warn('⚠️ Plugin qualità non trovato');
+        return false;
+    } catch (error) {
+        console.error('Errore inizializzazione plugin qualità:', error);
+        return false;
     }
 }
 
@@ -957,152 +949,44 @@ async function getDirectStreamMobile(tmdbId, isMovie, season = null, episode = n
 }
 
 function trackVideoProgressMobile(tmdbId, mediaType, videoElement, season = null, episode = null) {
-    // MODIFICA: Usa una chiave unica
-    let storageKey = `videoProgress_${mediaType}_${tmdbId}`;
+    let storageKey = `videoTime_${mediaType}_${tmdbId}`;
     if (mediaType === "tv" && season !== null && episode !== null) {
         storageKey += `_S${season}_E${episode}`;
     }
     
-    console.log("📱 Salvataggio progresso con chiave:", storageKey);
-    
-    // RIPRENDI da tempo salvato - MODIFICA: riduci soglia a 10 secondi
-    try {
-        const savedData = localStorage.getItem(storageKey);
-        if (savedData) {
-            const parsedData = JSON.parse(savedData);
-            const savedTime = parseFloat(parsedData.time || 0);
-            const savedTimestamp = parseInt(parsedData.timestamp || 0);
-            
-            // Verifica se il salvataggio è recente (entro 30 giorni)
-            const isRecent = Date.now() - savedTimestamp < (30 * 24 * 60 * 60 * 1000);
-            
-            if (savedTime > 10 && isRecent) { // MODIFICA: da 60 a 10 secondi
-                console.log("📱 Ripresa da:", savedTime, "secondi");
-                videoElement.currentTime = savedTime;
-            }
-        }
-    } catch (e) {
-        console.error("Errore lettura progresso salvato:", e);
+    // Riprendi da tempo salvato
+    const savedTime = getFromStorage(storageKey);
+    if (savedTime && parseFloat(savedTime) > 60) {
+        videoElement.currentTime = parseFloat(savedTime);
     }
     
-    // MODIFICA: Salva progresso ogni 10 secondi (invece di 5) e con meno restrizioni
+    // Salva progresso ogni 5 secondi
     const saveInterval = setInterval(() => {
         if (!videoElement.paused && !videoElement.ended) {
             const currentTime = videoElement.currentTime;
-            const totalDuration = videoElement.duration;
-            
-            // Salva SEMPRE se guardato più di 30 secondi O più del 5% del totale
-            if (currentTime > 30 || (totalDuration > 0 && (currentTime / totalDuration) > 0.05)) {
-                const saveData = {
-                    time: currentTime,
-                    timestamp: Date.now(),
-                    totalDuration: totalDuration,
-                    tmdbId: tmdbId,
-                    mediaType: mediaType,
-                    season: season,
-                    episode: episode,
-                    watchedPercentage: totalDuration > 0 ? (currentTime / totalDuration) * 100 : 0
-                };
-                
-                localStorage.setItem(storageKey, JSON.stringify(saveData));
-                console.log("📱 Progresso salvato:", {
-                    time: currentTime,
-                    percent: saveData.watchedPercentage.toFixed(1) + "%"
-                });
+            if (currentTime > 60) {
+                saveToStorage(storageKey, currentTime, 365);
             }
         }
-    }, 10000); // MODIFICA: da 5 a 10 secondi
+    }, 5000);
     
-    // MODIFICA: Funzione di salvataggio migliorata
-    const saveProgress = () => {
-        try {
-            const currentTime = videoElement.currentTime;
-            const totalDuration = videoElement.duration;
-            
-            if (currentTime > 30 || (totalDuration > 0 && (currentTime / totalDuration) > 0.05)) {
-                const saveData = {
-                    time: currentTime,
-                    timestamp: Date.now(),
-                    totalDuration: totalDuration,
-                    tmdbId: tmdbId,
-                    mediaType: mediaType,
-                    season: season,
-                    episode: episode,
-                    watchedPercentage: totalDuration > 0 ? (currentTime / totalDuration) * 100 : 0
-                };
-                
-                localStorage.setItem(storageKey, JSON.stringify(saveData));
-            }
-        } catch (e) {
-            console.error("Errore salvataggio progresso:", e);
-        }
-    };
-    
-    // Aggiungi event listener
-    videoElement.addEventListener('pause', saveProgress);
-    videoElement.addEventListener('seeking', saveProgress);
-    
-    // Salva quando si chiude il player
-    document.addEventListener('visibilitychange', () => {
-        if (document.visibilityState === 'hidden') {
-            saveProgress();
-        }
-    });
-    
-    // Pulisci quando il video finisce - MODIFICA: non rimuovere subito
+    // Pulisci intervallo quando il video finisce
     videoElement.addEventListener('ended', () => {
         clearInterval(saveInterval);
-        
-        const currentTime = videoElement.currentTime;
-        const totalDuration = videoElement.duration;
-        
-        // Se completato al 95%+, aggiorna come completato ma mantieni nel storage
-        if (totalDuration > 0 && (currentTime / totalDuration) >= 0.95) {
-            const saveData = {
-                time: totalDuration, // Imposta come completato
-                timestamp: Date.now(),
-                totalDuration: totalDuration,
-                tmdbId: tmdbId,
-                mediaType: mediaType,
-                season: season,
-                episode: episode,
-                watchedPercentage: 100,
-                completed: true
-            };
-            
-            localStorage.setItem(storageKey, JSON.stringify(saveData));
-            console.log("📱 Video completato al 100%");
-        }
+        // Rimuovi dalla "Continua visione" se completato
+        localStorage.removeItem(storageKey);
     });
     
-    // Ritorna oggetto per pulizia
-    return {
-        storageKey: storageKey,
-        cleanup: () => {
+    // Gestione uscita dal player
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
             clearInterval(saveInterval);
-            videoElement.removeEventListener('pause', saveProgress);
-            videoElement.removeEventListener('seeking', saveProgress);
-            saveProgress(); // Salva un'ultima volta
-            console.log("📱 Cleanup completato per:", storageKey);
         }
-    };
+    });
 }
 
 function closePlayerMobile() {
     // console.log("Chiusura player mobile...");
-    
-    // Salva il progresso prima di chiudere
-    const videoElement = document.getElementById('mobile-player-video');
-    if (videoElement) {
-        const currentTime = videoElement.currentTime;
-        if (currentTime > 60) {
-            // Crea la chiave di storage
-            let storageKey = `videoTime_${currentMobileItem.media_type || (currentMobileItem.title ? 'movie' : 'tv')}_${currentMobileItem.id}`;
-            // Per le serie TV, dobbiamo sapere stagione/episodio
-            // Questa parte è più complessa, ma salva almeno per i film
-            saveToStorage(storageKey, currentTime, 365);
-        }
-    }
     
     if (mobilePlayer) {
         mobilePlayer.dispose();
@@ -1115,9 +999,9 @@ function closePlayerMobile() {
     removeVideoJsXhrHook();
     
     // Pulisci elemento video
-    const videoElementToRemove = document.getElementById('mobile-player-video');
-    if (videoElementToRemove) {
-        videoElementToRemove.remove();
+    const videoElement = document.getElementById('mobile-player-video');
+    if (videoElement) {
+        videoElement.remove();
     }
     
     showHomeMobile();

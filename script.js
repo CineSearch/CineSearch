@@ -464,6 +464,9 @@ document.getElementById("search").addEventListener("keydown", (e) => {
   }
 });
 
+// Opzionale: se vuoi supportare anche il click su un'icona di ricerca
+
+
 function debugCookies() {
   // console.log("🔍 DEBUG - Tutti i cookie:");
   const allCookies = document.cookie.split(";").map((c) => c.trim());

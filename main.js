@@ -4,6 +4,7 @@ function detectDevice() {
   const screenWidth = window.screen.width;
   const screenHeight = window.screen.height;
   
+  // Rileva TV (Smart TV, WebOS, Tizen, Android TV, etc.)
   const isTV = ua.includes('SmartTV') || 
                ua.includes('WebOS') || 
                ua.includes('Tizen') || 
@@ -13,19 +14,24 @@ function detectDevice() {
                ua.includes('HbbTV') ||
                (screenWidth >= 1600 && screenHeight >= 900 && !ua.includes('Mobile'));
   
+  // Rileva tablet
   const isTablet = /iPad|Android(?!.*Mobile)|Tablet|Silk/i.test(ua) || 
                    (screenWidth >= 600 && screenWidth <= 1200 && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua));
   
+  // Rileva iOS
   const isIOS = /iPhone|iPad|iPod/i.test(ua);
   
+  // Rileva Android mobile
   const isAndroidMobile = /Android.*Mobile/i.test(ua) && !isTablet;
   
+  // Rileva PC
   const isPC = !isTV && !isTablet && !isIOS && !isAndroidMobile;
   
-  // console.log('User Agent:', ua);
-  // console.log('Screen:', screenWidth, 'x', screenHeight);
-  // console.log('Detected:', { isTV, isTablet, isIOS, isAndroidMobile, isPC });
+  console.log('User Agent:', ua);
+  console.log('Screen:', screenWidth, 'x', screenHeight);
+  console.log('Detected:', { isTV, isTablet, isIOS, isAndroidMobile, isPC });
   
+  // Redirect alla versione corretta
   if (isTV && !window.location.href.includes('indexTV')) {
     window.location.href = 'indexTV.html';
   } else if (isTablet && !window.location.href.includes('indexTablet')) {
@@ -39,11 +45,13 @@ function detectDevice() {
   }
 }
 
+// Esegui al caricamento
 document.addEventListener('DOMContentLoaded', detectDevice);
 
+// Se c'è un errore nel redirect, ricarica la pagina fallback
 window.addEventListener('error', function() {
   if (!window.location.href.includes('index.html')) {
-    // console.log('Error detected, redirecting to fallback...');
+    console.log('Error detected, redirecting to fallback...');
     window.location.href = 'index.html';
   }
 });

@@ -97,7 +97,7 @@ for (const itemId of preferiti) {
       carousel.appendChild(card);
       
     } catch (error) {
-      // console.log(`Errore nel caricamento del preferito ${itemId}:`, error);
+      // console.error(`Errore nel caricamento del preferito ${itemId}:`, error);
     }
   }
 }
@@ -114,7 +114,7 @@ async function loadPreferiti() {
       data.media_type = mediaType;
       items.push(data);
     } catch (err) {
-      // console.log("❌ Errore nel recupero TMDB:", err);
+      // console.error("❌ Errore nel recupero TMDB:", err);
     }
   }
 

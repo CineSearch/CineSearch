@@ -114,7 +114,8 @@ async function checkTvSeriesAvailability(tmdbId) {
     }
     
     const html = await response.text();
-
+    
+    // Verifica se la pagina contiene la playlist
     const hasPlaylist = /window\.masterPlaylist/.test(html);
     const notFound = /not found|not available|no sources found|error 404/i.test(html);
     
