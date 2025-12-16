@@ -10,7 +10,132 @@ let currentMovieMinYear = null;
 let currentMovieMaxYear = null;
 let currentTVMinYear = null;
 let currentTVMaxYear = null;
+let currentCategoryMinYear = null;
+let currentCategoryMaxYear = null;
 
+
+// ============ FILTRI CATEGORIE ============
+function applyCategoryFilterMobile() {
+    const minYearInput = document.getElementById('mobile-category-min-year');
+    const maxYearInput = document.getElementById('mobile-category-max-year');
+    
+    const minYear = minYearInput ? minYearInput.value : null;
+    const maxYear = maxYearInput ? maxYearInput.value : null;
+    
+    // Validazione
+    if (minYear && (parseInt(minYear) < 1888 || parseInt(minYear) > new Date().getFullYear() + 5)) {
+        alert("Inserisci un anno valido (1888 - " + (new Date().getFullYear() + 5) + ")");
+        return;
+    }
+    
+    if (maxYear && (parseInt(maxYear) < 1888 || parseInt(maxYear) > new Date().getFullYear() + 5)) {
+        alert("Inserisci un anno valido (1888 - " + (new Date().getFullYear() + 5) + ")");
+        return;
+    }
+    
+    if (minYear && maxYear && parseInt(minYear) > parseInt(maxYear)) {
+        alert("L'anno 'Da' non può essere maggiore dell'anno 'A'");
+        return;
+    }
+    
+    currentCategoryMinYear = minYear || null;
+    currentCategoryMaxYear = maxYear || null;
+    
+    // Ricarica i film della categoria con i nuovi filtri
+    loadCategoryMovies(mobileCategoryId, 1);
+}
+
+function resetCategoryFilterMobile() {
+    const minYearInput = document.getElementById('mobile-category-min-year');
+    const maxYearInput = document.getElementById('mobile-category-max-year');
+    
+    if (minYearInput) minYearInput.value = '';
+    if (maxYearInput) maxYearInput.value = '';
+    
+    currentCategoryMinYear = null;
+    currentCategoryMaxYear = null;
+    
+    // Ricarica i film della categoria senza filtri
+    loadCategoryMovies(mobileCategoryId, 1);
+}
+// ============ CARICAMENTO FILM PER CATEGORIA ============
+async function loadCategoryMovies(genreId, page = 1) {
+    try {
+        mobileCategoryPage = page;
+        
+        let apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=it-IT&sort_by=popularity.desc&page=${page}&with_genres=${genreId}`;
+        
+        // Aggiungi filtri anno se presenti
+        if (currentCategoryMinYear) {
+            apiUrl += `&primary_release_date.gte=${currentCategoryMinYear}-01-01`;
+        }
+        if (currentCategoryMaxYear) {
+            apiUrl += `&primary_release_date.lte=${currentCategoryMaxYear}-12-31`;
+        }
+        
+        const res = await fetch(apiUrl);
+        const data = await res.json();
+        
+        const grid = document.getElementById('mobile-category-grid');
+        if (!grid) return;
+        
+        grid.innerHTML = '';
+        
+        // Carica disponibilità per ogni film
+        const availableMovies = [];
+        for (const movie of data.results) {
+            movie.media_type = "movie";
+            const isAvailable = await checkAvailabilityOnVixsrc(movie.id, true);
+            
+            if (isAvailable) {
+                grid.appendChild(createMobileCard(movie));
+                availableMovies.push(movie);
+            }
+            
+            if (availableMovies.length >= ITEMS_PER_PAGE) break;
+        }
+        
+        // Aggiorna paginazione
+        updateCategoryPaginationMobile(data.total_pages, data.total_results);
+        
+        if (availableMovies.length === 0) {
+            grid.innerHTML = `
+                <div class="empty-state">
+                    <i class="fas fa-film"></i>
+                    <p>Nessun film disponibile trovato</p>
+                    ${currentCategoryMinYear || currentCategoryMaxYear ? 
+                        `<p style="font-size: 12px; opacity: 0.7;">Prova a rimuovere i filtri dell'anno</p>` : ''}
+                </div>
+            `;
+        }
+        
+    } catch (error) {
+        console.error('Errore caricamento film categoria:', error);
+        showMobileError('Errore nel caricamento dei film della categoria');
+    }
+}
+// ============ PAGINAZIONE CATEGORIE ============
+function updateCategoryPaginationMobile(totalPages, totalResults) {
+    const prevBtn = document.getElementById('mobile-category-prev');
+    const nextBtn = document.getElementById('mobile-category-next');
+    const pageInfo = document.getElementById('mobile-category-page');
+    
+    if (prevBtn) prevBtn.disabled = mobileCategoryPage <= 1;
+    if (nextBtn) nextBtn.disabled = mobileCategoryPage >= totalPages;
+    if (pageInfo) pageInfo.textContent = `Pag. ${mobileCategoryPage} (${totalResults} film)`;
+}
+
+function prevCategoryPageMobile() {
+    if (mobileCategoryPage > 1) {
+        mobileCategoryPage--;
+        loadCategoryMovies(mobileCategoryId, mobileCategoryPage);
+    }
+}
+
+function nextCategoryPageMobile() {
+    mobileCategoryPage++;
+    loadCategoryMovies(mobileCategoryId, mobileCategoryPage);
+}
 // ============ FILM ============
 async function loadMoviesMobile(page = 1) {
     try {

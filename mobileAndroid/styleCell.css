@@ -1349,3 +1349,58 @@ body {
         font-size: 10px !important;
     }
 }
+/* ============ CATEGORY FILTERS ============ */
+.mobile-category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+}
+
+.mobile-category-filters .filter-item {
+    flex: 1;
+    min-width: 120px;
+}
+
+.mobile-category-filters .filter-item label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.mobile-category-filters .filter-item input {
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #fff;
+}
+
+.mobile-category-filters .filter-btn {
+    flex: 0 0 auto;
+    align-self: flex-end;
+    padding: 10px 20px;
+    background: #2a09e5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.mobile-category-filters .reset-btn {
+    flex: 0 0 auto;
+    align-self: flex-end;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: normal;
+}

@@ -8,6 +8,7 @@ let availableAudioTracks = [];
 let availableSubtitles = [];
 let availableQualities = [];
 
+
 // ============ PLAYER FUNCTIONS ============
 async function openMobilePlayer(item) {
     console.log("Apertura player per:", item);

@@ -120,7 +120,18 @@ function showCategoryContentMobile(category) {
     const title = document.getElementById('mobile-category-title');
     if (title) title.textContent = category.name;
     
-    loadCategoryMovies(category.id);
+    // Reset paginazione e filtri
+    mobileCategoryPage = 1;
+    currentCategoryMinYear = null;
+    currentCategoryMaxYear = null;
+    
+    // Reset campi input
+    const minYearInput = document.getElementById('mobile-category-min-year');
+    const maxYearInput = document.getElementById('mobile-category-max-year');
+    if (minYearInput) minYearInput.value = '';
+    if (maxYearInput) maxYearInput.value = '';
+    
+    loadCategoryMovies(category.id, 1);
 }
 
 // ============ LOADING & ERROR ============

@@ -64,3 +64,7 @@ window.showContinuaMobile = showContinuaMobile;
 window.loadContinuaMobile = loadContinuaMobile;
 window.resumeWatching = resumeWatching;
 window.removeContinuaItem = removeContinuaItem;
+window.applyCategoryFilterMobile = applyCategoryFilterMobile;
+window.resetCategoryFilterMobile = resetCategoryFilterMobile;
+window.prevCategoryPageMobile = prevCategoryPageMobile;
+window.nextCategoryPageMobile = nextCategoryPageMobile;

@@ -258,7 +258,8 @@
             
             <div class="mobile-grid" id="mobile-results-grid"></div>
         </section>
-        <section id="mobile-category-results" class="mobile-section">
+<!-- Modifica questa sezione -->
+<section id="mobile-category-results" class="mobile-section">
     <div class="mobile-page-header">
         <button class="mobile-back-btn" onclick="showCategoriesMobile()">
             <i class="fas fa-arrow-left"></i>
@@ -266,7 +267,28 @@
         <h2 id="mobile-category-title">Categoria</h2>
     </div>
     
+    <!-- Aggiungi questa sezione di filtri -->
+    <div class="mobile-category-filters">
+        <div class="filter-item">
+            <label>Anno da:</label>
+            <input type="number" id="mobile-category-min-year" placeholder="1900" min="1888" max="2030" />
+        </div>
+        <div class="filter-item">
+            <label>a:</label>
+            <input type="number" id="mobile-category-max-year" placeholder="2025" min="1888" max="2030" />
+        </div>
+        <button class="filter-btn" onclick="applyCategoryFilterMobile()">Applica</button>
+        <button class="reset-btn" onclick="resetCategoryFilterMobile()">Reset</button>
+    </div>
+    
     <div class="mobile-grid" id="mobile-category-grid"></div>
+    
+    <!-- Aggiungi paginazione per categorie -->
+    <div class="mobile-pagination">
+        <button class="mobile-page-btn" id="mobile-category-prev" onclick="prevCategoryPageMobile()">←</button>
+        <span class="mobile-page-info" id="mobile-category-page">Pag. 1</span>
+        <button class="mobile-page-btn" id="mobile-category-next" onclick="nextCategoryPageMobile()">→</button>
+    </div>
 </section>
     </main>
 <section id="mobile-continua" class="mobile-section">
