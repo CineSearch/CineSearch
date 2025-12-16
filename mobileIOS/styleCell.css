@@ -719,8 +719,8 @@ body {
         cursor: pointer;
     }
 /* Video.js Mobile Styling */
-.vjs-theme-vixflix {
-    --vjs-theme-vixflix--primary: #e50914;
+.vjs-theme-cinesearch {
+    --vjs-theme-cinesearch--primary: #e50914;
 }
 
 .video-js {
@@ -937,4 +937,92 @@ body {
 .mobile-additional-controls.show {
     display: flex;
     animation: fadeInUp 0.3s ease-out;
+}
+/* Stelle preferiti */
+.star-empty {
+    color: rgba(255, 255, 255, 0.3) !important; /* Stella vuota trasparente */
+}
+
+.star-active {
+    color: #ffcc00 !important; /* Stella piena gialla */
+    text-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
+}
+
+/* Pulsante preferiti con animazione */
+.mobile-card-btn.fav {
+    transition: all 0.3s ease;
+}
+
+.mobile-card-btn.fav:hover i {
+    transform: scale(1.2);
+}
+
+/* Stelle nei preferiti page (se necessario) */
+.mobile-preferiti-list .mobile-card-btn.fav i {
+    color: #ffcc00; /* Giallo per i preferiti già salvati */
+}
+
+/* Quando un elemento è tra i preferiti, cambia colore */
+.mobile-card-btn.fav[data-fav="true"] i {
+    color: #ffcc00 !important;
+}
+
+.mobile-card-btn.fav[data-fav="false"] i {
+    color: rgba(255, 255, 255, 0.3) !important;
+}
+/* Continua Visione */
+.continue-card {
+    position: relative;
+}
+
+.mobile-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 0;
+}
+
+.mobile-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2a09e5, #e50914);
+    border-radius: 0;
+    transition: width 0.3s ease;
+}
+
+.mobile-continua-meta {
+    margin: 8px 0;
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+.mobile-progress-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 4px;
+}
+
+.mobile-progress-info i {
+    color: #2a09e5;
+}
+
+.mobile-episode-info {
+    background: rgba(42, 9, 229, 0.2);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    display: inline-block;
+}
+
+/* Bottoni "Continua Visione" */
+.mobile-card-btn.remove-continue {
+    color: #ff4444;
+}
+
+.mobile-card-btn.remove-continue:hover {
+    color: #ff0000;
+    transform: scale(1.1);
 }

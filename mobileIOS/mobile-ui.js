@@ -82,8 +82,12 @@ function showMobileSection(sectionId) {
     
     // Aggiorna bottom nav
     updateBottomNav(sectionId.replace('mobile-', ''));
+    
 }
-
+function showContinuaMobile() {
+    showMobileSection('mobile-continua');
+    loadContinuaMobile();
+}
 function updateBottomNav(activeItem) {
     document.querySelectorAll('.bottom-nav-item').forEach(item => {
         item.classList.remove('active');
@@ -241,7 +245,7 @@ function toggleControls() {
     }
 }
 
-// Esponi le funzioni globalmente
+window.showContinuaMobile = showContinuaMobile;
 window.toggleControls = toggleControls;
 window.refreshMobilePlayerControls = refreshMobilePlayerControls;
 window.showMobileQualitySelector = showMobileQualitySelector;

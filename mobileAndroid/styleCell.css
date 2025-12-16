@@ -1322,6 +1322,16 @@ body {
     font-weight: bold !important;
 }
 
+/* visibile ovunque */
+.mobile-bottom-nav {
+    display: flex;
+}
+
+/* invisibile solo su TV */
+.android-tv .mobile-bottom-nav {
+    display: none !important;
+}
+
 /* Animation */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }

@@ -76,7 +76,7 @@ async function performSearch(query) {
   
   // Mostra la sezione risultati
   resultsDiv.style.display = "block";
-  window.scrollTo(0, 0);
+    history.pushState({ section: 'results', query: query }, '', '#results');
 }
 
 // Rimuovi la funzione scrollRisultati poiché non serve più con la griglia

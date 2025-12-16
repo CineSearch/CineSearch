@@ -7,9 +7,19 @@ async function openPlayer(item) {
   
   currentItem = item;
 
+  // Salva la sezione corrente prima di aprire il player
+  const currentSection = document.querySelector('section[style*="block"]')?.id || 'home';
+  
   document.getElementById("home").style.display = "none";
   document.getElementById("results").style.display = "none";
   document.getElementById("player").style.display = "block";
+
+  // Aggiungi stato all'history
+  history.pushState({ 
+    section: 'player', 
+    previousSection: currentSection,
+    item: item 
+  }, '', '#player');
 
   if (player) {
     console.log('🎬 player.js - Pulizia player esistente');
@@ -23,7 +33,7 @@ async function openPlayer(item) {
     const videoContainer = document.querySelector(".video-container");
     const newVideo = document.createElement("video");
     newVideo.id = "player-video";
-    newVideo.className = "video-js vjs-theme-vixflix vjs-big-play-centered";
+    newVideo.className = "video-js vjs-theme-cinesearch vjs-big-play-centered";
     newVideo.setAttribute("controls", "");
     newVideo.setAttribute("preload", "auto");
     newVideo.setAttribute("playsinline", "");
@@ -149,7 +159,7 @@ async function loadVideo(isMovie, id, season = null, episode = null) {
       const videoContainer = document.querySelector(".video-container");
       videoElement = document.createElement("video");
       videoElement.id = "player-video";
-      videoElement.className = "video-js vjs-theme-vixflix vjs-big-play-centered";
+      videoElement.className = "video-js vjs-theme-cinesearch vjs-big-play-centered";
       videoElement.setAttribute("controls", "");
       videoElement.setAttribute("preload", "auto");
       videoElement.setAttribute("playsinline", "");
@@ -388,7 +398,41 @@ function goBack() {
   currentSeasons = [];
 
   document.getElementById("player").style.display = "none";
-  document.getElementById("home").style.display = "block";
+  
+  // Torna alla sezione precedente dall'history
+  const historyState = history.state;
+  if (historyState && historyState.previousSection) {
+    hideAllSections();
+    switch(historyState.previousSection) {
+      case 'home':
+        document.getElementById("home").style.display = "block";
+        break;
+      case 'allMovies':
+        document.getElementById("allMovies").style.display = "block";
+        break;
+      case 'allTV':
+        document.getElementById("allTV").style.display = "block";
+        break;
+      case 'categories':
+        document.getElementById("categories").style.display = "block";
+        break;
+      case 'results':
+        document.getElementById("results").style.display = "block";
+        break;
+      case 'preferiti-section':
+        document.getElementById("preferiti-section").style.display = "block";
+        break;
+      default:
+        document.getElementById("home").style.display = "block";
+    }
+  } else {
+    // Fallback: mostra la home
+    document.getElementById("home").style.display = "block";
+  }
+  
+  // Aggiorna l'history state per rimuovere il player
+  history.replaceState({ section: historyState?.previousSection || 'home' }, '', 
+                       historyState?.previousSection ? `#${historyState.previousSection}` : window.location.pathname);
   
   removeVideoJsXhrHook();
 

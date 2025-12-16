@@ -2,6 +2,16 @@ const AVAILABILITY_CHECK_TIMEOUT = 5000;
 const API_KEY = "f75aac685f3389aa89c4f8580c078a28";
 const VIXSRC_URL = "vixsrc.to";
 const CORS_PROXIES_REQUIRING_ENCODING = [];
+const SECTIONS = {
+    'home': 'home',
+    'allMovies': 'allMovies',
+    'allTV': 'allTV',
+    'categories': 'categories',
+    'category-results': 'category-results',
+    'results': 'results',
+    'player': 'player',
+    'preferiti-section': 'preferiti-section'
+};
 
 const CORS_LIST = [
   "cors-anywhere.com/",
@@ -356,43 +366,100 @@ function prevNavigationPage() {
 }
 
 function showAllMovies() {
-  hideAllSections();
-  document.getElementById("allMovies").style.display = "block";
-  loadAllMovies();
-  window.scrollTo(0, 0);
+    hideAllSections();
+    document.getElementById("allMovies").style.display = "block";
+    loadAllMovies();
+    window.scrollTo(0, 0);
+    
+    // Aggiorna l'URL senza ricaricare la pagina
+    history.pushState({ section: 'allMovies' }, '', '#allMovies');
 }
 
 function showAllTV() {
-  hideAllSections();
-  document.getElementById("allTV").style.display = "block";
-  loadAllTV();
-  window.scrollTo(0, 0);
+    hideAllSections();
+    document.getElementById("allTV").style.display = "block";
+    loadAllTV();
+    window.scrollTo(0, 0);
+    
+    history.pushState({ section: 'allTV' }, '', '#allTV');
 }
 
 function showCategories() {
-  hideAllSections();
-  document.getElementById("categories").style.display = "block";
-  loadCategories();
-  window.scrollTo(0, 0);
-}
-
-function goBackToCategories() {
-  hideAllSections();
-  document.getElementById("categories").style.display = "block";
-  window.scrollTo(0, 0);
+    hideAllSections();
+    document.getElementById("categories").style.display = "block";
+    loadCategories();
+    window.scrollTo(0, 0);
+    
+    history.pushState({ section: 'categories' }, '', '#categories');
 }
 
 function showPreferiti() {
-  hideAllSections();
-  document.getElementById("preferiti-section").style.display = "block";
-  loadPreferitiSection();
-  window.scrollTo(0, 0);
+    hideAllSections();
+    document.getElementById("preferiti-section").style.display = "block";
+    loadPreferitiSection();
+    window.scrollTo(0, 0);
+    
+    history.pushState({ section: 'preferiti-section' }, '', '#preferiti');
 }
 
-function showTrending() {
-  hideAllSections();
-  document.getElementById("home").style.display = "block";
-  window.scrollTo(0, 0);
+function goBackToCategories() {
+    hideAllSections();
+    document.getElementById("categories").style.display = "block";
+    window.scrollTo(0, 0);
+    
+    history.pushState({ section: 'categories' }, '', '#categories');
+}
+
+function handlePopState(event) {
+    console.log('Popstate triggered', event.state);
+    
+    if (event.state && event.state.section) {
+        const sectionId = event.state.section;
+        hideAllSections();
+        
+        switch(sectionId) {
+            case 'home':
+                document.getElementById("home").style.display = "block";
+                break;
+            case 'allMovies':
+                document.getElementById("allMovies").style.display = "block";
+                if (!document.querySelector('#allMovies-grid').children.length) {
+                    loadAllMovies();
+                }
+                break;
+            case 'allTV':
+                document.getElementById("allTV").style.display = "block";
+                if (!document.querySelector('#allTV-grid').children.length) {
+                    loadAllTV();
+                }
+                break;
+            case 'categories':
+                document.getElementById("categories").style.display = "block";
+                if (!document.querySelector('#categories-grid').children.length) {
+                    loadCategories();
+                }
+                break;
+            case 'preferiti-section':
+                document.getElementById("preferiti-section").style.display = "block";
+                loadPreferitiSection();
+                break;
+            case 'category-results':
+                document.getElementById("category-results").style.display = "block";
+                break;
+            case 'results':
+                document.getElementById("results").style.display = "block";
+                break;
+            case 'player':
+                // Se viene richiamato il player dall'history, torna alla home
+                goBackToHome();
+                break;
+        }
+        
+        window.scrollTo(0, 0);
+    } else {
+        // Se non c'è state, torna alla home
+        goBackToHome();
+    }
 }
 
 function hideAllSections() {
@@ -476,9 +543,12 @@ function debugCookies() {
 }
 
 function goBackToHome() {
-  hideAllSections();
-  document.getElementById("home").style.display = "block";
-  window.scrollTo(0, 0);
+    hideAllSections();
+    document.getElementById("home").style.display = "block";
+    window.scrollTo(0, 0);
+    
+    // Aggiorna l'history state
+    history.pushState({ section: 'home' }, '', window.location.pathname);
 }
 
 function handleRemoteNavigation(event) {
@@ -511,7 +581,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     const key = localStorage.key(i);
     // console.log(`  ${i}: ${key}`);
   }
-  
+      window.addEventListener('popstate', handlePopState);
+      
   const corsSelect = document.getElementById("cors-select");
   
   CORS_LIST.forEach((proxy) => {
@@ -561,6 +632,35 @@ window.addEventListener("DOMContentLoaded", async () => {
   }
   
   updatePreferitiCounter();
+
+      window.addEventListener('popstate', handlePopState);
+    
+    // Gestione iniziale dell'hash nell'URL
+    if (window.location.hash) {
+        const hash = window.location.hash.substring(1); // Rimuove il #
+        if (SECTIONS[hash]) {
+            hideAllSections();
+            switch(hash) {
+                case 'allMovies':
+                    showAllMovies();
+                    break;
+                case 'allTV':
+                    showAllTV();
+                    break;
+                case 'categories':
+                    showCategories();
+                    break;
+                case 'preferiti-section':
+                    showPreferiti();
+                    break;
+                default:
+                    document.getElementById(hash).style.display = "block";
+            }
+        }
+    } else {
+        // Imposta lo stato iniziale per la home
+        history.replaceState({ section: 'home' }, '', window.location.pathname);
+    }
 });
 
 window.addEventListener("scroll", () => {

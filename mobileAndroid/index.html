@@ -14,6 +14,7 @@
 <script src="https://cdn.jsdelivr.net/npm/videojs-hls-quality-selector@1.1.4/dist/videojs-hls-quality-selector.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/videojs-hls-quality-selector@1.1.4/dist/videojs-hls-quality-selector.css" />
 <link rel="stylesheet" href="styleCell.css">
+    
 </head>
 <body>
     <header id="mobile-header">
@@ -93,7 +94,7 @@
     <main id="mobile-main">
         <section id="mobile-home" class="mobile-section active">
             <div class="mobile-hero">
-                <h1>CineSearch Mobile</h1>
+                <h1>CineSearch Mobile Android</h1>
                 <p>Film e Serie TV sempre con te</p>
             </div>
             
@@ -231,19 +232,8 @@
         </button>
         <h2 id="mobile-player-title"></h2>
     </div>
-    
+
     <div class="mobile-video-container">
-        <video id="mobile-player-video" class="video-js vjs-theme-vixflix" 
-               controls playsinline crossorigin="anonymous"></video>
-        
-        <div class="mobile-additional-controls" id="mobile-additional-controls" style="display: none;">
-            <div class="mobile-control-group">
-                <button class="mobile-control-btn" onclick="refreshMobilePlayerControls()">
-                    <i class="fas fa-sync"></i> Aggiorna Controlli
-                </button>
-            </div>
-        </div>
-        
         <div class="mobile-player-info">
             <div id="mobile-player-meta"></div>
             <div id="mobile-player-overview"></div>
@@ -254,13 +244,6 @@
                 <select id="mobile-season-select"></select>
             </div>
             <div class="episodes-list-mobile" id="mobile-episodes-list"></div>
-        </div>
-    </div>
-</section>
-        
-        <div class="mobile-player-info">
-            <div id="mobile-player-meta"></div>
-            <div id="mobile-player-overview"></div>
         </div>
     </div>
 </section>
@@ -319,20 +302,24 @@
             <i class="fas fa-star"></i>
             <span>Preferiti</span>
         </a>
+        <a href="#" class="bottom-nav-item" onclick="showCategoriesMobile()">
+            <i class="fas fa-list"></i>
+            <span>Categorie</span>
+        </a>
     </nav>
     
     <footer class="mobile-footer">
-        <p>CineSearch Mobile v0.0</p>
-        <p>© 2025 Copyright AIMODS | Forked by VixFlix</p>
+        <p>CineSearch Mobile v.0.0</p>
+        <p>© 2025 Copyright AIMODS</p>
     </footer>
     
-<script src="mobile-cors.js"></script>
-<script src="mobile-ui.js"></script>
-<script src="mobile-card.js"></script>
-<script src="mobile-api.js"></script>
-<script src="mobile-storage.js"></script>
-<script src="mobile-content.js"></script>
-<script src="mobile-player.js"></script>
-<script src="mobile-main.js"></script>
+<script src="mobile-cors.js?v=00"></script>
+<script src="mobile-ui.js?v=00"></script>
+<script src="mobile-card.js?v=00"></script>
+<script src="mobile-api.js?v=00"></script>
+<script src="mobile-storage.js?v=00"></script>
+<script src="mobile-content.js?v=00"></script>
+<script src="mobile-player.js?v=00"></script>
+<script src="mobile-main.js?v=00"></script>
 </body>
 </html>

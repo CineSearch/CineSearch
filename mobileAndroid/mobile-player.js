@@ -435,16 +435,23 @@ async function loadTVSeasonsMobile(tmdbId) {
         
         seasonSelect.innerHTML = '';
         
-        currentMobileSeasons.forEach((season, index) => {
+        // FILTRA: Rimuovi le stagioni con season_number = 0
+        const validSeasons = currentMobileSeasons.filter(season => season.season_number > 0);
+        
+        validSeasons.forEach((season, index) => {
             const option = document.createElement('option');
             option.value = season.season_number;
             option.textContent = `Stagione ${season.season_number} (${season.episode_count} episodi)`;
             seasonSelect.appendChild(option);
         });
         
-        if (currentMobileSeasons.length > 0) {
-            const firstSeasonNumber = currentMobileSeasons[0].season_number;
+        if (validSeasons.length > 0) {
+            const firstSeasonNumber = validSeasons[0].season_number;
             await loadSeasonEpisodesMobile(tmdbId, firstSeasonNumber);
+        } else {
+            // Se non ci sono stagioni valide, prova con la stagione 1
+            console.warn("Nessuna stagione valida trovata, provo con la stagione 1");
+            await loadSeasonEpisodesMobile(tmdbId, 1);
         }
         
         seasonSelect.onchange = function() {
@@ -457,6 +464,7 @@ async function loadTVSeasonsMobile(tmdbId) {
     }
 }
 
+// mobile-player.js - nella funzione loadSeasonEpisodesMobile
 async function loadSeasonEpisodesMobile(tmdbId, seasonNumber) {
     try {
         const episodesList = document.getElementById('mobile-episodes-list');
@@ -468,7 +476,10 @@ async function loadSeasonEpisodesMobile(tmdbId, seasonNumber) {
         const episodes = seasonData.episodes || [];
         episodesList.innerHTML = '';
         
-        episodes.forEach(episode => {
+        // FILTRA: Rimuovi episodi con episode_number = 0
+        const validEpisodes = episodes.filter(episode => episode.episode_number > 0);
+        
+        validEpisodes.forEach(episode => {
             const episodeItem = document.createElement('div');
             episodeItem.className = 'mobile-episode-item';
             episodeItem.innerHTML = `
@@ -493,7 +504,7 @@ async function loadSeasonEpisodesMobile(tmdbId, seasonNumber) {
             episodesList.appendChild(episodeItem);
         });
         
-        if (episodes.length === 0) {
+        if (validEpisodes.length === 0) {
             episodesList.innerHTML = '<div class="mobile-episode-item">Nessun episodio disponibile</div>';
         }
         

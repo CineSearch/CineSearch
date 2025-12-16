@@ -45,19 +45,38 @@ function toggleFavoriteMobile(id, type, title, event) {
     const preferiti = getPreferiti();
     const itemId = `${type}-${id}`;
     
-    if (preferiti.includes(itemId)) {
-        // Rimuovi dai preferiti
-        removePreferito({id: id, media_type: type});
-        if (event && event.target) {
-            event.target.innerHTML = '<i class="fas fa-star"></i>';
-            event.target.classList.remove('active');
-        }
-    } else {
-        // Aggiungi ai preferiti
-        addPreferito({id: id, media_type: type, title: title});
-        if (event && event.target) {
-            event.target.innerHTML = '<i class="fas fa-star"></i>';
-            event.target.classList.add('active');
+    if (event && event.target) {
+        const favBtn = event.target.closest('.fav');
+        const starIcon = favBtn ? favBtn.querySelector('i') : null;
+        
+        if (preferiti.includes(itemId)) {
+            // Rimuovi dai preferiti
+            removePreferito({id: id, media_type: type});
+            
+            // Cambia icona a stella vuota (far fa-star)
+            if (starIcon) {
+                starIcon.className = 'far fa-star star-empty';
+                starIcon.style.color = ''; // Reset al colore default
+            }
+            
+            // Rimuovi attributo data
+            if (favBtn) {
+                favBtn.setAttribute('data-fav', 'false');
+            }
+        } else {
+            // Aggiungi ai preferiti
+            addPreferito({id: id, media_type: type, title: title});
+            
+            // Cambia icona a stella piena (fas fa-star) e rendila gialla
+            if (starIcon) {
+                starIcon.className = 'fas fa-star star-active';
+                starIcon.style.color = '#ffcc00'; // Giallo
+            }
+            
+            // Imposta attributo data
+            if (favBtn) {
+                favBtn.setAttribute('data-fav', 'true');
+            }
         }
     }
     

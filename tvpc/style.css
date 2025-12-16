@@ -5,14 +5,15 @@
 }
 
 body {
-  zoom: 80%;
   background: #141414;
   color: #fff;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   font-size: 20px;
 }
-
+body.tv {
+  zoom: 80%;
+}
 header {
   position: fixed;
   top: 0;
@@ -446,9 +447,9 @@ section h2::before {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.vjs-theme-vixflix {
-  --vjs-theme-vixflix--primary: #2a09e5;
-  --vjs-theme-vixflix--secondary: #0715b2;
+.vjs-theme-cinesearch {
+  --vjs-theme-cinesearch--primary: #2a09e5;
+  --vjs-theme-cinesearch--secondary: #0715b2;
 }
 
 .video-js .vjs-big-play-button {

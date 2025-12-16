@@ -1,5 +1,3 @@
-// mobile-card.js - Gestione card contenuti
-
 function createMobileCard(item) {
     const isMovie = item.media_type === 'movie' || item.title;
     const mediaType = isMovie ? 'movie' : 'tv';
@@ -20,6 +18,9 @@ function createMobileCard(item) {
     // Formatta il titolo per mobile
     const displayTitle = title.length > 25 ? title.substring(0, 22) + '...' : title;
     
+    // Classi diverse per stelle: 'star' per vuoto, 'star-active' per pieno
+    const starClass = isFav ? 'fas fa-star star-active' : 'far fa-star star-empty';
+    
     card.innerHTML = `
         <img src="${imageUrl}" alt="${title}" class="mobile-card-image" 
              onerror="this.src='https://via.placeholder.com/342x513?text=Image+Error'">
@@ -27,12 +28,13 @@ function createMobileCard(item) {
             <div class="mobile-card-title" title="${title}">${displayTitle}</div>
             <div class="mobile-card-meta">${year} • ${isMovie ? '🎬 Film' : '📺 Serie'}</div>
             <div class="mobile-card-buttons">
-                <button class="mobile-card-btn play" onclick="playItemMobile(${item.id}, '${mediaType}', event)">
-                    <i class="fas fa-play"></i>
-                </button>
-                <button class="mobile-card-btn fav ${isFav ? 'active' : ''}" 
-                        onclick="toggleFavoriteMobile(${item.id}, '${mediaType}', '${title.replace(/'/g, "\\'")}', event)">
-                    <i class="fas fa-star"></i>
+            <button class="mobile-card-btn play" onclick="openMobilePlayer(${JSON.stringify(item).replace(/"/g, '&quot;')}, event)">
+                <i class="fas fa-play"></i>
+            </button>
+                <button class="mobile-card-btn fav" 
+                        onclick="toggleFavoriteMobile(${item.id}, '${mediaType}', '${title.replace(/'/g, "\\'")}', event)"
+                        data-fav="${isFav}">
+                    <i class="${starClass}"></i>
                 </button>
             </div>
         </div>
@@ -47,6 +49,7 @@ function createMobileCard(item) {
     
     return card;
 }
+
 
 function populateMobileCarousel(containerId, items) {
     const container = document.getElementById(containerId);

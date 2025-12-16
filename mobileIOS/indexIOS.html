@@ -102,7 +102,7 @@
         <!-- Home Mobile -->
         <section id="mobile-home" class="mobile-section active">
             <div class="mobile-hero">
-                <h1>CineSearch Mobile</h1>
+                <h1>CineSearch Mobile IOS</h1>
                 <p>Film e Serie TV sempre con te</p>
             </div>
             
@@ -253,47 +253,63 @@
     </div>
     
     <div class="mobile-video-container">
-        <video id="mobile-player-video" class="video-js vjs-theme-vixflix" controls playsinline></video>
-        
-        <!-- Controlli aggiuntivi -->
-        <div class="mobile-additional-controls" id="mobile-additional-controls">
-            <div class="mobile-control-group">
-                <label for="mobile-quality-select"><i class="fas fa-hd"></i> Qualità</label>
-                <select id="mobile-quality-select" class="mobile-control-select">
-                    <option value="auto">Auto</option>
-                </select>
-            </div>
-            
-            <div class="mobile-control-group">
-                <label for="mobile-audio-select"><i class="fas fa-volume-up"></i> Lingua Audio</label>
-                <select id="mobile-audio-select" class="mobile-control-select">
-                    <option value="0">Italiano</option>
-                </select>
-            </div>
-            
-            <div class="mobile-control-group">
-                <label for="mobile-subtitle-select"><i class="fas fa-closed-captioning"></i> Sottotitoli</label>
-                <select id="mobile-subtitle-select" class="mobile-control-select">
-                    <option value="-1">Nessun sottotitolo</option>
-                </select>
-            </div>
-        </div>
-        
-        <!-- Azioni rapide -->
+        <video id="mobile-player-video" class="video-js vjs-theme-cinesearch" controls playsinline></video>
+
         <div class="mobile-quick-actions">
-            <button class="mobile-quick-btn" onclick="showMobileQualitySelector()">
-                <i class="fas fa-hd"></i> Qualità
-            </button>
-            <button class="mobile-quick-btn" onclick="showMobileAudioSelector()">
-                <i class="fas fa-volume-up"></i> Audio
-            </button>
-            <button class="mobile-quick-btn" onclick="showMobileSubtitleSelector()">
-                <i class="fas fa-closed-captioning"></i> Sottotitoli
-            </button>
-            <button class="mobile-quick-btn" onclick="refreshMobilePlayerControls()">
-                <i class="fas fa-sync"></i> Aggiorna
-            </button>
-        </div>
+
+    <!-- QUALITÀ -->
+    <div class="mobile-control-group">
+        <label for="mobile-quality-select">
+            <i class="fas fa-hd"></i> Qualità
+        </label>
+        <select
+            id="mobile-quality-select"
+            class="mobile-control-select"
+            onchange="showMobileQualitySelector()">
+            <option value="auto">Auto</option>
+        </select>
+    </div>
+
+    <!-- AUDIO -->
+    <div class="mobile-control-group">
+        <label for="mobile-audio-select">
+            <i class="fas fa-volume-up"></i> Lingua Audio
+        </label>
+        <select
+            id="mobile-audio-select"
+            class="mobile-control-select"
+            onchange="showMobileAudioSelector()">
+            <option value="0">Italiano</option>
+        </select>
+    </div>
+
+    <!-- SOTTOTITOLI -->
+    <div class="mobile-control-group">
+        <label for="mobile-subtitle-select">
+            <i class="fas fa-closed-captioning"></i> Sottotitoli
+        </label>
+        <select
+            id="mobile-subtitle-select"
+            class="mobile-control-select"
+            onchange="showMobileSubtitleSelector()">
+            <option value="-1">Nessun sottotitolo</option>
+        </select>
+    </div>
+
+    <!-- AGGIORNA -->
+    <div class="mobile-control-group">
+        <label>
+            <i class="fas fa-sync"></i> Aggiorna
+        </label>
+        <button
+            class="mobile-quick-btn"
+            onclick="refreshMobilePlayerControls()">
+            Aggiorna
+        </button>
+    </div>
+
+</div>
+    </div>
         
         <div class="mobile-player-info">
             <div id="mobile-player-meta"></div>
@@ -310,18 +326,20 @@
 </section>
 
         
-        <!-- Risultati Ricerca -->
-        <section id="mobile-results" class="mobile-section">
-            <div class="mobile-page-header">
-                <button class="mobile-back-btn" onclick="showHomeMobile()">
-                    <i class="fas fa-arrow-left"></i>
-                </button>
-                <h2>Risultati Ricerca</h2>
-            </div>
-            
-            <div class="mobile-grid" id="mobile-results-grid"></div>
-        </section>
-        <section id="mobile-category-results" class="mobile-section">
+<!-- Risultati Ricerca -->
+<section id="mobile-results" class="mobile-section">
+    <div class="mobile-page-header">
+        <button class="mobile-back-btn" onclick="showHomeMobile()">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <h2>Risultati Ricerca</h2>
+    </div>
+    
+    <div class="mobile-grid" id="mobile-results-grid"></div>
+</section>
+
+<!-- Risultati Categoria -->
+<section id="mobile-category-results" class="mobile-section">
     <div class="mobile-page-header">
         <button class="mobile-back-btn" onclick="showCategoriesMobile()">
             <i class="fas fa-arrow-left"></i>
@@ -331,7 +349,25 @@
     
     <div class="mobile-grid" id="mobile-category-grid"></div>
 </section>
-    </main>
+
+<!-- Continua Visione Mobile -->
+<section id="mobile-continua" class="mobile-section">
+    <div class="mobile-page-header">
+        <button class="mobile-back-btn" onclick="showHomeMobile()">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <h2>Continua a Guardare</h2>
+    </div>
+    
+    <div class="mobile-grid" id="mobile-continua-grid">
+        <div class="empty-state" id="mobile-empty-continua">
+            <i class="fas fa-history"></i>
+            <p>Nessuna visione in corso</p>
+            <p>I contenuti che guardi appariranno qui</p>
+        </div>
+    </div>
+</section>
+
     
     <!-- Bottom Navigation -->
     <nav class="mobile-bottom-nav">
@@ -351,20 +387,25 @@
             <i class="fas fa-star"></i>
             <span>Preferiti</span>
         </a>
+        <a href="#" class="bottom-nav-item" onclick="showCategoriesMobile()">
+            <i class="fas fa-list"></i>
+            <span>Categorie</span>
+        </a>
     </nav>
     
     <footer class="mobile-footer">
-        <p>CineSearch Mobile v0.0</p>
-        <p>© 2025 Copyright AIMODS | Forked by VixFlix</p>
+        <p>CineSearch Mobile v.0.0</p>
+        <p>© 2025 Copyright AIMODS</p>
     </footer>
     
-<script src="mobile-cors.js"></script>
-<script src="mobile-ui.js"></script>
-<script src="mobile-card.js"></script>
-<script src="mobile-api.js"></script>
-<script src="mobile-storage.js"></script>
-<script src="mobile-content.js"></script>
-<script src="mobile-player.js"></script>
-<script src="mobile-main.js"></script>
+<script src="mobile-cors.js?v=00"></script>
+<script src="mobile-ui.js?v=00"></script>
+<script src="mobile-card.js?v=00"></script>
+<script src="mobile-api.js?v=00"></script>
+<script src="mobile-storage.js?v=00"></script>
+<script src="mobile-content.js?v=00"></script>
+<script src="mobile-player.js?v=00"></script>
+<script src="mobile-continua.js"></script>
+<script src="mobile-main.js?v=00"></script>
 </body>
 </html>

@@ -3,48 +3,53 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
 <script>
-    function getDeviceType() {
-        const ua = navigator.userAgent.toLowerCase();
-        
-        // Prima controlla per TV - ordine importante!
-        const isTV =
-            ua.includes("smarttv") ||
-            ua.includes("appletv") ||
-            ua.includes("googletv") ||
-            ua.includes("android tv") ||
-            ua.includes("fire tv") ||
-            ua.includes("aft") ||
-            ua.includes("tv") ||
-            // Aggiungi controlli specifici per Android TV
-            (ua.includes("android") && !ua.includes("mobile")) ||
-            (/android.*(tv|set-top|box)/i.test(ua));
+function getDeviceType() {
+    const ua = navigator.userAgent.toLowerCase();
 
-        const isIOS =
-            ua.includes("iphone") ||
-            ua.includes("ipad") ||
-            ua.includes("ipod");
+    const isTV =
+        ua.includes("smarttv") ||
+        ua.includes("appletv") ||
+        ua.includes("googletv") ||
+        ua.includes("android tv") ||
+        ua.includes("fire tv") ||
+        ua.includes("aft") ||
+        /android.*(tv|set-top|box)/i.test(ua);
 
-        const isMobileNonIOS =
-            /android.*mobile|webos|blackberry|iemobile|opera mini/i.test(ua);
+    const isIOS =
+        ua.includes("iphone") ||
+        ua.includes("ipad") ||
+        ua.includes("ipod");
 
-        if (isTV) return "tv";
-        if (isIOS) return "ios";
-        if (isMobileNonIOS) return "mobile";
-        return "desktop";
-    }
+    const isAndroid =
+        ua.includes("android") && !isTV;
 
-    const device = getDeviceType();
+    if (isTV) return "tv";
+    if (isIOS) return "ios";
+    if (isAndroid) return "android";
+    return "desktop";
+}
 
-    if (!window.location.pathname.includes("mobile")) {
-        if (device === "ios") {
-            window.location.href = "mobileIOS/indexIOS.html";
-        } else if (device === "mobile") {
-            window.location.href = "mobile/index.html";
-        }
-    }
+const device = getDeviceType();
+const path = window.location.pathname;
+
+if (device === "ios" && !path.includes("/mobileIOS/")) {
+    window.location.href = "mobileIOS/indexIOS.html";
+}
+else if (device === "android" && !path.includes("/mobile/")) {
+    window.location.href = "mobileAndroid/index.html";
+}
+// PC e TV → index.html (nessuna azione)
 </script>
+<script>
+  const isTV = /TV|SmartTV|WebOS|Tizen|Android TV|GoogleTV/i.test(navigator.userAgent);
 
+  if (isTV) {
+    document.body.classList.add('tv');
+  }
+</script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/solid/film.svg">
 
@@ -59,7 +64,7 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/videojs-hls-quality-selector@2.0.0/dist/videojs-hls-quality-selector.min.js"></script>
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tvpc/style.css">
   </head>
   <body>
     <header id="header">
@@ -222,7 +227,7 @@
 
             <video
               id="player-video"
-              class="video-js vjs-theme-vixflix vjs-big-play-centered"
+              class="video-js vjs-theme-cinesearch vjs-big-play-centered"
               controls
               preload="auto"
               playsinline
@@ -369,18 +374,18 @@
     Aggiungi contenuti ai preferiti per vederli qui
   </div>
 </section>
-<script src="script.js"></script>
-<script src="api.js"></script>
-<script src="cors.js"></script>
-<script src="preferiti.js"></script>
-<script src="continua-visione.js"></script>
-<script src="card.js"></script>
-<script src="categorie.js"></script>
-<script src="film-serie.js"></script>
-<script src="ricerca.js"></script>
-<script src="player.js"></script>
+<script src="tvpc/script.js?v=00"></script>
+<script src="tvpc/api.js?v=00"></script>
+<script src="tvpc/cors.js?v=00"></script>
+<script src="tvpc/preferiti.js?v=00"></script>
+<script src="tvpc/continua-visione.js?v=00"></script>
+<script src="tvpc/card.js?v=00"></script>
+<script src="tvpc/categorie.js?v=00"></script>
+<script src="tvpc/film-serie.js?v=00"></script>
+<script src="tvpc/ricerca.js?v=00"></script>
+<script src="tvpc/player.js?v=00"></script>
 <footer style="text-align: center; padding: 2rem; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 3rem;">
-  <p>© 2025 Copyright AIMODS | Forked by VixFlix</p>
+  <p>© 2025 Copyright AIMODS | Forked by cinesearch</p>
 </footer>
   </body>
 </html>
