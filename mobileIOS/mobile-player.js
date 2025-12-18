@@ -51,22 +51,7 @@ async function openMobilePlayer(item) {
         
         if (mediaType === 'tv') {
             document.getElementById('mobile-episode-selector').style.display = 'block';
-            await loadTVSeasonsMobile(item.id);
-            
-            // AVVIO AUTOMATICO: Se non ci sono stagioni/episodi selezionati, riproduci S1E1
-            setTimeout(async () => {
-                const seasonSelect = document.getElementById('mobile-season-select');
-                if (seasonSelect && seasonSelect.value) {
-                    const seasonNum = parseInt(seasonSelect.value);
-                    if (seasonNum > 0) {
-                        playItemMobile(item.id, mediaType, seasonNum, 1);
-                    } else {
-                        // Se la stagione è 0, usa la stagione 1
-                        playItemMobile(item.id, mediaType, 1, 1);
-                    }
-                }
-            }, 1000);
-            
+            await loadTVSeasonsMobile(item.id);            
         } else {
             setTimeout(() => playItemMobile(item.id, mediaType), 500);
         }
