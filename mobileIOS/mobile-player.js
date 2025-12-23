@@ -1,4 +1,3 @@
-
 // mobile-player.js - Gestione player video (AGGIORNATO)
 
 // ============ VARIABILI PLAYER ============
