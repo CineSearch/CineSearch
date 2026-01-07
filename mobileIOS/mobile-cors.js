@@ -2,21 +2,37 @@
 
 let currentCorsProxy = 'https://corsproxy.io/?';
 
+const CORS_PROXIES = [
+    { name: 'AllOrigins', url: 'https://api.allorigins.win/raw?url=' },
+    { name: 'Cors-Anywhere', url: 'https://cors-anywhere.herokuapp.com/' },
+    { name: 'CodeTabs', url: 'https://api.codetabs.com/v1/proxy?quest=' },
+    { name: 'Cors.sh', url: 'https://cors.sh/?' },
+    { name: 'ProxyCors', url: 'https://proxy.cors.sh/?' }
+];
+
 function initMobileCors() {
     const corsSelect = document.getElementById('mobile-cors-select');
     
     if (!corsSelect) return;
     
-    // Carica proxy salvati o usa quelli predefiniti
-    const savedProxy = localStorage.getItem('mobile-cors-proxy') || 'https://corsproxy.io/?';
-    currentCorsProxy = savedProxy;
+    // Aggiungi opzioni
+    corsSelect.innerHTML = '';
+    CORS_PROXIES.forEach(proxy => {
+        const option = document.createElement('option');
+        option.value = proxy.url;
+        option.textContent = proxy.name;
+        corsSelect.appendChild(option);
+    });
     
+    // Carica proxy salvato o usa il primo
+    const savedProxy = localStorage.getItem('mobile-cors-proxy') || CORS_PROXIES[1].url; // Usa AllOrigins come default
+    currentCorsProxy = savedProxy;
     corsSelect.value = savedProxy;
     
     corsSelect.addEventListener('change', function() {
         currentCorsProxy = this.value;
         localStorage.setItem('mobile-cors-proxy', currentCorsProxy);
-        // console.log('CORS proxy mobile cambiato a:', currentCorsProxy);
+        console.log('CORS proxy mobile cambiato a:', currentCorsProxy);
     });
 }
 
