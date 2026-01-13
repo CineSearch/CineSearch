@@ -94,10 +94,12 @@ async function playItemMobile(id, type, season = null, episode = null) {
         if (!videoElement) {
             videoElement = document.createElement('video');
             videoElement.id = 'mobile-player-video';
-            videoElement.className = 'video-js vjs-theme-cinesearch';
+            videoElement.className = 'video-js vjs-default-skin vjs-big-play-centered';
             videoElement.setAttribute('controls', '');
             videoElement.setAttribute('preload', 'auto');
             videoElement.setAttribute('playsinline', '');
+            videoElement.setAttribute('webkit-playsinline', ''); // IMPORTANTE per iOS
+            videoElement.setAttribute('x5-playsinline', ''); // Per alcuni browser mobile
             videoElement.setAttribute('crossorigin', 'anonymous');
             videoContainer.insertBefore(videoElement, videoContainer.firstChild);
         }
@@ -110,25 +112,42 @@ async function playItemMobile(id, type, season = null, episode = null) {
             throw new Error('Impossibile ottenere lo stream');
         }
         
-        // IMPORTANTE: Applica il proxy all'M3U8 URL
-        const proxiedM3u8Url = applyCorsProxy(streamData.m3u8Url);
-        console.log('M3U8 con proxy:', proxiedM3u8Url);
+        // IMPORTANTE: Controlla se l'M3U8 è accessibile
+        const m3u8Url = streamData.m3u8Url;
+        console.log('URL M3U8 originale:', m3u8Url);
         
-        // Configura Video.js
+        // Prova a fare un fetch per verificare l'accessibilità
+        try {
+            const testResponse = await fetch(m3u8Url, { method: 'HEAD' });
+            console.log('Test accessibilità M3U8:', testResponse.status);
+        } catch (e) {
+            console.warn('M3U8 potrebbe non essere accessibile:', e.message);
+        }
+        
+        // Configura Video.js per iOS
         setupVideoJsXhrHook();
         
-        // Inizializza il player SENZA plugin nella configurazione iniziale
-        mobilePlayer = videojs('mobile-player-video', {
+        // Configurazione specifica per iOS
+        const playerOptions = {
             controls: true,
             fluid: true,
             aspectRatio: "16:9",
             playbackRates: [0.5, 0.75, 1, 1.25, 1.5, 2],
             html5: {
                 vhs: {
-                    overrideNative: true,
-                    bandwidth: 1000000,
+                    overrideNative: !videojs.browser.IS_SAFARI, // Non sovrascrivere su Safari
+                    enableLowInitialPlaylist: true,
+                    smoothQualityChange: true,
+                    useDevicePixelRatio: true,
+                    bandwidth: 2000000, // Aumenta bandwidth per iOS
                     withCredentials: false,
+                    handleManifestRedirects: true,
+                    customTagParsers: [],
+                    customTagMappers: [],
                 },
+                nativeAudioTracks: false,
+                nativeVideoTracks: false,
+                nativeTextTracks: false
             },
             controlBar: {
                 children: [
@@ -142,71 +161,108 @@ async function playItemMobile(id, type, season = null, episode = null) {
                     'playbackRateMenuButton',
                     'fullscreenToggle',
                 ],
-            }
-            // NON aggiungere plugins qui
-        });
+            },
+            liveui: false,
+            enableSourceset: true,
+            suppressNotSupportedError: false,
+            preload: 'auto'
+        };
         
-        // REGISTRA E APPLICA IL PLUGIN DOPO aver creato il player
-
+        // Inizializza il player
+        mobilePlayer = videojs('mobile-player-video', playerOptions);
         
-        // Imposta sorgente CON proxy
-        mobilePlayer.src({
-            src: proxiedM3u8Url,
-            type: 'application/x-mpegURL',
-        });
-            initQualitySelectorPlugin();
-        mobilePlayer.ready(() => {
-            showMobileLoading(false);
-            
-            console.log('✅ Player ready');
-                        // Registra funzione di cleanup
-            const cleanupReady = () => {
-                mobilePlayer.off('ready', cleanupReady);
-            };
-            cleanupFunctions.push(cleanupReady.bind(this));
-            
-            // Estrai qualità disponibili
-
-            setTimeout(() => {
-                extractAvailableQualities();
-            }, 500);
-            // Estrai tracce audio e sottotitoli
-            setTimeout(() => {
-                extractAudioTracks();
-                extractSubtitles();
-                showAdditionalControls();
-            }, 1500);
-            
-            // Traccia progressi
-            trackVideoProgressMobile(
-                currentMobileItem.id,
-                currentMobileItem.media_type || (currentMobileItem.title ? 'movie' : 'tv'),
-                mobilePlayer.el().querySelector('video'),
-                season,
-                episode
-            );
-            
-            // Riproduci automaticamente
-            mobilePlayer.play().catch(e => {
-                console.log('Auto-play prevented:', e);
+        // IMPORTANTE: Aggiungi gestione errori specifica per iOS
+        mobilePlayer.tech_.on('retryplaylist', function() {
+            console.log('📱 iOS - Retry playlist chiamato');
+            mobilePlayer.src({
+                src: m3u8Url,
+                type: 'application/x-mpegURL',
+                withCredentials: false
             });
         });
         
+        // Imposta la sorgente
+        mobilePlayer.src({
+            src: m3u8Url,
+            type: 'application/x-mpegURL',
+            withCredentials: false
+        });
+        
+        // Gestione errori dettagliata
         mobilePlayer.on('error', function (e) {
-            console.error('Video.js error:', mobilePlayer.error());
-            showMobileError('Errore durante il caricamento del video');
+            const error = mobilePlayer.error();
+            console.error('📱 iOS - Video.js error:', error);
+            
+            switch(error.code) {
+                case 1: // MEDIA_ERR_ABORTED
+                    console.log('Utente ha annullato il caricamento');
+                    break;
+                case 2: // MEDIA_ERR_NETWORK
+                    console.log('Errore di rete, riprovo...');
+                    // Riprova una volta
+                    setTimeout(() => {
+                        mobilePlayer.src({
+                            src: m3u8Url,
+                            type: 'application/x-mpegURL'
+                        });
+                    }, 2000);
+                    break;
+                case 3: // MEDIA_ERR_DECODE
+                    console.log('Errore decodifica - formato non supportato');
+                    showMobileError('Formato video non supportato su iOS');
+                    break;
+                case 4: // MEDIA_ERR_SRC_NOT_SUPPORTED
+                    console.log('Sorgente non supportata');
+                    // Prova a usare il proxy CORS
+                    const proxiedUrl = applyCorsProxy(m3u8Url);
+                    console.log('Provo con proxy:', proxiedUrl);
+                    mobilePlayer.src({
+                        src: proxiedUrl,
+                        type: 'application/x-mpegURL'
+                    });
+                    break;
+            }
         });
         
-        mobilePlayer.on('loadeddata', function () {
-            console.log('✅ Video data loaded');
+        mobilePlayer.ready(() => {
+            showMobileLoading(false);
+            console.log('✅ Player ready su iOS');
+            
+            // Riproduci automaticamente (iOS potrebbe bloccare)
+            const playPromise = mobilePlayer.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log('📱 iOS - Auto-play bloccato, richiede interazione utente');
+                    // Mostra messaggio informativo
+                    showMobileInfo('Tocca il video per avviare la riproduzione');
+                });
+            }
         });
         
-        mobilePlayer.on('loadedmetadata', function () {
-            console.log('✅ Metadata loaded');
+        // Monitora lo stato del caricamento
+        mobilePlayer.on('loadstart', () => {
+            console.log('📱 iOS - Loadstart');
+        });
+        
+        mobilePlayer.on('loadedmetadata', () => {
+            console.log('📱 iOS - Metadata caricati');
+        });
+        
+        mobilePlayer.on('loadeddata', () => {
+            console.log('📱 iOS - Dati caricati');
+        });
+        
+        mobilePlayer.on('canplay', () => {
+            console.log('📱 iOS - Video può essere riprodotto');
+        });
+        
+        mobilePlayer.on('playing', () => {
+            console.log('📱 iOS - Riproduzione iniziata');
         });
         
     } catch (error) {
-        console.error('Errore riproduzione mobile:', error);
+        console.error('📱 iOS - Errore riproduzione mobile:', error);
         showMobileLoading(false);
         showMobileError(`Impossibile riprodurre: ${error.message}`);
     }
