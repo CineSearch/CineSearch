@@ -27,9 +27,9 @@ function detectDevice() {
   // Rileva PC
   const isPC = !isTV && !isTablet && !isIOS && !isAndroidMobile;
   
-  console.log('User Agent:', ua);
-  console.log('Screen:', screenWidth, 'x', screenHeight);
-  console.log('Detected:', { isTV, isTablet, isIOS, isAndroidMobile, isPC });
+  // console.log('User Agent:', ua);
+  // console.log('Screen:', screenWidth, 'x', screenHeight);
+  // console.log('Detected:', { isTV, isTablet, isIOS, isAndroidMobile, isPC });
   
   // Redirect alla versione corretta
   if (isTV && !window.location.href.includes('indexTV')) {
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', detectDevice);
 // Se c'è un errore nel redirect, ricarica la pagina fallback
 window.addEventListener('error', function() {
   if (!window.location.href.includes('index.html')) {
-    console.log('Error detected, redirecting to fallback...');
+    // console.log('Error detected, redirecting to fallback...');
     window.location.href = 'index.html';
   }
 });

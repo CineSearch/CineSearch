@@ -164,12 +164,12 @@ document.querySelectorAll('.arrow').forEach(btn => {
     const direction = btn.classList.contains('left') ? -1 : 1;
     const scrollAmount = carousel.clientWidth * 0.8;
     if (direction === 1 && carousel.scrollLeft >= (carousel.scrollWidth - carousel.clientWidth - 10)) {
-      // console.log('➡️ Già alla fine destra');
+      // // console.log('➡️ Già alla fine destra');
       return;
     }
     
     if (direction === -1 && carousel.scrollLeft <= 10) {
-      // console.log('⬅️ Già all\'inizio sinistra');
+      // // console.log('⬅️ Già all\'inizio sinistra');
       return;
     }
     

@@ -4,11 +4,11 @@ function trackVideoProgress(tmdbId, mediaType, videoElement, season = null, epis
     storageKey += `_S${season}_E${episode}`;
   }
 
-  // console.log("🎬 trackVideoProgress chiamato per:", storageKey);
+  // // console.log("🎬 trackVideoProgress chiamato per:", storageKey);
   
   const savedTime = getFromStorage(storageKey);
   if (savedTime && parseFloat(savedTime) > 60) {
-    // console.log("⏪ Riprendo da:", savedTime, "secondi");
+    // // console.log("⏪ Riprendo da:", savedTime, "secondi");
     videoElement.currentTime = parseFloat(savedTime);
   }
 
@@ -30,7 +30,7 @@ function checkContinuaVisione(items) {
     return;
   }
   
-  // console.log(`🎯 Creando card per ${items.length} contenuti...`);
+  // // console.log(`🎯 Creando card per ${items.length} contenuti...`);
   
   carousel.innerHTML = "";
   shownContinuaIds.clear();
@@ -48,7 +48,7 @@ function checkContinuaVisione(items) {
     }
     
     if (storageKeys.length > 0 && !shownContinuaIds.has(item.id)) {
-      // console.log(`🃏 Creo card per: ${item.title || item.name}`);
+      // // console.log(`🃏 Creo card per: ${item.title || item.name}`);
       const card = createCard(item, storageKeys, true);
       carousel.appendChild(card);
       shownContinuaIds.add(item.id);
@@ -57,14 +57,14 @@ function checkContinuaVisione(items) {
   
   if (carousel.children.length > 0) {
     document.getElementById("continua-visione").style.display = "block";
-    // console.log(`🎉 Sezione mostrata con ${carousel.children.length} elementi`);
+    // // console.log(`🎉 Sezione mostrata con ${carousel.children.length} elementi`);
   } else {
-    // console.log("📭 Nessuna card creata");
+    // // console.log("📭 Nessuna card creata");
   }
 }
 
 async function loadContinuaDaStorage() {
-  // console.log("🔄 loadContinuaDaStorage chiamato");
+  // // console.log("🔄 loadContinuaDaStorage chiamato");
   
   cleanupExpiredStorage();
   
@@ -84,7 +84,7 @@ async function loadContinuaDaStorage() {
         const value = parseFloat(data.value);
         
         if (value > 60) {
-          // console.log(`✅ Trovato: ${key} = ${value}s`);
+          // // console.log(`✅ Trovato: ${key} = ${value}s`);
 
           const match = key.match(/videoTime_(movie|tv)_(\d+)/);
           if (match) {
@@ -107,7 +107,7 @@ async function loadContinuaDaStorage() {
                   itemData.media_type = mediaType;
                   itemData.id = parseInt(tmdbId);
                   
-                  // console.log(`🎬 TMDB OK: ${itemData.title || itemData.name}`);
+                  // // console.log(`🎬 TMDB OK: ${itemData.title || itemData.name}`);
                   items.push(itemData);
                 }
               } catch (err) {
@@ -122,12 +122,12 @@ async function loadContinuaDaStorage() {
     }
   }
   
-  // console.log(`📊 Totale contenuti: ${items.length}`);
+  // // console.log(`📊 Totale contenuti: ${items.length}`);
   
   if (items.length > 0) {
     checkContinuaVisione(items);
   } else {
-    // console.log("📭 Nessun contenuto per 'Continua visione'");
+    // // console.log("📭 Nessun contenuto per 'Continua visione'");
     const section = document.getElementById("continua-visione");
     if (section) {
       section.style.display = "block";

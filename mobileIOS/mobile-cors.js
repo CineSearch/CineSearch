@@ -32,7 +32,7 @@ function initMobileCors() {
     corsSelect.addEventListener('change', function() {
         currentCorsProxy = this.value;
         localStorage.setItem('mobile-cors-proxy', currentCorsProxy);
-        console.log('CORS proxy mobile cambiato a:', currentCorsProxy);
+        // console.log('CORS proxy mobile cambiato a:', currentCorsProxy);
     });
 }
 

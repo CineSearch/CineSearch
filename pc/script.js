@@ -122,7 +122,7 @@ function saveToStorage(name, value, days) {
       created: new Date().getTime()
     };
     localStorage.setItem(name, JSON.stringify(data));
-    // console.log(`💾 localStorage salvato: ${name}=${value}`);
+    // // console.log(`💾 localStorage salvato: ${name}=${value}`);
     return true;
   } catch (e) {
     console.error("❌ Errore localStorage:", e);
@@ -136,11 +136,11 @@ function getFromStorage(name) {
     if (item) {
       const data = JSON.parse(item);
       if (!data.expires || data.expires > new Date().getTime()) {
-        // console.log(`📖 localStorage letto: ${name}=${data.value}`);
+        // // console.log(`📖 localStorage letto: ${name}=${data.value}`);
         return data.value;
       } else {
         localStorage.removeItem(name);
-        // console.log(`🗑️ Rimosso scaduto: ${name}`);
+        // // console.log(`🗑️ Rimosso scaduto: ${name}`);
       }
     }
   } catch (e) {
@@ -171,7 +171,7 @@ function cleanupExpiredStorage() {
     }
     
     if (removed > 0) {
-      // console.log(`🧹 Puliti ${removed} elementi scaduti`);
+      // // console.log(`🧹 Puliti ${removed} elementi scaduti`);
     }
   } catch (e) {
     console.error("❌ Errore pulizia storage:", e);
@@ -411,7 +411,7 @@ function goBackToCategories() {
 }
 
 function handlePopState(event) {
-    console.log('Popstate triggered', event.state);
+    // console.log('Popstate triggered', event.state);
     
     if (event.state && event.state.section) {
         const sectionId = event.state.section;
@@ -535,10 +535,10 @@ document.getElementById("search").addEventListener("keydown", (e) => {
 
 
 function debugCookies() {
-  // console.log("🔍 DEBUG - Tutti i cookie:");
+  // // console.log("🔍 DEBUG - Tutti i cookie:");
   const allCookies = document.cookie.split(";").map((c) => c.trim());
   allCookies.forEach(cookie => {
-    // console.log("🍪", cookie);
+    // // console.log("🍪", cookie);
   });
 }
 
@@ -574,12 +574,12 @@ function handleRemoteNavigation(event) {
 
 
 window.addEventListener("DOMContentLoaded", async () => {
-  // console.log("🚀 Pagina caricata");
+  // // console.log("🚀 Pagina caricata");
   
-  // console.log("💽 localStorage totale:", localStorage.length, "elementi");
+  // // console.log("💽 localStorage totale:", localStorage.length, "elementi");
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
-    // console.log(`  ${i}: ${key}`);
+    // // console.log(`  ${i}: ${key}`);
   }
       window.addEventListener('popstate', handlePopState);
       

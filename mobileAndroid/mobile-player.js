@@ -11,7 +11,7 @@ let availableQualities = [];
 
 // ============ PLAYER FUNCTIONS ============
 async function openMobilePlayer(item) {
-    console.log("Apertura player per:", item);
+    // console.log("Apertura player per:", item);
     
     currentMobileItem = item;
     showMobileSection('mobile-player');
@@ -78,7 +78,7 @@ function showAdditionalControls() {
 }
 
 async function playItemMobile(id, type, season = null, episode = null) {
-    console.log(`Riproduzione ${type} ${id}`, season ? `S${season}E${episode}` : '');
+    // console.log(`Riproduzione ${type} ${id}`, season ? `S${season}E${episode}` : '');
     
     showMobileLoading(true, "Preparazione video...");
     
@@ -110,7 +110,7 @@ async function playItemMobile(id, type, season = null, episode = null) {
         }
         
         const proxiedM3u8Url = applyCorsProxy(streamData.m3u8Url);
-        console.log('M3U8 con proxy:', proxiedM3u8Url);
+        // console.log('M3U8 con proxy:', proxiedM3u8Url);
 
         setupVideoJsXhrHook();
         
@@ -158,7 +158,7 @@ async function playItemMobile(id, type, season = null, episode = null) {
         
         mobilePlayer.ready(() => {
             showMobileLoading(false);
-            console.log('✅ Player ready - fonte caricata');
+            // console.log('✅ Player ready - fonte caricata');
             
             setTimeout(() => {
                 initVideoJsPlugins();
@@ -176,7 +176,7 @@ async function playItemMobile(id, type, season = null, episode = null) {
             showAdditionalControls();
             
             mobilePlayer.play().catch(e => {
-                console.log('Auto-play prevented:', e);
+                // console.log('Auto-play prevented:', e);
             });
         });
         
@@ -186,7 +186,7 @@ async function playItemMobile(id, type, season = null, episode = null) {
         });
         
         mobilePlayer.on('loadeddata', function() {
-            console.log('✅ Video data loaded, ready for plugins');
+            // console.log('✅ Video data loaded, ready for plugins');
         });
         
     } catch (error) {
@@ -197,15 +197,15 @@ async function playItemMobile(id, type, season = null, episode = null) {
 }
 
 function initVideoJsPlugins() {
-    console.log('Inizializzazione plugin Video.js...');
+    // console.log('Inizializzazione plugin Video.js...');
     
     try {
         if (typeof videojs.getPlugin('hlsQualitySelector') !== 'undefined') {
-            console.log('✅ Plugin qualità disponibile');
+            // console.log('✅ Plugin qualità disponibile');
             
             if (!videojs.getComponent('HlsQualitySelector')) {
                 videojs.registerPlugin('hlsQualitySelector', window.videojsHlsQualitySelector);
-                console.log('✅ Plugin qualità registrato');
+                // console.log('✅ Plugin qualità registrato');
             }
             
             mobilePlayer.hlsQualitySelector({
@@ -214,7 +214,7 @@ function initVideoJsPlugins() {
                 vjsIconClass: 'vjs-icon-cog'
             });
             
-            console.log('✅ Plugin qualità inizializzato');
+            // console.log('✅ Plugin qualità inizializzato');
 
             setTimeout(() => {
                 forceQualitySelectorDisplay();
@@ -242,13 +242,13 @@ function initVideoJsPlugins() {
 }
 
 function forceQualitySelectorDisplay() {
-    console.log('Forzando visualizzazione selettore qualità...');
+    // console.log('Forzando visualizzazione selettore qualità...');
     
     try {
         const controlBar = mobilePlayer.controlBar;
         
         if (!controlBar.getChild('QualitySelector')) {
-            console.log('Creando pulsante qualità manualmente...');
+            // console.log('Creando pulsante qualità manualmente...');
             
             const qualityButton = videojs.dom.createEl('button', {
                 className: 'vjs-quality-selector vjs-control vjs-button',
@@ -279,7 +279,7 @@ function forceQualitySelectorDisplay() {
                 });
                 
                 item.addEventListener('click', () => {
-                    console.log('Qualità selezionata:', quality);
+                    // console.log('Qualità selezionata:', quality);
                 });
                 
                 menuContent.appendChild(item);
@@ -305,9 +305,9 @@ function forceQualitySelectorDisplay() {
                 controlBar.el().appendChild(qualityButton);
             }
             
-            console.log('✅ Pulsante qualità creato manualmente');
+            // console.log('✅ Pulsante qualità creato manualmente');
         } else {
-            console.log('✅ Pulsante qualità già presente');
+            // console.log('✅ Pulsante qualità già presente');
         }
         
         if (controlBar.el()) {
@@ -322,7 +322,7 @@ function forceQualitySelectorDisplay() {
 
 
 function initQualitySelectorPlugin() {
-    console.log('initQualitySelectorPlugin deprecata, usa initVideoJsPlugins');
+    // console.log('initQualitySelectorPlugin deprecata, usa initVideoJsPlugins');
     initVideoJsPlugins();
 }
 
@@ -413,7 +413,7 @@ function createManualQualitySelector() {
         controlBar.el().appendChild(qualityButton);
     }
     
-    console.log('✅ Selettore qualità manuale creato');
+    // console.log('✅ Selettore qualità manuale creato');
 }
 
 function updateManualQualityMenu() {
@@ -516,7 +516,7 @@ async function loadSeasonEpisodesMobile(tmdbId, seasonNumber) {
 }
 
 function playTVEpisodeMobile(tmdbId, seasonNumber, episodeNumber) {
-    console.log(`Riproduzione episodio S${seasonNumber}E${episodeNumber}`);
+    // console.log(`Riproduzione episodio S${seasonNumber}E${episodeNumber}`);
 
     const episodeTitle = `Stagione ${seasonNumber}, Episodio ${episodeNumber}`;
     document.getElementById('mobile-player-title').textContent = episodeTitle;
@@ -525,7 +525,7 @@ function playTVEpisodeMobile(tmdbId, seasonNumber, episodeNumber) {
 }
 
 async function openMobilePlayer(item) {
-    console.log("Apertura player per:", item);
+    // console.log("Apertura player per:", item);
     
     currentMobileItem = item;
     showMobileSection('mobile-player');
@@ -582,18 +582,18 @@ async function openMobilePlayer(item) {
 // ============ GESTIONE QUALITÀ ============
 function extractAvailableQualities() {
     return new Promise((resolve) => {
-        console.log('Estrazione qualità in corso...');
+        // console.log('Estrazione qualità in corso...');
         
         const checkInterval = setInterval(() => {
             try {
                 if (!mobilePlayer || !mobilePlayer.tech_) {
-                    console.log('Player tech non ancora disponibile');
+                    // console.log('Player tech non ancora disponibile');
                     return;
                 }
                 
                 const tech = mobilePlayer.tech_;
                 if (!tech.vhs) {
-                    console.log('VHS non ancora disponibile');
+                    // console.log('VHS non ancora disponibile');
                     return;
                 }
                 
@@ -605,7 +605,7 @@ function extractAvailableQualities() {
                     const playlists = vhs.playlists.master.playlists;
                     availableQualities = [];
                     
-                    console.log('Playlist trovate:', playlists.length);
+                    // console.log('Playlist trovate:', playlists.length);
                     
                     playlists.forEach((playlist, index) => {
                         if (playlist.attributes) {
@@ -639,7 +639,7 @@ function extractAvailableQualities() {
                         }
                     });
                     
-                    console.log('Qualità estratte:', availableQualities);
+                    // console.log('Qualità estratte:', availableQualities);
                     
                     if (availableQualities.length > 0) {
                         if (mobilePlayer.controlBar && mobilePlayer.controlBar.qualitySelector) {
@@ -689,7 +689,7 @@ function updateQualitySelector() {
                 qualitySelect.value = currentQuality;
             }
         } catch (e) {
-            console.log('Impossibile ottenere qualità corrente:', e);
+            // console.log('Impossibile ottenere qualità corrente:', e);
         }
     }
 
@@ -707,12 +707,12 @@ function changeMobileQuality(qualityIndex) {
         
         if (qualityIndex === 'auto') {
             vhs.playlists.media();
-            console.log('Qualità impostata su: Auto');
+            // console.log('Qualità impostata su: Auto');
         } else {
             const index = parseInt(qualityIndex);
             if (!isNaN(index) && index >= 0 && index < availableQualities.length) {
                 vhs.playlists.media(index);
-                console.log(`Qualità cambiata a: ${availableQualities[index].label}`);
+                // console.log(`Qualità cambiata a: ${availableQualities[index].label}`);
             }
         }
         
@@ -726,7 +726,7 @@ function changeMobileQuality(qualityIndex) {
 function extractAudioTracks() {
     try {
         if (!mobilePlayer || !mobilePlayer.audioTracks) {
-            console.log('Tracce audio non disponibili');
+            // console.log('Tracce audio non disponibili');
             availableAudioTracks = [];
             return;
         }
@@ -744,7 +744,7 @@ function extractAudioTracks() {
             });
         }
         
-        console.log('Tracce audio disponibili:', availableAudioTracks);
+        // console.log('Tracce audio disponibili:', availableAudioTracks);
         
         updateAudioSelector();
         
@@ -799,7 +799,7 @@ function changeMobileAudio(audioIndex) {
 
             if (audioTracks[index]) {
                 audioTracks[index].enabled = true;
-                console.log(`Audio cambiato a: ${availableAudioTracks[index].label}`);
+                // console.log(`Audio cambiato a: ${availableAudioTracks[index].label}`);
 
                 updateAudioSelector();
             }
@@ -813,7 +813,7 @@ function changeMobileAudio(audioIndex) {
 function extractSubtitles() {
     try {
         if (!mobilePlayer || !mobilePlayer.textTracks) {
-            console.log('Tracce testo non disponibili');
+            // console.log('Tracce testo non disponibili');
             availableSubtitles = [];
             return;
         }
@@ -840,7 +840,7 @@ function extractSubtitles() {
             }
         }
         
-        console.log('Sottotitoli disponibili:', availableSubtitles);
+        // console.log('Sottotitoli disponibili:', availableSubtitles);
         
         updateSubtitleSelector();
         
@@ -897,9 +897,9 @@ function changeMobileSubtitle(subtitleId) {
         
         if (id !== -1 && textTracks[id]) {
             textTracks[id].mode = 'showing';
-            console.log(`Sottotitoli attivati: ${availableSubtitles.find(s => s.id === id)?.label}`);
+            // console.log(`Sottotitoli attivati: ${availableSubtitles.find(s => s.id === id)?.label}`);
         } else {
-            console.log('Sottotitoli disabilitati');
+            // console.log('Sottotitoli disabilitati');
         }
 
         updateSubtitleSelector();
@@ -1026,19 +1026,19 @@ async function getDirectStreamMobile(tmdbId, isMovie, season = null, episode = n
             '&token=' + playlistParams.token + 
             (canPlayFHD ? '&h=1' : '');
         
-        // console.log('M3U8 URL ottenuto:', m3u8Url);
+        // // console.log('M3U8 URL ottenuto:', m3u8Url);
 
-        // console.log('📱 MOBILE - DEBUG: Controllo contenuto playlist M3U8');
+        // // console.log('📱 MOBILE - DEBUG: Controllo contenuto playlist M3U8');
         try {
             const m3u8Response = await fetch(applyCorsProxy(m3u8Url));
             const m3u8Content = await m3u8Response.text();
-            // console.log('📱 MOBILE - Contenuto M3U8 (prime 500 caratteri):', m3u8Content.substring(0, 500));
+            // // console.log('📱 MOBILE - Contenuto M3U8 (prime 500 caratteri):', m3u8Content.substring(0, 500));
             
             // Cerca riferimenti a chiavi
             const keyLines = m3u8Content.split('\n').filter(line => line.includes('EXT-X-KEY'));
-            // console.log('📱 MOBILE - Linee chiave trovate:', keyLines);
+            // // console.log('📱 MOBILE - Linee chiave trovate:', keyLines);
         } catch (e) {
-            // console.log('📱 MOBILE - Errore lettura M3U8:', e);
+            // // console.log('📱 MOBILE - Errore lettura M3U8:', e);
         }
         
         return {
@@ -1058,7 +1058,7 @@ function trackVideoProgressMobile(tmdbId, mediaType, videoElement, season = null
         storageKey += `_S${season}_E${episode}`;
     }
     
-    console.log("📱 Salvataggio progresso con chiave:", storageKey);
+    // console.log("📱 Salvataggio progresso con chiave:", storageKey);
     try {
         const savedData = localStorage.getItem(storageKey);
         if (savedData) {
@@ -1068,7 +1068,7 @@ function trackVideoProgressMobile(tmdbId, mediaType, videoElement, season = null
             const isRecent = Date.now() - savedTimestamp < (30 * 24 * 60 * 60 * 1000);
             
             if (savedTime > 10 && isRecent) {
-                console.log("📱 Ripresa da:", savedTime, "secondi");
+                // console.log("📱 Ripresa da:", savedTime, "secondi");
                 videoElement.currentTime = savedTime;
             }
         }
@@ -1094,7 +1094,7 @@ function trackVideoProgressMobile(tmdbId, mediaType, videoElement, season = null
                 };
                 
                 localStorage.setItem(storageKey, JSON.stringify(saveData));
-                console.log("📱 Progresso salvato:", {
+                // console.log("📱 Progresso salvato:", {
                     time: currentTime,
                     percent: saveData.watchedPercentage.toFixed(1) + "%"
                 });
@@ -1155,7 +1155,7 @@ function trackVideoProgressMobile(tmdbId, mediaType, videoElement, season = null
             };
             
             localStorage.setItem(storageKey, JSON.stringify(saveData));
-            console.log("📱 Video completato al 100%");
+            // console.log("📱 Video completato al 100%");
         }
     });
     
@@ -1166,13 +1166,13 @@ function trackVideoProgressMobile(tmdbId, mediaType, videoElement, season = null
             videoElement.removeEventListener('pause', saveProgress);
             videoElement.removeEventListener('seeking', saveProgress);
             saveProgress();
-            console.log("📱 Cleanup completato per:", storageKey);
+            // console.log("📱 Cleanup completato per:", storageKey);
         }
     };
 }
 
 function closePlayerMobile() {
-    // console.log("Chiusura player mobile...");
+    // // console.log("Chiusura player mobile...");
     
     const videoElement = document.getElementById('mobile-player-video');
     if (videoElement) {
@@ -1210,20 +1210,20 @@ function closePlayerMobile() {
 const xhrRequestHook = (options) => {
     const originalUri = options.uri;
     
-    console.log('📱 MOBILE - xhrRequestHook - URL originale:', originalUri);
+    // console.log('📱 MOBILE - xhrRequestHook - URL originale:', originalUri);
     
     if (!originalUri) return options;
     
     // Gestione speciale per chiavi di crittografia
     if (originalUri.includes('/storage/enc.key') || originalUri.includes('.key')) {
-        console.log('📱 MOBILE - Rilevata richiesta chiave di crittografia');
+        // console.log('📱 MOBILE - Rilevata richiesta chiave di crittografia');
         
         // Usa l'URL diretto senza proxy per le chiavi
         const directUrl = originalUri
             .replace(/^https:\/\/[^\/]+\//, 'https://vixsrc.to/')
             .replace(/^http:\/\/[^\/]+\//, 'http://vixsrc.to/');
         
-        console.log('📱 MOBILE - URL chiave diretto:', directUrl);
+        // console.log('📱 MOBILE - URL chiave diretto:', directUrl);
         
         options.uri = directUrl;
         
@@ -1239,7 +1239,7 @@ const xhrRequestHook = (options) => {
     
     // Per segmenti media (.ts, .m3u8), usa URL diretto
     if (originalUri.includes('.ts') || originalUri.includes('.m3u8')) {
-        console.log('📱 MOBILE - Segmento media, uso URL diretto');
+        // console.log('📱 MOBILE - Segmento media, uso URL diretto');
         options.uri = originalUri;
         
         // Configurazione per media
@@ -1267,7 +1267,7 @@ const xhrRequestHook = (options) => {
     if (originalUri.includes('corsproxy.io') || 
         originalUri.includes('allorigins.win') || 
         originalUri.includes('api.codetabs.com')) {
-        console.log('📱 MOBILE - URL già proxyato');
+        // console.log('📱 MOBILE - URL già proxyato');
         
         // Pulisci header non sicuri
         delete options.headers;
@@ -1276,7 +1276,7 @@ const xhrRequestHook = (options) => {
     }
     
     // Default: applica proxy ma senza header problematici
-    console.log('📱 MOBILE - Applico proxy CORS (senza header non sicuri)');
+    // console.log('📱 MOBILE - Applico proxy CORS (senza header non sicuri)');
     const proxyUrl = applyCorsProxy(originalUri);
     options.uri = proxyUrl;
     
@@ -1290,7 +1290,7 @@ const xhrRequestHook = (options) => {
 function fetchEncryptionKey(keyUrl) {
     return new Promise(async (resolve, reject) => {
         try {
-            console.log('📱 MOBILE - Tentativo di fetch chiave:', keyUrl);
+            // console.log('📱 MOBILE - Tentativo di fetch chiave:', keyUrl);
             
             // Prova diverse strategie
             const strategies = [
@@ -1310,7 +1310,7 @@ function fetchEncryptionKey(keyUrl) {
                     const response = await strategy();
                     if (response.ok || response.type === 'opaque') {
                         const arrayBuffer = await response.arrayBuffer();
-                        console.log('📱 MOBILE - Chiave ottenuta, dimensione:', arrayBuffer.byteLength);
+                        // console.log('📱 MOBILE - Chiave ottenuta, dimensione:', arrayBuffer.byteLength);
                         resolve(arrayBuffer);
                         return;
                     }

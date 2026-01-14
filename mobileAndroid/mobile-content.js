@@ -354,7 +354,7 @@ async function loadContinuaMobile() {
         
         if (!container) return;
         
-        console.log("📱 Caricamento Continua Visione...");
+        // console.log("📱 Caricamento Continua Visione...");
         
         // Trova TUTTE le chiavi di storage di progresso
         const progressKeys = [];
@@ -365,7 +365,7 @@ async function loadContinuaMobile() {
             }
         }
         
-        console.log("📱 Chiavi trovate:", progressKeys.length, progressKeys);
+        // console.log("📱 Chiavi trovate:", progressKeys.length, progressKeys);
         
         if (progressKeys.length === 0) {
             if (emptyState) emptyState.style.display = 'block';
@@ -386,7 +386,7 @@ async function loadContinuaMobile() {
                 if (!savedData) continue;
                 
                 const data = JSON.parse(savedData);
-                console.log("📱 Dati salvati:", data);
+                // console.log("📱 Dati salvati:", data);
                 
                 // Verifica validità dei dati
                 if (!data.tmdbId || !data.mediaType) continue;
@@ -396,7 +396,7 @@ async function loadContinuaMobile() {
                 const maxAge = 60 * 24 * 60 * 60 * 1000; // 60 giorni
                 
                 if (dataAge > maxAge) {
-                    console.log("📱 Dati scaduti, rimuovo:", storageKey);
+                    // console.log("📱 Dati scaduti, rimuovo:", storageKey);
                     localStorage.removeItem(storageKey);
                     continue;
                 }
@@ -440,7 +440,7 @@ async function loadContinuaMobile() {
             `;
         }
         
-        console.log("📱 Caricamento completato:", loadedCount, "contenuti");
+        // console.log("📱 Caricamento completato:", loadedCount, "contenuti");
         
     } catch (error) {
         console.error('Errore caricamento continua visione:', error);

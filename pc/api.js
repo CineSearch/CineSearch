@@ -48,7 +48,7 @@ async function fetchEpisodes(tvId, seasonNum) {
 async function checkAvailabilityOnVixsrc(tmdbId, isMovie, season = null, episode = null) {
   return new Promise((resolve) => {
     const timeout = setTimeout(() => {
-      // console.log("⏰ Timeout per TMDB ID:", tmdbId);
+      // // console.log("⏰ Timeout per TMDB ID:", tmdbId);
       resolve(false);
     }, AVAILABILITY_CHECK_TIMEOUT);
     
@@ -66,12 +66,12 @@ async function checkAvailabilityOnVixsrc(tmdbId, isMovie, season = null, episode
           }
         }
         
-        // console.log("🔗 Controllo URL:", vixsrcUrl);
+        // // console.log("🔗 Controllo URL:", vixsrcUrl);
         
         const controller = new AbortController();
         const timeoutId = setTimeout(() => {
           controller.abort();
-          // console.log("🚫 Fetch abortito per timeout:", vixsrcUrl);
+          // // console.log("🚫 Fetch abortito per timeout:", vixsrcUrl);
         }, 3000);
         
         const response = await fetch(applyCorsProxy(vixsrcUrl), {
@@ -79,10 +79,10 @@ async function checkAvailabilityOnVixsrc(tmdbId, isMovie, season = null, episode
         });
         clearTimeout(timeoutId);
         
-        // console.log("📡 Risposta per", vixsrcUrl, ":", response.status, response.statusText);
+        // // console.log("📡 Risposta per", vixsrcUrl, ":", response.status, response.statusText);
         
         if (response.status === 404) {
-          // console.log("❌ 404 - Non disponibile:", vixsrcUrl);
+          // // console.log("❌ 404 - Non disponibile:", vixsrcUrl);
           clearTimeout(timeout);
           resolve(false);
           return;

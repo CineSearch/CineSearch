@@ -109,7 +109,7 @@ function cleanupExpiredStorage() {
         }
         
         if (removed > 0) {
-            // console.log(`Puliti ${removed} elementi scaduti`);
+            // // console.log(`Puliti ${removed} elementi scaduti`);
         }
     } catch (e) {
         console.error("Errore pulizia storage:", e);

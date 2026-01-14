@@ -6,7 +6,7 @@ let requestHookInstalled = false;
 
 // ============ INIZIALIZZAZIONE UI ============
 function initMobileUI() {
-    // console.log('Inizializzazione UI mobile...');
+    // // console.log('Inizializzazione UI mobile...');
     
     initMobileHamburgerMenu();
     initMobileSearch();

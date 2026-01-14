@@ -101,7 +101,7 @@ async function checkTvSeriesAvailability(tmdbId) {
 // ============ HOME DATA ============
 async function loadMobileHomeData() {
     try {
-        // console.log('Caricamento dati home mobile...');
+        // // console.log('Caricamento dati home mobile...');
         
         // Carica trending
         const trendingData = await fetchTMDB('trending/all/day');

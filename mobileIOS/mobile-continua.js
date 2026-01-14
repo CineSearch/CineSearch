@@ -157,7 +157,7 @@ function createContinueCard(item) {
 }
 
 async function playContinueItem(tmdbId, mediaType, season = 1, episode = 1) {
-    console.log(`Riproduci "Continua": ${mediaType} ${tmdbId} S${season}E${episode}`);
+    // console.log(`Riproduci "Continua": ${mediaType} ${tmdbId} S${season}E${episode}`);
     
     try {
         // Carica i dettagli completi

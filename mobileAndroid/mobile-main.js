@@ -1,6 +1,6 @@
 // ============ INIZIALIZZAZIONE ============
 document.addEventListener('DOMContentLoaded', function() {
-    // console.log('CineSearch Mobile inizializzato');
+    // // console.log('CineSearch Mobile inizializzato');
     initMobileUI();
     initMobileCors();
     loadMobileHomeData();
