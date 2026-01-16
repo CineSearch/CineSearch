@@ -98,28 +98,97 @@ async function checkTvSeriesAvailability(tmdbId) {
     }
 }
 
-// ============ HOME DATA ============
+// ============ HOME DATA CON CONTROLLO DISPONIBILITÀ ============
 async function loadMobileHomeData() {
     try {
-        // // console.log('Caricamento dati home mobile...');
+        console.log('Caricamento dati home mobile con controllo disponibilità...');
         
-        // Carica trending
+        // Carica trending - VERIFICA DISPONIBILITÀ
         const trendingData = await fetchTMDB('trending/all/day');
         if (trendingData.results && trendingData.results.length > 0) {
-            populateMobileCarousel('mobile-trending-carousel', trendingData.results);
+            const availableTrending = [];
+            
+            for (const item of trendingData.results.slice(0, 15)) {
+                // Determina il tipo di media
+                const isMovie = item.media_type === 'movie' || item.title;
+                const mediaType = isMovie ? 'movie' : 'tv';
+                
+                // Verifica disponibilità su Vixsrc
+                let isAvailable = false;
+                if (isMovie) {
+                    isAvailable = await checkAvailabilityOnVixsrc(item.id, true);
+                } else {
+                    isAvailable = await checkTvSeriesAvailability(item.id);
+                }
+                
+                // Aggiungi solo se disponibile
+                if (isAvailable) {
+                    availableTrending.push(item);
+                    
+                    // Limita a 10 elementi
+                    if (availableTrending.length >= 10) break;
+                }
+            }
+            
+            if (availableTrending.length > 0) {
+                populateMobileCarousel('mobile-trending-carousel', availableTrending);
+            } else {
+                document.getElementById('mobile-trending-carousel').innerHTML = 
+                    '<div class="empty-state">Nessun trending disponibile</div>';
+            }
         }
         
-        // Carica ultimi film
+        // Carica ultimi film - VERIFICA DISPONIBILITÀ
         const nowPlayingData = await fetchTMDB('movie/now_playing');
         if (nowPlayingData.results && nowPlayingData.results.length > 0) {
-            populateMobileCarousel('mobile-nowPlaying-carousel', nowPlayingData.results);
+            const availableMovies = [];
+            
+            for (const movie of nowPlayingData.results.slice(0, 15)) {
+                movie.media_type = "movie";
+                const isAvailable = await checkAvailabilityOnVixsrc(movie.id, true);
+                
+                if (isAvailable) {
+                    availableMovies.push(movie);
+                    
+                    // Limita a 10 elementi
+                    if (availableMovies.length >= 10) break;
+                }
+            }
+            
+            if (availableMovies.length > 0) {
+                populateMobileCarousel('mobile-nowPlaying-carousel', availableMovies);
+            } else {
+                document.getElementById('mobile-nowPlaying-carousel').innerHTML = 
+                    '<div class="empty-state">Nessun film disponibile</div>';
+            }
         }
         
-        // Carica ultime serie
+        // Carica ultime serie - VERIFICA DISPONIBILITÀ
         const onAirData = await fetchTMDB('tv/on_the_air');
         if (onAirData.results && onAirData.results.length > 0) {
-            populateMobileCarousel('mobile-onTheAir-carousel', onAirData.results);
+            const availableTV = [];
+            
+            for (const tv of onAirData.results.slice(0, 15)) {
+                tv.media_type = "tv";
+                const isAvailable = await checkTvSeriesAvailability(tv.id);
+                
+                if (isAvailable) {
+                    availableTV.push(tv);
+                    
+                    // Limita a 10 elementi
+                    if (availableTV.length >= 10) break;
+                }
+            }
+            
+            if (availableTV.length > 0) {
+                populateMobileCarousel('mobile-onTheAir-carousel', availableTV);
+            } else {
+                document.getElementById('mobile-onTheAir-carousel').innerHTML = 
+                    '<div class="empty-state">Nessuna serie disponibile</div>';
+            }
         }
+        
+        console.log('Caricamento home completato con controlli disponibilità');
         
     } catch (error) {
         console.error('Errore caricamento home mobile:', error);
@@ -148,3 +217,41 @@ const categories = [
     { id: 10752, name: "Guerra", icon: "⚔️" },
     { id: 37, name: "Western", icon: "🤠" }
 ];
+
+async function loadCategoryMovies(genreId) {
+    try {
+        const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=it-IT&sort_by=popularity.desc&page=1&with_genres=${genreId}`;
+        const res = await fetch(apiUrl);
+        const data = await res.json();
+        
+        const grid = document.getElementById('mobile-category-grid');
+        if (!grid) return;
+        
+        grid.innerHTML = '';
+        
+        const availableMovies = [];
+        for (const movie of data.results) {
+            movie.media_type = "movie";
+            const isAvailable = await checkAvailabilityOnVixsrc(movie.id, true);
+            
+            if (isAvailable) {
+                grid.appendChild(createMobileCard(movie));
+                availableMovies.push(movie);
+            }
+            
+            if (availableMovies.length >= ITEMS_PER_PAGE) break;
+        }
+        
+        if (availableMovies.length === 0) {
+            grid.innerHTML = `
+                <div class="empty-state">
+                    <i class="fas fa-film"></i>
+                    <p>Nessun film disponibile in questa categoria</p>
+                </div>
+            `;
+        }
+        
+    } catch (error) {
+        console.error('Errore caricamento categoria:', error);
+    }
+}
