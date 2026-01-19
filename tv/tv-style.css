@@ -1,0 +1,1501 @@
+/* Stili ottimizzati per Smart TV - TEMA BLU */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+body.tv-mode {
+    background: #000;
+    color: #fff;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    font-size: 24px;
+    line-height: 1.4;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+/* Overlay di caricamento */
+.fullscreen-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    flex-direction: column;
+}
+
+.loading-tv {
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+.loading-spinner {
+    width: 80px;
+    height: 80px;
+    border: 6px solid rgba(42, 9, 229, 0.3);
+    border-radius: 50%;
+    border-top-color: #2a09e5;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 30px;
+}
+
+.loading-text {
+    font-size: 28px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.loading-subtext {
+    font-size: 20px;
+    color: #aaa;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Header TV */
+.tv-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0.8));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    z-index: 100;
+    border-bottom: 2px solid rgba(42, 9, 229, 0.3);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+}
+
+.tv-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #2a09e5;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    cursor: pointer;
+    padding: 15px 25px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.tv-logo:focus,
+.tv-logo.tv-focused {
+    background: rgba(42, 9, 229, 0.15);
+    outline: 3px solid #2a09e5;
+    outline-offset: 5px;
+    transform: scale(1.05);
+}
+
+.tv-logo i {
+    font-size: 40px;
+}
+
+.tv-header-controls {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* CORS Selector */
+.tv-cors-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 250px;
+}
+
+.tv-cors-selector label {
+    font-size: 18px;
+    color: #aaa;
+    font-weight: 500;
+}
+
+#tv-cors-select {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 20px;
+    padding: 12px 20px;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23fff' d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    padding-right: 50px;
+}
+
+#tv-cors-select:focus,
+#tv-cors-select.tv-focused {
+    border-color: #2a09e5;
+    background-color: rgba(255, 255, 255, 0.15);
+    outline: none;
+    box-shadow: 0 0 20px rgba(42, 9, 229, 0.4);
+}
+
+/* Barra di ricerca */
+.tv-search-container {
+    display: flex;
+    gap: 15px;
+    min-width: 500px;
+}
+
+#tv-search {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 22px;
+    padding: 15px 25px;
+    transition: all 0.3s ease;
+}
+
+#tv-search:focus,
+#tv-search.tv-focused {
+    border-color: #2a09e5;
+    background-color: rgba(255, 255, 255, 0.15);
+    outline: none;
+    box-shadow: 0 0 20px rgba(42, 9, 229, 0.4);
+}
+
+#tv-search::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.tv-search-btn {
+    background: linear-gradient(135deg, #2a09e5, #1a0566);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 24px;
+    padding: 15px 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px;
+}
+
+.tv-search-btn:focus,
+.tv-search-btn.tv-focused {
+    background: linear-gradient(135deg, #3a19f5, #2a09e5);
+    transform: scale(1.1);
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+    box-shadow: 0 0 30px rgba(42, 9, 229, 0.6);
+}
+
+/* Contatore preferiti */
+.tv-preferiti-counter {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 215, 0, 0.1);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: 10px;
+    padding: 15px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.tv-preferiti-counter:focus,
+.tv-preferiti-counter.tv-focused {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: #ffd700;
+    transform: scale(1.1);
+    outline: 3px solid #ffd700;
+    outline-offset: 3px;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+}
+
+.tv-preferiti-counter i {
+    color: #ffd700;
+}
+
+#tv-preferiti-count {
+    color: #ffd700;
+}
+
+/* Indicatore focus */
+.focus-indicator {
+    position: absolute;
+    border: 4px solid #2a09e5;
+    border-radius: 12px;
+    pointer-events: none;
+    z-index: 99;
+    transition: all 0.2s ease;
+    opacity: 0;
+    box-shadow: 0 0 30px rgba(42, 9, 229, 0.7);
+}
+
+/* Navigazione principale */
+.tv-nav {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    right: 0;
+    height: 90px;
+    background: rgba(20, 20, 20, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 0 40px;
+    z-index: 90;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.tv-nav-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 15px 25px;
+    min-width: 140px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 20px;
+    color: #aaa;
+}
+
+.tv-nav-btn i {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.tv-nav-btn span {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.tv-nav-btn:focus,
+.tv-nav-btn.tv-focused,
+.tv-nav-btn.active {
+    background: linear-gradient(135deg, #2a09e5, #1a0566);
+    color: #fff;
+    border-color: #fff;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(42, 9, 229, 0.4);
+}
+
+.tv-nav-btn.active {
+    background: linear-gradient(135deg, #1a0566, #2a09e5);
+}
+
+/* Contenuto principale */
+.tv-main {
+    margin-top: 190px; /* Header + Nav */
+    padding: 40px;
+    min-height: calc(100vh - 190px);
+}
+
+.tv-section {
+    display: none;
+    animation: slideIn 0.4s ease;
+}
+
+.tv-section.active {
+    display: block;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero section */
+.tv-hero {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(42, 9, 229, 0.1), rgba(20, 20, 20, 0.8));
+    border-radius: 20px;
+    border: 2px solid rgba(42, 9, 229, 0.3);
+}
+
+.tv-hero-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+}
+
+.tv-hero-subtitle {
+    font-size: 28px;
+    color: #ccc;
+    margin-bottom: 40px;
+}
+
+.tv-hero-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.tv-hero-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid transparent;
+    border-radius: 16px;
+    padding: 30px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tv-hero-card:focus,
+.tv-hero-card.tv-focused {
+    background: rgba(42, 9, 229, 0.15);
+    border-color: #2a09e5;
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(42, 9, 229, 0.3);
+    outline: none;
+}
+
+.tv-hero-card i {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #2a09e5;
+}
+
+.tv-hero-card h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.tv-hero-card p {
+    font-size: 20px;
+    color: #aaa;
+}
+
+/* Sezioni contenuto */
+.tv-content-section {
+    margin-bottom: 60px;
+}
+
+.tv-section-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #fff;
+    padding: 0 10px;
+}
+
+.tv-section-title i {
+    color: #2a09e5;
+    font-size: 40px;
+}
+
+/* Caroselli */
+.tv-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 0 -40px;
+    padding: 0 40px;
+}
+
+.tv-carousel-container {
+    flex: 1;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 20px 0;
+}
+
+.tv-carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+.tv-carousel {
+    display: inline-flex;
+    gap: 25px;
+    padding: 10px 5px;
+}
+
+.tv-carousel-btn {
+    background: rgba(42, 9, 229, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.tv-carousel-btn i {
+    font-size: 30px;
+    color: #fff;
+}
+
+.tv-carousel-btn:focus,
+.tv-carousel-btn.tv-focused {
+    background: #2a09e5;
+    transform: scale(1.2);
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+    box-shadow: 0 0 30px rgba(42, 9, 229, 0.8);
+}
+
+.tv-carousel-btn:hover:not(.tv-focused) {
+    background: rgba(42, 9, 229, 0.9);
+    transform: scale(1.1);
+}
+
+/* Card per TV */
+.tv-card {
+    width: 280px;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid transparent;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tv-card:focus,
+.tv-card.tv-focused {
+    border-color: #2a09e5;
+    transform: scale(1.08);
+    box-shadow: 0 20px 50px rgba(42, 9, 229, 0.4);
+    z-index: 5;
+    outline: none;
+}
+
+.tv-card-image {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+}
+
+.tv-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 20%, transparent 50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+}
+
+.tv-card-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+.tv-card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+.tv-card-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tv-card-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 20px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tv-card-btn:focus,
+.tv-card-btn.tv-focused {
+    background: rgba(42, 9, 229, 0.9);
+    transform: scale(1.1);
+    outline: none;
+}
+
+.tv-card-btn.fav {
+    background: rgba(255, 215, 0, 0.2);
+    color: #ffd700;
+}
+
+.tv-card-btn.fav.active {
+    background: rgba(255, 215, 0, 0.9);
+    color: #000;
+}
+
+.tv-resume-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(42, 9, 229, 0.9);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+/* Griglia verticale */
+.tv-vertical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* Header griglie */
+.tv-grid-header {
+    margin-bottom: 40px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+.tv-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #2a09e5, #1a0566);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 22px;
+    padding: 15px 30px;
+    margin-bottom: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tv-back-btn:focus,
+.tv-back-btn.tv-focused {
+    background: linear-gradient(135deg, #3a19f5, #2a09e5);
+    transform: scale(1.05) translateX(-10px);
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+    box-shadow: 0 10px 30px rgba(42, 9, 229, 0.5);
+}
+
+.tv-grid-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 42px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.tv-grid-title i {
+    font-size: 46px;
+    color: #2a09e5;
+}
+
+/* Filtri */
+.tv-filters {
+    margin-top: 25px;
+}
+
+.tv-year-filter {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tv-year-filter label {
+    font-size: 20px;
+    color: #ccc;
+    font-weight: 500;
+}
+
+.tv-year-filter input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 20px;
+    padding: 12px 18px;
+    width: 120px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.tv-year-filter input:focus {
+    border-color: #2a09e5;
+    background: rgba(255, 255, 255, 0.15);
+    outline: none;
+    box-shadow: 0 0 20px rgba(42, 9, 229, 0.3);
+}
+
+.tv-filter-btn {
+    background: linear-gradient(135deg, #2a09e5, #1a0566);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 20px;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.tv-filter-btn:focus,
+.tv-filter-btn.tv-focused {
+    background: linear-gradient(135deg, #3a19f5, #2a09e5);
+    transform: scale(1.05);
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+}
+
+.tv-filter-btn.reset {
+    background: linear-gradient(135deg, #666, #444);
+}
+
+.tv-filter-btn.reset:focus,
+.tv-filter-btn.reset.tv-focused {
+    background: linear-gradient(135deg, #888, #666);
+}
+
+/* Paginazione */
+.tv-pagination-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin: 50px auto;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    max-width: 600px;
+}
+
+.tv-page-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #2a09e5, #1a0566);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 22px;
+    padding: 15px 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.tv-page-btn:focus,
+.tv-page-btn.tv-focused {
+    background: linear-gradient(135deg, #3a19f5, #2a09e5);
+    transform: scale(1.05);
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+    box-shadow: 0 10px 30px rgba(42, 9, 229, 0.5);
+}
+
+.tv-page-btn:disabled {
+    background: linear-gradient(135deg, #666, #444);
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.tv-page-btn:disabled:focus {
+    transform: none;
+    box-shadow: none;
+}
+
+.tv-page-info {
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    min-width: 200px;
+    text-align: center;
+}
+
+.tv-pagination-info {
+    font-size: 22px;
+    color: #ccc;
+    text-align: center;
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+}
+
+/* Stato vuoto */
+.tv-empty-state {
+    text-align: center;
+    padding: 60px 40px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 20px;
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    margin: 40px 0;
+}
+
+.tv-empty-state i {
+    font-size: 80px;
+    color: #666;
+    margin-bottom: 30px;
+    opacity: 0.5;
+}
+
+.tv-empty-state h3 {
+    font-size: 32px;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+.tv-empty-state p {
+    font-size: 24px;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+.tv-empty-btn {
+    background: linear-gradient(135deg, #2a09e5, #1a0566);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 22px;
+    padding: 15px 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tv-empty-btn:focus,
+.tv-empty-btn.tv-focused {
+    background: linear-gradient(135deg, #3a19f5, #2a09e5);
+    transform: scale(1.05);
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+}
+
+/* Player TV */
+#tv-player {
+    background: #000;
+    min-height: calc(100vh - 190px);
+}
+
+.tv-player-header {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 30px 40px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+}
+
+.tv-player-info {
+    flex: 1;
+}
+
+.tv-player-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+}
+
+.tv-player-meta {
+    display: flex;
+    gap: 30px;
+    font-size: 24px;
+    color: #ccc;
+}
+
+.tv-meta-year,
+.tv-meta-rating,
+.tv-meta-type {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 20px;
+    border-radius: 8px;
+}
+
+.tv-player-content {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 40px;
+    padding: 0 40px;
+    margin-top: 20px;
+}
+
+.tv-video-container {
+    position: relative;
+    background: #000;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+}
+
+.tv-episode-warning {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(20,20,20,0.95), rgba(10,10,10,0.95));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    text-align: center;
+    padding: 40px;
+}
+
+.tv-episode-warning i {
+    font-size: 80px;
+    color: #2a09e5;
+    margin-bottom: 30px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.tv-episode-warning h3 {
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.tv-episode-warning p {
+    font-size: 24px;
+    color: #ccc;
+    max-width: 600px;
+}
+
+/* Video.js theme per TV */
+.video-js.vjs-theme-cinesearch-tv {
+    font-size: 16px;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 */
+}
+
+.video-js.vjs-theme-cinesearch-tv .vjs-big-play-button {
+    background: rgba(42, 9, 229, 0.9);
+    border: 4px solid #fff;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    line-height: 92px;
+    font-size: 60px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.video-js.vjs-theme-cinesearch-tv .vjs-big-play-button:focus {
+    background: #2a09e5;
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 0 50px rgba(42, 9, 229, 0.8);
+    outline: 3px solid #fff;
+    outline-offset: 5px;
+}
+
+.video-js.vjs-theme-cinesearch-tv .vjs-control-bar {
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    height: 80px;
+    font-size: 20px;
+}
+
+.video-js.vjs-theme-cinesearch-tv .vjs-play-progress {
+    background: #2a09e5;
+}
+
+.video-js.vjs-theme-cinesearch-tv .vjs-volume-level {
+    background: #2a09e5;
+}
+
+.video-js.vjs-theme-cinesearch-tv .vjs-menu-button .vjs-menu-content {
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 12px;
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+/* Loading overlay player */
+.tv-loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 30;
+}
+
+.tv-loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(42, 9, 229, 0.3);
+    border-radius: 50%;
+    border-top-color: #2a09e5;
+    animation: spin 1s linear infinite;
+    margin-bottom: 30px;
+}
+
+.tv-loading-text {
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+}
+
+/* Selezione episodi */
+.tv-episode-selector {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    padding: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    max-height: 800px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tv-episode-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.tv-episode-title i {
+    color: #2a09e5;
+    font-size: 30px;
+}
+
+.tv-season-selector {
+    margin-bottom: 30px;
+}
+
+.tv-season-selector label {
+    display: block;
+    font-size: 22px;
+    color: #ccc;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+#tv-season-select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 22px;
+    padding: 15px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#tv-season-select:focus {
+    border-color: #2a09e5;
+    background: rgba(255, 255, 255, 0.15);
+    outline: none;
+    box-shadow: 0 0 30px rgba(42, 9, 229, 0.3);
+}
+
+.tv-episodes-list {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #2a09e5 rgba(255,255,255,0.05);
+}
+
+.tv-episodes-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.tv-episodes-list::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+    border-radius: 5px;
+}
+
+.tv-episodes-list::-webkit-scrollbar-thumb {
+    background: #2a09e5;
+    border-radius: 5px;
+}
+
+.tv-episode-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tv-episode-item:focus,
+.tv-episode-item.tv-focused {
+    background: rgba(42, 9, 229, 0.2);
+    border-color: #2a09e5;
+    transform: scale(1.02);
+    outline: none;
+}
+
+.tv-episode-item.active {
+    background: rgba(42, 9, 229, 0.3);
+    border-color: #2a09e5;
+}
+
+.tv-episode-number {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2a09e5;
+    margin-bottom: 8px;
+}
+
+.tv-episode-name {
+    font-size: 22px;
+    color: #fff;
+    line-height: 1.3;
+}
+
+/* Controlli rapidi */
+.tv-quick-controls {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+.tv-quick-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #333, #222);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 22px;
+    padding: 18px 35px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.tv-quick-btn:focus,
+.tv-quick-btn.tv-focused {
+    background: linear-gradient(135deg, #2a09e5, #1a0566);
+    border-color: #fff;
+    transform: scale(1.05);
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+    box-shadow: 0 10px 30px rgba(42, 9, 229, 0.5);
+}
+
+/* Categorie */
+.tv-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.tv-category-card {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: 2px solid transparent;
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tv-category-card:focus,
+.tv-category-card.tv-focused {
+    border-color: #2a09e5;
+    transform: scale(1.05);
+    box-shadow: 0 20px 50px rgba(42, 9, 229, 0.3);
+    outline: none;
+}
+
+.tv-category-icon {
+    font-size: 60px;
+    margin-bottom: 25px;
+    color: #2a09e5;
+}
+
+.tv-category-name {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* Status ricerca */
+.tv-search-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 24px;
+    color: #ccc;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    margin: 30px 0;
+}
+
+.tv-loading-small {
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(42, 9, 229, 0.3);
+    border-radius: 50%;
+    border-top-color: #2a09e5;
+    animation: spin 1s linear infinite;
+}
+
+/* Toast notifications */
+.tv-toast {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(20, 20, 20, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 2px solid rgba(42, 9, 229, 0.5);
+    border-radius: 16px;
+    padding: 20px 40px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    z-index: 1000;
+    display: none;
+    animation: slideUp 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    max-width: 800px;
+    text-align: center;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.tv-toast-success {
+    border-color: #4CAF50;
+    background: rgba(20, 20, 20, 0.95);
+}
+
+.tv-toast-error {
+    border-color: #f44336;
+    background: rgba(20, 20, 20, 0.95);
+}
+
+.tv-toast-warning {
+    border-color: #ff9800;
+    background: rgba(20, 20, 20, 0.95);
+}
+
+/* Footer TV */
+.tv-footer {
+    margin-top: 60px;
+    padding: 40px;
+    background: rgba(20, 20, 20, 0.9);
+    border-top: 2px solid rgba(42, 9, 229, 0.3);
+}
+
+.tv-footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.tv-footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #2a09e5;
+}
+
+.tv-footer-logo i {
+    font-size: 32px;
+}
+
+.tv-footer-info {
+    text-align: center;
+}
+
+.tv-footer-info p {
+    font-size: 20px;
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+.tv-footer-help {
+    font-size: 18px;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.tv-footer-copyright {
+    text-align: right;
+    font-size: 18px;
+    color: #666;
+}
+
+/* Responsive per diverse risoluzioni TV */
+@media (max-width: 1920px) {
+    body.tv-mode {
+        font-size: 22px;
+    }
+    
+    .tv-hero-title {
+        font-size: 42px;
+    }
+    
+    .tv-card {
+        width: 260px;
+    }
+}
+
+@media (max-width: 1600px) {
+    .tv-hero-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tv-vertical-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 1280px) {
+    body.tv-mode {
+        font-size: 20px;
+    }
+    
+    .tv-header,
+    .tv-nav {
+        padding: 0 30px;
+    }
+    
+    .tv-main {
+        padding: 30px;
+    }
+    
+    .tv-player-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .tv-footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .tv-footer-copyright {
+        text-align: center;
+    }
+}
+
+/* Animazioni focus */
+.tv-element-focused {
+    animation: focusPulse 2s ease-in-out infinite;
+}
+
+@keyframes focusPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(42, 9, 229, 0.7); }
+    50% { box-shadow: 0 0 0 20px rgba(42, 9, 229, 0); }
+}
+
+/* Transizioni smooth */
+* {
+    scroll-behavior: smooth;
+}
+
+/* Ottimizzazioni performance */
+.tv-card,
+.tv-hero-card,
+.tv-category-card {
+    will-change: transform, box-shadow;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+/* Supporto per TV WebOS, Tizen, ecc */
+@media (pointer: coarse) {
+    .tv-card,
+    .tv-hero-card,
+    .tv-category-card,
+    .tv-nav-btn {
+        min-height: 60px;
+    }
+    
+    .tv-card-btn {
+        min-width: 50px;
+        min-height: 50px;
+    }
+}
+
+/* Aggiungi a tv-style.css */
+.tv-empty-carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 400px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    color: #888;
+    font-size: 24px;
+    text-align: center;
+    padding: 40px;
+}
+
+.tv-empty-carousel i {
+    font-size: 60px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.tv-empty-carousel p {
+    font-size: 22px;
+    color: #aaa;
+}
+
+/* Custom Video.js Blue Theme */
+.vjs-theme-cinesearch-blue {
+    --vjs-theme-primary: #2a09e5;
+    --vjs-theme-secondary: #1a0566;
+}
+
+.vjs-theme-cinesearch-blue .vjs-play-progress {
+    background: var(--vjs-theme-primary);
+}
+
+.vjs-theme-cinesearch-blue .vjs-volume-level {
+    background: var(--vjs-theme-primary);
+}
+
+.vjs-theme-cinesearch-blue .vjs-big-play-button {
+    background: rgba(42, 9, 229, 0.9);
+    border-color: #fff;
+}
+
+.vjs-theme-cinesearch-blue .vjs-big-play-button:hover {
+    background: rgba(42, 9, 229, 1);
+}
+
+.vjs-theme-cinesearch-blue .vjs-slider:focus {
+    box-shadow: 0 0 0 2px rgba(42, 9, 229, 0.5);
+}
+
+.vjs-theme-cinesearch-blue .vjs-control-bar {
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
