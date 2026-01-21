@@ -35,7 +35,7 @@ const device = getDeviceType();
 const path = window.location.pathname;
 
 if (device === "tv" && !path.includes("/tv/")) {
-    window.location.href = "tv/index.html";
+    window.location.href = "pc/index.html";
 }
 else if (device === "ios" && !path.includes("/mobileIOS/")) {
     window.location.href = "mobileIOS/index.html";
