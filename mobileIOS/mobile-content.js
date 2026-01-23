@@ -264,9 +264,16 @@ async function performMobileSearch(query) {
             return;
         }
         
-        // Verifica disponibilità
-        let availableCount = 0;
-        for (const item of filteredResults.slice(0, 20)) {
+        // VERIFICA DISPONIBILITÀ PRIMA DI CREARE LE CARD
+        showMobileLoading(true, "Verifica disponibilità...");
+        
+        // Array per contenuti disponibili
+        const availableItems = [];
+        
+        // Controlla disponibilità per i primi 20 risultati
+        const itemsToCheck = filteredResults.slice(0, 20);
+        
+        for (const item of itemsToCheck) {
             const mediaType = item.media_type || (item.title ? "movie" : "tv");
             let isAvailable = false;
             
@@ -278,22 +285,31 @@ async function performMobileSearch(query) {
             
             if (isAvailable) {
                 item.media_type = mediaType;
-                grid.appendChild(createMobileCard(item));
-                availableCount++;
+                availableItems.push(item);
             }
         }
         
-        if (availableCount === 0) {
+        showMobileLoading(false);
+        
+        // CREA SOLO UNA VOLTA LE CARD PER GLI ITEM DISPONIBILI
+        if (availableItems.length === 0) {
             grid.innerHTML = `
                 <div class="empty-state">
                     <i class="fas fa-search"></i>
                     <p>Nessun contenuto disponibile trovato per "${query}"</p>
                 </div>
             `;
+        } else {
+            // Crea le card solo una volta
+            availableItems.forEach(item => {
+                grid.appendChild(createMobileCard(item));
+            });
         }
         
     } catch (error) {
         console.error('Errore ricerca mobile:', error);
+        showMobileLoading(false);
+        showMobileError('Errore durante la ricerca');
     }
 }
 
