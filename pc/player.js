@@ -56,6 +56,34 @@ async function openPlayer(item) {
     // // console.log('🎬 player.js - Serie TV, carico stagioni');
     document.getElementById("episode-warning").style.display = "flex";
     await loadTVSeasons(item.id);
+    
+    // NUOVA LOGICA: se l'item ha dati di episodio specifico, selezionalo automaticamente
+    if (item._openAtEpisode && item.season && item.episode) {
+      setTimeout(async () => {
+        const seasonSelect = document.getElementById("season-select");
+        const episodeList = document.getElementById("episodes-list");
+        
+        if (seasonSelect && episodeList) {
+          // Seleziona la stagione corretta
+          seasonSelect.value = item.season;
+          
+          // Attendi il caricamento degli episodi
+          await loadEpisodes(item.id, item.season);
+          
+          // Trova e clicca l'episodio corretto
+          const episodes = episodeList.querySelectorAll(".episode-item");
+          for (const epDiv of episodes) {
+            const epNumText = epDiv.querySelector(".episode-number").textContent;
+            const epNum = parseInt(epNumText.replace("Episodio ", ""));
+            
+            if (epNum === item.episode) {
+              epDiv.click();
+              break;
+            }
+          }
+        }
+      }, 500);
+    }
   } else {
     // // console.log('🎬 player.js - Film, carico direttamente');
     document.getElementById("episode-warning").style.display = "none";

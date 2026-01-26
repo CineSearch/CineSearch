@@ -70,6 +70,7 @@ async function loadContinuaDaStorage() {
   
   const items = [];
   const ids = new Set();
+  
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
     
@@ -86,13 +87,20 @@ async function loadContinuaDaStorage() {
         if (value > 60) {
           // // console.log(`✅ Trovato: ${key} = ${value}s`);
 
-          const match = key.match(/videoTime_(movie|tv)_(\d+)/);
+          // MODIFICA QUI: estrai anche stagione/episodio se presenti
+          const match = key.match(/videoTime_(movie|tv)_(\d+)(?:_S(\d+)_E(\d+))?/);
+          
           if (match) {
-            const [, mediaType, tmdbId] = match;
+            const [, mediaType, tmdbId, seasonNum, episodeNum] = match;
             const idKey = `${mediaType}-${tmdbId}`;
+            
+            // Per le serie TV, usa una chiave unica che includa anche stagione/episodio
+            const uniqueKey = mediaType === 'tv' && seasonNum && episodeNum 
+              ? `${idKey}_S${seasonNum}_E${episodeNum}`
+              : idKey;
 
-            if (!ids.has(idKey)) {
-              ids.add(idKey);
+            if (!ids.has(uniqueKey)) {
+              ids.add(uniqueKey);
               
               try {
                 const res = await fetch(`https://api.themoviedb.org/3/${mediaType}/${tmdbId}?api_key=${API_KEY}&language=it-IT`);
@@ -107,7 +115,15 @@ async function loadContinuaDaStorage() {
                   itemData.media_type = mediaType;
                   itemData.id = parseInt(tmdbId);
                   
-                  // // console.log(`🎬 TMDB OK: ${itemData.title || itemData.name}`);
+                  // AGGIUNGI QUI: salva stagione/episodio nei dati dell'item
+                  if (mediaType === 'tv' && seasonNum && episodeNum) {
+                    itemData._continuaSeason = parseInt(seasonNum);
+                    itemData._continuaEpisode = parseInt(episodeNum);
+                    itemData._storageKey = key; // Salva la chiave esatta
+                  }
+                  
+                  // // console.log(`🎬 TMDB OK: ${itemData.title || itemData.name}`, 
+                  //   mediaType === 'tv' ? `S${seasonNum}E${episodeNum}` : '');
                   items.push(itemData);
                 }
               } catch (err) {

@@ -22,18 +22,54 @@ function createCard(item, cookieNames = [], isRemovable = false) {
       : rawTitle;
 
   let badge = "";
+  
+  // CERCA LA CHIAVE CORRETTA PER QUESTO ITEM
+  let foundTime = 0;
+  let foundSeason = null;
+  let foundEpisode = null;
+  
   cookieNames.forEach((storageKey) => {
     try {
-      const item = localStorage.getItem(storageKey);
-      if (item) {
-        const data = JSON.parse(item);
+      const storageItem = localStorage.getItem(storageKey);
+      if (storageItem) {
+        const data = JSON.parse(storageItem);
         const savedTime = parseFloat(data.value);
-        if (savedTime > 60) {
-          const match = storageKey.match(/_S(\d+)_E(\d+)/);
-          if (match) {
-            badge = `<div class="resume-badge">📺 S${match[1]} • E${match[2]}<br>⏪ ${formatTime(savedTime)}</div>`;
-          } else {
-            badge = `<div class="resume-badge">⏪ ${formatTime(savedTime)}</div>`;
+        
+        // Verifica se questa chiave appartiene a questo item specifico
+        const mediaTypeFromKey = storageKey.match(/videoTime_(movie|tv)_/);
+        const tmdbIdFromKey = storageKey.match(/videoTime_(?:movie|tv)_(\d+)/);
+        
+        if (mediaTypeFromKey && tmdbIdFromKey) {
+          const keyMediaType = mediaTypeFromKey[1];
+          const keyTmdbId = tmdbIdFromKey[1];
+          const currentTmdbId = item.id.toString();
+          
+          // Controlla se la chiave corrisponde all'item corrente
+          if (keyMediaType === mediaType && keyTmdbId === currentTmdbId) {
+            // Per serie TV, estrai stagione/episodio se presenti
+            if (mediaType === "tv") {
+              const episodeMatch = storageKey.match(/_S(\d+)_E(\d+)/);
+              if (episodeMatch) {
+                // Prendi sempre l'ultimo (più recente) se ci sono più chiavi
+                if (savedTime > foundTime) {
+                  foundTime = savedTime;
+                  foundSeason = episodeMatch[1];
+                  foundEpisode = episodeMatch[2];
+                }
+              } else {
+                // Per serie senza episodio specifico (episodio 1)
+                if (savedTime > foundTime) {
+                  foundTime = savedTime;
+                  foundSeason = "1";
+                  foundEpisode = "1";
+                }
+              }
+            } else {
+              // Per film
+              if (savedTime > foundTime) {
+                foundTime = savedTime;
+              }
+            }
           }
         }
       }
@@ -41,7 +77,19 @@ function createCard(item, cookieNames = [], isRemovable = false) {
       console.error("Errore lettura storage in card:", e);
     }
   });
-    const preferiti = getPreferiti();
+  
+  // CREA IL BADGE CON LE INFORMAZIONI TROVATE
+  if (foundTime > 60) {
+    if (mediaType === "tv" && foundSeason && foundEpisode) {
+      // Se abbiamo trovato un episodio specifico
+      badge = `<div class="resume-badge">📺 S${foundSeason} • E${foundEpisode}<br>⏪ ${formatTime(foundTime)}</div>`;
+    } else {
+      // Per film o serie senza episodio specifico
+      badge = `<div class="resume-badge">⏪ ${formatTime(foundTime)}</div>`;
+    }
+  }
+  
+  const preferiti = getPreferiti();
   const itemId = `${mediaType}-${item.id}`;
   const isInPreferiti = preferiti.includes(itemId);
   
@@ -106,9 +154,24 @@ function createCard(item, cookieNames = [], isRemovable = false) {
 
   card.addEventListener("click", () => {
     card.classList.add("clicked");
-    setTimeout(() => {
-      openPlayer(item);
-    }, 300);
+    
+    // PER SERIE TV: se abbiamo trovato stagione/episodio nel badge, apri direttamente quell'episodio
+    if (mediaType === "tv" && foundSeason && foundEpisode) {
+      const episodeItem = {
+        ...item,
+        season: parseInt(foundSeason),
+        episode: parseInt(foundEpisode),
+        _openAtEpisode: true
+      };
+      
+      setTimeout(() => {
+        openPlayer(episodeItem);
+      }, 300);
+    } else {
+      setTimeout(() => {
+        openPlayer(item);
+      }, 300);
+    }
   });
 
   if (isRemovable) {
