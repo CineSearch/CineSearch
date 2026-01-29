@@ -23,6 +23,29 @@ const CORS_LIST = [
 
 let CORS = "corsproxy.io/";
 
+// AGGIUNTA: Carica CORS salvato dal localStorage
+function loadSavedCors() {
+    try {
+        const savedCors = localStorage.getItem('cinesearch_cors_proxy');
+        if (savedCors && CORS_LIST.includes(savedCors)) {
+            return savedCors;
+        }
+    } catch (e) {
+        console.error("Errore nel caricamento del CORS salvato:", e);
+    }
+    return "corsproxy.io/"; // Default
+}
+
+// AGGIUNTA: Salva CORS nel localStorage
+function saveCorsToStorage(corsValue) {
+    try {
+        localStorage.setItem('cinesearch_cors_proxy', corsValue);
+        console.log(`💾 CORS salvato: ${corsValue}`);
+    } catch (e) {
+        console.error("Errore nel salvataggio del CORS:", e);
+    }
+}
+
 let shownContinuaIds = new Set();
 let baseStreamUrl = "";
 let requestHookInstalled = false;
@@ -404,11 +427,12 @@ function showPreferiti() {
 }
 
 function goBackToCategories() {
-    hideAllSections();
-    document.getElementById("categories").style.display = "block";
-    window.scrollTo(0, 0);
-    
-    history.pushState({ section: 'categories' }, '', '#categories');
+  const resultsSection = document.getElementById("category-results");
+  if (resultsSection) {
+    resultsSection.style.display = "none";
+  }
+  document.getElementById("categories").style.display = "block";
+  window.scrollTo(0, 0);
 }
 
 function handlePopState(event) {
@@ -493,8 +517,13 @@ function goBackToCategories() {
   window.scrollTo(0, 0);
 }
 
+// MODIFICA QUI: Aggiungi il listener per salvare quando cambia il CORS
 document.getElementById("cors-select").addEventListener("change", (e) => {
-  CORS = e.target.value;
+  const selectedCors = e.target.value;
+  CORS = selectedCors;
+  
+  // Salva nel localStorage
+  saveCorsToStorage(selectedCors);
   
   const notification = document.createElement("div");
   notification.style.cssText = `
@@ -531,9 +560,6 @@ document.getElementById("search").addEventListener("keydown", (e) => {
     performSearch(query);
   }
 });
-
-// Opzionale: se vuoi supportare anche il click su un'icona di ricerca
-
 
 function debugCookies() {
   // // console.log("🔍 DEBUG - Tutti i cookie:");
@@ -582,17 +608,25 @@ window.addEventListener("DOMContentLoaded", async () => {
     const key = localStorage.key(i);
     // // console.log(`  ${i}: ${key}`);
   }
-      window.addEventListener('popstate', handlePopState);
-      
+  
+  window.addEventListener('popstate', handlePopState);
+  
   const corsSelect = document.getElementById("cors-select");
   
+  // Carica CORS salvato
+  const savedCors = loadSavedCors();
+  
+  // Popola le opzioni
   CORS_LIST.forEach((proxy) => {
     const option = document.createElement("option");
     option.value = proxy;
     option.textContent = proxy.replace(/\/|\?|=/g, "");
     corsSelect.appendChild(option);
   });
-  corsSelect.value = CORS;
+  
+  // Imposta il valore salvato o default
+  corsSelect.value = savedCors;
+  CORS = savedCors;
 
   await loadContinuaDaStorage();
 
@@ -634,34 +668,34 @@ window.addEventListener("DOMContentLoaded", async () => {
   
   updatePreferitiCounter();
 
-      window.addEventListener('popstate', handlePopState);
-    
-    // Gestione iniziale dell'hash nell'URL
-    if (window.location.hash) {
-        const hash = window.location.hash.substring(1); // Rimuove il #
-        if (SECTIONS[hash]) {
-            hideAllSections();
-            switch(hash) {
-                case 'allMovies':
-                    showAllMovies();
-                    break;
-                case 'allTV':
-                    showAllTV();
-                    break;
-                case 'categories':
-                    showCategories();
-                    break;
-                case 'preferiti-section':
-                    showPreferiti();
-                    break;
-                default:
-                    document.getElementById(hash).style.display = "block";
-            }
-        }
-    } else {
-        // Imposta lo stato iniziale per la home
-        history.replaceState({ section: 'home' }, '', window.location.pathname);
+  window.addEventListener('popstate', handlePopState);
+  
+  // Gestione iniziale dell'hash nell'URL
+  if (window.location.hash) {
+    const hash = window.location.hash.substring(1); // Rimuove il #
+    if (SECTIONS[hash]) {
+      hideAllSections();
+      switch(hash) {
+        case 'allMovies':
+          showAllMovies();
+          break;
+        case 'allTV':
+          showAllTV();
+          break;
+        case 'categories':
+          showCategories();
+          break;
+        case 'preferiti-section':
+          showPreferiti();
+          break;
+        default:
+          document.getElementById(hash).style.display = "block";
+      }
     }
+  } else {
+    // Imposta lo stato iniziale per la home
+    history.replaceState({ section: 'home' }, '', window.location.pathname);
+  }
 });
 
 window.addEventListener("scroll", () => {
