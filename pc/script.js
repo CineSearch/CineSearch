@@ -17,6 +17,7 @@ const CORS_LIST = [
   "cors-anywhere.com/",
   "corsproxy.io/",
   "api.allorigins.win/raw?url=",
+  "api.codetabs.com/v1/proxy?quest=",
   ...CORS_PROXIES_REQUIRING_ENCODING,
 ];
 
