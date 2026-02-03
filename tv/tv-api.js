@@ -254,7 +254,7 @@ async getTVSeasons(tvId) {
                 
                 const proxiedUrl = applyCorsProxy(vixsrcUrl);
                 const controller = new AbortController();
-                const fetchTimeoutId = setTimeout(() => controller.abort(), 3000);
+                const fetchTimeoutId = setTimeout(() => controller.abort(), 6000);
                 
                 const response = await fetch(proxiedUrl, {
                     signal: controller.signal

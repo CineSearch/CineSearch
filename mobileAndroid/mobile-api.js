@@ -50,7 +50,7 @@ async function checkAvailabilityOnVixsrc(tmdbId, isMovie, season = null, episode
                 }
                 
                 const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 3000);
+                const timeoutId = setTimeout(() => controller.abort(), 6000);
                 
                 const response = await fetch(applyCorsProxy(vixsrcUrl), {
                     signal: controller.signal

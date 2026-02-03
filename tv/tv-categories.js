@@ -6,6 +6,7 @@ class TVCategories {
         this.currentPage = 1;
         this.totalPages = 1;
         this.filters = { minYear: null, maxYear: null };
+        this.showingFilters = false;
     }
 
     async loadCategories() {
@@ -83,6 +84,7 @@ class TVCategories {
     async openCategory(category) {
         this.currentCategory = category;
         this.currentPage = 1;
+        this.showingFilters = false;
         
         // Naviga alla sezione risultati categoria
         this.showCategoryResults();
@@ -102,7 +104,8 @@ class TVCategories {
             
             resultsSection.innerHTML = `
                 <div class="tv-grid-header">
-                    <button class="tv-back-btn" onclick="tvCategories.backToCategories()" tabindex="0">
+                    <button class="tv-back-btn" onclick="tvCategories.backToCategories()" tabindex="0"
+                            data-focus="tv-category-back-btn">
                         <i class="fas fa-arrow-left"></i>
                         Torna alle Categorie
                     </button>
@@ -111,20 +114,31 @@ class TVCategories {
                         Categoria
                     </h2>
                     
-                    <div class="tv-filters">
+                    <!-- Pulsante per mostrare/nascondere filtri anno -->
+                    <button class="tv-filter-toggle-btn" id="tv-category-filter-toggle" 
+                            data-focus="tv-category-filter-toggle" tabindex="0"
+                            onclick="tvCategories.toggleYearFilter()">
+                        <i class="fas fa-filter"></i>
+                        <span id="tv-category-filter-text">Mostra Filtri Anno</span>
+                    </button>
+                    
+                    <!-- Filtri anno (nascosti per default) -->
+                    <div class="tv-filters" id="tv-category-filters">
                         <div class="tv-year-filter">
                             <label for="tv-category-year-min">Anno da:</label>
                             <input type="number" id="tv-category-year-min" min="1888" max="2030" 
-                                   placeholder="1888" tabindex="0">
+                                   placeholder="1888" tabindex="0" data-focus="tv-category-year-min">
                             
                             <label for="tv-category-year-max">a:</label>
                             <input type="number" id="tv-category-year-max" min="1888" max="2030" 
-                                   placeholder="2025" tabindex="0">
+                                   placeholder="2025" tabindex="0" data-focus="tv-category-year-max">
                             
-                            <button class="tv-filter-btn" onclick="tvCategories.applyYearFilter()" tabindex="0">
+                            <button class="tv-filter-btn" onclick="tvCategories.applyYearFilter()" tabindex="0"
+                                    data-focus="tv-category-apply-filter">
                                 Applica
                             </button>
-                            <button class="tv-filter-btn reset" onclick="tvCategories.clearYearFilter()" tabindex="0">
+                            <button class="tv-filter-btn reset" onclick="tvCategories.clearYearFilter()" tabindex="0"
+                                    data-focus="tv-category-reset-filter">
                                 Reset
                             </button>
                         </div>
@@ -138,22 +152,30 @@ class TVCategories {
                 <div class="tv-vertical-grid" id="tv-category-grid"></div>
                 
                 <div class="tv-pagination-controls">
-                    <button class="tv-page-btn prev" onclick="tvCategories.prevPage()" tabindex="0" disabled>
+                    <button class="tv-page-btn prev" onclick="tvCategories.prevPage()" tabindex="0" disabled
+                            data-focus="tv-category-prev-page">
                         <i class="fas fa-chevron-left"></i> Precedente
                     </button>
                     <span class="tv-page-info" id="tv-category-page-info">Pagina 1</span>
-                    <button class="tv-page-btn next" onclick="tvCategories.nextPage()" tabindex="0">
+                    <button class="tv-page-btn next" onclick="tvCategories.nextPage()" tabindex="0"
+                            data-focus="tv-category-next-page">
                         Successiva <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
             `;
             
             document.querySelector('main').appendChild(resultsSection);
+            
+            // Inizializza filtri nascosti
+            const filters = document.getElementById('tv-category-filters');
+            if (filters) {
+                filters.classList.remove('active');
+            }
         }
         
         // Aggiorna titolo
         const titleElement = document.getElementById('tv-category-results-title');
-        if (titleElement) {
+        if (titleElement && this.currentCategory) {
             const categoryIcons = {
                 28: '💥', 12: '🗺️', 16: '🐭', 35: '😂', 80: '🔫',
                 99: '🎥', 18: '🎭', 10751: '👨‍👩‍👧‍👦', 14: '🧙‍♂️', 36: '🏛️',
@@ -173,10 +195,13 @@ class TVCategories {
         // Mostra questa sezione
         resultsSection.classList.add('active');
         
+        // Aggiorna stato
+        TV_STATE.currentSection = 'category-results';
+        
         // Focus sul pulsante indietro
         if (window.tvNavigation) {
             setTimeout(() => {
-                window.tvNavigation.setFocus('tv-back-btn');
+                window.tvNavigation.setFocus('tv-category-back-btn');
             }, 100);
         }
     }
@@ -194,6 +219,7 @@ class TVCategories {
                 page: page
             };
             
+            // Applica filtri anno se presenti
             if (this.filters.minYear) {
                 filters['primary_release_date.gte'] = `${this.filters.minYear}-01-01`;
             }
@@ -285,7 +311,42 @@ class TVCategories {
         }
     }
 
-    applyYearFilter() {
+    toggleYearFilter() {
+        const filters = document.getElementById('tv-category-filters');
+        const toggleBtn = document.getElementById('tv-category-filter-toggle');
+        const textElement = document.getElementById('tv-category-filter-text');
+        
+        if (filters && toggleBtn && textElement) {
+            if (filters.classList.contains('active')) {
+                // Nascondi filtri
+                filters.classList.remove('active');
+                toggleBtn.classList.remove('active');
+                textElement.textContent = 'Mostra Filtri Anno';
+                this.showingFilters = false;
+                
+                // Focus sul pulsante toggle
+                if (window.tvNavigation) {
+                    window.tvNavigation.setFocus('tv-category-filter-toggle');
+                }
+            } else {
+                // Mostra filtri
+                filters.classList.add('active');
+                toggleBtn.classList.add('active');
+                textElement.textContent = 'Nascondi Filtri';
+                this.showingFilters = true;
+                
+                // Focus sul primo input
+                setTimeout(() => {
+                    const firstInput = document.getElementById('tv-category-year-min');
+                    if (firstInput && window.tvNavigation) {
+                        window.tvNavigation.setFocus('tv-category-year-min');
+                    }
+                }, 100);
+            }
+        }
+    }
+
+    async applyYearFilter() {
         const minYearInput = document.getElementById('tv-category-year-min');
         const maxYearInput = document.getElementById('tv-category-year-max');
         
@@ -308,13 +369,17 @@ class TVCategories {
             return;
         }
         
+        // Salva filtri
         this.filters = {
             minYear: minYear || null,
             maxYear: maxYear || null
         };
         
         // Ricarica contenuti
-        this.loadCategoryContent(1);
+        await this.loadCategoryContent(1);
+        
+        // Chiudi i filtri dopo l'applicazione
+        this.toggleYearFilter();
     }
 
     clearYearFilter() {
@@ -345,17 +410,25 @@ class TVCategories {
         const resultsSection = document.getElementById('tv-category-results');
         if (resultsSection) {
             resultsSection.classList.remove('active');
+            resultsSection.remove(); // Rimuovi dall'DOM per evitare duplicati
         }
         
         // Mostra categorie
         const categoriesSection = document.getElementById('tv-categories');
         if (categoriesSection) {
             categoriesSection.classList.add('active');
+            TV_STATE.currentSection = 'categories';
         }
+        
+        // Reset filtri
+        this.filters = { minYear: null, maxYear: null };
+        this.showingFilters = false;
         
         // Focus sulla prima categoria
         if (window.tvNavigation) {
-            window.tvNavigation.setFocus('tv-category-0');
+            setTimeout(() => {
+                window.tvNavigation.setFocus('tv-category-0');
+            }, 100);
         }
     }
 }

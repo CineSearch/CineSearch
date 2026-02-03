@@ -1,22 +1,29 @@
-/* Stili ottimizzati per Smart TV - TEMA BLU */
+/* =========================
+   TV STYLE – FIRESTICK FIX
+   ========================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
-    -webkit-user-select: none;
-    user-select: none;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background: #000;
 }
 
 body.tv-mode {
     background: #000;
     color: #fff;
-    font-family: 'Segoe UI', 'Arial', sans-serif;
-    font-size: 24px;
-    line-height: 1.4;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 22px;
     overflow-x: hidden;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
 }
 
 /* Overlay di caricamento */
@@ -72,14 +79,12 @@ body.tv-mode {
 
 /* Header TV */
 .tv-header {
-    position: fixed;
+    position: static;
     top: 0;
     left: 0;
     right: 0;
     height: 100px;
     background: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0.8));
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -89,7 +94,7 @@ body.tv-mode {
     box-shadow: 0 4px 30px rgba(0,0,0,0.5);
 }
 
-.tv-logo {
+.tv-logo-static {
     display: flex;
     align-items: center;
     gap: 15px;
@@ -97,21 +102,13 @@ body.tv-mode {
     font-weight: 700;
     color: #2a09e5;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-    cursor: pointer;
     padding: 15px 25px;
     border-radius: 12px;
-    transition: all 0.3s ease;
+    pointer-events: none;
+    user-select: none;
 }
 
-.tv-logo:focus,
-.tv-logo.tv-focused {
-    background: rgba(42, 9, 229, 0.15);
-    outline: 3px solid #2a09e5;
-    outline-offset: 5px;
-    transform: scale(1.05);
-}
-
-.tv-logo i {
+.tv-logo-static i {
     font-size: 40px;
 }
 
@@ -261,14 +258,12 @@ body.tv-mode {
 
 /* Navigazione principale */
 .tv-nav {
-    position: fixed;
+    position: static;
     top: 100px;
     left: 0;
     right: 0;
     height: 90px;
     background: rgba(20, 20, 20, 0.95);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -321,7 +316,7 @@ body.tv-mode {
 
 /* Contenuto principale */
 .tv-main {
-    margin-top: 190px; /* Header + Nav */
+    margin-top: 0;
     padding: 40px;
     min-height: calc(100vh - 190px);
 }
@@ -349,7 +344,7 @@ body.tv-mode {
 /* Hero section */
 .tv-hero {
     text-align: center;
-    margin-bottom: 60px;
+    margin: 20px 0 60px 0;
     padding: 40px;
     background: linear-gradient(135deg, rgba(42, 9, 229, 0.1), rgba(20, 20, 20, 0.8));
     border-radius: 20px;
@@ -368,50 +363,6 @@ body.tv-mode {
     font-size: 28px;
     color: #ccc;
     margin-bottom: 40px;
-}
-
-.tv-hero-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.tv-hero-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid transparent;
-    border-radius: 16px;
-    padding: 30px 20px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.tv-hero-card:focus,
-.tv-hero-card.tv-focused {
-    background: rgba(42, 9, 229, 0.15);
-    border-color: #2a09e5;
-    transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(42, 9, 229, 0.3);
-    outline: none;
-}
-
-.tv-hero-card i {
-    font-size: 48px;
-    margin-bottom: 20px;
-    color: #2a09e5;
-}
-
-.tv-hero-card h3 {
-    font-size: 26px;
-    margin-bottom: 10px;
-    color: #fff;
-}
-
-.tv-hero-card p {
-    font-size: 20px;
-    color: #aaa;
 }
 
 /* Sezioni contenuto */
@@ -667,6 +618,11 @@ body.tv-mode {
 /* Filtri */
 .tv-filters {
     margin-top: 25px;
+    display: none;
+}
+
+.tv-filters.active {
+    display: block;
 }
 
 .tv-year-filter {
@@ -849,18 +805,24 @@ body.tv-mode {
     outline-offset: 3px;
 }
 
-/* Player TV */
+/* =========================
+   PLAYER TV – FIX FIRESTICK
+   ========================= */
+
 #tv-player {
     background: #000;
-    min-height: calc(100vh - 190px);
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 .tv-player-header {
     display: flex;
     align-items: center;
     gap: 40px;
-    padding: 30px 40px;
+    padding: 20px 40px;
     background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+    z-index: 10;
+    position: relative;
 }
 
 .tv-player-info {
@@ -892,18 +854,84 @@ body.tv-mode {
 
 .tv-player-content {
     display: grid;
-    grid-template-columns: 1fr 400px;
-    gap: 40px;
-    padding: 0 40px;
-    margin-top: 20px;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 20px 20px 20px;
+    height: calc(100vh - 250px);
+    min-height: 500px;
 }
 
+/* Wrapper REALE video */
 .tv-video-container {
     position: relative;
     background: #000;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+    border-radius: 0;
+    overflow: visible;
+    box-shadow: none;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    max-height: 800px;
+}
+
+/* Video.js SEMPLICE - NESSUN TEMA CUSTOM */
+.video-js {
+    font-size: 16px;
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+}
+
+.video-js.vjs-fullscreen {
+    width: 100vw !important;
+    height: 100vh !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 9999 !important;
+    background: #000 !important;
+}
+
+/* Wrapper video nativo */
+.tv-video-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.tv-video-wrapper > video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+}
+
+/* Fix per controlli su Firestick - SENZA BACKDROP-FILTER */
+.video-js .vjs-control-bar {
+    background: rgba(0,0,0,0.8);
+    height: 60px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+/* Bottone fullscreen */
+.video-js .vjs-fullscreen-control {
+    font-size: 24px;
+    width: 50px;
+}
+
+/* Big play button */
+.video-js .vjs-big-play-button {
+    font-size: 4em;
+    border-radius: 50%;
+    background: rgba(42, 9, 229, 0.85);
+    border: 2px solid #fff;
 }
 
 .tv-episode-warning {
@@ -946,60 +974,6 @@ body.tv-mode {
     max-width: 600px;
 }
 
-/* Video.js theme per TV */
-.video-js.vjs-theme-cinesearch-tv {
-    font-size: 16px;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%; /* 16:9 */
-}
-
-.video-js.vjs-theme-cinesearch-tv .vjs-big-play-button {
-    background: rgba(42, 9, 229, 0.9);
-    border: 4px solid #fff;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    line-height: 92px;
-    font-size: 60px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 0.3s ease;
-}
-
-.video-js.vjs-theme-cinesearch-tv .vjs-big-play-button:focus {
-    background: #2a09e5;
-    transform: translate(-50%, -50%) scale(1.1);
-    box-shadow: 0 0 50px rgba(42, 9, 229, 0.8);
-    outline: 3px solid #fff;
-    outline-offset: 5px;
-}
-
-.video-js.vjs-theme-cinesearch-tv .vjs-control-bar {
-    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    height: 80px;
-    font-size: 20px;
-}
-
-.video-js.vjs-theme-cinesearch-tv .vjs-play-progress {
-    background: #2a09e5;
-}
-
-.video-js.vjs-theme-cinesearch-tv .vjs-volume-level {
-    background: #2a09e5;
-}
-
-.video-js.vjs-theme-cinesearch-tv .vjs-menu-button .vjs-menu-content {
-    background: rgba(0,0,0,0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 12px;
-    border: 2px solid rgba(255,255,255,0.1);
-}
-
 /* Loading overlay player */
 .tv-loading-overlay {
     position: absolute;
@@ -1034,12 +1008,11 @@ body.tv-mode {
 /* Selezione episodi */
 .tv-episode-selector {
     background: rgba(255, 255, 255, 0.03);
-    border-radius: 20px;
-    padding: 30px;
+    border-radius: 10px;
+    padding: 20px;
     border: 2px solid rgba(255, 255, 255, 0.1);
-    max-height: 800px;
-    display: flex;
-    flex-direction: column;
+    max-height: 400px;
+    overflow-y: auto;
 }
 
 .tv-episode-title {
@@ -1145,31 +1118,34 @@ body.tv-mode {
     line-height: 1.3;
 }
 
-/* Controlli rapidi */
+/* Controlli rapidi per Firestick */
 .tv-quick-controls {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    margin: 40px;
-    padding: 25px;
+    gap: 20px;
+    margin: 20px;
+    padding: 15px;
     background: rgba(255, 255, 255, 0.03);
-    border-radius: 16px;
+    border-radius: 10px;
     border: 2px solid rgba(255, 255, 255, 0.05);
+    flex-wrap: wrap;
 }
 
 .tv-quick-btn {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     background: linear-gradient(135deg, #333, #222);
     border: 2px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
+    border-radius: 10px;
     color: #fff;
-    font-size: 22px;
-    padding: 18px 35px;
+    font-size: 18px;
+    padding: 12px 25px;
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 600;
+    min-width: 120px;
+    justify-content: center;
 }
 
 .tv-quick-btn:focus,
@@ -1250,8 +1226,6 @@ body.tv-mode {
     left: 50%;
     transform: translateX(-50%);
     background: rgba(20, 20, 20, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     border: 2px solid rgba(42, 9, 229, 0.5);
     border-radius: 16px;
     padding: 20px 40px;
@@ -1347,6 +1321,364 @@ body.tv-mode {
     color: #666;
 }
 
+/* Pop-up per card */
+.tv-card-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    max-width: 800px;
+    max-height: 90vh;
+    background: linear-gradient(135deg, rgba(20, 20, 30, 0.98), rgba(10, 10, 20, 0.98));
+    border: 3px solid #2a09e5;
+    border-radius: 20px;
+    padding: 30px;
+    z-index: 1000;
+    box-shadow: 0 25px 75px rgba(0, 0, 0, 0.8);
+    display: none;
+    animation: popupFadeIn 0.3s ease;
+    overflow: hidden;
+}
+
+@keyframes popupFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.tv-card-popup.active {
+    display: block;
+}
+
+.tv-popup-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 999;
+    display: none;
+}
+
+.tv-popup-backdrop.active {
+    display: block;
+}
+
+.tv-popup-content {
+    display: grid;
+    grid-template-columns: minmax(200px, 250px) 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+    max-height: 60vh;
+    overflow: hidden;
+}
+
+.tv-popup-poster {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    align-self: center;
+}
+
+.tv-popup-info {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.tv-popup-title {
+    font-size: clamp(24px, 2.5vw, 32px);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    word-wrap: break-word;
+}
+
+.tv-popup-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.tv-popup-meta-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 18px;
+    color: #ccc;
+}
+
+.tv-popup-overview {
+    font-size: clamp(16px, 1.8vw, 20px);
+    line-height: 1.5;
+    color: #ddd;
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    margin-bottom: 20px;
+    max-height: 200px;
+}
+
+.tv-popup-overview::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tv-popup-overview::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.tv-popup-overview::-webkit-scrollbar-thumb {
+    background: #2a09e5;
+    border-radius: 3px;
+}
+
+.tv-popup-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.tv-popup-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px 35px;
+    border: none;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 180px;
+}
+
+.tv-popup-btn:focus,
+.tv-popup-btn.tv-focused {
+    transform: scale(1.05);
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+}
+
+.tv-popup-btn.play {
+    background: linear-gradient(135deg, #2a09e5, #1a0566);
+    color: #fff;
+}
+
+.tv-popup-btn.play:hover {
+    background: linear-gradient(135deg, #3a19f5, #2a09e5);
+}
+
+.tv-popup-btn.fav {
+    background: linear-gradient(135deg, #ffd700, #ffaa00);
+    color: #000;
+}
+
+.tv-popup-btn.fav:hover {
+    background: linear-gradient(135deg, #ffed4e, #ffcc00);
+}
+
+.tv-popup-btn.fav.active {
+    background: linear-gradient(135deg, #ffaa00, #ff8800);
+}
+
+.tv-popup-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.tv-popup-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+.tv-popup-close:focus {
+    outline: 2px solid #2a09e5;
+}
+
+/* Pulsante per mostrare/nascondere filtri */
+.tv-filter-toggle-btn {
+    background: linear-gradient(135deg, #2a09e5, #1a0566);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 22px;
+    padding: 15px 30px;
+    margin-bottom: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tv-filter-toggle-btn:focus,
+.tv-filter-toggle-btn.tv-focused {
+    background: linear-gradient(135deg, #3a19f5, #2a09e5);
+    transform: scale(1.05);
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+    box-shadow: 0 10px 30px rgba(42, 9, 229, 0.5);
+}
+
+.tv-filter-toggle-btn i {
+    transition: transform 0.3s ease;
+}
+
+.tv-filter-toggle-btn.active i {
+    transform: rotate(180deg);
+}
+
+/* Pulsante Torna all'Inizio */
+.tv-top-btn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #2a09e5, #1a0566);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(42, 9, 229, 0.4);
+    z-index: 80;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.tv-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tv-top-btn:focus,
+.tv-top-btn.tv-focused {
+    background: linear-gradient(135deg, #3a19f5, #2a09e5);
+    transform: scale(1.1);
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+    box-shadow: 0 0 40px rgba(42, 9, 229, 0.6);
+}
+
+.tv-top-btn:hover:not(.tv-focused) {
+    background: linear-gradient(135deg, #3a19f5, #2a09e5);
+    transform: scale(1.05);
+}
+
+/* =========================
+   FIX SPECIFICI PER FIRESTICK
+   ========================= */
+
+/* Disabilita tutte le animazioni problematiche su Firestick */
+.android-tv *,
+.fire-tv * {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+/* Ottimizzazioni player per Firestick */
+.android-tv .tv-video-container,
+.fire-tv .tv-video-container {
+    overflow: visible !important;
+    position: relative !important;
+}
+
+.android-tv .video-js,
+.fire-tv .video-js {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: #000 !important;
+}
+
+/* Player video nativo per Firestick */
+.android-tv video,
+.fire-tv video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* Fix per controlli player Firestick */
+.android-tv .video-js .vjs-control-bar,
+.fire-tv .video-js .vjs-control-bar {
+    background: rgba(0,0,0,0.9) !important;
+    height: 70px !important;
+    font-size: 20px !important;
+}
+
+/* Modalità TV/telecomando per Firestick */
+@media (pointer: coarse) {
+    .video-js .vjs-control-bar {
+        height: 80px;
+        font-size: 22px;
+    }
+    
+    .video-js .vjs-button {
+        min-width: 60px;
+        min-height: 60px;
+    }
+    
+    .tv-quick-btn {
+        min-height: 60px;
+        min-width: 140px;
+        font-size: 20px;
+    }
+}
+
+/* Fix per Android TV/Firestick specifici */
+@media (max-width: 1920px) and (min-aspect-ratio: 16/9) {
+    .tv-player-content {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: 600px;
+    }
+    
+    .tv-video-container {
+        max-height: 70vh;
+    }
+}
+
 /* Responsive per diverse risoluzioni TV */
 @media (max-width: 1920px) {
     body.tv-mode {
@@ -1359,6 +1691,12 @@ body.tv-mode {
     
     .tv-card {
         width: 260px;
+    }
+    
+    .tv-top-btn {
+        width: 65px;
+        height: 65px;
+        font-size: 26px;
     }
 }
 
@@ -1400,6 +1738,24 @@ body.tv-mode {
     .tv-footer-copyright {
         text-align: center;
     }
+    
+    .tv-top-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        bottom: 30px;
+        right: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tv-top-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        bottom: 20px;
+        right: 20px;
+    }
 }
 
 /* Animazioni focus */
@@ -1415,30 +1771,6 @@ body.tv-mode {
 /* Transizioni smooth */
 * {
     scroll-behavior: smooth;
-}
-
-/* Ottimizzazioni performance */
-.tv-card,
-.tv-hero-card,
-.tv-category-card {
-    will-change: transform, box-shadow;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-}
-
-/* Supporto per TV WebOS, Tizen, ecc */
-@media (pointer: coarse) {
-    .tv-card,
-    .tv-hero-card,
-    .tv-category-card,
-    .tv-nav-btn {
-        min-height: 60px;
-    }
-    
-    .tv-card-btn {
-        min-width: 50px;
-        min-height: 50px;
-    }
 }
 
 /* Aggiungi a tv-style.css */
@@ -1467,35 +1799,4 @@ body.tv-mode {
 .tv-empty-carousel p {
     font-size: 22px;
     color: #aaa;
-}
-
-/* Custom Video.js Blue Theme */
-.vjs-theme-cinesearch-blue {
-    --vjs-theme-primary: #2a09e5;
-    --vjs-theme-secondary: #1a0566;
-}
-
-.vjs-theme-cinesearch-blue .vjs-play-progress {
-    background: var(--vjs-theme-primary);
-}
-
-.vjs-theme-cinesearch-blue .vjs-volume-level {
-    background: var(--vjs-theme-primary);
-}
-
-.vjs-theme-cinesearch-blue .vjs-big-play-button {
-    background: rgba(42, 9, 229, 0.9);
-    border-color: #fff;
-}
-
-.vjs-theme-cinesearch-blue .vjs-big-play-button:hover {
-    background: rgba(42, 9, 229, 1);
-}
-
-.vjs-theme-cinesearch-blue .vjs-slider:focus {
-    box-shadow: 0 0 0 2px rgba(42, 9, 229, 0.5);
-}
-
-.vjs-theme-cinesearch-blue .vjs-control-bar {
-    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
 }

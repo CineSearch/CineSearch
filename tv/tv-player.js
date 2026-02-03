@@ -9,9 +9,29 @@ class TVPlayer {
         this.keyboardEnabled = true;
         this.volume = TV_CONFIG.DEFAULT_VOLUME;
         this.qualitySelector = null;
+        
+        // Aggiungi questo binding esplicito
+        this.handleKeyPress = this.handleKeyPress.bind(this);
         this.init();
     }
-
+    
+    validateItem(item) {
+        if (!item) {
+            throw new Error('Item is null or undefined');
+        }
+        
+        if (!item.id) {
+            throw new Error('Item missing ID');
+        }
+        
+        // Assicurati che ci siano le proprietà di base
+        item.title = item.title || item.name || 'Senza titolo';
+        item.name = item.name || item.title || 'Senza titolo';
+        item.media_type = item.media_type || (item.title !== undefined ? 'movie' : 'tv');
+        
+        return item;
+    }
+    
     init() {
         // Setup CORS hook per Video.js
         this.setupVideoJSCorsHook();
@@ -22,31 +42,39 @@ class TVPlayer {
         // Setup event listeners
         this.setupEventListeners();
     }
-
+    
     setupVideoJSCorsHook() {
     if (typeof videojs === 'undefined' || !videojs.Vhs) {
         setTimeout(() => this.setupVideoJSCorsHook(), 100);
         return;
     }
-
+    
     const xhrRequestHook = (options) => {
         const originalUri = options.uri;
         
         if (!originalUri) {
             return options;
         }
-
+        
+        // Ottieni il proxy corrente dalla configurazione globale
+        const currentProxy = window.CORS || "corsproxy.io/";
+        
         // Gestione speciale per enc.key e altri file di cifratura
         if (originalUri.includes('/storage/enc.key') || 
             originalUri.includes('/storage/key')) {
             
             // Se è già un URL proxy ma manca l'URL target, ricostruiscilo
-            if (originalUri.includes('corsproxy.io/') && 
-                !originalUri.includes('corsproxy.io/https://')) {
+            if (originalUri.includes(currentProxy) && 
+                !originalUri.includes(`${currentProxy}https://`)) {
                 
-                // Estrai la parte dopo corsproxy.io/
-                const path = originalUri.split('corsproxy.io/')[1];
-                options.uri = `https://corsproxy.io/https://vixsrc.to/${path}`;
+                // Estrai la parte dopo il proxy
+                const proxyPattern = currentProxy.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                const regex = new RegExp(`${proxyPattern}(.*)`);
+                const match = originalUri.match(regex);
+                
+                if (match && match[1]) {
+                    options.uri = applyCorsProxy(`https://vixsrc.to/${match[1]}`);
+                }
                 
             } else if (originalUri.includes('vixsrc.to')) {
                 // Se contiene già vixsrc.to, applica il proxy normalmente
@@ -64,32 +92,31 @@ class TVPlayer {
         }
         
         // Gestione speciale per segmenti HLS che potrebbero avere URL diretti
-        // (che non hanno bisogno di proxy se sono già accessibili)
         if (originalUri.includes('vix-content.net') || 
             originalUri.includes('.ts') || 
             originalUri.includes('.m3u8')) {
             
             // Se già ha un proxy ma è malformato, correggilo
-            if (originalUri.includes('corsproxy.io/') && 
-                !originalUri.includes('corsproxy.io/https://') &&
+            if (originalUri.includes(currentProxy) && 
+                !originalUri.includes(`${currentProxy}https://`) &&
                 !originalUri.includes('vixsrc.to')) {
                 
                 // Probabilmente un segmento HLS diretto che non ha bisogno di proxy
-                const cleanUri = originalUri.replace('corsproxy.io/', '');
+                const cleanUri = originalUri.replace(currentProxy, '');
                 options.uri = cleanUri;
             }
         }
         
         return options;
     };
-
+    
     videojs.Vhs.xhr.onRequest(xhrRequestHook);
 }
-
+    
     setupKeyboardShortcuts() {
         document.addEventListener('keydown', this.handleKeyPress.bind(this));
     }
-
+    
     setupEventListeners() {
         // Fullscreen change detection
         document.addEventListener('fullscreenchange', () => {
@@ -100,101 +127,12 @@ class TVPlayer {
             this.isFullscreen = !!document.webkitFullscreenElement;
         });
     }
-
-    handleKeyPress(event) {
-        if (!this.player || !this.keyboardEnabled) {
-            return;
-        }
-
-        // Ignora se siamo in un input
-        if (event.target.tagName === 'INPUT' || 
-            event.target.tagName === 'TEXTAREA' || 
-            event.target.tagName === 'SELECT') {
-            return;
-        }
-
-        const key = event.key.toLowerCase();
-        let handled = false;
-
-        switch(key) {
-            case ' ':
-            case 'enter':
-                event.preventDefault();
-                if (this.player.paused()) {
-                    this.player.play();
-                } else {
-                    this.player.pause();
-                }
-                handled = true;
-                break;
-
-            case 'arrowleft':
-                event.preventDefault();
-                this.seek(-TV_CONFIG.SEEK_STEP_SMALL);
-                handled = true;
-                break;
-
-            case 'arrowright':
-                event.preventDefault();
-                this.seek(TV_CONFIG.SEEK_STEP_SMALL);
-                handled = true;
-                break;
-
-            case 'arrowup':
-                event.preventDefault();
-                this.adjustVolume(0.1);
-                handled = true;
-                break;
-
-            case 'arrowdown':
-                event.preventDefault();
-                this.adjustVolume(-0.1);
-                handled = true;
-                break;
-
-            case 'f':
-                event.preventDefault();
-                this.toggleFullscreen();
-                handled = true;
-                break;
-
-            case 'm':
-                event.preventDefault();
-                this.toggleMute();
-                handled = true;
-                break;
-
-            case '0':
-            case '1':
-            case '2':
-            case '3':
-            case '4':
-            case '5':
-            case '6':
-            case '7':
-            case '8':
-            case '9':
-                event.preventDefault();
-                this.seekToPercentage(parseInt(key) / 10);
-                handled = true;
-                break;
-
-            case 'escape':
-                if (this.isFullscreen) {
-                    event.preventDefault();
-                    this.exitFullscreen();
-                    handled = true;
-                }
-                break;
-        }
-
-        if (handled) {
-            this.showKeyFeedback(key);
-        }
-    }
-
+    
     async open(item) {
         try {
+            // Valida l'item
+            item = this.validateItem(item);
+            
             // Salva sezione precedente
             TV_STATE.previousSection = TV_STATE.currentSection;
             
@@ -211,6 +149,10 @@ class TVPlayer {
             // Inizializza player se necessario
             if (!this.player) {
                 this.initializePlayer();
+            } else {
+                // Se il player esiste già, resetta il sorgente
+                this.player.src({});
+                this.player.currentTime(0);
             }
             
             // Carica stream
@@ -218,11 +160,11 @@ class TVPlayer {
             
         } catch (error) {
             console.error('Error opening player:', error);
-            showToast('Errore nell\'apertura del player', 'error');
+            showToast('Errore nell\'apertura del player: ' + error.message, 'error');
             this.close();
         }
     }
-
+    
     showPlayerSection() {
         // Nascondi tutte le sezioni
         document.querySelectorAll('.tv-section').forEach(section => {
@@ -240,46 +182,126 @@ class TVPlayer {
             // Imposta focus sul pulsante indietro
             setTimeout(() => {
                 if (window.tvNavigation) {
-                    window.tvNavigation.setFocus('tv-back-btn');
+                    window.tvNavigation.setFocus('tv-player-back-btn');
                 }
             }, 100);
         }
     }
-
-    loadPlayerInfo(item) {
-        const title = item.title || item.name;
-        const year = item.release_date?.slice(0, 4) || item.first_air_date?.slice(0, 4) || '—';
-        const rating = item.vote_average?.toFixed(1) || '—';
-        const type = item.media_type === 'movie' ? 'Film' : 'Serie TV';
-        const overview = item.overview || 'Nessuna descrizione disponibile.';
-        
-        // Aggiorna titolo
-        const titleElement = document.getElementById('tv-player-title');
-        if (titleElement) {
-            titleElement.textContent = title;
+    
+    handleKeyPress(event) {
+        // Gestisci i tasti solo se siamo nel player
+        if (TV_STATE.currentSection !== 'player' || !this.player) {
+            return;
         }
         
-        // Aggiorna meta
-        const metaElement = document.getElementById('tv-player-meta');
-        if (metaElement) {
-            metaElement.innerHTML = `
-                <span class="tv-meta-year">${year}</span>
-                <span class="tv-meta-rating">⭐ ${rating}</span>
-                <span class="tv-meta-type">${type}</span>
-            `;
+        const key = event.key;
+        let handled = false;
+        
+        switch(key) {
+            case ' ':
+            case 'Spacebar':
+                handled = this.togglePlayPause();
+                break;
+            case 'ArrowLeft':
+                handled = this.seek(-10);
+                break;
+            case 'ArrowRight':
+                handled = this.seek(30);
+                break;
+            case 'ArrowUp':
+                handled = this.adjustVolume(0.1);
+                break;
+            case 'ArrowDown':
+                handled = this.adjustVolume(-0.1);
+                break;
+            case 'm':
+            case 'M':
+                handled = this.toggleMute();
+                break;
+            case 'f':
+            case 'F':
+                handled = this.toggleFullscreen();
+                break;
+            case 'Escape':
+                if (this.isFullscreen) {
+                    handled = this.exitFullscreen();
+                } else {
+                    this.close();
+                }
+                break;
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+                handled = this.seekToPercentage(parseInt(key) / 10);
+                break;
         }
         
-        // Per serie TV, carica le stagioni
-        if (item.media_type === 'tv') {
-            this.loadTVSeasons(item.id);
-            document.getElementById('tv-episode-warning').style.display = 'flex';
-            document.getElementById('tv-episode-selector').style.display = 'block';
-        } else {
-            document.getElementById('tv-episode-warning').style.display = 'none';
-            document.getElementById('tv-episode-selector').style.display = 'none';
+        if (handled) {
+            event.preventDefault();
+            event.stopPropagation();
         }
     }
-
+    
+    loadPlayerInfo(item) {
+        try {
+            // Valida l'item
+            item = this.validateItem(item);
+            
+            const title = item.title || item.name || 'Senza titolo';
+            const year = item.release_date?.slice(0, 4) || item.first_air_date?.slice(0, 4) || '—';
+            const rating = item.vote_average?.toFixed(1) || '—';
+            const type = item.media_type === 'movie' ? 'Film' : 'Serie TV';
+            
+            // Aggiorna titolo
+            const titleElement = document.getElementById('tv-player-title');
+            if (titleElement) {
+                titleElement.textContent = title;
+            }
+            
+            // Aggiorna meta
+            const metaElement = document.getElementById('tv-player-meta');
+            if (metaElement) {
+                metaElement.innerHTML = `
+                    <span class="tv-meta-year">${year}</span>
+                    <span class="tv-meta-rating">⭐ ${rating}</span>
+                    <span class="tv-meta-type">${type}</span>
+                `;
+            }
+            
+            // Per serie TV, carica le stagioni
+            if (item.media_type === 'tv') {
+                this.loadTVSeasons(item.id);
+                const warningElement = document.getElementById('tv-episode-warning');
+                if (warningElement) {
+                    warningElement.style.display = 'flex';
+                }
+                const selectorElement = document.getElementById('tv-episode-selector');
+                if (selectorElement) {
+                    selectorElement.style.display = 'block';
+                }
+            } else {
+                const warningElement = document.getElementById('tv-episode-warning');
+                if (warningElement) {
+                    warningElement.style.display = 'none';
+                }
+                const selectorElement = document.getElementById('tv-episode-selector');
+                if (selectorElement) {
+                    selectorElement.style.display = 'none';
+                }
+            }
+        } catch (error) {
+            console.error('Error loading player info:', error);
+            throw error;
+        }
+    }
+    
     async loadTVSeasons(tvId) {
         try {
             this.currentSeasons = await tvApi.getTVSeasons(tvId);
@@ -293,7 +315,7 @@ class TVPlayer {
             showToast('Errore nel caricamento delle stagioni', 'error');
         }
     }
-
+    
     populateSeasonSelector() {
         const selector = document.getElementById('tv-season-select');
         if (!selector) return;
@@ -311,7 +333,7 @@ class TVPlayer {
             this.loadEpisodes(parseInt(e.target.value));
         };
     }
-
+    
     async loadEpisodes(seasonNum) {
         try {
             const episodes = await tvApi.getEpisodes(this.currentItem.id, seasonNum);
@@ -321,7 +343,7 @@ class TVPlayer {
             showToast('Errore nel caricamento degli episodi', 'error');
         }
     }
-
+    
     populateEpisodesList(episodes) {
         const container = document.getElementById('tv-episodes-list');
         if (!container) return;
@@ -358,7 +380,7 @@ class TVPlayer {
             container.appendChild(episodeItem);
         });
     }
-
+    
     selectEpisode(episode, element) {
         // Rimuovi selezione precedente
         document.querySelectorAll('.tv-episode-item').forEach(el => {
@@ -369,85 +391,159 @@ class TVPlayer {
         element.classList.add('active');
         
         // Nascondi warning
-        document.getElementById('tv-episode-warning').style.display = 'none';
+        const warningElement = document.getElementById('tv-episode-warning');
+        if (warningElement) {
+            warningElement.style.display = 'none';
+        }
         
         // Imposta episodio corrente
         this.currentEpisode = episode;
         
         // Carica stream
-        this.loadStream(this.currentItem, 
-                       parseInt(document.getElementById('tv-season-select').value),
-                       episode.episode_number);
-    }
-
-    initializePlayer() {
-    const videoElement = document.getElementById('tv-player-video');
-    if (!videoElement) {
-        console.error('Video element not found');
-        return;
-    }
-    
-    // Distruggi player esistente
-    if (this.player) {
-        this.player.dispose();
-    }
-    
-    // Crea nuovo player con impostazioni TV
-    this.player = videojs('tv-player-video', {
-        controls: true,
-        fluid: true,
-        autoplay: true, // AUTO PLAY ATTIVATO
-        aspectRatio: '16:9',
-        playbackRates: [0.5, 0.75, 1, 1.25, 1.5, 2],
-        html5: {
-            vhs: {
-                overrideNative: true,
-                limitRenditionByPlayerDimensions: false,
-                handleManifestRedirects: true
-            }
-        },
-        userActions: {
-            hotkeys: true,
-            click: true,
-            doubleClick: true
-        },
-        controlBar: {
-            volumePanel: {
-                inline: false
-            },
-            children: [
-                'playToggle',
-                'volumePanel',
-                'currentTimeDisplay',
-                'timeDivider',
-                'durationDisplay',
-                'progressControl',
-                'remainingTimeDisplay',
-                'playbackRateMenuButton',
-                'qualitySelector',
-                'fullscreenToggle'
-            ]
+        const seasonSelect = document.getElementById('tv-season-select');
+        if (seasonSelect) {
+            this.loadStream(this.currentItem, 
+                           parseInt(seasonSelect.value),
+                           episode.episode_number);
         }
-    });
-    
-    // Setup event listeners
-    this.setupPlayerEvents();
-}
-
-// Funzione per correggere le richieste di chiavi di cifratura
-fixEncryptionKeyRequest() {
-    if (!this.player.currentSource()) return;
-    
-    const source = this.player.currentSource();
-    console.log('Current source:', source);
-    
-    // Se stiamo usando HLS e ci sono problemi con le chiavi
-    if (source.type === 'application/x-mpegURL') {
-        console.log('Re-inizializza player con URL corretto...');
-        // Potrebbe essere necessario ricaricare il sorgente
     }
-}
-
+    
+    initializePlayer() {
+        const videoElement = document.getElementById('tv-player-video');
+        if (!videoElement) {
+            console.error('Video element not found');
+            return;
+        }
+        
+        // Distruggi player esistente
+        if (this.player) {
+            this.player.dispose();
+        }
+        
+        // IMPORTANTE: Assicurati che il container esista
+        const videoContainer = document.getElementById('tv-video-container');
+        if (videoContainer) {
+            // Rimuovi eventuali margini/padding problematici
+            videoContainer.style.cssText = `
+                position: relative;
+                width: 100%;
+                height: 0;
+                padding-bottom: 56.25%; /* 16:9 aspect ratio */
+                overflow: hidden;
+                background: #000;
+            `;
+            
+            // Posiziona il wrapper video correttamente
+            const videoWrapper = videoContainer.querySelector('.tv-video-wrapper');
+            if (videoWrapper) {
+                videoWrapper.style.cssText = `
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                `;
+            }
+        }
+        
+        // Crea nuovo player con impostazioni ottimizzate per Firestick
+        this.player = videojs('tv-player-video', {
+            controls: true,
+            fluid: false, // IMPORTANTE: Disabilita fluid per Firestick
+            autoplay: false, // Disabilita autoplay per problemi su Firestick
+            aspectRatio: '16:9',
+            playbackRates: [0.5, 0.75, 1, 1.25, 1.5, 2],
+            html5: {
+                vhs: {
+                    overrideNative: true,
+                    limitRenditionByPlayerDimensions: true,
+                    handleManifestRedirects: true,
+                    enableLowInitialPlaylist: true,
+                    smoothQualityChange: true,
+                    useDevicePixelRatio: false // Disabilita per Firestick
+                }
+            },
+            userActions: {
+                hotkeys: false, // Disabilita hotkeys per problemi Firestick
+                click: true,
+                doubleClick: true
+            },
+            controlBar: {
+                volumePanel: {
+                    inline: false,
+                    vertical: true
+                },
+                pictureInPictureToggle: false,
+                children: [
+                    'playToggle',
+                    'volumePanel',
+                    'currentTimeDisplay',
+                    'timeDivider',
+                    'durationDisplay',
+                    'progressControl',
+                    'remainingTimeDisplay',
+                    'playbackRateMenuButton',
+                    'qualitySelector',
+                    'fullscreenToggle'
+                ]
+            },
+            // Ottimizzazioni per Firestick
+            inactivityTimeout: 3000,
+            disablePictureInPicture: true,
+            liveui: false,
+            preload: 'auto',
+            responsive: false, // Disabilita responsive per Firestick
+            fullscreen: {
+                options: {
+                    navigationUI: 'hide'
+                }
+            }
+        });
+        this.player.hlsQualitySelector();
+        this.player.ready(() => {
+            const container = this.player.el();
+            if (container) {
+                container.style.width = '100%';
+                container.style.height = '100%';
+                container.style.position = 'absolute';
+                container.style.top = '0';
+                container.style.left = '0';
+            }
+            
+            // Setup event listeners
+            this.setupPlayerEvents();
+            
+            // Gestione speciale fullscreen per Firestick
+            this.player.on('fullscreenchange', () => {
+                const isFullscreen = this.player.isFullscreen();
+                
+                if (isFullscreen) {
+                    // In fullscreen, usa dimensioni complete
+                    this.player.el().style.width = '100vw';
+                    this.player.el().style.height = '100vh';
+                } else {
+                    // Torna alle dimensioni normali
+                    this.player.el().style.width = '100%';
+                    this.player.el().style.height = '100%';
+                }
+            });
+        });
+    }
+    
+    // Funzione per correggere le richieste di chiavi di cifratura
+    fixEncryptionKeyRequest() {
+        if (!this.player.currentSource()) return;
+        
+        const source = this.player.currentSource();
+        console.log('Current source:', source);
+        
+        // Se stiamo usando HLS e ci sono problemi con le chiavi
+        if (source.type === 'application/x-mpegURL') {
+            console.log('Re-inizializza player con URL corretto...');
+            // Potrebbe essere necessario ricaricare il sorgente
+        }
+    }
+    
     setupPlayerEvents() {
         if (!this.player) return;
         
@@ -467,57 +563,58 @@ fixEncryptionKeyRequest() {
             this.isFullscreen = this.player.isFullscreen();
         });
     }
-
+    
     async loadStream(item, season = null, episode = null) {
-    try {
-        this.showLoading(true, 'Caricamento stream...');
-        
-        const isMovie = item.media_type === 'movie';
-        const streamData = await tvApi.getStream(item.id, isMovie, season, episode);
-        
-        if (!streamData || !streamData.m3u8Url) {
-            throw new Error('Stream non disponibile');
-        }
-        
-        // Imposta sorgente
-        if (this.player) {
-            this.player.src({
-                src: streamData.m3u8Url,
-                type: 'application/x-mpegURL'
-            });
+        try {
+            this.showLoading(true, 'Caricamento stream...');
             
-            // Riprendi da dove avevi lasciato
-            this.resumeFromProgress(item, season, episode);
+            const isMovie = item.media_type === 'movie';
+            const streamData = await tvApi.getStream(item.id, isMovie, season, episode);
             
-            // AUTO PLAY E FULL SCREEN
-            this.player.ready(() => {
-                setTimeout(() => {
-                    // Riproduci automaticamente
-                    this.player.play().catch(e => {
-                        console.log('Autoplay fallito, utente deve premere play:', e);
-                    });
-                    
-                    // Full screen automatico con ritardo per caricamento
+            if (!streamData || !streamData.m3u8Url) {
+                throw new Error('Stream non disponibile');
+            }
+            
+            // Imposta sorgente
+            if (this.player) {
+                this.player.src({
+                    src: streamData.m3u8Url,
+                    type: 'application/x-mpegURL'
+                });
+                
+                // Riprendi da dove avevi lasciato
+                this.resumeFromProgress(item, season, episode);
+                
+                // Aspetta che il player sia pronto
+                this.player.ready(() => {
+                    // Riproduci automaticamente con un piccolo ritardo
                     setTimeout(() => {
-                        if (!this.player.isFullscreen()) {
-                            this.player.requestFullscreen().catch(e => {
-                                console.log('Full screen automatico non supportato:', e);
-                            });
-                        }
-                    }, 1500); // Ritardo per caricamento video
-                }, 500);
-            });
+                        this.player.play().catch(e => {
+                            console.log('Autoplay fallito, utente deve premere play:', e);
+                            showToast('Premi play per iniziare la riproduzione', 'info');
+                        });
+                        
+                        // Full screen automatico con ritardo per caricamento (opzionale)
+                        setTimeout(() => {
+                            if (!this.player.isFullscreen()) {
+                                this.player.requestFullscreen().catch(e => {
+                                    console.log('Full screen automatico non supportato:', e);
+                                });
+                            }
+                        }, 2000); // Ritardo per caricamento video
+                    }, 500);
+                });
+            }
+            
+            this.showLoading(false);
+            
+        } catch (error) {
+            console.error('Error loading stream:', error);
+            this.showError('Impossibile caricare lo stream');
+            this.showLoading(false);
         }
-        
-        this.showLoading(false);
-        
-    } catch (error) {
-        console.error('Error loading stream:', error);
-        this.showError('Impossibile caricare lo stream');
-        this.showLoading(false);
     }
-}
-
+    
     trackProgress() {
         if (!this.player || !this.currentItem) return;
         
@@ -535,9 +632,16 @@ fixEncryptionKeyRequest() {
             }
             
             TVStorage.set(storageKey, currentTime, 86400000); // 24 ore
+            
+            // Aggiungi alla visione continua
+            if (window.addToContinuaVisione) {
+                addToContinuaVisione(this.currentItem, currentTime, 
+                    mediaType === 'tv' ? seasonNum : null, 
+                    mediaType === 'tv' ? this.currentEpisode.episode_number : null);
+            }
         }
     }
-
+    
     resumeFromProgress(item, season = null, episode = null) {
         const mediaType = item.media_type || 'movie';
         let storageKey = `videoTime_${mediaType}_${item.id}`;
@@ -559,12 +663,12 @@ fixEncryptionKeyRequest() {
             }, 1000);
         }
     }
-
+    
     showResumeNotification(time) {
         const timeStr = formatTime(time);
         showToast(`Ripresa da ${timeStr}`, 'success');
     }
-
+    
     seek(seconds) {
         if (!this.player) return;
         
@@ -576,7 +680,7 @@ fixEncryptionKeyRequest() {
         const absSeconds = Math.abs(seconds);
         this.showKeyFeedback(`${direction}${absSeconds}s`);
     }
-
+    
     seekToPercentage(percentage) {
         if (!this.player) return;
         
@@ -585,7 +689,7 @@ fixEncryptionKeyRequest() {
         
         this.showKeyFeedback(`${Math.round(percentage * 100)}%`);
     }
-
+    
     adjustVolume(delta) {
         if (!this.player) return;
         
@@ -594,7 +698,7 @@ fixEncryptionKeyRequest() {
         
         this.showKeyFeedback(`Volume: ${Math.round(newVolume * 100)}%`);
     }
-
+    
     toggleMute() {
         if (!this.player) return;
         
@@ -606,7 +710,7 @@ fixEncryptionKeyRequest() {
             this.showKeyFeedback(`Volume: ${Math.round(this.player.volume() * 100)}%`);
         }
     }
-
+    
     toggleFullscreen() {
         if (!this.player) return;
         
@@ -616,13 +720,13 @@ fixEncryptionKeyRequest() {
             this.player.requestFullscreen();
         }
     }
-
+    
     exitFullscreen() {
         if (this.player && this.player.isFullscreen()) {
             this.player.exitFullscreen();
         }
     }
-
+    
     showLoading(show, message = 'Caricamento...') {
         const overlay = document.getElementById('tv-loading-overlay');
         const text = overlay?.querySelector('.tv-loading-text');
@@ -635,7 +739,7 @@ fixEncryptionKeyRequest() {
             text.textContent = message;
         }
     }
-
+    
     showError(message) {
         showToast(message, 'error');
         
@@ -654,7 +758,7 @@ fixEncryptionKeyRequest() {
             container.appendChild(errorDiv);
         }
     }
-
+    
     showKeyFeedback(text) {
         const feedback = document.createElement('div');
         feedback.className = 'tv-key-feedback';
@@ -669,7 +773,7 @@ fixEncryptionKeyRequest() {
             }, 1000);
         }
     }
-
+    
     retry() {
         if (this.currentItem) {
             const season = this.currentItem.media_type === 'tv' ? 
@@ -682,7 +786,7 @@ fixEncryptionKeyRequest() {
         // Rimuovi errori esistenti
         document.querySelectorAll('.tv-player-error').forEach(el => el.remove());
     }
-
+    
     close() {
         // Ferma il player
         if (this.player) {
@@ -708,6 +812,20 @@ fixEncryptionKeyRequest() {
             playerSection.classList.remove('active');
         }
     }
+    
+    togglePlayPause() {
+        if (!this.player) return false;
+        
+        if (this.player.paused()) {
+            this.player.play();
+            this.showKeyFeedback('Play');
+        } else {
+            this.player.pause();
+            this.showKeyFeedback('Pausa');
+        }
+        
+        return true;
+    }
 }
 
 // Istanza globale
@@ -723,13 +841,7 @@ function playerSeek(seconds) {
 }
 
 function togglePlayPause() {
-    if (tvPlayer.player) {
-        if (tvPlayer.player.paused()) {
-            tvPlayer.player.play();
-        } else {
-            tvPlayer.player.pause();
-        }
-    }
+    return tvPlayer.togglePlayPause();
 }
 
 function toggleFullscreen() {

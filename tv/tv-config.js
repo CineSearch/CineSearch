@@ -32,7 +32,7 @@ const TV_CONFIG = {
         "corsproxy.io/",
         "api.allorigins.win/raw?url=",
         "cors-anywhere.herokuapp.com/",
-        "thingproxy.freeboard.io/fetch/"
+        "api.codetabs.com/v1/proxy?quest="
     ],
     
     // Endpoints TMDB
@@ -74,10 +74,10 @@ const CORS_LIST = [
     "corsproxy.io/",
     "api.allorigins.win/raw?url=",
     "cors-anywhere.herokuapp.com/",
-    "thingproxy.freeboard.io/fetch/"
+    "https://api.codetabs.com/v1/proxy?quest="
 ];
 
-let CORS = "corsproxy.io/";
+let CORS = "https://api.codetabs.com/v1/proxy?quest=";
 
 // Storage per TV
 class TVStorage {
@@ -188,17 +188,8 @@ function applyCorsProxy(url) {
     if (url.includes('corsproxy.io/https://') || 
         url.includes('api.allorigins.win') ||
         url.includes('cors-anywhere.herokuapp.com') ||
-        url.includes('thingproxy.freeboard.io')) {
+        url.includes('api.codetabs.com/v1/proxy?quest=')) {
         return url;
-    }
-    
-    // Se è già un URL proxy ma manca il target, aggiungi vixsrc.to
-    if (url.includes('corsproxy.io/') && 
-        !url.includes('corsproxy.io/https://') &&
-        !url.includes('vix-content.net')) {
-        
-        const path = url.split('corsproxy.io/')[1];
-        return `https://corsproxy.io/https://vixsrc.to/${path}`;
     }
     
     // URL che non hanno bisogno di proxy (CDN dirette)
@@ -213,20 +204,25 @@ function applyCorsProxy(url) {
         url = `https://vixsrc.to${url}`;
     }
     
-    // Controlla se l'URL ha bisogno di encoding
-    const encodedUrl = encodeURIComponent(url);
+    // Assicurati che l'URL sia completo
+    if (!url.startsWith('http')) {
+        url = `https://vixsrc.to/${url}`;
+    }
     
-    // Costruisci l'URL con il proxy
+    // Costruisci l'URL con il proxy selezionato
     if (CURRENT_CORS_PROXY.includes("allorigins")) {
+        const encodedUrl = encodeURIComponent(url);
         return `https://api.allorigins.win/raw?url=${encodedUrl}`;
     } else if (CURRENT_CORS_PROXY.includes("herokuapp")) {
         return `https://cors-anywhere.herokuapp.com/${url}`;
+    } else if (CURRENT_CORS_PROXY.includes("corsproxy.io")) {
+        return `https://corsproxy.io/?${encodeURIComponent(url)}`;
+    } else if (CURRENT_CORS_PROXY.includes("api.codetabs.com/v1/proxy?quest=")) {
+        // CORREZIONE: rimuovi il / davanti a https://
+        return `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`;
     } else {
-        // Per corsproxy.io
-        if (CURRENT_CORS_PROXY.includes("corsproxy.io")) {
-            return `https://corsproxy.io/${url}`;
-        }
-        return `https://${CURRENT_CORS_PROXY}${url}`;
+        // Fallback
+        return `https://corsproxy.io/?${encodeURIComponent(url)}`;
     }
 }
 

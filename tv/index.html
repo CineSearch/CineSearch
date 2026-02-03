@@ -2,10 +2,9 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CineSearch TV</title>
     
     <!-- Font Awesome per icone -->
@@ -36,11 +35,11 @@
     </div>
 
     <!-- Header fisso con controllo focus -->
-    <header id="tv-header" class="tv-header">
-        <div class="tv-logo" data-focus="logo" tabindex="0">
-            <i class="fas fa-tv"></i>
-            <span>CineSearch TV</span>
-        </div>
+<header id="tv-header" class="tv-header">
+<div class="tv-logo-static">
+    <i class="fas fa-tv"></i>
+    <span>CineSearch TV</span>
+</div>
         
         <div class="tv-header-controls">
             <!-- CORS Proxy Selector -->
@@ -50,15 +49,19 @@
             </div>
             
             <!-- Barra di ricerca -->
-            <div class="tv-search-container" data-focus="search">
-                <input type="text" id="tv-search" 
-                       placeholder="🔍 Cerca film, serie TV..." 
-                       tabindex="0"
-                       aria-label="Cerca film o serie TV">
-                <button id="tv-search-btn" class="tv-search-btn" tabindex="0" aria-label="Avvia ricerca">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
+<div class="tv-search-container" data-focus="search" role="search">
+    <input type="text" id="tv-search" 
+           placeholder="🔍 Cerca film, serie TV..." 
+           tabindex="0"
+           aria-label="Cerca film o serie TV"
+           autocorrect="on"
+           autocomplete="on"
+           spellcheck="true"
+           inputmode="text">
+    <button id="tv-search-btn" class="tv-search-btn" tabindex="0" aria-label="Avvia ricerca">
+        <i class="fas fa-search"></i>
+    </button>
+</div>
             
             <!-- Contatore preferiti -->
             <div class="tv-preferiti-counter" id="tv-preferiti-counter" 
@@ -119,37 +122,11 @@
             <div class="tv-hero">
                 <h1 class="tv-hero-title">Benvenuto su CineSearch TV</h1>
                 <p class="tv-hero-subtitle">La tua piattaforma ottimizzata per Smart TV</p>
-                
-                <div class="tv-hero-grid">
-                    <div class="tv-hero-card" data-focus="hero-trending" tabindex="0" onclick="scrollToSection('tv-trending')">
-                        <i class="fas fa-fire"></i>
-                        <h3>🔥 Trending</h3>
-                        <p>I contenuti più popolari</p>
-                    </div>
-                    
-                    <div class="tv-hero-card" data-focus="hero-movies" tabindex="0" onclick="showAllMovies()">
-                        <i class="fas fa-film"></i>
-                        <h3>🎬 Ultimi Film</h3>
-                        <p>Nuove uscite</p>
-                    </div>
-                    
-                    <div class="tv-hero-card" data-focus="hero-series" tabindex="0" onclick="showAllTV()">
-                        <i class="fas fa-tv"></i>
-                        <h3>📺 Ultime Serie</h3>
-                        <p>Episodi recenti</p>
-                    </div>
-                    
-                    <div class="tv-hero-card" data-focus="hero-favorites" tabindex="0" onclick="showPreferiti()">
-                        <i class="fas fa-star"></i>
-                        <h3>⭐ Preferiti</h3>
-                        <p>I tuoi preferiti</p>
-                    </div>
-                </div>
             </div>
 
             <!-- Sezione CONTINUA VISIONE -->
             <section id="tv-continua" class="tv-content-section">
-                <h2 class="tv-section-title">
+                <h2 class="tv-section-title" data-focus="tv-continua-section" tabindex="0">
                     <i class="fas fa-play-circle"></i>
                     Continua la visione
                 </h2>
@@ -174,7 +151,7 @@
 
             <!-- Sezione TRENDING -->
             <section id="tv-trending" class="tv-content-section">
-                <h2 class="tv-section-title">
+                <h2 class="tv-section-title" data-focus="tv-trending-section" tabindex="0">
                     <i class="fas fa-fire"></i>
                     Trending
                 </h2>
@@ -195,7 +172,7 @@
 
             <!-- Sezione FILM IN ONDA -->
             <section id="tv-now-playing" class="tv-content-section">
-                <h2 class="tv-section-title">
+                <h2 class="tv-section-title" data-focus="tv-now-playing-section" tabindex="0">
                     <i class="fas fa-film"></i>
                     Film in onda
                 </h2>
@@ -216,7 +193,7 @@
 
             <!-- Sezione SERIE TV IN ONDA -->
             <section id="tv-on-air" class="tv-content-section">
-                <h2 class="tv-section-title">
+                <h2 class="tv-section-title" data-focus="tv-on-air-section" tabindex="0">
                     <i class="fas fa-tv"></i>
                     Serie TV in onda
                 </h2>
@@ -248,8 +225,16 @@
                     Tutti i Film
                 </h2>
                 
-                <!-- Filtri -->
-                <div class="tv-filters">
+                <!-- Pulsante per mostrare/nascondere filtri -->
+                <button class="tv-filter-toggle-btn" id="tv-movie-filter-toggle" 
+                        data-focus="tv-movie-filter-toggle" tabindex="0" 
+                        onclick="toggleYearFilter('movie')">
+                    <i class="fas fa-filter"></i>
+                    <span id="tv-movie-filter-text">Mostra Filtri Anno</span>
+                </button>
+                
+                <!-- Filtri (nascosti per default) -->
+                <div class="tv-filters" id="tv-movie-filters">
                     <div class="tv-year-filter">
                         <label for="tv-movie-year-min">Anno da:</label>
                         <input type="number" id="tv-movie-year-min" min="1888" max="2030" 
@@ -259,10 +244,12 @@
                         <input type="number" id="tv-movie-year-max" min="1888" max="2030" 
                                placeholder="2025" tabindex="0">
                         
-                        <button class="tv-filter-btn" onclick="applyMovieYearFilter()" tabindex="0">
+                        <button class="tv-filter-btn" onclick="applyMovieYearFilter()" tabindex="0" 
+                                data-focus="tv-movie-apply-filter">
                             Applica
                         </button>
-                        <button class="tv-filter-btn reset" onclick="clearMovieYearFilter()" tabindex="0">
+                        <button class="tv-filter-btn reset" onclick="clearMovieYearFilter()" tabindex="0"
+                                data-focus="tv-movie-reset-filter">
                             Reset
                         </button>
                     </div>
@@ -276,11 +263,13 @@
             <div class="tv-vertical-grid" id="tv-all-movies-grid"></div>
             
             <div class="tv-pagination-controls">
-                <button class="tv-page-btn prev" onclick="prevMoviePage()" tabindex="0" disabled>
+                <button class="tv-page-btn prev" onclick="prevMoviePage()" tabindex="0" disabled
+                        data-focus="tv-movie-prev-page">
                     <i class="fas fa-chevron-left"></i> Precedente
                 </button>
                 <span class="tv-page-info" id="tv-movie-page-info">Pagina 1</span>
-                <button class="tv-page-btn next" onclick="nextMoviePage()" tabindex="0">
+                <button class="tv-page-btn next" onclick="nextMoviePage()" tabindex="0"
+                        data-focus="tv-movie-next-page">
                     Successiva <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
@@ -289,7 +278,7 @@
         <!-- TUTTE LE SERIE TV -->
         <section id="tv-all-series" class="tv-section">
             <div class="tv-grid-header">
-                <button class="tv-back-btn" onclick="showHome()" tabindex="0">
+                <button class="tv-back-btn" onclick="showHome()" tabindex="0" aria-label="Torna alla home">
                     <i class="fas fa-arrow-left"></i>
                     Torna alla Home
                 </button>
@@ -298,20 +287,31 @@
                     Tutte le Serie TV
                 </h2>
                 
-                <div class="tv-filters">
+                <!-- Pulsante per mostrare/nascondere filtri -->
+                <button class="tv-filter-toggle-btn" id="tv-series-filter-toggle" 
+                        data-focus="tv-series-filter-toggle" tabindex="0"
+                        onclick="toggleYearFilter('series')">
+                    <i class="fas fa-filter"></i>
+                    <span id="tv-series-filter-text">Mostra Filtri Anno</span>
+                </button>
+                
+                <!-- Filtri (nascosti per default) -->
+                <div class="tv-filters" id="tv-series-filters">
                     <div class="tv-year-filter">
                         <label for="tv-series-year-min">Anno da:</label>
                         <input type="number" id="tv-series-year-min" min="1888" max="2030" 
-                               placeholder="1888" tabindex="0">
+                               placeholder="1888" tabindex="0" data-focus="tv-series-year-min">
                         
                         <label for="tv-series-year-max">a:</label>
                         <input type="number" id="tv-series-year-max" min="1888" max="2030" 
-                               placeholder="2025" tabindex="0">
+                               placeholder="2025" tabindex="0" data-focus="tv-series-year-max">
                         
-                        <button class="tv-filter-btn" onclick="applySeriesYearFilter()" tabindex="0">
+                        <button class="tv-filter-btn" onclick="applySeriesYearFilter()" tabindex="0"
+                                data-focus="tv-series-apply-filter">
                             Applica
                         </button>
-                        <button class="tv-filter-btn reset" onclick="clearSeriesYearFilter()" tabindex="0">
+                        <button class="tv-filter-btn reset" onclick="clearSeriesYearFilter()" tabindex="0"
+                                data-focus="tv-series-reset-filter">
                             Reset
                         </button>
                     </div>
@@ -325,11 +325,13 @@
             <div class="tv-vertical-grid" id="tv-all-series-grid"></div>
             
             <div class="tv-pagination-controls">
-                <button class="tv-page-btn prev" onclick="prevSeriesPage()" tabindex="0" disabled>
+                <button class="tv-page-btn prev" onclick="prevSeriesPage()" tabindex="0" disabled
+                        data-focus="tv-series-prev-page">
                     <i class="fas fa-chevron-left"></i> Precedente
                 </button>
                 <span class="tv-page-info" id="tv-series-page-info">Pagina 1</span>
-                <button class="tv-page-btn next" onclick="nextSeriesPage()" tabindex="0">
+                <button class="tv-page-btn next" onclick="nextSeriesPage()" tabindex="0"
+                        data-focus="tv-series-next-page">
                     Successiva <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
@@ -338,7 +340,7 @@
         <!-- CATEGORIE -->
         <section id="tv-categories" class="tv-section">
             <div class="tv-grid-header">
-                <button class="tv-back-btn" onclick="showHome()" tabindex="0">
+                <button class="tv-back-btn" onclick="showHome()" tabindex="0" aria-label="Torna alla home">
                     <i class="fas fa-arrow-left"></i>
                     Torna alla Home
                 </button>
@@ -354,7 +356,7 @@
         <!-- PREFERITI -->
         <section id="tv-preferiti" class="tv-section">
             <div class="tv-grid-header">
-                <button class="tv-back-btn" onclick="showHome()" tabindex="0">
+                <button class="tv-back-btn" onclick="showHome()" tabindex="0" aria-label="Torna alla home">
                     <i class="fas fa-arrow-left"></i>
                     Torna alla Home
                 </button>
@@ -379,7 +381,7 @@
         <!-- RISULTATI RICERCA -->
         <section id="tv-search-results" class="tv-section">
             <div class="tv-grid-header">
-                <button class="tv-back-btn" onclick="showHome()" tabindex="0">
+                <button class="tv-back-btn" onclick="showHome()" tabindex="0" aria-label="Torna alla home">
                     <i class="fas fa-arrow-left"></i>
                     Torna alla Home
                 </button>
@@ -404,77 +406,123 @@
         </section>
 
         <!-- PLAYER -->
-        <section id="tv-player" class="tv-section">
-            <div class="tv-player-header">
-                <button class="tv-back-btn" onclick="goBackFromPlayer()" tabindex="0" aria-label="Torna indietro">
-                    <i class="fas fa-arrow-left"></i>
-                    Torna Indietro
-                </button>
-                
-                <div class="tv-player-info">
-                    <h1 id="tv-player-title" class="tv-player-title">Titolo</h1>
-                    <div class="tv-player-meta" id="tv-player-meta">
-                        <span class="tv-meta-year">2024</span>
-                        <span class="tv-meta-rating">⭐ 8.5</span>
-                        <span class="tv-meta-type">Film</span>
-                    </div>
-                </div>
+       <section id="tv-player" class="tv-section">
+    <div class="tv-player-header">
+        <button class="tv-back-btn" onclick="goBackFromPlayer()" tabindex="0" aria-label="Torna indietro"
+                data-focus="tv-player-back-btn">
+            <i class="fas fa-arrow-left"></i>
+            Torna Indietro
+        </button>
+        
+        <div class="tv-player-info">
+            <h1 id="tv-player-title" class="tv-player-title">Titolo</h1>
+            <div class="tv-player-meta" id="tv-player-meta">
+                <span class="tv-meta-year">2024</span>
+                <span class="tv-meta-rating">⭐ 8.5</span>
+                <span class="tv-meta-type">Film</span>
+            </div>
+        </div>
+    </div>
+            <!-- Selezione episodi -->
+        <div class="tv-episode-selector" id="tv-episode-selector">
+            <h3 class="tv-episode-title">
+                <i class="fas fa-list"></i>
+                Seleziona Episodio
+            </h3>
+            
+            <div class="tv-season-selector">
+                <label for="tv-season-select">Stagione:</label>
+                <select id="tv-season-select" tabindex="0" data-focus="tv-season-select"></select>
             </div>
             
-            <div class="tv-player-content">
-                <!-- Video container -->
-                <div class="tv-video-container">
-                    <div id="tv-episode-warning" class="tv-episode-warning">
-                        <i class="fas fa-tv"></i>
-                        <h3>Seleziona un episodio</h3>
-                        <p>Scegli una stagione e un episodio per iniziare</p>
-                    </div>
-                    
-                    <video id="tv-player-video" 
-                           class="video-js vjs-theme-cinesearch-tv vjs-big-play-centered"
-                           controls preload="auto" playsinline crossorigin="anonymous"
-                           tabindex="-1">
-                    </video>
-                    
-                    <div id="tv-loading-overlay" class="tv-loading-overlay">
-                        <div class="tv-loading-spinner"></div>
-                        <div class="tv-loading-text">Caricamento stream...</div>
-                    </div>
-                </div>
-                
-                <!-- Selezione episodi -->
-                <div class="tv-episode-selector" id="tv-episode-selector">
-                    <h3 class="tv-episode-title">
-                        <i class="fas fa-list"></i>
-                        Seleziona Episodio
-                    </h3>
-                    
-                    <div class="tv-season-selector">
-                        <label for="tv-season-select">Stagione:</label>
-                        <select id="tv-season-select" tabindex="0"></select>
-                    </div>
-                    
-                    <div class="tv-episodes-list" id="tv-episodes-list"></div>
-                </div>
+            <div class="tv-episodes-list" id="tv-episodes-list"></div>
+        </div>
+        <!-- Controlli rapidi per TV -->
+    <div class="tv-quick-controls">
+        <button class="tv-quick-btn" onclick="playerSeek(-10)" tabindex="0" aria-label="Indietro 10 secondi"
+                data-focus="tv-quick-backward">
+            <i class="fas fa-backward"></i> 10s
+        </button>
+        <button class="tv-quick-btn" onclick="togglePlayPause()" tabindex="0" aria-label="Play/Pausa"
+                data-focus="tv-quick-playpause">
+            <i class="fas fa-play"></i> Play/Pausa
+        </button>
+        <button class="tv-quick-btn" onclick="playerSeek(30)" tabindex="0" aria-label="Avanti 30 secondi"
+                data-focus="tv-quick-forward">
+            <i class="fas fa-forward"></i> 30s
+        </button>
+        <button class="tv-quick-btn" onclick="toggleFullscreen()" tabindex="0" aria-label="Schermo intero"
+                data-focus="tv-quick-fullscreen">
+            <i class="fas fa-expand"></i> Fullscreen
+        </button>
+    </div>
+    
+    <div class="tv-player-content">
+        <div class="tv-video-container" id="tv-video-container">
+
+            <div id="tv-episode-warning" class="tv-episode-warning">
+                <i class="fas fa-tv"></i>
+                <h3>Seleziona un episodio</h3>
+                <p>Scegli una stagione e un episodio per iniziare</p>
             </div>
-            
-            <!-- Controlli rapidi per TV -->
-            <div class="tv-quick-controls">
-                <button class="tv-quick-btn" onclick="playerSeek(-10)" tabindex="0" aria-label="Indietro 10 secondi">
-                    <i class="fas fa-backward"></i> 10s
-                </button>
-                <button class="tv-quick-btn" onclick="togglePlayPause()" tabindex="0" aria-label="Play/Pausa">
-                    <i class="fas fa-play"></i> Play/Pausa
-                </button>
-                <button class="tv-quick-btn" onclick="playerSeek(30)" tabindex="0" aria-label="Avanti 30 secondi">
-                    <i class="fas fa-forward"></i> 30s
-                </button>
-                <button class="tv-quick-btn" onclick="toggleFullscreen()" tabindex="0" aria-label="Schermo intero">
-                    <i class="fas fa-expand"></i> Fullscreen
-                </button>
+
+            <div class="tv-video-wrapper">
+                <video
+                    id="tv-player-video"
+                    class="video-js vjs-default-skin"
+                    playsinline
+                    preload="auto"
+                    controls
+                ></video>
             </div>
-        </section>
+
+            <div id="tv-loading-overlay" class="tv-loading-overlay">
+                <div class="tv-loading-spinner"></div>
+                <div class="tv-loading-text">Caricamento stream...</div>
+            </div>
+
+        </div>
+        
+
+    </div>
+
+</section>
     </main>
+
+    <!-- Popup per dettagli card -->
+    <div class="tv-popup-backdrop" id="card-popup-backdrop"></div>
+    <div class="tv-card-popup" id="card-popup">
+        <button class="tv-popup-close" onclick="closeCardPopup()" tabindex="0" aria-label="Chiudi"
+                data-focus="tv-popup-close">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="tv-popup-content">
+            <img src="" alt="" class="tv-popup-poster" id="popup-poster">
+            
+            <div class="tv-popup-info">
+                <h2 class="tv-popup-title" id="popup-title"></h2>
+                
+                <div class="tv-popup-meta" id="popup-meta"></div>
+                
+                <div class="tv-popup-overview" id="popup-overview"></div>
+            </div>
+        </div>
+        
+        <div class="tv-popup-buttons">
+            <button class="tv-popup-btn play" onclick="playFromPopup()" tabindex="0" id="popup-play-btn"
+                    data-focus="tv-popup-play">
+                <i class="fas fa-play"></i>
+                Riproduci
+            </button>
+            
+            <button class="tv-popup-btn fav" onclick="toggleFavoriteFromPopup()" tabindex="0" id="popup-fav-btn"
+                    data-focus="tv-popup-fav">
+                <i class="fas fa-star"></i>
+                <span id="popup-fav-text">Aggiungi ai Preferiti</span>
+            </button>
+        </div>
+    </div>
 
     <!-- Footer per TV -->
     <footer class="tv-footer">
@@ -493,24 +541,32 @@
             </div>
             
             <div class="tv-footer-copyright">
-                <p>© 2025 CineSearch TV | v2.0</p>
+        <p>CineSearch Tv v.2.1</p>
+        <p>© 2026 Copyright AIMODS</p>
             </div>
         </div>
     </footer>
+
+    <button class="tv-top-btn" id="tv-top-btn" 
+            onclick="scrollToTop()" 
+            aria-label="Torna all'inizio"
+            data-focus="tv-top-btn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- Notifiche Toast -->
     <div id="tv-toast" class="tv-toast"></div>
 
     <!-- Scripts -->
-    <script src="tv-config.js"></script>
-    <script src="tv-api.js"></script>
-    <script src="tv-navigation.js"></script>
-    <script src="tv-card.js"></script>
-    <script src="tv-player.js"></script>
-    <script src="tv-favorites.js"></script>
-    <script src="tv-search.js"></script>
-    <script src="tv-continua.js"></script>
-    <script src="tv-categories.js"></script>
-    <script src="tv-init.js"></script>
+    <script src="tv-config.js?v=03"></script>
+    <script src="tv-api.js?v=03"></script>
+    <script src="tv-player.js?v=03"></script>
+    <script src="tv-navigation.js?v=03"></script>
+    <script src="tv-card.js?v=03"></script>
+    <script src="tv-favorites.js?v=03"></script>
+    <script src="tv-search.js?v=03"></script>
+    <script src="tv-continua.js?v=03"></script>
+    <script src="tv-categories.js?v=03"></script>
+    <script src="tv-init.js?v=03"></script>
 </body>
 </html>

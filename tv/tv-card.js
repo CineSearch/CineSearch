@@ -7,88 +7,253 @@ class TVCardSystem {
     }
 
     createCard(item, storageKeys = [], isRemovable = false, context = 'carousel') {
-        const cardId = `${this.cardFocusPrefix}${this.cardCounter++}`;
+    const cardId = `${this.cardFocusPrefix}${this.cardCounter++}`;
+    
+    const card = document.createElement('div');
+    card.className = 'tv-card';
+    card.setAttribute('data-focus', cardId);
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', `${item.title || item.name} - ${item.media_type === 'movie' ? 'Film' : 'Serie TV'}`);
+    
+    const mediaType = item.media_type || (item.title ? 'movie' : 'tv');
+    const year = item.release_date?.slice(0, 4) || item.first_air_date?.slice(0, 4) || '—';
+    const rating = item.vote_average?.toFixed(1) || '—';
+    const type = mediaType === 'movie' ? 'Film' : 'Serie TV';
+    
+    const poster = item.poster_path 
+        ? `https://image.tmdb.org/t/p/w500${item.poster_path}`
+        : 'https://via.placeholder.com/500x750?text=No+Image';
+    
+    // Controlla se ha progresso di visione
+    const resumeInfo = this.getResumeInfo(storageKeys);
+    
+    // MODIFICA: Rimossa la stella dai pulsanti della card
+    card.innerHTML = `
+        <img src="${poster}" alt="${item.title || item.name}" class="tv-card-image" loading="lazy">
         
-        const card = document.createElement('div');
-        card.className = 'tv-card';
-        card.setAttribute('data-focus', cardId);
-        card.setAttribute('tabindex', '0');
-        card.setAttribute('role', 'button');
-        card.setAttribute('aria-label', `${item.title || item.name} - ${item.media_type === 'movie' ? 'Film' : 'Serie TV'}`);
-        
-        const mediaType = item.media_type || (item.title ? 'movie' : 'tv');
-        const year = item.release_date?.slice(0, 4) || item.first_air_date?.slice(0, 4) || '—';
-        const rating = item.vote_average?.toFixed(1) || '—';
-        const type = mediaType === 'movie' ? 'Film' : 'Serie TV';
-        
-        const poster = item.poster_path 
-            ? `https://image.tmdb.org/t/p/w500${item.poster_path}`
-            : 'https://via.placeholder.com/500x750?text=No+Image';
-        
-        // Controlla se è nei preferiti
-        const isFavorite = TVFavorites.isFavorite(item);
-        
-        // Controlla se ha progresso di visione
-        const resumeInfo = this.getResumeInfo(storageKeys);
-        
-        card.innerHTML = `
-            <img src="${poster}" alt="${item.title || item.name}" class="tv-card-image" loading="lazy">
-            
-            ${resumeInfo ? `
-                <div class="tv-resume-badge" aria-label="Riprendi da ${resumeInfo.time}">
-                    ${resumeInfo.season ? `S${resumeInfo.season} E${resumeInfo.episode}<br>` : ''}
-                    ⏪ ${resumeInfo.time}
-                </div>
-            ` : ''}
-            
-            <div class="tv-card-overlay">
-                <div class="tv-card-title" aria-hidden="true">
-                    ${item.title || item.name}
-                </div>
-                
-                <div class="tv-card-meta" aria-hidden="true">
-                    <span>${year}</span>
-                    <span>⭐ ${rating}</span>
-                    <span>${type}</span>
-                </div>
-                
-                <div class="tv-card-buttons">
-                    ${isRemovable ? `
-                        <button class="tv-card-btn remove" 
-                                data-action="remove" 
-                                aria-label="Rimuovi dalla visione"
-                                tabindex="-1">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    ` : ''}
-                    
-                    <button class="tv-card-btn fav ${isFavorite ? 'active' : ''}" 
-                            data-action="favorite"
-                            aria-label="${isFavorite ? 'Rimuovi dai preferiti' : 'Aggiungi ai preferiti'}"
-                            tabindex="-1">
-                        <i class="fas fa-star"></i>
-                    </button>
-                </div>
+        ${resumeInfo ? `
+            <div class="tv-resume-badge" aria-label="Riprendi da ${resumeInfo.time}">
+                ${resumeInfo.season ? `S${resumeInfo.season} E${resumeInfo.episode}<br>` : ''}
+                ⏪ ${resumeInfo.time}
             </div>
-        `;
+        ` : ''}
         
-        // Aggiungi event listeners
-        this.setupCardEvents(card, item, isRemovable, storageKeys);
+        <div class="tv-card-overlay">
+            <div class="tv-card-title" aria-hidden="true">
+                ${item.title || item.name}
+            </div>
+            
+            <div class="tv-card-meta" aria-hidden="true">
+                <span>${year}</span>
+                <span>⭐ ${rating}</span>
+                <span>${type}</span>
+            </div>
+            
+            <div class="tv-card-buttons">
+                ${isRemovable ? `
+                    <button class="tv-card-btn remove" 
+                            data-action="remove" 
+                            aria-label="Rimuovi dalla visione"
+                            tabindex="-1">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                ` : ''}
+                
+                <!-- RIMOSSA LA STELLA -->
+            </div>
+        </div>
+    `;
+    
+    // Aggiungi event listeners
+    this.setupCardEvents(card, item, isRemovable, storageKeys);
+    
+    // Registra la card
+    this.cards.set(cardId, {
+        element: card,
+        item: item,
+        context: context
+    });
+    
+    // Aggiungi alla navigazione
+    if (window.tvNavigation) {
+        window.tvNavigation.addDynamicFocusElement(card, cardId);
+    }
+    
+    return card;
+}
+
+// Aggiungi queste nuove funzioni alla classe TVCardSystem:
+
+// Sostituisci la funzione showCardPopup con questa:
+
+showCardPopup(item) {
+    // Salva l'item in modo sicuro
+    try {
+        // Serializza e deserializza per assicurare una copia pulita
+        const itemClone = JSON.parse(JSON.stringify({
+            id: item.id,
+            title: item.title || item.name,
+            name: item.name || item.title,
+            media_type: item.media_type || (item.title ? 'movie' : 'tv'),
+            release_date: item.release_date,
+            first_air_date: item.first_air_date,
+            vote_average: item.vote_average,
+            overview: item.overview,
+            poster_path: item.poster_path,
+            backdrop_path: item.backdrop_path
+        }));
         
-        // Registra la card
-        this.cards.set(cardId, {
-            element: card,
-            item: item,
-            context: context
-        });
+        // Salva nello storage con un ID univoco
+        const popupId = 'current_popup_item_' + Date.now();
+        TVStorage.set(popupId, itemClone, 300000); // 5 minuti di scadenza
+        window.currentPopupItemId = popupId;
         
-        // Aggiungi alla navigazione
-        if (window.tvNavigation) {
-            window.tvNavigation.addDynamicFocusElement(card, cardId);
+        // Salva anche l'ID della card per ripristinare il focus
+        const card = event?.currentTarget;
+        if (card) {
+            const cardFocusId = card.getAttribute('data-focus');
+            if (cardFocusId) {
+                window.currentPopupCardId = cardFocusId;
+            }
         }
         
-        return card;
+        // Aggiorna contenuto del popup
+        this.updatePopupContent(itemClone);
+        
+        // Mostra popup e backdrop
+        document.getElementById('card-popup').classList.add('active');
+        document.getElementById('card-popup-backdrop').classList.add('active');
+        
+        // Focus sul pulsante play
+        setTimeout(() => {
+            document.getElementById('popup-play-btn').focus();
+        }, 100);
+        
+        // Blocca scroll dello sfondo
+        document.body.style.overflow = 'hidden';
+        
+    } catch (error) {
+        console.error('Error showing card popup:', error);
+        showToast('Errore nell\'apertura del popup', 'error');
     }
+}
+
+// Aggiungi questa nuova funzione:
+
+updatePopupContent(item) {
+    const title = item.title || item.name;
+    const year = item.release_date?.slice(0, 4) || item.first_air_date?.slice(0, 4) || '—';
+    const rating = item.vote_average?.toFixed(1) || '—';
+    const type = item.media_type === 'movie' ? 'Film' : 'Serie TV';
+    const overview = item.overview || 'Nessuna descrizione disponibile.';
+    const poster = item.poster_path 
+        ? `https://image.tmdb.org/t/p/w500${item.poster_path}`
+        : 'https://via.placeholder.com/500x750?text=No+Image';
+    
+    // Aggiorna DOM
+    const titleElement = document.getElementById('popup-title');
+    const posterElement = document.getElementById('popup-poster');
+    const overviewElement = document.getElementById('popup-overview');
+    const metaElement = document.getElementById('popup-meta');
+    
+    if (titleElement) titleElement.textContent = title;
+    if (posterElement) {
+        posterElement.src = poster;
+        posterElement.alt = title;
+    }
+    if (overviewElement) overviewElement.textContent = overview;
+    
+    if (metaElement) {
+        const metaHtml = `
+            <div class="tv-popup-meta-item">${year}</div>
+            <div class="tv-popup-meta-item">⭐ ${rating}</div>
+            <div class="tv-popup-meta-item">${type}</div>
+        `;
+        metaElement.innerHTML = metaHtml;
+    }
+    
+    // Aggiorna stato pulsante preferiti
+    const isFavorite = TVFavorites.isFavorite(item);
+    const favBtn = document.getElementById('popup-fav-btn');
+    const favText = document.getElementById('popup-fav-text');
+    
+    if (favBtn && favText) {
+        if (isFavorite) {
+            favBtn.classList.add('active');
+            favText.textContent = 'Rimuovi dai Preferiti';
+        } else {
+            favBtn.classList.remove('active');
+            favText.textContent = 'Aggiungi ai Preferiti';
+        }
+    }
+}
+
+// Modifica la funzione handleCardClick:
+
+handleCardClick(item, card) {
+    try {
+        // Mostra un'animazione di click
+        if (card) {
+            card.classList.add('tv-card-clicked');
+            setTimeout(() => card.classList.remove('tv-card-clicked'), 300);
+        }
+        
+        // Mostra il popup
+        this.showCardPopup(item);
+        
+    } catch (error) {
+        console.error('Error handling card click:', error);
+        // Fallback: apri direttamente il player
+        openTVPlayer(item);
+    }
+}
+
+// Modifica la funzione closeCardPopup:
+
+closeCardPopup() {
+    try {
+        const popup = document.getElementById('card-popup');
+        const backdrop = document.getElementById('card-popup-backdrop');
+        
+        if (popup) popup.classList.remove('active');
+        if (backdrop) backdrop.classList.remove('active');
+        
+        // Ripristina scroll
+        document.body.style.overflow = '';
+        
+        // Pulisci lo storage
+        if (window.currentPopupItemId) {
+            TVStorage.remove(window.currentPopupItemId);
+            delete window.currentPopupItemId;
+        }
+        
+        // Ripristina focus se abbiamo salvato l'ID della card
+        if (window.currentPopupCardId && window.tvNavigation) {
+            // Verifica che la card esista ancora
+            const cardExists = document.querySelector(`[data-focus="${window.currentPopupCardId}"]`);
+            if (cardExists) {
+                setTimeout(() => {
+                    window.tvNavigation.setFocus(window.currentPopupCardId);
+                }, 50);
+            } else {
+                // Fallback al primo elemento focusabile
+                const firstFocusable = document.querySelector('[data-focus]');
+                if (firstFocusable) {
+                    const firstFocusId = firstFocusable.getAttribute('data-focus');
+                    window.tvNavigation.setFocus(firstFocusId);
+                }
+            }
+        }
+        
+        // Pulisci variabili
+        delete window.currentPopupCardId;
+        
+    } catch (error) {
+        console.error('Error closing popup:', error);
+    }
+}
+
 
     getResumeInfo(storageKeys) {
         for (const key of storageKeys) {
@@ -110,68 +275,39 @@ class TVCardSystem {
     }
 
     setupCardEvents(card, item, isRemovable, storageKeys) {
-        // Click principale sulla card
-        card.addEventListener('click', () => {
-            this.handleCardClick(item);
-        });
-        
-        // Gestione tasti sulla card
-        card.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                this.handleCardClick(item);
-            }
-        });
-        
-        // Pulsante preferiti
-        const favBtn = card.querySelector('[data-action="favorite"]');
-        if (favBtn) {
-            favBtn.addEventListener('click', (e) => {
+    // Click principale sulla card
+    card.addEventListener('click', (e) => {
+        this.handleCardClick(item, card);
+    });
+    
+    // Gestione tasti sulla card
+    card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.handleCardClick(item, card);
+        }
+    });
+    
+    // Pulsante rimuovi (solo per "Continua visione")
+    if (isRemovable) {
+        const removeBtn = card.querySelector('[data-action="remove"]');
+        if (removeBtn) {
+            removeBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                this.toggleFavorite(card, item, favBtn);
+                this.handleRemove(card, item, storageKeys);
             });
             
-            // Supporto per telecomando
-            favBtn.addEventListener('keydown', (e) => {
+            removeBtn.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
                     e.stopPropagation();
-                    this.toggleFavorite(card, item, favBtn);
+                    this.handleRemove(card, item, storageKeys);
                 }
             });
         }
-        
-        // Pulsante rimuovi (solo per "Continua visione")
-        if (isRemovable) {
-            const removeBtn = card.querySelector('[data-action="remove"]');
-            if (removeBtn) {
-                removeBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    this.handleRemove(card, item, storageKeys);
-                });
-                
-                removeBtn.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        this.handleRemove(card, item, storageKeys);
-                    }
-                });
-            }
-        }
     }
+}
 
-    handleCardClick(item) {
-        // Aggiungi animazione di click
-        const card = event?.currentTarget;
-        if (card) {
-            card.classList.add('tv-card-clicked');
-            setTimeout(() => card.classList.remove('tv-card-clicked'), 300);
-        }
-        
-        // Apri il player
-        openTVPlayer(item);
-    }
 
     toggleFavorite(card, item, favBtn) {
         const isFavorite = TVFavorites.isFavorite(item);
@@ -350,7 +486,78 @@ function updatePreferitiCounter() {
         counter.textContent = count;
     }
 }
+function playFromPopup() {
+    try {
+        if (!window.currentPopupItemId) {
+            throw new Error('No popup item ID found');
+        }
+        
+        // Recupera l'item dallo storage
+        const item = TVStorage.get(window.currentPopupItemId);
+        if (!item) {
+            throw new Error('Popup item not found in storage');
+        }
+        
+        // Chiudi il popup prima
+        closeCardPopup();
+        
+        // Aspetta un po' per la chiusura del popup
+        setTimeout(() => {
+            // Apri il player
+            openTVPlayer(item);
+        }, 150);
+        
+    } catch (error) {
+        console.error('Error playing from popup:', error);
+        showToast('Errore nell\'apertura del player', 'error');
+        closeCardPopup();
+    }
+}
 
+function toggleFavoriteFromPopup() {
+    try {
+        if (!window.currentPopupItemId) {
+            throw new Error('No popup item ID found');
+        }
+        
+        const item = TVStorage.get(window.currentPopupItemId);
+        if (!item) {
+            throw new Error('Popup item not found in storage');
+        }
+        
+        const favBtn = document.getElementById('popup-fav-btn');
+        const favText = document.getElementById('popup-fav-text');
+        const isFavorite = TVFavorites.isFavorite(item);
+        
+        if (isFavorite) {
+            TVFavorites.remove(item);
+            if (favBtn) favBtn.classList.remove('active');
+            if (favText) favText.textContent = 'Aggiungi ai Preferiti';
+            showToast('Rimosso dai preferiti', 'success');
+        } else {
+            TVFavorites.add(item);
+            if (favBtn) favBtn.classList.add('active');
+            if (favText) favText.textContent = 'Rimuovi dai Preferiti';
+            showToast('Aggiunto ai preferiti', 'success');
+        }
+        
+        // Aggiorna contatore
+        updatePreferitiCounter();
+        
+    } catch (error) {
+        console.error('Error toggling favorite from popup:', error);
+        showToast('Errore nella gestione dei preferiti', 'error');
+    }
+}
+
+function closeCardPopup() {
+    tvCardSystem.closeCardPopup();
+}
+
+// Esponi le nuove funzioni globali
+window.playFromPopup = playFromPopup;
+window.toggleFavoriteFromPopup = toggleFavoriteFromPopup;
+window.closeCardPopup = closeCardPopup;
 // Esponi al global scope
 window.tvCardSystem = tvCardSystem;
 window.createTVCard = createTVCard;

@@ -33,7 +33,7 @@ function loadSavedCors() {
     } catch (e) {
         console.error("Errore nel caricamento del CORS salvato:", e);
     }
-    return "corsproxy.io/"; // Default
+    return "api.codetabs.com/v1/proxy?quest="; // Default
 }
 
 // AGGIUNTA: Salva CORS nel localStorage

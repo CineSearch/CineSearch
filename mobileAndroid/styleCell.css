@@ -630,79 +630,7 @@ body {
 }
 
 /* ============ QUALITY SELECTOR FIXED ============ */
-.video-js .vjs-quality-selector {
-    font-size: 1.2em;
-    cursor: pointer;
-    display: flex !important;
-    align-items: center !important;
-    margin-left: 10px !important;
-}
 
-.vjs-quality-selector .vjs-icon-placeholder {
-    font-family: VideoJS !important;
-    font-size: 1.5em !important;
-    line-height: 1.67 !important;
-    width: 100% !important;
-    height: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-/* Icona HD personalizzata */
-.vjs-quality-selector .vjs-icon-placeholder:before {
-    content: 'HD' !important;
-    font-family: inherit !important;
-    font-weight: bold !important;
-    font-size: 0.8em !important;
-}
-
-/* Menu qualità - Posizionamento CORRETTO */
-.vjs-quality-selector .vjs-menu {
-    width: 150px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    bottom: 100% !important;
-    margin-bottom: 5px !important;
-    z-index: 100 !important;
-    position: absolute !important;
-}
-
-/* Contenuto menu */
-.vjs-quality-selector .vjs-menu-content {
-    background: rgba(0, 0, 0, 0.95) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    border-radius: 8px !important;
-    padding: 8px 0 !important;
-    backdrop-filter: blur(10px) !important;
-    overflow: hidden !important;
-}
-
-/* Elementi menu */
-.vjs-quality-selector .vjs-menu-item {
-    color: #fff !important;
-    font-size: 13px !important;
-    padding: 10px 15px !important;
-    cursor: pointer !important;
-    text-align: center !important;
-    white-space: nowrap !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-    transition: all 0.2s ease !important;
-}
-
-.vjs-quality-selector .vjs-menu-item:last-child {
-    border-bottom: none !important;
-}
-
-.vjs-quality-selector .vjs-menu-item:hover {
-    background: rgba(229, 9, 20, 0.5) !important;
-}
-
-.vjs-quality-selector .vjs-menu-item.vjs-selected {
-    background: #e50914 !important;
-    color: white !important;
-    font-weight: bold !important;
-}
 
 /* Riordina elementi della control bar */
 .vjs-control-bar {
@@ -1050,15 +978,7 @@ body {
     .video-js .vjs-volume-panel {
         width: 40px;
     }
-    
-    .vjs-quality-selector .vjs-menu {
-        width: 100px;
-    }
-    
-    .vjs-quality-selector .vjs-menu-item {
-        font-size: 11px;
-        padding: 5px 8px;
-    }
+
     
     .video-js .vjs-playback-rate {
         display: none;
@@ -1115,27 +1035,8 @@ body {
     display: none !important;
 }
 
-/* ============ PLAYER CONTROLS IMPROVEMENT ============ */
-.video-js .vjs-control-bar .vjs-quality-selector {
-    order: 8 !important;
-    margin-left: auto !important;
-}
-
-.vjs-play-toggle { order: 1 !important; }
-.vjs-volume-panel { order: 2 !important; }
-.vjs-current-time { order: 3 !important; }
-.vjs-time-divider { order: 4 !important; }
-.vjs-duration { order: 5 !important; }
-.vjs-progress-control { order: 6 !important; flex: 1 !important; }
-.vjs-playback-rate { order: 7 !important; }
-.vjs-quality-selector { order: 8 !important; }
-.vjs-fullscreen-toggle { order: 9 !important; }
-/* Aggiungi questi stili alla fine del file */
 
 /* ============ QUALITY SELECTOR BADGE ============ */
-.vjs-quality-selector .vjs-icon-placeholder {
-    position: relative;
-}
 
 /* Pallino indicatore qualità attiva */
 .quality-badge {
@@ -1153,6 +1054,10 @@ body {
     justify-content: center;
     color: white;
 }
+.vjs-quality-selector .vjs-menu-button {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+}
 
 /* Testo qualità corrente */
 .current-quality-label {
@@ -1163,31 +1068,6 @@ body {
     border-radius: 3px;
     margin-left: 5px;
     font-weight: bold;
-}
-
-/* Menu qualità migliorato */
-.vjs-quality-selector .vjs-menu-content {
-    background: rgba(0, 0, 0, 0.95) !important;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    min-width: 120px;
-}
-
-.vjs-quality-selector .vjs-menu-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 12px;
-    font-size: 13px;
-}
-
-/* Indicatore qualità corrente nel menu */
-.vjs-quality-selector .vjs-menu-item.vjs-selected::after {
-    content: '✓';
-    color: #e50914;
-    font-weight: bold;
-    margin-left: 10px;
 }
 
 /* Fullscreen button styling */
@@ -1201,17 +1081,6 @@ body {
     display: flex !important;
     align-items: center !important;
 }
-
-.vjs-play-toggle { order: 1 !important; }
-.vjs-volume-panel { order: 2 !important; }
-.vjs-current-time { order: 3 !important; }
-.vjs-time-divider { order: 4 !important; }
-.vjs-duration { order: 5 !important; }
-.vjs-progress-control { order: 6 !important; flex: 1 !important; }
-.vjs-playback-rate { order: 7 !important; }
-.vjs-quality-selector { order: 8 !important; }
-.vjs-fullscreen-toggle { order: 9 !important; }
-
 /* Nascondi elementi duplicati */
 .video-js .vjs-remaining-time {
     display: none !important;

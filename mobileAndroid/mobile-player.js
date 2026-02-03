@@ -130,19 +130,26 @@ async function playItemMobile(id, type, season = null, episode = null) {
                 nativeVideoTracks: false,
                 nativeTextTracks: false
             },
-            controlBar: {
-                children: [
-                    'playToggle',
-                    'volumePanel',
-                    'currentTimeDisplay',
-                    'timeDivider',
-                    'durationDisplay',
-                    'progressControl',
-                    'remainingTimeDisplay',
-                    'playbackRateMenuButton',
-                    'qualitySelector',
-                    'fullscreenToggle',
-                ],
+      controlBar: {
+        volumePanel: {
+          inline: false
+        },
+        children: [
+          "playToggle",
+          "volumePanel",
+          "currentTimeDisplay",
+          "timeDivider",
+          "durationDisplay",
+          "progressControl", // ASSICURATI CHE SIA PRESENTE
+          "remainingTimeDisplay",
+          "playbackRateMenuButton",
+          "chaptersButton",
+          "descriptionsButton",
+          "subsCapsButton",
+          "audioTrackButton",
+          "qualitySelector",
+          "fullscreenToggle",
+        ],
             },
             userActions: {
                 hotkeys: true
@@ -150,20 +157,14 @@ async function playItemMobile(id, type, season = null, episode = null) {
         };
 
         mobilePlayer = videojs('mobile-player-video', playerOptions);
-        
         mobilePlayer.src({
             src: proxiedM3u8Url,
             type: 'application/x-mpegURL',
         });
-        
+        mobilePlayer.hlsQualitySelector();
         mobilePlayer.ready(() => {
             showMobileLoading(false);
             // console.log('✅ Player ready - fonte caricata');
-            
-            setTimeout(() => {
-                initVideoJsPlugins();
-            }, 1000);
-            
             const progressTracker = trackVideoProgressMobile(
                 currentMobileItem.id,
                 currentMobileItem.media_type || (currentMobileItem.title ? 'movie' : 'tv'),
@@ -193,130 +194,6 @@ async function playItemMobile(id, type, season = null, episode = null) {
         console.error('Errore riproduzione mobile:', error);
         showMobileLoading(false);
         showMobileError(`Impossibile riprodurre: ${error.message}`);
-    }
-}
-
-function initVideoJsPlugins() {
-    // console.log('Inizializzazione plugin Video.js...');
-    
-    try {
-        if (typeof videojs.getPlugin('hlsQualitySelector') !== 'undefined') {
-            // console.log('✅ Plugin qualità disponibile');
-            
-            if (!videojs.getComponent('HlsQualitySelector')) {
-                videojs.registerPlugin('hlsQualitySelector', window.videojsHlsQualitySelector);
-                // console.log('✅ Plugin qualità registrato');
-            }
-            
-            mobilePlayer.hlsQualitySelector({
-                displayCurrentQuality: true,
-                placementIndex: 8,
-                vjsIconClass: 'vjs-icon-cog'
-            });
-            
-            // console.log('✅ Plugin qualità inizializzato');
-
-            setTimeout(() => {
-                forceQualitySelectorDisplay();
-            }, 500);
-        } else {
-            console.warn('⚠️ Plugin qualità non disponibile, creo manualmente');
-            createManualQualitySelector();
-        }
-        
-        setTimeout(() => {
-            if (mobilePlayer && mobilePlayer.audioTracks) {
-                extractAudioTracks();
-            }
-        }, 1000);
-        
-        setTimeout(() => {
-            if (mobilePlayer && mobilePlayer.textTracks) {
-                extractSubtitles();
-            }
-        }, 1500);
-        
-    } catch (error) {
-        console.error('Errore inizializzazione plugin:', error);
-    }
-}
-
-function forceQualitySelectorDisplay() {
-    // console.log('Forzando visualizzazione selettore qualità...');
-    
-    try {
-        const controlBar = mobilePlayer.controlBar;
-        
-        if (!controlBar.getChild('QualitySelector')) {
-            // console.log('Creando pulsante qualità manualmente...');
-            
-            const qualityButton = videojs.dom.createEl('button', {
-                className: 'vjs-quality-selector vjs-control vjs-button',
-                innerHTML: '<span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text">Qualità</span>',
-                title: 'Seleziona qualità'
-            });
-            
-            const icon = qualityButton.querySelector('.vjs-icon-placeholder');
-            icon.style.fontFamily = 'VideoJS';
-            icon.style.fontSize = '1.5em';
-            
-            const menu = videojs.dom.createEl('div', {
-                className: 'vjs-menu vjs-quality-menu'
-            });
-            
-            const menuContent = videojs.dom.createEl('ul', {
-                className: 'vjs-menu-content',
-                role: 'menu'
-            });
-            
-            const qualities = ['Auto', '720p', '1080p', '480p', '360p'];
-            qualities.forEach(quality => {
-                const item = videojs.dom.createEl('li', {
-                    className: 'vjs-menu-item',
-                    innerHTML: quality,
-                    role: 'menuitemradio',
-                    tabIndex: -1
-                });
-                
-                item.addEventListener('click', () => {
-                    // console.log('Qualità selezionata:', quality);
-                });
-                
-                menuContent.appendChild(item);
-            });
-            
-            menu.appendChild(menuContent);
-            qualityButton.appendChild(menu);
-            
-            qualityButton.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const isOpen = menu.style.display === 'block';
-                menu.style.display = isOpen ? 'none' : 'block';
-            });
-            
-            document.addEventListener('click', () => {
-                menu.style.display = 'none';
-            });
-            
-            const fullscreenBtn = controlBar.getChild('fullscreenToggle');
-            if (fullscreenBtn && fullscreenBtn.el()) {
-                controlBar.el().insertBefore(qualityButton, fullscreenBtn.el());
-            } else {
-                controlBar.el().appendChild(qualityButton);
-            }
-            
-            // console.log('✅ Pulsante qualità creato manualmente');
-        } else {
-            // console.log('✅ Pulsante qualità già presente');
-        }
-        
-        if (controlBar.el()) {
-            controlBar.el().style.display = 'flex';
-            controlBar.el().style.opacity = '1';
-        }
-        
-    } catch (error) {
-        console.error('Errore forzatura visualizzazione:', error);
     }
 }
 
@@ -712,7 +589,7 @@ function changeMobileQuality(qualityIndex) {
             const index = parseInt(qualityIndex);
             if (!isNaN(index) && index >= 0 && index < availableQualities.length) {
                 vhs.playlists.media(index);
-                // console.log(`Qualità cambiata a: ${availableQualities[index].label}`);
+                console.log(`Qualità cambiata a: ${availableQualities[index].label}`);
             }
         }
         

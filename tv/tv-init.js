@@ -1,9 +1,11 @@
 // Inizializzazione completa per TV
 async function initTVApp() {
     try {
+        cleanupPopupStorage();
+        
         // Mostra loading iniziale
         showLoading(true, 'Inizializzazione TV App...');
-        
+                
         // Inizializza configurazione
         await initTVConfig();
         
@@ -114,6 +116,43 @@ function setupTVEventListeners() {
         resizeTimeout = setTimeout(() => {
             handleTVResize();
         }, 250);
+    });
+
+    // Observer per aggiornare la navigazione quando vengono aggiunte nuove card
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                // Se sono state aggiunte nuove card, refresh la navigazione
+                setTimeout(() => {
+                    if (tvNavigation && TV_STATE.currentSection === 'home') {
+                        tvNavigation.refreshNavigationMap();
+                    }
+                }, 500);
+            }
+        });
+    });
+    
+    // Click sul backdrop per chiudere il popup
+    const backdrop = document.getElementById('card-popup-backdrop');
+    if (backdrop) {
+        backdrop.addEventListener('click', closeCardPopup);
+    }
+    
+    // Tasti Escape/Backspace per chiudere popup
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' || e.key === 'Backspace') {
+            const popup = document.getElementById('card-popup');
+            if (popup && popup.classList.contains('active')) {
+                e.preventDefault();
+                e.stopPropagation();
+                closeCardPopup();
+            }
+        }
+    });
+
+    // Osserva i caroselli
+    document.querySelectorAll('.tv-carousel').forEach(carousel => {
+        observer.observe(carousel, { childList: true });
     });
 }
 
@@ -319,6 +358,16 @@ async function applyMovieYearFilter() {
     
     // Ricarica film
     loadTVMovies(1);
+    
+    const filters = document.getElementById('tv-movie-filters');
+    const toggleBtn = document.getElementById('tv-movie-filter-toggle');
+    const textElement = document.getElementById('tv-movie-filter-text');
+    
+    if (filters && toggleBtn && textElement) {
+        filters.classList.remove('active');
+        toggleBtn.classList.remove('active');
+        textElement.textContent = 'Mostra Filtri Anno';
+    }
 }
 
 function clearMovieYearFilter() {
@@ -496,6 +545,76 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 500);
 });
 
+// Aggiungi questa funzione per pulire lo storage dei popup
+function cleanupPopupStorage() {
+    // Pulisci tutti gli item popup scaduti
+    const now = Date.now();
+    const keysToRemove = [];
+    
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && key.startsWith('tv_current_popup_item_')) {
+            try {
+                const data = JSON.parse(localStorage.getItem(key));
+                if (data.expires && data.expires < now) {
+                    keysToRemove.push(key);
+                }
+            } catch (e) {
+                keysToRemove.push(key);
+            }
+        }
+    }
+    
+    keysToRemove.forEach(key => {
+        localStorage.removeItem(key);
+    });
+    
+    // Pulisci anche le variabili globali
+    if (window.currentPopupItemId) {
+        TVStorage.remove(window.currentPopupItemId);
+        delete window.currentPopupItemId;
+    }
+    delete window.currentPopupCardId;
+    delete window.currentPopupItem;
+}
+
+function toggleYearFilter(type) {
+    const filtersId = `tv-${type}-filters`;
+    const toggleBtnId = `tv-${type}-filter-toggle`;
+    const textElementId = `tv-${type}-filter-text`;
+    
+    const filters = document.getElementById(filtersId);
+    const toggleBtn = document.getElementById(toggleBtnId);
+    const textElement = document.getElementById(textElementId);
+    
+    if (filters && toggleBtn && textElement) {
+        if (filters.classList.contains('active')) {
+            // Nascondi filtri
+            filters.classList.remove('active');
+            toggleBtn.classList.remove('active');
+            textElement.textContent = 'Mostra Filtri Anno';
+            
+            // Focus sul pulsante toggle
+            if (window.tvNavigation) {
+                window.tvNavigation.setFocus(toggleBtnId);
+            }
+        } else {
+            // Mostra filtri
+            filters.classList.add('active');
+            toggleBtn.classList.add('active');
+            textElement.textContent = 'Nascondi Filtri';
+            
+            // Focus sul primo input
+            setTimeout(() => {
+                const firstInput = filters.querySelector('input[type="number"]');
+                if (firstInput && window.tvNavigation) {
+                    window.tvNavigation.setFocus(firstInput.id);
+                }
+            }, 100);
+        }
+    }
+}
+
 // Esponi funzioni globali
 window.loadTVMovies = loadTVMovies;
 window.loadTVSeries = loadTVSeries;
@@ -507,3 +626,4 @@ window.applySeriesYearFilter = applySeriesYearFilter;
 window.clearSeriesYearFilter = clearSeriesYearFilter;
 window.nextSeriesPage = nextSeriesPage;
 window.prevSeriesPage = prevSeriesPage;
+window.toggleYearFilter = toggleYearFilter;
