@@ -1,12 +1,14 @@
 {
-  "version": "1.3",
+  "version": "1.4",
   "releaseNotes": [
-    "Card più grandi per maggiore visibilità",
-    "Inserimento anno di uscita film /serietv sulla card",
-    "Filtro per anno cambiata icona",
-    "Ricerca a griglia",
-    "Una volta completata la visione di un film, questo viene eliminato dalla lista “Continua a guardare\"",
-    "Fix ricerca per Google TV"
+    "1) Aggiunto il Tema scuro (si trova su impostazioni)",
+    "2) Fix audio/video fuori sincrono su androidtv",
+    "3) Aggiunto avviso se un episodio non è ancora disponibile (accade con le nuove stagioni)",
+    "4) Aggiunta suddivisione in Home per HBO, Disney ecc..",
+    "5) Fix ricerca film/sereietv su androidtv (con invio da telecomando e da tastiera a schermo)",
+    "6) Fix ricerca con comando vocale su androidtv",
+    "7) Fix consenso automatico (anche in caso di \"nego il consenso\") su AndroidTV e su GoogleTV per il microfono",
+    "8) Fix standby schermo per inattività durante il video (per mobile)"
   ],
   "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk"
 }
