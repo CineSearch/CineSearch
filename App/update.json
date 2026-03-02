@@ -1,14 +1,11 @@
 {
-  "version": "1.4",
+  "version": "1.7",
   "releaseNotes": [
-    "1) Aggiunto il Tema scuro (si trova su impostazioni)",
-    "2) Fix audio/video fuori sincrono su androidtv",
-    "3) Aggiunto avviso se un episodio non è ancora disponibile (accade con le nuove stagioni)",
-    "4) Aggiunta suddivisione in Home per HBO, Disney ecc..",
-    "5) Fix ricerca film/sereietv su androidtv (con invio da telecomando e da tastiera a schermo)",
-    "6) Fix ricerca con comando vocale su androidtv",
-    "7) Fix consenso automatico (anche in caso di \"nego il consenso\") su AndroidTV e su GoogleTV per il microfono",
-    "8) Fix standby schermo per inattività durante il video (per mobile)"
+    "Fix tasto installa non cliccabile su Google TV",
+    "Fix ricerca su Android TV",
+    "Aggiunta Sezione anime (attivabile da impostazioni in TV, da mobile in Home)",
+    "Fix logica popup",
+    "Fix banner fuori dai margini"
   ],
   "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk"
 }
