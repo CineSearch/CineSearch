@@ -1,11 +1,7 @@
 {
-  "version": "1.7",
+  "version": "1.8",
   "releaseNotes": [
-    "Fix tasto installa non cliccabile su Google TV",
-    "Fix ricerca su Android TV",
-    "Aggiunta Sezione anime (attivabile da impostazioni in TV, da mobile in Home)",
-    "Fix logica popup",
-    "Fix banner fuori dai margini"
+    "Fix ricerca per GoogleTV (crash)"
   ],
   "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk"
 }
