@@ -1,7 +1,10 @@
 {
-  "version": "1.8",
+  "version": "1.9",
   "releaseNotes": [
-    "Fix ricerca per GoogleTV (crash)"
+    "-Fix ricerca googletv (ritornava alla home)",
+    "-Dimensione testo descrizione personalizzabile da impostazioni",
+    "-Sezione \"Tutti i film\" \"Tutte le serieTV\", \"Categorie\" non più a 5 colonne ma a 4 per visualizzarle tutte sullo schermo (TV)",
+    "-Dimensione card regolabile (mobile)"
   ],
   "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk"
 }
