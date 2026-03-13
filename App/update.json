@@ -1,18 +1,7 @@
 {
-  "version": "2.3",
+  "version": "2.4",
   "releaseNotes": [
-    "-  Aggiunta spunta sugli Episodi - Stagioni già visti/completati",
-    "-  Aggiunto \"-\" sulla stagione ed episodio in atto",
-    "-  Ripristinato icona microfono (AndroidTV e GoogleTV)",
-    "-  Aggiunto sincronizzazione tra dispositivi ( -> impostazioni)",
-    "-  Sezione ANIME inserito filtro ITA/GLOBAL",
-    "-  Aggiunta animazione popup",
-    "-  Aggiunto Server 2 con disponibilità di sottotitoli e audio in più lingue (se disponibili dalla fonte)",
-    "-  Aggiunta sottotitoli di OpenSubtitles",
-    "-  Icona rinnovata (grazie Lolly Pop)",
-    "-  Film/Serie tv con tag \"Novità\"",
-    "-  Sotto la trama aggiunto sezione \"cast\" e \"titoli simili\"",
-    "-  In \"continua a guardare\" presenza di barra di progressione nella parte bassa della copertina"
+    "-  Fix app su Firestick 1°GEN"
   ],
   "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk"
 }
