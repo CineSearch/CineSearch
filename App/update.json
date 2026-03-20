@@ -1,21 +1,7 @@
 {
-  "version": "2.8",
+  "version": "2.9",
   "releaseNotes": [
-    "- Server di Fallback per la Ricerca di Film e Serie TV",
-    "- Tag \"Già Visto\" su Contenuti già Conclusi",
-    "- Suddivisione Film e SerieTV per Provider (Netflix, Prime, ...)",
-    "- Aggiunta Sincronizzazione tra TV con Inserimento Codice",
-    "- Fix Card Tagliate Fuori dai Bordi",
-    "- Opzione Player Esterno su Mobile",
-    "- Opzione Cambio Colore Sfondo e Menu con Colore Personalizzato",
-    "- Fix Sub da OpenSubititles",
-    "- Fix Design Dialogo di Conferma",
-    "- Caricamento Altri Contenuti Anticipato",
-    "- Rimosso Effetto Scuro su Contenuti non Selezionati",
-    "- Prima Installazione su TV: Aggiunto Caricamento in Home",
-    "- Aggiunta modalità TV",
-    "- Aggiunta modalità PiP (mobile)",
-    "- Aggiunta card alternativa (TV)"
+    "- Vari fix codice"
   ],
   "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk"
 }
