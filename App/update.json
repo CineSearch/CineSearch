@@ -1,7 +1,8 @@
 {
-  "version": "2.9",
+  "version": "2.9.2",
   "releaseNotes": [
-    "- Vari fix codice"
+    "- Fix selettore bianco qualità su Firesick",
+    "- Fix filtro anno"
   ],
   "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk"
 }
