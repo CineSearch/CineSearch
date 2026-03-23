@@ -1,0 +1,10 @@
+#EXTM3U
+
+#EXTINF:-1 tvg-id="SkySportF1.it" tvg-name="Sky Sport F1 FHD" tvg-logo="http://service.myvisio.life:80/images/0f4c797d14c5c64cb7e8fd7ed5e9cd94.png" group-title="Sport",Sky Sport F1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/4497.ts
+
+#EXTINF:-1 tvg-id="SkySportMotoGP.it" tvg-name="Sky Sport MotoGP FHD" tvg-logo="http://service.myvisio.life:80/images/314a9a576595b9e7aa5bd1c8de1adf39.png" group-title="Sport",Sky Sport MotoGP FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/4498.ts
+
+#EXTINF:-1 tvg-id="DAZNZona.it" tvg-name="Zona Dazn Serie A FHD" tvg-logo="http://service.myvisio.life:80/images/c54b124c08d5d6c6d229dccaaf05d835.png" group-title="Calcio",Zona Dazn Serie A FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/149099.ts
