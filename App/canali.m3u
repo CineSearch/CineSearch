@@ -1,0 +1,1345 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="" tvg-name="----- ITALIA -----" tvg-logo="http://service.fullapple.me:8000/images/fbf5f839bf16f0f3c8e03b9e8bc2e5c2.png" group-title="Italia",----- ITALIA -----
+http://cane.nero.ws:80/live/cicciofro/sasy/51525.ts
+#EXTINF:-1 tvg-id="Rai1.it" tvg-name="Rai 1 FHD" tvg-logo="http://service.myvisio.life:80/images/b0879796d27e736de474a4bac4cd5cfe.png" group-title="Italia",Rai 1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/63460.ts
+#EXTINF:-1 tvg-id="Rai1.it" tvg-name="Rai 1 +1 FHD" tvg-logo="http://service.fullapple.me:8000/images/b0879796d27e736de474a4bac4cd5cfe.png" group-title="Italia",Rai 1 +1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/79377.ts
+#EXTINF:-1 tvg-id="Rai1.it" tvg-name="Rai 1 HD" tvg-logo="http://service.myvisio.life:80/images/b0879796d27e736de474a4bac4cd5cfe.png" group-title="Italia",Rai 1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/315.ts
+#EXTINF:-1 tvg-id="Rai1.it" tvg-name="Rai 1 +1 HD" tvg-logo="http://service.fullapple.me:8000/images/b0879796d27e736de474a4bac4cd5cfe.png" group-title="Italia",Rai 1 +1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/79374.ts
+#EXTINF:-1 tvg-id="Rai2.it" tvg-name="Rai 2 FHD" tvg-logo="http://service.myvisio.life:80/images/598b08714e3b45b565496de9a5cfb1df.png" group-title="Italia",Rai 2 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/63461.ts
+#EXTINF:-1 tvg-id="Rai2.it" tvg-name="Rai 2 +1 FHD" tvg-logo="http://service.fullapple.me:8000/images/598b08714e3b45b565496de9a5cfb1df.png" group-title="Italia",Rai 2 +1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/79378.ts
+#EXTINF:-1 tvg-id="Rai2.it" tvg-name="Rai 2 HD" tvg-logo="http://service.myvisio.life:80/images/598b08714e3b45b565496de9a5cfb1df.png" group-title="Italia",Rai 2 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/316.ts
+#EXTINF:-1 tvg-id="Rai2.it" tvg-name="Rai 2 +1 HD" tvg-logo="http://service.fullapple.me:80/images/598b08714e3b45b565496de9a5cfb1df.png" group-title="Italia",Rai 2 +1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/79375.ts
+#EXTINF:-1 tvg-id="Rai3.it" tvg-name="Rai 3 FHD" tvg-logo="http://service.myvisio.life:80/images/faf33a5c87e8efff495d5a9e77f8cb46.png" group-title="Italia",Rai 3 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/63462.ts
+#EXTINF:-1 tvg-id="Rai3.it" tvg-name="Rai 3 +1 FHD" tvg-logo="http://service.fullapple.me:8000/images/faf33a5c87e8efff495d5a9e77f8cb46.png" group-title="Italia",Rai 3 +1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/79379.ts
+#EXTINF:-1 tvg-id="Rai3.it" tvg-name="Rai 3 HD" tvg-logo="http://service.myvisio.life:80/images/faf33a5c87e8efff495d5a9e77f8cb46.png" group-title="Italia",Rai 3 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/317.ts
+#EXTINF:-1 tvg-id="Rai3.it" tvg-name="Rai 3 +1 HD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/faf33a5c87e8efff495d5a9e77f8cb46.png" group-title="Italia",Rai 3 +1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/79376.ts
+#EXTINF:-1 tvg-id="Rai4K.it" tvg-name="Rai 4K" tvg-logo="http://service.myvisio.life:80/images/02a7c594d4ce3cd2dc70eaa1d8099d6f.png" group-title="Italia",Rai 4K
+http://cane.nero.ws:80/live/cicciofro/sasy/146228.ts
+#EXTINF:-1 tvg-id="Rete4.it" tvg-name="Rete 4 FHD" tvg-logo="http://service.myvisio.life:80/images/f2da8d6445b9d1b2c2c3065b120b467d.png" group-title="Italia",Rete 4 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/63463.ts
+#EXTINF:-1 tvg-id="Rete4.it" tvg-name="Rete 4 + 1 FHD" tvg-logo="http://service.myvisio.life:80/images/f2da8d6445b9d1b2c2c3065b120b467d.png" group-title="Italia",Rete 4 + 1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/79386.ts
+#EXTINF:-1 tvg-id="Rete4.it" tvg-name="Rete 4 HD" tvg-logo="http://service.myvisio.life:80/images/f2da8d6445b9d1b2c2c3065b120b467d.png" group-title="Italia",Rete 4 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/318.ts
+#EXTINF:-1 tvg-id="Rete4.it" tvg-name="Rete 4 + 1 HD" tvg-logo="http://service.myvisio.life:80/images/f2da8d6445b9d1b2c2c3065b120b467d.png" group-title="Italia",Rete 4 + 1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/79387.ts
+#EXTINF:-1 tvg-id="Canale5.it" tvg-name="Canale 5 FHD" tvg-logo="http://service.myvisio.life:80/images/f239b986e3a2155a50420d8ce24de01f.png" group-title="Italia",Canale 5 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/63464.ts
+#EXTINF:-1 tvg-id="Canale5.it" tvg-name="Canale 5 +1 FHD" tvg-logo="http://service.fullapple.me:8000/images/f239b986e3a2155a50420d8ce24de01f.png" group-title="Italia",Canale 5 +1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/79388.ts
+#EXTINF:-1 tvg-id="Canale5.it" tvg-name="Canale 5 HD" tvg-logo="http://service.myvisio.life:80/images/f239b986e3a2155a50420d8ce24de01f.png" group-title="Italia",Canale 5 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/319.ts
+#EXTINF:-1 tvg-id="Canale5.it" tvg-name="Canale 5 +1 HD" tvg-logo="http://service.fullapple.me:8000/images/f239b986e3a2155a50420d8ce24de01f.png" group-title="Italia",Canale 5 +1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/79389.ts
+#EXTINF:-1 tvg-id="Italia1.it" tvg-name="Italia 1 FHD" tvg-logo="http://service.myvisio.life:80/images/48d328ccbef01c2fcd96db0198b836b2.png" group-title="Italia",Italia 1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/63465.ts
+#EXTINF:-1 tvg-id="Italia1.it" tvg-name="Italia 1 +1 FHD" tvg-logo="http://service.myvisio.life:80/images/48d328ccbef01c2fcd96db0198b836b2.png" group-title="Italia",Italia 1 +1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/79391.ts
+#EXTINF:-1 tvg-id="Italia1.it" tvg-name="Italia 1 HD" tvg-logo="http://service.myvisio.life:80/images/48d328ccbef01c2fcd96db0198b836b2.png" group-title="Italia",Italia 1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/320.ts
+#EXTINF:-1 tvg-id="Italia1.it" tvg-name="Italia 1 +1 HD" tvg-logo="http://service.myvisio.life:80/images/48d328ccbef01c2fcd96db0198b836b2.png" group-title="Italia",Italia 1 +1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/79390.ts
+#EXTINF:-1 tvg-id="-frisbee-.it" tvg-name="RSI LA 1 HD" tvg-logo="http://service.fullapple.me:80/images/a4ba61532bc9b00dbca8d9edaf16e396.png" group-title="Italia",RSI LA 1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/356.ts
+#EXTINF:-1 tvg-id="" tvg-name="RSI LA 2 HD" tvg-logo="http://picon.koolmedia.live/images/1_0_19_4338_300C_13E_820000_0_0_0.png" group-title="Italia",RSI LA 2 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/357.ts
+#EXTINF:-1 tvg-id="Twentyseven.it" tvg-name="Mediaset Twentyseven FHD" tvg-logo="http://service.fullapple.me:8000/images/ef31598ce0f25e8c43c46053f34c1130.png" group-title="Italia",Mediaset Twentyseven FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/179215.ts
+#EXTINF:-1 tvg-id="Twentyseven.it" tvg-name="Mediaset Twentyseven HD" tvg-logo="http://service.fullapple.me:8000/images/ef31598ce0f25e8c43c46053f34c1130.png" group-title="Italia",Mediaset Twentyseven HD
+http://cane.nero.ws:80/live/cicciofro/sasy/179214.ts
+#EXTINF:-1 tvg-id="RealTime.it" tvg-name="Paramount Channel" tvg-logo="http://service.fullapple.me:8000/images/db21564c93e768b53a12771b92ccea2c.png" group-title="Italia",Paramount Channel
+http://cane.nero.ws:80/live/cicciofro/sasy/1597.ts
+#EXTINF:-1 tvg-id="20Mediaset.it" tvg-name="20 Mediaset HD" tvg-logo="http://service.fullapple.me:8000/images/0e8688973c69894c810d2e33543adc9f.png" group-title="Italia",20 Mediaset HD
+http://cane.nero.ws:80/live/cicciofro/sasy/20182.ts
+#EXTINF:-1 tvg-id="Italia2.it" tvg-name="Mediaset Italia 2" tvg-logo="http://picon.koolmedia.live/images/1_0_16_82_4B0_110_820000_0_0_0.png" group-title="Italia",Mediaset Italia 2
+http://cane.nero.ws:80/live/cicciofro/sasy/626.ts
+#EXTINF:-1 tvg-id="LA5.it" tvg-name="La 5" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/La5_Mediaset.svg/330px-La5_Mediaset.svg.png" group-title="Italia",La 5
+http://cane.nero.ws:80/live/cicciofro/sasy/636.ts
+#EXTINF:-1 tvg-id="La7d.it" tvg-name="La 7" tvg-logo="http://service.myvisio.life:80/images/92bf364b54b35839c004940982826038.png" group-title="Italia",La 7
+http://cane.nero.ws:80/live/cicciofro/sasy/326.ts
+#EXTINF:-1 tvg-id="La7d.it" tvg-name="La7d HD" tvg-logo="http://service.fullapple.me:8000/images/297d1a11b20eee15621f3f2dd5354e54.png" group-title="Italia",La7d HD
+http://cane.nero.ws:80/live/cicciofro/sasy/359.ts
+#EXTINF:-1 tvg-id="MediasetExtra.it" tvg-name="Mediaset Extra" tvg-logo="http://picon.koolmedia.live/images/1_0_16_81_4B0_110_820000_0_0_0.png" group-title="Italia",Mediaset Extra
+http://cane.nero.ws:80/live/cicciofro/sasy/29967.ts
+#EXTINF:-1 tvg-id="MotorTrend.it" tvg-name="Motor Trend HD" tvg-logo="http://service.fullapple.me:8000/images/4b7f5a6c9883d43ffba0f22532ce50de.png" group-title="Italia",Motor Trend HD
+http://cane.nero.ws:80/live/cicciofro/sasy/134207.ts
+#EXTINF:-1 tvg-id="Tgcom24.it" tvg-name="TGcom24" tvg-logo="http://service.myvisio.life:80/images/ed0fa790b0c316c20e66b2db48e74254.png" group-title="Italia",TGcom24
+http://cane.nero.ws:80/live/cicciofro/sasy/578.ts
+#EXTINF:-1 tvg-id="Cielo.it" tvg-name="Cielo" tvg-logo="http://service.myvisio.life:80/images/be7740aa9d6f946349d2a54c8d133160.png" group-title="Italia",Cielo
+http://cane.nero.ws:80/live/cicciofro/sasy/22747.ts
+#EXTINF:-1 tvg-id="Rai4.it" tvg-name="Rai 4 HD" tvg-logo="http://service.fullapple.me:80/images/8b6bb23a45d8c5e74157640946075284.png" group-title="Italia",Rai 4 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/22744.ts
+#EXTINF:-1 tvg-id="Tv8.it" tvg-name="TV8" tvg-logo="http://service.fullapple.me:8000/images/c90ab721ecddbc1b730ecfb77844b1d5.png" group-title="Italia",TV8
+http://cane.nero.ws:80/live/cicciofro/sasy/22754.ts
+#EXTINF:-1 tvg-id="TV2000.it" tvg-name="TV 2000" tvg-logo="http://picon.koolmedia.live/images/1_0_19_2BAC_1AF4_FBFF_820000_0_0_0.png" group-title="Italia",TV 2000
+http://cane.nero.ws:80/live/cicciofro/sasy/22753.ts
+#EXTINF:-1 tvg-id="Boing.it" tvg-name="Boing" tvg-logo="http://picon.koolmedia.live/images/4b6dabfc011eb79987fb2d3f4844cabb.png" group-title="Italia",Boing
+http://cane.nero.ws:80/live/cicciofro/sasy/358.ts
+#EXTINF:-1 tvg-id="" tvg-name="Uniresat HD" tvg-logo="http://service.fullapple.me:8000/images/7204597f8586d81284d0940323aba16e.png" group-title="Italia",Uniresat HD
+http://cane.nero.ws:80/live/cicciofro/sasy/4217.ts
+#EXTINF:-1 tvg-id="" tvg-name="Equtv HD" tvg-logo="http://service.fullapple.me:80/images/8a4a6dfcaae954d58938ef246759f6eb.png" group-title="Italia",Equtv HD
+http://cane.nero.ws:80/live/cicciofro/sasy/179967.ts
+#EXTINF:-1 tvg-id="" tvg-name="Canale 21" tvg-logo="http://picon.koolmedia.live/images/regionali/canale21.png" group-title="Italia",Canale 21
+http://cane.nero.ws:80/live/cicciofro/sasy/22748.ts
+#EXTINF:-1 tvg-id="Nove.it" tvg-name="Nove" tvg-logo="http://service.fullapple.me:80/images/7a2f31e678b431e8e60272a4728140f0.png" group-title="Italia",Nove
+http://cane.nero.ws:80/live/cicciofro/sasy/22746.ts
+#EXTINF:-1 tvg-id="Sportitalia.it" tvg-name="Sport Italia Live" tvg-logo="http://picon.koolmedia.live/images/1_0_1_1C17_384_110_EEEE0000_0_0_0.png" group-title="Italia",Sport Italia Live
+http://cane.nero.ws:80/live/cicciofro/sasy/624.ts
+#EXTINF:-1 tvg-id="" tvg-name="Top Calcio 24 Hd" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/0e1af5819d836b038edbf4e9cf8c31d0.png" group-title="Italia",Top Calcio 24 Hd
+http://cane.nero.ws:80/live/cicciofro/sasy/180867.ts
+#EXTINF:-1 tvg-id="RaiNews.it" tvg-name="Rai News 24" tvg-logo="http://picon.koolmedia.live/images/1_0_1_1C73_1C20_13E_820000_0_0_0.png" group-title="Italia",Rai News 24
+http://cane.nero.ws:80/live/cicciofro/sasy/354.ts
+#EXTINF:-1 tvg-id="Rai5.it" tvg-name="Rai 5" tvg-logo="http://picon.koolmedia.live/images/1_0_19_4534_30D4_13E_820000_0_0_0.png" group-title="Italia",Rai 5
+http://cane.nero.ws:80/live/cicciofro/sasy/345.ts
+#EXTINF:-1 tvg-id="RealTime.it" tvg-name="Rai Sport + HD" tvg-logo="http://service.fullapple.me:8000/images/7b3fd903e50a683b5d0c723667d2e435.png" group-title="Italia",Rai Sport + HD
+http://cane.nero.ws:80/live/cicciofro/sasy/352.ts
+#EXTINF:-1 tvg-id="RaiYoyo.it" tvg-name="Rai YoYo HD" tvg-logo="http://picon.koolmedia.live/images/1_0_19_4531_30D4_13E_820000_0_0_0.png" group-title="Italia",Rai YoYo HD
+http://cane.nero.ws:80/live/cicciofro/sasy/349.ts
+#EXTINF:-1 tvg-id="" tvg-name="Iris HD" tvg-logo="http://service.fullapple.me:8000/images/f75c9af2f9523fcaa0c029651ffe814b.png" group-title="Italia",Iris HD
+http://cane.nero.ws:80/live/cicciofro/sasy/360.ts
+#EXTINF:-1 tvg-id="" tvg-name="Cine34 HD" tvg-logo="http://service.fullapple.me:8000/images/7e61b0ff6b185e4e460e0535f1d79942.png" group-title="Italia",Cine34 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/189100.ts
+#EXTINF:-1 tvg-id="RaiStoria.it" tvg-name="Rai Storia" tvg-logo="http://service.fullapple.me:8000/images/cad82083a67ca71e3fe15ea68f5dd94a.png" group-title="Italia",Rai Storia
+http://cane.nero.ws:80/live/cicciofro/sasy/351.ts
+#EXTINF:-1 tvg-id="RaiPremium.it" tvg-name="Rai Premium HD" tvg-logo="http://service.fullapple.me:8000/images/e326ea06729943f26d038f0b01844f10.png" group-title="Italia",Rai Premium HD
+http://cane.nero.ws:80/live/cicciofro/sasy/347.ts
+#EXTINF:-1 tvg-id="RaiMovie.it" tvg-name="Rai Movie HD" tvg-logo="http://picon.koolmedia.live/images/1_0_19_D4E_1450_13E_820000_0_0_0.png" group-title="Italia",Rai Movie HD
+http://cane.nero.ws:80/live/cicciofro/sasy/346.ts
+#EXTINF:-1 tvg-id="RaiGulp.it" tvg-name="Rai Gulp HD" tvg-logo="http://picon.koolmedia.live/images/1_0_19_4530_30D4_13E_820000_0_0_0.png" group-title="Italia",Rai Gulp HD
+http://cane.nero.ws:80/live/cicciofro/sasy/348.ts
+#EXTINF:-1 tvg-id="" tvg-name="----- SKY CINEMA -----" tvg-logo="http://service.fullapple.me:80/images/31d52abda89527246184ec524330e337.png" group-title="Cinema",----- SKY CINEMA -----
+http://cane.nero.ws:80/live/cicciofro/sasy/22760.ts
+#EXTINF:-1 tvg-id="Sky.Cinema.Uno.it" tvg-name="Sky Cinema Uno FHD" tvg-logo="http://service.myvisio.life:80/images/8249e7837b2c603ca86f826b621cb763.png" group-title="Cinema",Sky Cinema Uno FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/4496.ts
+#EXTINF:-1 tvg-id="Sky.Cinema.Uno.it" tvg-name="Sky Cinema Uno HD" tvg-logo="http://service.myvisio.life:80/images/d6e15abbac47edd29a81299ef791494e.png" group-title="Cinema",Sky Cinema Uno HD
+http://cane.nero.ws:80/live/cicciofro/sasy/48863.ts
+#EXTINF:-1 tvg-id="SkyCinemaUno.it" tvg-name="Sky Cinema Uno SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skycinema-uno-hd.png" group-title="Sky Italia SD",Sky Cinema Uno SD
+http://cane.nero.ws:80/live/cicciofro/sasy/48947.ts
+#EXTINF:-1 tvg-id="SkyCinemaUnoPlus1.it" tvg-name="Sky Cinema Uno +1 FHD" tvg-logo="http://service.myvisio.life:80/images/bbb7a3c21c169a6bc0a6b2bf6736f29a.png" group-title="Cinema",Sky Cinema Uno +1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/32108.ts
+#EXTINF:-1 tvg-id="SkyCinemaUnoPlus1.it" tvg-name="Sky Cinema Uno +1 HD" tvg-logo="http://service.myvisio.life:80/images/abc30362f77bb480c85fd29c96471896.png" group-title="Cinema",Sky Cinema Uno +1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/48662.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Uno +1 SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skycinema-uno+1-hd.png" group-title="Sky Italia SD",Sky Cinema Uno +1 SD
+http://cane.nero.ws:80/live/cicciofro/sasy/48948.ts
+#EXTINF:-1 tvg-id="Sky.Cinema.Uno.+24.it" tvg-name="Sky Cinema Uno +24 FHD" tvg-logo="http://service.fullapple.me:80/images/6fc402528bde38a87ef7d2a886d57cdd.png" group-title="Cinema",Sky Cinema Uno +24 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/9591.ts
+#EXTINF:-1 tvg-id="Sky.Cinema.Uno.+24.it" tvg-name="Sky Cinema Uno +24 HD" tvg-logo="http://service.fullapple.me:80/images/6fc402528bde38a87ef7d2a886d57cdd.png" group-title="Cinema",Sky Cinema Uno +24 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/11.ts
+#EXTINF:-1 tvg-id="SkyCinemaUnoPlus24.it" tvg-name="Sky Cinema Uno +24 SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skycinema-uno+24-hd.png" group-title="Sky Italia SD",Sky Cinema Uno +24 SD
+http://cane.nero.ws:80/live/cicciofro/sasy/48949.ts
+#EXTINF:-1 tvg-id="Sky.Cinema.Due.it" tvg-name="Sky Cinema Due FHD" tvg-logo="http://service.myvisio.life:80/images/34a75b839104afefea66f32a1ede63ba.png" group-title="Cinema",Sky Cinema Due FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/9622.ts
+#EXTINF:-1 tvg-id="Sky.Cinema.Due.it" tvg-name="Sky Cinema Due HD" tvg-logo="http://service.myvisio.life:80/images/5452deb848fc85a2a0479ef1e0502bc1.png" group-title="Cinema",Sky Cinema Due HD
+http://cane.nero.ws:80/live/cicciofro/sasy/24885.ts
+#EXTINF:-1 tvg-id="SkyCinemaDue.it" tvg-name="Sky Cinema Due SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skycinema-due-hd.png" group-title="Sky Italia SD",Sky Cinema Due SD
+http://cane.nero.ws:80/live/cicciofro/sasy/48950.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Due +1 FHD" tvg-logo="http://service.myvisio.life:80/images/34a75b839104afefea66f32a1ede63ba.png" group-title="Cinema",Sky Cinema Due +1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/48697.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Due +1 HD" tvg-logo="http://service.fullapple.me:80/images/34a75b839104afefea66f32a1ede63ba.png" group-title="Cinema",Sky Cinema Due +1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/48676.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Due +1 SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skycinema-due-hd.png" group-title="Sky Italia SD",Sky Cinema Due +1 SD
+http://cane.nero.ws:80/live/cicciofro/sasy/48951.ts
+#EXTINF:-1 tvg-id="Sky.Cinema.Due.+24.it" tvg-name="Sky Cinema Due +24 FHD" tvg-logo="http://service.fullapple.me:80/images/1d20f8248fb6c6298e5cef2da2e2f53e.png" group-title="Cinema",Sky Cinema Due +24 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/29702.ts
+#EXTINF:-1 tvg-id="Sky.Cinema.Due.+24.it" tvg-name="Sky Cinema Due +24 HD" tvg-logo="http://service.fullapple.me:80/images/13056d320f07ace127aa8fc321c5316f.png" group-title="Cinema",Sky Cinema Due +24 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/72.ts
+#EXTINF:-1 tvg-id="SkyCinemaDue+24.it" tvg-name="Sky Cinema Due +24 SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skycinema-due+24-hd.png" group-title="Sky Italia SD",Sky Cinema Due +24 SD
+http://cane.nero.ws:80/live/cicciofro/sasy/48952.ts
+#EXTINF:-1 tvg-id="Sky.Cinema.Collection.it" tvg-name="Sky Cinema Collection FHD" tvg-logo="http://service.myvisio.life:80/images/ab43fe60d0172c42fea8e0b7b1f24269.png" group-title="Cinema",Sky Cinema Collection FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/9595.ts
+#EXTINF:-1 tvg-id="Sky.Cinema.Collection.it" tvg-name="Sky Cinema Collection HD" tvg-logo="http://service.myvisio.life:80/images/06812b0391194efa06b65b8db5cf05c1.png" group-title="Cinema",Sky Cinema Collection HD
+http://cane.nero.ws:80/live/cicciofro/sasy/12.ts
+#EXTINF:-1 tvg-id="SkyCinemaCollection.it" tvg-name="Sky Cinema Collection SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skycinema-collection-hd.png" group-title="Sky Italia SD",Sky Cinema Collection SD
+http://cane.nero.ws:80/live/cicciofro/sasy/48953.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Collection +1 FHD" tvg-logo="http://service.fullapple.me:80/images/ab43fe60d0172c42fea8e0b7b1f24269.png" group-title="Cinema",Sky Cinema Collection +1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/48682.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Collection +1 HD" tvg-logo="http://service.myvisio.life:80/images/06812b0391194efa06b65b8db5cf05c1.png" group-title="Cinema",Sky Cinema Collection +1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/48681.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Collection +1 SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skycinema-collection-hd.png" group-title="Sky Italia SD",Sky Cinema Collection +1 SD
+http://cane.nero.ws:80/live/cicciofro/sasy/48954.ts
+#EXTINF:-1 tvg-id="Sky.Cinema.Family.it" tvg-name="Sky Cinema Family FHD" tvg-logo="http://service.myvisio.life:80/images/a07ac09b9a3373c8e72d47ef7eb4998a.png" group-title="Cinema",Sky Cinema Family FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/9584.ts
+#EXTINF:-1 tvg-id="Sky.Cinema.Family.it" tvg-name="Sky Cinema Family HD" tvg-logo="http://service.myvisio.life:80/images/32aa625a23e731469115cbfe7b607b27.png" group-title="Cinema",Sky Cinema Family HD
+http://cane.nero.ws:80/live/cicciofro/sasy/13.ts
+#EXTINF:-1 tvg-id="SkyCinemaFamily.it" tvg-name="Sky Cinema Family SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skycinema-family-hd.png" group-title="Sky Italia SD",Sky Cinema Family SD
+http://cane.nero.ws:80/live/cicciofro/sasy/48955.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Family +1 FHD" tvg-logo="http://service.fullapple.me:80/images/a07ac09b9a3373c8e72d47ef7eb4998a.png" group-title="Cinema",Sky Cinema Family +1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/48675.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Family +1 HD" tvg-logo="http://service.myvisio.life:80/images/a07ac09b9a3373c8e72d47ef7eb4998a.png" group-title="Cinema",Sky Cinema Family +1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/48674.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Family +1 SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skycinema-family-hd.png" group-title="Sky Italia SD",Sky Cinema Family +1 SD
+http://cane.nero.ws:80/live/cicciofro/sasy/48956.ts
+#EXTINF:-1 tvg-id="Sky.Cinema.Suspense.it" tvg-name="Sky Cinema Suspense FHD" tvg-logo="http://service.myvisio.life:80/images/ce5fbe3779e6fe4024936f8806503cf4.png" group-title="Cinema",Sky Cinema Suspense FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/9587.ts
+#EXTINF:-1 tvg-id="Sky.Cinema.Suspense.it" tvg-name="Sky Cinema Suspense HD" tvg-logo="http://service.myvisio.life:80/images/a873a04d7e25d29994f6603510c3277e.png" group-title="Cinema",Sky Cinema Suspense HD
+http://cane.nero.ws:80/live/cicciofro/sasy/24886.ts
+#EXTINF:-1 tvg-id="SkyCinemaSuspense.it" tvg-name="Sky Cinema Suspense SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skycinema-supsense-hd.png" group-title="Sky Italia SD",Sky Cinema Suspense SD
+http://cane.nero.ws:80/live/cicciofro/sasy/48957.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Suspense +1 FHD" tvg-logo="http://service.myvisio.life:80/images/ce5fbe3779e6fe4024936f8806503cf4.png" group-title="Cinema",Sky Cinema Suspense +1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/48671.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Suspense +1 HD" tvg-logo="http://service.myvisio.life:80/images/ce5fbe3779e6fe4024936f8806503cf4.png" group-title="Cinema",Sky Cinema Suspense +1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/48670.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Suspense +1 SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skycinema-supsense-hd.png" group-title="Sky Italia SD",Sky Cinema Suspense +1 SD
+http://cane.nero.ws:80/live/cicciofro/sasy/48958.ts
+#EXTINF:-1 tvg-id="Sky.Cinema.Romance.it" tvg-name="Sky Cinema Romance FHD" tvg-logo="http://service.myvisio.life:80/images/bac31918875ad82e82e480f9b274f842.png" group-title="Cinema",Sky Cinema Romance FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/24743.ts
+#EXTINF:-1 tvg-id="Sky.Cinema.Romance.it" tvg-name="Sky Cinema Romance HD" tvg-logo="http://service.myvisio.life:80/images/b9a2528d08ff5780aa7253f5893d8034.png" group-title="Cinema",Sky Cinema Romance HD
+http://cane.nero.ws:80/live/cicciofro/sasy/71.ts
+#EXTINF:-1 tvg-id="SkyCinemaRomance.it" tvg-name="Sky Cinema Romance SD" tvg-logo="http://static.iptv-epg.com/it/SkyCinemaRomance.it.png" group-title="Sky Italia SD",Sky Cinema Romance SD
+http://cane.nero.ws:80/live/cicciofro/sasy/48959.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Romance +1 FHD" tvg-logo="http://service.myvisio.life:80/images/bac31918875ad82e82e480f9b274f842.png" group-title="Cinema",Sky Cinema Romance +1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/48673.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Romance +1 HD" tvg-logo="http://service.myvisio.life:80/images/bac31918875ad82e82e480f9b274f842.png" group-title="Cinema",Sky Cinema Romance +1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/48672.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Romance +1 SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skycinema-romance-hd.png" group-title="Sky Italia SD",Sky Cinema Romance +1 SD
+http://cane.nero.ws:80/live/cicciofro/sasy/48960.ts
+#EXTINF:-1 tvg-id="Sky.Cinema.Drama.it" tvg-name="Sky Cinema Drama FHD" tvg-logo="http://service.myvisio.life:80/images/0b51fde0914f31605872eb147a2557ee.png" group-title="Cinema",Sky Cinema Drama FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/32107.ts
+#EXTINF:-1 tvg-id="Sky.Cinema.Drama.it" tvg-name="Sky Cinema Drama HD" tvg-logo="http://service.myvisio.life:80/images/5761d53d73c9bb718f0b9805a184c23c.png" group-title="Cinema",Sky Cinema Drama HD
+http://cane.nero.ws:80/live/cicciofro/sasy/47.ts
+#EXTINF:-1 tvg-id="SkyCinemaDrama.it" tvg-name="Sky Cinema Drama SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skycinema-drama-hd.png" group-title="Sky Italia SD",Sky Cinema Drama SD
+http://cane.nero.ws:80/live/cicciofro/sasy/48961.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Drama +1 FHD" tvg-logo="http://service.myvisio.life:80/images/0b51fde0914f31605872eb147a2557ee.png" group-title="Cinema",Sky Cinema Drama +1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/48678.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Drama +1 HD" tvg-logo="http://service.myvisio.life:80/images/5761d53d73c9bb718f0b9805a184c23c.png" group-title="Cinema",Sky Cinema Drama +1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/48677.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Drama +1 SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skycinema-drama-hd.png" group-title="Sky Italia SD",Sky Cinema Drama +1 SD
+http://cane.nero.ws:80/live/cicciofro/sasy/48962.ts
+#EXTINF:-1 tvg-id="Sky.Cinema.Comedy.it" tvg-name="Sky Cinema Comedy FHD" tvg-logo="http://service.myvisio.life:80/images/276fe1a8a76d95533828912560f25dc6.png" group-title="Cinema",Sky Cinema Comedy FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/24744.ts
+#EXTINF:-1 tvg-id="Sky.Cinema.Comedy.it" tvg-name="Sky Cinema Comedy HD" tvg-logo="http://service.myvisio.life:80/images/74a3f9f519021c6066bd3b4e1087cd58.png" group-title="Cinema",Sky Cinema Comedy HD
+http://cane.nero.ws:80/live/cicciofro/sasy/14.ts
+#EXTINF:-1 tvg-id="SkyCinemaComedy.it" tvg-name="Sky Cinema Comedy SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skycinema-comedy-hd.png" group-title="Sky Italia SD",Sky Cinema Comedy SD
+http://cane.nero.ws:80/live/cicciofro/sasy/48963.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Comedy +1 FHD" tvg-logo="http://service.fullapple.me:80/images/276fe1a8a76d95533828912560f25dc6.png" group-title="Cinema",Sky Cinema Comedy +1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/48680.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Comedy +1 HD" tvg-logo="http://service.myvisio.life:80/images/74a3f9f519021c6066bd3b4e1087cd58.png" group-title="Cinema",Sky Cinema Comedy +1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/48679.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Comedy +1 SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skycinema-comedy-hd.png" group-title="Sky Italia SD",Sky Cinema Comedy +1 SD
+http://cane.nero.ws:80/live/cicciofro/sasy/48964.ts
+#EXTINF:-1 tvg-id="Sky.Cinema.Action.it" tvg-name="Sky Cinema Action FHD" tvg-logo="http://service.myvisio.life:80/images/76d360ad31c9b9ed90c572e989254e47.png" group-title="Cinema",Sky Cinema Action FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/9596.ts
+#EXTINF:-1 tvg-id="Sky.Cinema.Action.it" tvg-name="Sky Cinema Action HD" tvg-logo="http://service.myvisio.life:80/images/1e76c9d23763604ffe04a2eb1db974d8.png" group-title="Cinema",Sky Cinema Action HD
+http://cane.nero.ws:80/live/cicciofro/sasy/15.ts
+#EXTINF:-1 tvg-id="SkyCinemaAction.it" tvg-name="Sky Cinema Action SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skycinema-action-hd.png" group-title="Sky Italia SD",Sky Cinema Action SD
+http://cane.nero.ws:80/live/cicciofro/sasy/48965.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Action +1 FHD" tvg-logo="http://service.fullapple.me:80/images/5f93fe0f552d4cf82b90d85b2f9bef89.png" group-title="Cinema",Sky Cinema Action +1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/32105.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Action +1 HD" tvg-logo="http://service.myvisio.life:80/images/1e76c9d23763604ffe04a2eb1db974d8.png" group-title="Cinema",Sky Cinema Action +1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/48683.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Cinema Action +1 SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skycinema-action+1-hd.png" group-title="Sky Italia SD",Sky Cinema Action +1 SD
+http://cane.nero.ws:80/live/cicciofro/sasy/48966.ts
+#EXTINF:-1 tvg-id="Sky.Serie.it" tvg-name="Sky Serie FHD" tvg-logo="http://service.myvisio.life:80/images/ec016dc30ce56da2607ba59a6a92f180.png" group-title="Cinema",Sky Serie FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/146835.ts
+#EXTINF:-1 tvg-id="Sky.Serie.it" tvg-name="Sky Serie HD" tvg-logo="http://service.myvisio.life:80/images/ec016dc30ce56da2607ba59a6a92f180.png" group-title="Cinema",Sky Serie HD
+http://cane.nero.ws:80/live/cicciofro/sasy/146834.ts
+#EXTINF:-1 tvg-id="SkySerie.it" tvg-name="Sky Series SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skyserie.png" group-title="Sky Italia SD",Sky Series SD
+http://cane.nero.ws:80/live/cicciofro/sasy/146836.ts
+#EXTINF:-1 tvg-id="Comedy.Central.it" tvg-name="Sky Comedy Central FHD" tvg-logo="http://service.fullapple.me:80/images/f7029e67f22d8a43ab8d1b3deb896249.png" group-title="Cinema",Sky Comedy Central FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/226821.ts
+#EXTINF:-1 tvg-id="Comedy.Central.it" tvg-name="Sky Comedy Central HD" tvg-logo="http://service.fullapple.me:80/images/f7029e67f22d8a43ab8d1b3deb896249.png" group-title="Cinema",Sky Comedy Central HD
+http://cane.nero.ws:80/live/cicciofro/sasy/294.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Comedy Central SD" tvg-logo="http://bs-update.ddns.net/Android/logos/comedycentral.png" group-title="Sky Italia SD",Sky Comedy Central SD
+http://cane.nero.ws:80/live/cicciofro/sasy/48967.ts
+#EXTINF:-1 tvg-id="SkyUno.it" tvg-name="Sky Tg 24" tvg-logo="http://service.myvisio.life:80/images/c689dbffbeb4398ed2dba7b893bcf7e7.png" group-title="Italia",Sky Tg 24
+http://cane.nero.ws:80/live/cicciofro/sasy/112.ts
+#EXTINF:-1 tvg-id="" tvg-name="----- INTRATTENIMENTO -----" tvg-logo="http://service.fullapple.me:80/images/31d52abda89527246184ec524330e337.png" group-title="Intrattenimento",----- INTRATTENIMENTO -----
+http://cane.nero.ws:80/live/cicciofro/sasy/22761.ts
+#EXTINF:-1 tvg-id="SkyUno.it" tvg-name="Sky Uno FHD" tvg-logo="http://service.myvisio.life:80/images/7d2cdef839ec8d6e328078930a3515b6.png" group-title="Intrattenimento",Sky Uno FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/24746.ts
+#EXTINF:-1 tvg-id="SkyUno.it" tvg-name="Sky Uno HD" tvg-logo="http://service.myvisio.life:80/images/7d2cdef839ec8d6e328078930a3515b6.png" group-title="Intrattenimento",Sky Uno HD
+http://cane.nero.ws:80/live/cicciofro/sasy/48.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Uno SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skyuno-hd.png" group-title="Sky Italia SD",Sky Uno SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49704.ts
+#EXTINF:-1 tvg-id="SkyUnoPlus1.it" tvg-name="Sky Uno +1 FHD" tvg-logo="http://service.fullapple.me:80/images/c689dbffbeb4398ed2dba7b893bcf7e7.png" group-title="Intrattenimento",Sky Uno +1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/48663.ts
+#EXTINF:-1 tvg-id="CartoonNetwork.it" tvg-name="Sky Uno +1 HD" tvg-logo="http://service.fullapple.me:80/images/7d2cdef839ec8d6e328078930a3515b6.png" group-title="Intrattenimento",Sky Uno +1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/73.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Uno +1 SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skyuno+1-hd.png" group-title="Sky Italia SD",Sky Uno +1 SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49705.ts
+#EXTINF:-1 tvg-id="SkyAtlantic.it" tvg-name="Sky Atlantic FHD" tvg-logo="http://service.myvisio.life:80/images/d6ab7f52497ab778418dc7ad46d48371.png" group-title="Intrattenimento",Sky Atlantic FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/9589.ts
+#EXTINF:-1 tvg-id="SkyAtlantic.it" tvg-name="Sky Atlantic HD" tvg-logo="http://service.myvisio.life:80/images/d6ab7f52497ab778418dc7ad46d48371.png" group-title="Intrattenimento",Sky Atlantic HD
+http://cane.nero.ws:80/live/cicciofro/sasy/18.ts
+#EXTINF:-1 tvg-id="SkyAtlantic.it" tvg-name="Sky Atlantic SD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/2d1b1db4274db5a842bfa78d131eccb2.png" group-title="Sky Italia SD",Sky Atlantic SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49706.ts
+#EXTINF:-1 tvg-id="SkyAtlanticPlus1.it" tvg-name="Sky Atlantic +1 FHD" tvg-logo="http://service.fullapple.me:80/images/f135e0bbb4f8c3b7f483451122f47cc7.png" group-title="Intrattenimento",Sky Atlantic +1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/48686.ts
+#EXTINF:-1 tvg-id="SkyCinemaUno.it" tvg-name="Sky Atlantic +1 HD" tvg-logo="http://service.fullapple.me:80/images/d6ab7f52497ab778418dc7ad46d48371.png" group-title="Intrattenimento",Sky Atlantic +1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/48685.ts
+#EXTINF:-1 tvg-id="SkyAtlanticPlus1.it" tvg-name="Sky Atlantic +1 SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skyatlantic+1-hd.png" group-title="Sky Italia SD",Sky Atlantic +1 SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49707.ts
+#EXTINF:-1 tvg-id="SkyInvestigation.it" tvg-name="Sky Investigation FHD" tvg-logo="http://service.myvisio.life:80/images/87b180298f07d14f08f3681c41da86d5.png" group-title="Intrattenimento",Sky Investigation FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/146840.ts
+#EXTINF:-1 tvg-id="SkyInvestigation.it" tvg-name="Sky Investigation HD" tvg-logo="http://service.myvisio.life:80/images/87b180298f07d14f08f3681c41da86d5.png" group-title="Intrattenimento",Sky Investigation HD
+http://cane.nero.ws:80/live/cicciofro/sasy/146841.ts
+#EXTINF:-1 tvg-id="SkyInvestigation.it" tvg-name="Sky Investigation SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skyinvestigation.png" group-title="Sky Italia SD",Sky Investigation SD
+http://cane.nero.ws:80/live/cicciofro/sasy/146842.ts
+#EXTINF:-1 tvg-id="Giallo.it" tvg-name="Discovery Giallo Italia FHD" tvg-logo="http://service.fullapple.me:80/images/a9674541bd17dfa0afadb235ad3ddb21.png" group-title="Intrattenimento",Discovery Giallo Italia FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/190028.ts
+#EXTINF:-1 tvg-id="MTV.it" tvg-name="MTV Italia FHD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/166fd56586ea855036f8d1ec68224e31.png" group-title="Intrattenimento",MTV Italia FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/9609.ts
+#EXTINF:-1 tvg-id="MTV.it" tvg-name="MTV italia HD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/166fd56586ea855036f8d1ec68224e31.png" group-title="Intrattenimento",MTV italia HD
+http://cane.nero.ws:80/live/cicciofro/sasy/63273.ts
+#EXTINF:-1 tvg-id="Blaze.it" tvg-name="Blaze SD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/fd1570937f0888ab1b771487197c6c9b.png" group-title="Sky Italia SD",Blaze SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49716.ts
+#EXTINF:-1 tvg-id="" tvg-name="Blaze +1 SD" tvg-logo="http://bs-update.ddns.net/Android/logos/blaze-hd.png" group-title="Sky Italia SD",Blaze +1 SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49717.ts
+#EXTINF:-1 tvg-id="" tvg-name="----- SKY SPORT -----" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/31d52abda89527246184ec524330e337.png" group-title="Sport",----- SKY SPORT -----
+http://cane.nero.ws:80/live/cicciofro/sasy/22770.ts
+#EXTINF:-1 tvg-id="" tvg-name="Evento Sportivo HDR (Fibra Top)" tvg-logo="http://service.fullapple.me:80/images/4ccdcbc7ec60819cfb8bca1c20862b69.png" group-title="Sport",Evento Sportivo HDR (Fibra Top)
+http://cane.nero.ws:80/live/cicciofro/sasy/181244.ts
+#EXTINF:-1 tvg-id="SkySportF1.it" tvg-name="Sky Sport F1 FHD" tvg-logo="http://service.myvisio.life:80/images/0f4c797d14c5c64cb7e8fd7ed5e9cd94.png" group-title="Sport",Sky Sport F1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/4497.ts
+#EXTINF:-1 tvg-id="SkySportF1.it" tvg-name="Sky Sport F1 HD" tvg-logo="http://service.myvisio.life:80/images/0f4c797d14c5c64cb7e8fd7ed5e9cd94.png" group-title="Sport",Sky Sport F1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/26.ts
+#EXTINF:-1 tvg-id="SkySportF1.it" tvg-name="Sky Sport F1 SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skysport-f1.png" group-title="Sky Italia SD",Sky Sport F1 SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49740.ts
+#EXTINF:-1 tvg-id="SkySportMotoGP.it" tvg-name="Sky Sport MotoGP FHD" tvg-logo="http://service.myvisio.life:80/images/314a9a576595b9e7aa5bd1c8de1adf39.png" group-title="Sport",Sky Sport MotoGP FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/4498.ts
+#EXTINF:-1 tvg-id="SkySportMotoGP.it" tvg-name="Sky Sport MotoGP HD" tvg-logo="http://service.myvisio.life:80/images/314a9a576595b9e7aa5bd1c8de1adf39.png" group-title="Sport",Sky Sport MotoGP HD
+http://cane.nero.ws:80/live/cicciofro/sasy/82.ts
+#EXTINF:-1 tvg-id="SkySportMotoGP.it" tvg-name="Sky Sport MotoGP SD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/314a9a576595b9e7aa5bd1c8de1adf39.png" group-title="Sky Italia SD",Sky Sport MotoGP SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49741.ts
+#EXTINF:-1 tvg-id="SuperTennis.it" tvg-name="Super Tennis FHD" tvg-logo="http://service.myvisio.life:80/images/486f331f3edd4bd4fc4b78cca2f5b266.png" group-title="Sport",Super Tennis FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/193434.ts
+#EXTINF:-1 tvg-id="SuperTennis.it" tvg-name="Super Tennis HD" tvg-logo="http://service.myvisio.life:80/images/486f331f3edd4bd4fc4b78cca2f5b266.png" group-title="Sport",Super Tennis HD
+http://cane.nero.ws:80/live/cicciofro/sasy/237.ts
+#EXTINF:-1 tvg-id="Eurosport1.it" tvg-name="Eurosport 1 FHD" tvg-logo="http://service.myvisio.life:80/images/8b09226975f258b7124e2ce9fed72537.png" group-title="Sport",Eurosport 1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/295.ts
+#EXTINF:-1 tvg-id="Eurosport2.it" tvg-name="Eurosport 2 FHD" tvg-logo="http://service.myvisio.life:80/images/00295a368675482110dbe435465bba33.png" group-title="Sport",Eurosport 2 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/296.ts
+#EXTINF:-1 tvg-id="SkySport24.it" tvg-name="Sky Sport 24 FHD" tvg-logo="http://service.myvisio.life:80/images/2bcb93c48cd3ed807449f7be2e294611.png" group-title="Sport",Sky Sport 24 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/27975.ts
+#EXTINF:-1 tvg-id="SkySport24.it" tvg-name="Sky Sport 24 HD" tvg-logo="http://service.myvisio.life:80/images/2bcb93c48cd3ed807449f7be2e294611.png" group-title="Sport",Sky Sport 24 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/22.ts
+#EXTINF:-1 tvg-id="SkySport24.it" tvg-name="Sky Sport 24 SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skysport-24.png" group-title="Sky Italia SD",Sky Sport 24 SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49746.ts
+#EXTINF:-1 tvg-id="SkySportUno.it" tvg-name="Sky Sport Uno FHD" tvg-logo="http://service.myvisio.life:80/images/c2bf54d3ebf08cdb82414d86873a4ef2.png" group-title="Sport",Sky Sport Uno FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/29042.ts
+#EXTINF:-1 tvg-id="SkySportUno.it" tvg-name="Sky Sport Uno HD" tvg-logo="http://service.myvisio.life:80/images/c2bf54d3ebf08cdb82414d86873a4ef2.png" group-title="Sport",Sky Sport Uno HD
+http://cane.nero.ws:80/live/cicciofro/sasy/19.ts
+#EXTINF:-1 tvg-id="SkySportUno.it" tvg-name="Sky Sport Uno SD" tvg-logo="http://service.fullapple.me:80/images/c2bf54d3ebf08cdb82414d86873a4ef2.png" group-title="Sky Italia SD",Sky Sport Uno SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49747.ts
+#EXTINF:-1 tvg-id="SkySportArena.it" tvg-name="Sky Sport Arena FHD" tvg-logo="http://service.myvisio.life:80/images/4607604facccab8682e775038115c2d8.png" group-title="Sport",Sky Sport Arena FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/27954.ts
+#EXTINF:-1 tvg-id="SkySportArena.it" tvg-name="Sky Sport Arena HD  " tvg-logo="http://service.myvisio.life:80/images/4607604facccab8682e775038115c2d8.png" group-title="Sport",Sky Sport Arena HD  
+http://cane.nero.ws:80/live/cicciofro/sasy/27956.ts
+#EXTINF:-1 tvg-id="SkySportArena.it" tvg-name="Sky Sport Arena SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skysport-arena.png" group-title="Sky Italia SD",Sky Sport Arena SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49748.ts
+#EXTINF:-1 tvg-id="SkySportAction.it" tvg-name="Sky Sport Max FHD" tvg-logo="http://service.myvisio.life:80/images/6e52f03c60fd3c0917535cdeba9b072b.png" group-title="Sport",Sky Sport Max FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/150803.ts
+#EXTINF:-1 tvg-id="SkySportAction.it" tvg-name="Sky Sport Max HD" tvg-logo="http://service.myvisio.life:80/images/6e52f03c60fd3c0917535cdeba9b072b.png" group-title="Sport",Sky Sport Max HD
+http://cane.nero.ws:80/live/cicciofro/sasy/150804.ts
+#EXTINF:-1 tvg-id="SkySportMix.it" tvg-name="Sky Sport Mix FHD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Sky_Sport_Mix_Logo_2022.svg/512px-Sky_Sport_Mix_Logo_2022.svg.png" group-title="Sport",Sky Sport Mix FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/226815.ts
+#EXTINF:-1 tvg-id="SkySportMix.it" tvg-name="Sky Sport Mix HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Sky_Sport_Mix_Logo_2022.svg/512px-Sky_Sport_Mix_Logo_2022.svg.png" group-title="Sport",Sky Sport Mix HD
+http://cane.nero.ws:80/live/cicciofro/sasy/226814.ts
+#EXTINF:-1 tvg-id="SkySportLegend.it" tvg-name="Sky Sport Legend FHD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Sky_Sport_Legend_-_Logo_2025.svg/512px-Sky_Sport_Legend_-_Logo_2025.svg.png" group-title="Sport",Sky Sport Legend FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/226817.ts
+#EXTINF:-1 tvg-id="SkySportLegend.it" tvg-name="Sky Sport Legend HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Sky_Sport_Legend_-_Logo_2025.svg/512px-Sky_Sport_Legend_-_Logo_2025.svg.png" group-title="Sport",Sky Sport Legend HD
+http://cane.nero.ws:80/live/cicciofro/sasy/226816.ts
+#EXTINF:-1 tvg-id="SkySportAction.it" tvg-name="Sky Sport Action SD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/6e52f03c60fd3c0917535cdeba9b072b.png" group-title="Sky Italia SD",Sky Sport Action SD
+http://cane.nero.ws:80/live/cicciofro/sasy/150805.ts
+#EXTINF:-1 tvg-id="SkySportFootball.it" tvg-name="Sky Sport Football SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skysport-football.png" group-title="Sky Italia SD",Sky Sport Football SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49749.ts
+#EXTINF:-1 tvg-id="Stories.it" tvg-name="Sky Sport Collection SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skysport-collection.png" group-title="Sky Italia SD",Sky Sport Collection SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49750.ts
+#EXTINF:-1 tvg-id="SkySportNBA.it" tvg-name="Sky Sport NBA FHD" tvg-logo="http://service.myvisio.life:80/images/b2c9751b876c3bc2658f00a37b0a3406.png" group-title="Sport",Sky Sport NBA FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/27960.ts
+#EXTINF:-1 tvg-id="SkySportNBA.it" tvg-name="Sky Sport NBA HD" tvg-logo="http://service.myvisio.life:80/images/b2c9751b876c3bc2658f00a37b0a3406.png" group-title="Sport",Sky Sport NBA HD
+http://cane.nero.ws:80/live/cicciofro/sasy/27961.ts
+#EXTINF:-1 tvg-id="SkySportNBA.it" tvg-name="Sky Sport NBA SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skysport-nba.png" group-title="Sky Italia SD",Sky Sport NBA SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49751.ts
+#EXTINF:-1 tvg-id="SkySportTennis.it" tvg-name="Sky Sport Tennis FHD" tvg-logo="http://service.myvisio.life:80/images/81ed9f01f5e6043e50cd95bdeb8af009.png" group-title="Sport",Sky Sport Tennis FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/146485.ts
+#EXTINF:-1 tvg-id="SkySportTennis.it" tvg-name="Sky Sport Tennis HD" tvg-logo="http://service.myvisio.life:80/images/81ed9f01f5e6043e50cd95bdeb8af009.png" group-title="Sport",Sky Sport Tennis HD
+http://cane.nero.ws:80/live/cicciofro/sasy/146486.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Sport Tennis SD" tvg-logo="http://service.fullapple.me:80/images/81ed9f01f5e6043e50cd95bdeb8af009.png" group-title="Sky Italia SD",Sky Sport Tennis SD
+http://cane.nero.ws:80/live/cicciofro/sasy/146487.ts
+#EXTINF:-1 tvg-id="Sky.Uno.it" tvg-name="Sky Sport Golf FHD" tvg-logo="http://service.myvisio.life:80/images/6acfe16b984d473723a8495a84e548b7.png" group-title="Sport",Sky Sport Golf FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/215346.ts
+#EXTINF:-1 tvg-id="Sky.Uno.it" tvg-name="Sky Sport Golf HD" tvg-logo="http://service.myvisio.life:80/images/6acfe16b984d473723a8495a84e548b7.png" group-title="Sport",Sky Sport Golf HD
+http://cane.nero.ws:80/live/cicciofro/sasy/215347.ts
+#EXTINF:-1 tvg-id="ACISport.it" tvg-name="Sky Aci Sport TV FHD" tvg-logo="http://service.fullapple.me:8000/images/ce315876bf0d13c264d4dac6e0faf995.png" group-title="Sport",Sky Aci Sport TV FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/202706.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Bike Channel HD" tvg-logo="http://service.fullapple.me:8000/images/41fb845601bf4fb26d0116fbee89417e.png" group-title="Sport",Sky Bike Channel HD
+http://cane.nero.ws:80/live/cicciofro/sasy/49742.ts
+#EXTINF:-1 tvg-id="" tvg-name="World Poker Tour " tvg-logo="http://service.fullapple.me:8000/images/58ca9dfa6ef708e90c9e664f9f41497e.png" group-title="Sport",World Poker Tour 
+http://cane.nero.ws:80/live/cicciofro/sasy/129690.ts
+#EXTINF:-1 tvg-id="" tvg-name="WWE Network HD" tvg-logo="http://service.fullapple.me:8000/images/947af30fc5fd1aaf1e0d8899d5d5baee.png" group-title="Sport",WWE Network HD
+http://cane.nero.ws:80/live/cicciofro/sasy/134205.ts
+#EXTINF:-1 tvg-id="" tvg-name="Red Bull Tv" tvg-logo="http://service.fullapple.me:80/images/8d5c2ad003c431f38dfd7c65e0f3d2eb.png" group-title="Sport",Red Bull Tv
+http://cane.nero.ws:80/live/cicciofro/sasy/164082.ts
+#EXTINF:-1 tvg-id="" tvg-name="Ms Channel" tvg-logo="http://service.fullapple.me:8000/images/09b2124576eeeed0c16f18c12b060a7f.png" group-title="Sport",Ms Channel
+http://cane.nero.ws:80/live/cicciofro/sasy/203660.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eurosport Player Live 1" tvg-logo="http://service.fullapple.me:80/images/1220c16df74ba7d12eec8cad6bfe553d.png" group-title="Sport",Eurosport Player Live 1
+http://cane.nero.ws:80/live/cicciofro/sasy/148094.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eurosport Player Live 2" tvg-logo="http://service.fullapple.me:80/images/1220c16df74ba7d12eec8cad6bfe553d.png" group-title="Sport",Eurosport Player Live 2
+http://cane.nero.ws:80/live/cicciofro/sasy/148095.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eurosport Player Live 3" tvg-logo="http://service.fullapple.me:80/images/1220c16df74ba7d12eec8cad6bfe553d.png" group-title="Sport",Eurosport Player Live 3
+http://cane.nero.ws:80/live/cicciofro/sasy/148096.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eurosport Player Live 4" tvg-logo="http://service.fullapple.me:80/images/1220c16df74ba7d12eec8cad6bfe553d.png" group-title="Sport",Eurosport Player Live 4
+http://cane.nero.ws:80/live/cicciofro/sasy/148097.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eurosport Player Live 5" tvg-logo="http://service.fullapple.me:80/images/1220c16df74ba7d12eec8cad6bfe553d.png" group-title="Sport",Eurosport Player Live 5
+http://cane.nero.ws:80/live/cicciofro/sasy/148098.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eurosport Player Live  6" tvg-logo="http://service.fullapple.me:80/images/1220c16df74ba7d12eec8cad6bfe553d.png" group-title="Sport",Eurosport Player Live  6
+http://cane.nero.ws:80/live/cicciofro/sasy/148099.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eurosport Player Live 7" tvg-logo="http://service.fullapple.me:80/images/1220c16df74ba7d12eec8cad6bfe553d.png" group-title="Sport",Eurosport Player Live 7
+http://cane.nero.ws:80/live/cicciofro/sasy/148100.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eurosport Player Live 8" tvg-logo="http://service.fullapple.me:80/images/1220c16df74ba7d12eec8cad6bfe553d.png" group-title="Sport",Eurosport Player Live 8
+http://cane.nero.ws:80/live/cicciofro/sasy/148101.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eurosport Player Live  9" tvg-logo="http://service.fullapple.me:80/images/1220c16df74ba7d12eec8cad6bfe553d.png" group-title="Sport",Eurosport Player Live  9
+http://cane.nero.ws:80/live/cicciofro/sasy/148102.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eurosport Player Live 10" tvg-logo="http://service.fullapple.me:80/images/1220c16df74ba7d12eec8cad6bfe553d.png" group-title="Sport",Eurosport Player Live 10
+http://cane.nero.ws:80/live/cicciofro/sasy/148103.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eurosport Player Live 11" tvg-logo="http://service.fullapple.me:80/images/1220c16df74ba7d12eec8cad6bfe553d.png" group-title="Sport",Eurosport Player Live 11
+http://cane.nero.ws:80/live/cicciofro/sasy/148104.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eurosport Player Live 12" tvg-logo="http://service.fullapple.me:80/images/1220c16df74ba7d12eec8cad6bfe553d.png" group-title="Sport",Eurosport Player Live 12
+http://cane.nero.ws:80/live/cicciofro/sasy/148105.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eurosport Player Live 13" tvg-logo="http://service.fullapple.me:80/images/1220c16df74ba7d12eec8cad6bfe553d.png" group-title="Sport",Eurosport Player Live 13
+http://cane.nero.ws:80/live/cicciofro/sasy/148106.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eurosport Player Live 14" tvg-logo="http://service.fullapple.me:80/images/1220c16df74ba7d12eec8cad6bfe553d.png" group-title="Sport",Eurosport Player Live 14
+http://cane.nero.ws:80/live/cicciofro/sasy/148107.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eurosport Player Live 15" tvg-logo="http://service.fullapple.me:80/images/1220c16df74ba7d12eec8cad6bfe553d.png" group-title="Sport",Eurosport Player Live 15
+http://cane.nero.ws:80/live/cicciofro/sasy/148108.ts
+#EXTINF:-1 tvg-id="" tvg-name="----- FORMULA 1  E MOTOGP -----" tvg-logo="https://images.contentstack.io/v3/assets/blta6c52b9cd5519be3/blt359ac09d856638c8/5f6853c7d70e764f32921c7c/Logo_spectrum.png" group-title="Formula 1 - Moto Gp CAM",----- FORMULA 1  E MOTOGP -----
+http://cane.nero.ws:80/live/cicciofro/sasy/70082.ts
+#EXTINF:-1 tvg-id="SkySportF1.it" tvg-name="Calendario F1 2022 FHD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/0f4c797d14c5c64cb7e8fd7ed5e9cd94.png" group-title="Formula 1 - Moto Gp CAM",Calendario F1 2022 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/130203.ts
+#EXTINF:-1 tvg-id="SkySportF1.it" tvg-name="Sky Sport F1 FHD Live" tvg-logo="http://service.fullapple.me:80/images/0f4c797d14c5c64cb7e8fd7ed5e9cd94.png" group-title="Formula 1 - Moto Gp CAM",Sky Sport F1 FHD Live
+http://cane.nero.ws:80/live/cicciofro/sasy/70083.ts
+#EXTINF:-1 tvg-id="SkySportF1.it" tvg-name="Sky Sport F1 HD Live" tvg-logo="http://service.fullapple.me:8000/images/0f4c797d14c5c64cb7e8fd7ed5e9cd94.png" group-title="Formula 1 - Moto Gp CAM",Sky Sport F1 HD Live
+http://cane.nero.ws:80/live/cicciofro/sasy/70084.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Live" tvg-logo="http://service.fullapple.me:80/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Live
+http://cane.nero.ws:80/live/cicciofro/sasy/70058.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Visuale Pit Lane" tvg-logo="http://service.fullapple.me:80/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Visuale Pit Lane
+http://cane.nero.ws:80/live/cicciofro/sasy/70059.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Tempi Gara" tvg-logo="http://service.fullapple.me:80/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Tempi Gara
+http://cane.nero.ws:80/live/cicciofro/sasy/70060.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Visuale Circuito (tracker)" tvg-logo="http://service.fullapple.me:80/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Visuale Circuito (tracker)
+http://cane.nero.ws:80/live/cicciofro/sasy/70061.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Yuki Tsunoda" tvg-logo="http://service.fullapple.me:80/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Yuki Tsunoda
+http://cane.nero.ws:80/live/cicciofro/sasy/70062.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Antonio Giovinazzi" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Antonio Giovinazzi
+http://cane.nero.ws:80/live/cicciofro/sasy/70063.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Carlos Sainz" tvg-logo="http://service.fullapple.me:80/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Carlos Sainz
+http://cane.nero.ws:80/live/cicciofro/sasy/70064.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Charles Leclerc" tvg-logo="http://service.fullapple.me:80/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Charles Leclerc
+http://cane.nero.ws:80/live/cicciofro/sasy/70065.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Daniel Ricciardo" tvg-logo="http://service.fullapple.me:80/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Daniel Ricciardo
+http://cane.nero.ws:80/live/cicciofro/sasy/70066.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Nikita Mazepin" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Nikita Mazepin
+http://cane.nero.ws:80/live/cicciofro/sasy/70067.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Esteban Ocon" tvg-logo="http://service.fullapple.me:80/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Esteban Ocon
+http://cane.nero.ws:80/live/cicciofro/sasy/70068.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD George Russell" tvg-logo="http://service.fullapple.me:80/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD George Russell
+http://cane.nero.ws:80/live/cicciofro/sasy/70069.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Mick Schumacher" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Mick Schumacher
+http://cane.nero.ws:80/live/cicciofro/sasy/70070.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Kimi Raikkonen" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Kimi Raikkonen
+http://cane.nero.ws:80/live/cicciofro/sasy/70071.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Lance Stroll" tvg-logo="http://service.fullapple.me:80/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Lance Stroll
+http://cane.nero.ws:80/live/cicciofro/sasy/70072.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Lando Norris" tvg-logo="http://service.fullapple.me:80/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Lando Norris
+http://cane.nero.ws:80/live/cicciofro/sasy/70073.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Lewis Hamilton" tvg-logo="http://service.fullapple.me:80/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Lewis Hamilton
+http://cane.nero.ws:80/live/cicciofro/sasy/70074.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Max Verstappen" tvg-logo="http://service.fullapple.me:80/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Max Verstappen
+http://cane.nero.ws:80/live/cicciofro/sasy/70075.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Nicholas Latifi" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Nicholas Latifi
+http://cane.nero.ws:80/live/cicciofro/sasy/70076.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Pierre Gasly" tvg-logo="http://service.fullapple.me:80/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Pierre Gasly
+http://cane.nero.ws:80/live/cicciofro/sasy/70077.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Fernando Alonso" tvg-logo="http://service.fullapple.me:80/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Fernando Alonso
+http://cane.nero.ws:80/live/cicciofro/sasy/70078.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Sebastian Vettel" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Sebastian Vettel
+http://cane.nero.ws:80/live/cicciofro/sasy/70079.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Sergio Perez" tvg-logo="http://service.fullapple.me:80/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Sergio Perez
+http://cane.nero.ws:80/live/cicciofro/sasy/70080.ts
+#EXTINF:-1 tvg-id="" tvg-name="F1 ONBOARD Valtteri Bottas" tvg-logo="http://service.fullapple.me:80/images/9019737cb5845a544fa668f55ce02932.png" group-title="Formula 1 - Moto Gp CAM",F1 ONBOARD Valtteri Bottas
+http://cane.nero.ws:80/live/cicciofro/sasy/70081.ts
+#EXTINF:-1 tvg-id="SkySportMotoGP.it" tvg-name="Calendario MotoGp 2024 FHD" tvg-logo="http://bs-update.ddns.net/Android/logos/skysport-motogp.png" group-title="Formula 1 - Moto Gp CAM",Calendario MotoGp 2024 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/130204.ts
+#EXTINF:-1 tvg-id="SkySportMotoGP.it" tvg-name="Sky Sport MotoGP FHD Live" tvg-logo="http://service.fullapple.me:80/images/314a9a576595b9e7aa5bd1c8de1adf39.png" group-title="Formula 1 - Moto Gp CAM",Sky Sport MotoGP FHD Live
+http://cane.nero.ws:80/live/cicciofro/sasy/72125.ts
+#EXTINF:-1 tvg-id="SkySportMotoGP.it" tvg-name="Sky Sport MotoGP HD Live" tvg-logo="http://service.fullapple.me:80/images/314a9a576595b9e7aa5bd1c8de1adf39.png" group-title="Formula 1 - Moto Gp CAM",Sky Sport MotoGP HD Live
+http://cane.nero.ws:80/live/cicciofro/sasy/72124.ts
+#EXTINF:-1 tvg-id="" tvg-name="MOTO GP Live Tracking" tvg-logo="https://pbs.twimg.com/profile_images/643534335405084674/jpmvhfBW.png" group-title="Formula 1 - Moto Gp CAM",MOTO GP Live Tracking
+http://cane.nero.ws:80/live/cicciofro/sasy/72116.ts
+#EXTINF:-1 tvg-id="" tvg-name="MOTO GP Live Timing" tvg-logo="https://pbs.twimg.com/profile_images/643534335405084674/jpmvhfBW.png" group-title="Formula 1 - Moto Gp CAM",MOTO GP Live Timing
+http://cane.nero.ws:80/live/cicciofro/sasy/72117.ts
+#EXTINF:-1 tvg-id="" tvg-name="MOTO GP Ambient" tvg-logo="https://pbs.twimg.com/profile_images/643534335405084674/jpmvhfBW.png" group-title="Formula 1 - Moto Gp CAM",MOTO GP Ambient
+http://cane.nero.ws:80/live/cicciofro/sasy/72118.ts
+#EXTINF:-1 tvg-id="" tvg-name="MOTO GP ONBOARD Elicopter" tvg-logo="https://pbs.twimg.com/profile_images/643534335405084674/jpmvhfBW.png" group-title="Formula 1 - Moto Gp CAM",MOTO GP ONBOARD Elicopter
+http://cane.nero.ws:80/live/cicciofro/sasy/72119.ts
+#EXTINF:-1 tvg-id="" tvg-name="MOTOGP ONBOARD 1" tvg-logo="http://service.fullapple.me:8000/images/f49c710c9277a793b8b301f1f06f3420.png" group-title="Formula 1 - Moto Gp CAM",MOTOGP ONBOARD 1
+http://cane.nero.ws:80/live/cicciofro/sasy/72120.ts
+#EXTINF:-1 tvg-id="" tvg-name="MOTO GP ONBOARD 2" tvg-logo="http://service.fullapple.me:8000/images/f49c710c9277a793b8b301f1f06f3420.png" group-title="Formula 1 - Moto Gp CAM",MOTO GP ONBOARD 2
+http://cane.nero.ws:80/live/cicciofro/sasy/72121.ts
+#EXTINF:-1 tvg-id="" tvg-name="MOTO GP ONBOARD 3" tvg-logo="https://pbs.twimg.com/profile_images/643534335405084674/jpmvhfBW.png" group-title="Formula 1 - Moto Gp CAM",MOTO GP ONBOARD 3
+http://cane.nero.ws:80/live/cicciofro/sasy/72122.ts
+#EXTINF:-1 tvg-id="" tvg-name="MOTO GP ONBOARD 4" tvg-logo="https://pbs.twimg.com/profile_images/643534335405084674/jpmvhfBW.png" group-title="Formula 1 - Moto Gp CAM",MOTO GP ONBOARD 4
+http://cane.nero.ws:80/live/cicciofro/sasy/72123.ts
+#EXTINF:-1 tvg-id="" tvg-name="----- CAMPIONATO SERIE A ------" tvg-logo="http://service.fullapple.me:80/images/1a3133379fb23f3bf2cffe0c5be9b470.png" group-title="Campionato Serie A",----- CAMPIONATO SERIE A ------
+http://cane.nero.ws:80/live/cicciofro/sasy/218930.ts
+#EXTINF:-1 tvg-id="" tvg-name="Zona Serie A FHD" tvg-logo="http://service.myvisio.life:80/images/1a3133379fb23f3bf2cffe0c5be9b470.png" group-title="Campionato Serie A",Zona Serie A FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/218931.ts
+#EXTINF:-1 tvg-id="" tvg-name="Zona Serie A HD" tvg-logo="http://service.myvisio.life:80/images/1a3133379fb23f3bf2cffe0c5be9b470.png" group-title="Campionato Serie A",Zona Serie A HD
+http://cane.nero.ws:80/live/cicciofro/sasy/218932.ts
+#EXTINF:-1 tvg-id="" tvg-name="Atalanta FHD" tvg-logo="http://service.myvisio.life:80/images/9d68edb3a129aa5dc7cd60d3b1e879f6.png" group-title="Campionato Serie A",Atalanta FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/218890.ts
+#EXTINF:-1 tvg-id="" tvg-name="Atalanta HD" tvg-logo="http://service.myvisio.life:80/images/9d68edb3a129aa5dc7cd60d3b1e879f6.png" group-title="Campionato Serie A",Atalanta HD
+http://cane.nero.ws:80/live/cicciofro/sasy/218891.ts
+#EXTINF:-1 tvg-id="" tvg-name="Atalanta SD" tvg-logo="http://service.myvisio.life:80/images/9d68edb3a129aa5dc7cd60d3b1e879f6.png" group-title="Campionato Serie A",Atalanta SD
+http://cane.nero.ws:80/live/cicciofro/sasy/220435.ts
+#EXTINF:-1 tvg-id="" tvg-name="Bologna FHD" tvg-logo="http://service.myvisio.life:80/images/b7827ac08e1eaeec4a7db6b6dd0c249a.png" group-title="Campionato Serie A",Bologna FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/218892.ts
+#EXTINF:-1 tvg-id="" tvg-name="Bologna HD" tvg-logo="http://service.myvisio.life:80/images/b7827ac08e1eaeec4a7db6b6dd0c249a.png" group-title="Campionato Serie A",Bologna HD
+http://cane.nero.ws:80/live/cicciofro/sasy/218893.ts
+#EXTINF:-1 tvg-id="" tvg-name="Bologna SD" tvg-logo="http://service.myvisio.life:80/images/b7827ac08e1eaeec4a7db6b6dd0c249a.png" group-title="Campionato Serie A",Bologna SD
+http://cane.nero.ws:80/live/cicciofro/sasy/220434.ts
+#EXTINF:-1 tvg-id="" tvg-name="Cagliari FHD" tvg-logo="http://service.myvisio.life:80/images/3672fc4b1e8d0bef6b1d222f7307ed98.png" group-title="Campionato Serie A",Cagliari FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/218894.ts
+#EXTINF:-1 tvg-id="" tvg-name="Cagliari HD" tvg-logo="http://service.myvisio.life:80/images/3672fc4b1e8d0bef6b1d222f7307ed98.png" group-title="Campionato Serie A",Cagliari HD
+http://cane.nero.ws:80/live/cicciofro/sasy/218895.ts
+#EXTINF:-1 tvg-id="" tvg-name="Cagliari SD" tvg-logo="http://service.myvisio.life:80/images/3672fc4b1e8d0bef6b1d222f7307ed98.png" group-title="Campionato Serie A",Cagliari SD
+http://cane.nero.ws:80/live/cicciofro/sasy/220433.ts
+#EXTINF:-1 tvg-id="" tvg-name="Como FHD" tvg-logo="http://service.myvisio.life:80/images/2f114432baa727879f53bea4286f3665.png" group-title="Campionato Serie A",Como FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/218896.ts
+#EXTINF:-1 tvg-id="" tvg-name="Como HD" tvg-logo="http://service.myvisio.life:80/images/2f114432baa727879f53bea4286f3665.png" group-title="Campionato Serie A",Como HD
+http://cane.nero.ws:80/live/cicciofro/sasy/218897.ts
+#EXTINF:-1 tvg-id="" tvg-name="Como SD" tvg-logo="http://service.myvisio.life:80/images/2f114432baa727879f53bea4286f3665.png" group-title="Campionato Serie A",Como SD
+http://cane.nero.ws:80/live/cicciofro/sasy/220432.ts
+#EXTINF:-1 tvg-id="" tvg-name="Cremonese FHD" tvg-logo="http://service.myvisio.life:80/images/cf7d174aab98bcd4dbbd31c84f23aed4.png" group-title="Campionato Serie A",Cremonese FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/218898.ts
+#EXTINF:-1 tvg-id="" tvg-name="Cremonese HD" tvg-logo="http://service.myvisio.life:80/images/cf7d174aab98bcd4dbbd31c84f23aed4.png" group-title="Campionato Serie A",Cremonese HD
+http://cane.nero.ws:80/live/cicciofro/sasy/218899.ts
+#EXTINF:-1 tvg-id="" tvg-name="Cremonese SD" tvg-logo="http://service.myvisio.life:80/images/cf7d174aab98bcd4dbbd31c84f23aed4.png" group-title="Campionato Serie A",Cremonese SD
+http://cane.nero.ws:80/live/cicciofro/sasy/220431.ts
+#EXTINF:-1 tvg-id="" tvg-name="Fiorentina FHD" tvg-logo="http://service.myvisio.life:80/images/a1b89dc3034ebe4df03ab0bd344cd9fa.png" group-title="Campionato Serie A",Fiorentina FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/218900.ts
+#EXTINF:-1 tvg-id="" tvg-name="Fiorentina HD" tvg-logo="http://service.myvisio.life:80/images/a1b89dc3034ebe4df03ab0bd344cd9fa.png" group-title="Campionato Serie A",Fiorentina HD
+http://cane.nero.ws:80/live/cicciofro/sasy/218901.ts
+#EXTINF:-1 tvg-id="" tvg-name="Fiorentina SD" tvg-logo="http://service.myvisio.life:80/images/a1b89dc3034ebe4df03ab0bd344cd9fa.png" group-title="Campionato Serie A",Fiorentina SD
+http://cane.nero.ws:80/live/cicciofro/sasy/220430.ts
+#EXTINF:-1 tvg-id="" tvg-name="Genoa FHD" tvg-logo="http://service.myvisio.life:80/images/809dc3c47eeb1c0636ece4529ff0c60b.png" group-title="Campionato Serie A",Genoa FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/218902.ts
+#EXTINF:-1 tvg-id="" tvg-name="Genoa HD" tvg-logo="http://service.myvisio.life:80/images/809dc3c47eeb1c0636ece4529ff0c60b.png" group-title="Campionato Serie A",Genoa HD
+http://cane.nero.ws:80/live/cicciofro/sasy/218903.ts
+#EXTINF:-1 tvg-id="" tvg-name="Genoa SD" tvg-logo="http://service.myvisio.life:80/images/809dc3c47eeb1c0636ece4529ff0c60b.png" group-title="Campionato Serie A",Genoa SD
+http://cane.nero.ws:80/live/cicciofro/sasy/220429.ts
+#EXTINF:-1 tvg-id="" tvg-name="Hellas Verona FHD" tvg-logo="http://service.myvisio.life:80/images/46c7deb536a9018f2a9105f200471b98.png" group-title="Campionato Serie A",Hellas Verona FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/218904.ts
+#EXTINF:-1 tvg-id="" tvg-name="Hellas Verona HD" tvg-logo="http://service.myvisio.life:80/images/46c7deb536a9018f2a9105f200471b98.png" group-title="Campionato Serie A",Hellas Verona HD
+http://cane.nero.ws:80/live/cicciofro/sasy/218905.ts
+#EXTINF:-1 tvg-id="" tvg-name="Hellas Verona SD" tvg-logo="http://service.myvisio.life:80/images/46c7deb536a9018f2a9105f200471b98.png" group-title="Campionato Serie A",Hellas Verona SD
+http://cane.nero.ws:80/live/cicciofro/sasy/220428.ts
+#EXTINF:-1 tvg-id="" tvg-name="Inter FHD" tvg-logo="http://service.myvisio.life:80/images/7ec8336709bf8a8d71d0ffff69127903.png" group-title="Campionato Serie A",Inter FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/218906.ts
+#EXTINF:-1 tvg-id="" tvg-name="Inter HD" tvg-logo="http://service.myvisio.life:80/images/7ec8336709bf8a8d71d0ffff69127903.png" group-title="Campionato Serie A",Inter HD
+http://cane.nero.ws:80/live/cicciofro/sasy/218907.ts
+#EXTINF:-1 tvg-id="" tvg-name="Inter SD" tvg-logo="http://service.myvisio.life:80/images/7ec8336709bf8a8d71d0ffff69127903.png" group-title="Campionato Serie A",Inter SD
+http://cane.nero.ws:80/live/cicciofro/sasy/220427.ts
+#EXTINF:-1 tvg-id="" tvg-name="Juventus FHD" tvg-logo="http://service.myvisio.life:80/images/71d8ef94c0c115710b0ee2c250ca9447.png" group-title="Campionato Serie A",Juventus FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/218908.ts
+#EXTINF:-1 tvg-id="" tvg-name="Juventus HD" tvg-logo="http://service.myvisio.life:80/images/71d8ef94c0c115710b0ee2c250ca9447.png" group-title="Campionato Serie A",Juventus HD
+http://cane.nero.ws:80/live/cicciofro/sasy/218909.ts
+#EXTINF:-1 tvg-id="" tvg-name="Juventus SD" tvg-logo="http://service.myvisio.life:80/images/71d8ef94c0c115710b0ee2c250ca9447.png" group-title="Campionato Serie A",Juventus SD
+http://cane.nero.ws:80/live/cicciofro/sasy/220426.ts
+#EXTINF:-1 tvg-id="" tvg-name="Lazio FHD" tvg-logo="http://service.myvisio.life:80/images/86026961dc1980ad1efc61146af55611.png" group-title="Campionato Serie A",Lazio FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/218910.ts
+#EXTINF:-1 tvg-id="" tvg-name="Lazio HD" tvg-logo="http://service.myvisio.life:80/images/86026961dc1980ad1efc61146af55611.png" group-title="Campionato Serie A",Lazio HD
+http://cane.nero.ws:80/live/cicciofro/sasy/218911.ts
+#EXTINF:-1 tvg-id="" tvg-name="Lazio SD" tvg-logo="http://service.myvisio.life:80/images/86026961dc1980ad1efc61146af55611.png" group-title="Campionato Serie A",Lazio SD
+http://cane.nero.ws:80/live/cicciofro/sasy/220425.ts
+#EXTINF:-1 tvg-id="" tvg-name="Lecce FHD" tvg-logo="http://service.myvisio.life:80/images/72fa0f93182839e32ccf8732ed61a570.png" group-title="Campionato Serie A",Lecce FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/218912.ts
+#EXTINF:-1 tvg-id="" tvg-name="Lecce HD" tvg-logo="http://service.myvisio.life:80/images/72fa0f93182839e32ccf8732ed61a570.png" group-title="Campionato Serie A",Lecce HD
+http://cane.nero.ws:80/live/cicciofro/sasy/218913.ts
+#EXTINF:-1 tvg-id="" tvg-name="Lecce SD" tvg-logo="http://service.myvisio.life:80/images/72fa0f93182839e32ccf8732ed61a570.png" group-title="Campionato Serie A",Lecce SD
+http://cane.nero.ws:80/live/cicciofro/sasy/220424.ts
+#EXTINF:-1 tvg-id="" tvg-name="Milan FHD" tvg-logo="http://service.myvisio.life:80/images/83227a721a3363d2c78381664c78657f.png" group-title="Campionato Serie A",Milan FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/218914.ts
+#EXTINF:-1 tvg-id="" tvg-name="Milan HD" tvg-logo="http://service.myvisio.life:80/images/83227a721a3363d2c78381664c78657f.png" group-title="Campionato Serie A",Milan HD
+http://cane.nero.ws:80/live/cicciofro/sasy/218915.ts
+#EXTINF:-1 tvg-id="" tvg-name="Milan SD" tvg-logo="http://service.myvisio.life:80/images/83227a721a3363d2c78381664c78657f.png" group-title="Campionato Serie A",Milan SD
+http://cane.nero.ws:80/live/cicciofro/sasy/220423.ts
+#EXTINF:-1 tvg-id="" tvg-name="Napoli FHD" tvg-logo="http://service.myvisio.life:80/images/25a81701fbfa4a1efdf660a950c1d006.png" group-title="Campionato Serie A",Napoli FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/218918.ts
+#EXTINF:-1 tvg-id="" tvg-name="Napoli HD" tvg-logo="http://service.myvisio.life:80/images/25a81701fbfa4a1efdf660a950c1d006.png" group-title="Campionato Serie A",Napoli HD
+http://cane.nero.ws:80/live/cicciofro/sasy/218919.ts
+#EXTINF:-1 tvg-id="" tvg-name="Napoli SD" tvg-logo="http://service.myvisio.life:80/images/25a81701fbfa4a1efdf660a950c1d006.png" group-title="Campionato Serie A",Napoli SD
+http://cane.nero.ws:80/live/cicciofro/sasy/220421.ts
+#EXTINF:-1 tvg-id="" tvg-name="Parma FHD" tvg-logo="http://service.myvisio.life:80/images/038f028ee7b24d9ea9178289d4cb52db.png" group-title="Campionato Serie A",Parma FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/218920.ts
+#EXTINF:-1 tvg-id="" tvg-name="Parma HD" tvg-logo="http://service.myvisio.life:80/images/038f028ee7b24d9ea9178289d4cb52db.png" group-title="Campionato Serie A",Parma HD
+http://cane.nero.ws:80/live/cicciofro/sasy/218921.ts
+#EXTINF:-1 tvg-id="" tvg-name="Parma SD" tvg-logo="http://service.myvisio.life:80/images/038f028ee7b24d9ea9178289d4cb52db.png" group-title="Campionato Serie A",Parma SD
+http://cane.nero.ws:80/live/cicciofro/sasy/220420.ts
+#EXTINF:-1 tvg-id="" tvg-name="Pisa FHD" tvg-logo="http://service.myvisio.life:80/images/9428520f7f19c29574b912796d43fb11.png" group-title="Campionato Serie A",Pisa FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/218916.ts
+#EXTINF:-1 tvg-id="" tvg-name="Pisa HD" tvg-logo="http://service.myvisio.life:80/images/9428520f7f19c29574b912796d43fb11.png" group-title="Campionato Serie A",Pisa HD
+http://cane.nero.ws:80/live/cicciofro/sasy/218917.ts
+#EXTINF:-1 tvg-id="" tvg-name="Pisa SD" tvg-logo="http://service.myvisio.life:80/images/9428520f7f19c29574b912796d43fb11.png" group-title="Campionato Serie A",Pisa SD
+http://cane.nero.ws:80/live/cicciofro/sasy/220422.ts
+#EXTINF:-1 tvg-id="" tvg-name="Roma FHD" tvg-logo="http://service.myvisio.life:80/images/2e92d188dbdbd88e7c15831f4abfe1fc.png" group-title="Campionato Serie A",Roma FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/218922.ts
+#EXTINF:-1 tvg-id="" tvg-name="Roma HD" tvg-logo="http://service.myvisio.life:80/images/2e92d188dbdbd88e7c15831f4abfe1fc.png" group-title="Campionato Serie A",Roma HD
+http://cane.nero.ws:80/live/cicciofro/sasy/218923.ts
+#EXTINF:-1 tvg-id="" tvg-name="Roma SD" tvg-logo="http://service.myvisio.life:80/images/2e92d188dbdbd88e7c15831f4abfe1fc.png" group-title="Campionato Serie A",Roma SD
+http://cane.nero.ws:80/live/cicciofro/sasy/220419.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sassuolo FHD" tvg-logo="http://service.myvisio.life:80/images/eacf8180599dcf9cff52e55108b423f7.png" group-title="Campionato Serie A",Sassuolo FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/218928.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sassuolo HD" tvg-logo="http://service.myvisio.life:80/images/eacf8180599dcf9cff52e55108b423f7.png" group-title="Campionato Serie A",Sassuolo HD
+http://cane.nero.ws:80/live/cicciofro/sasy/218929.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sassuolo SD" tvg-logo="http://service.myvisio.life:80/images/eacf8180599dcf9cff52e55108b423f7.png" group-title="Campionato Serie A",Sassuolo SD
+http://cane.nero.ws:80/live/cicciofro/sasy/220416.ts
+#EXTINF:-1 tvg-id="" tvg-name="Torino FHD" tvg-logo="http://service.myvisio.life:80/images/ed8b38fd3ef9b08697d7a2728cf831b4.png" group-title="Campionato Serie A",Torino FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/218924.ts
+#EXTINF:-1 tvg-id="" tvg-name="Torino HD" tvg-logo="http://service.myvisio.life:80/images/ed8b38fd3ef9b08697d7a2728cf831b4.png" group-title="Campionato Serie A",Torino HD
+http://cane.nero.ws:80/live/cicciofro/sasy/218925.ts
+#EXTINF:-1 tvg-id="" tvg-name="Torino SD" tvg-logo="http://service.myvisio.life:80/images/ed8b38fd3ef9b08697d7a2728cf831b4.png" group-title="Campionato Serie A",Torino SD
+http://cane.nero.ws:80/live/cicciofro/sasy/220418.ts
+#EXTINF:-1 tvg-id="" tvg-name="Udinese FHD" tvg-logo="http://service.myvisio.life:80/images/fbf1377c021dd852f9f692128c0c1edd.png" group-title="Campionato Serie A",Udinese FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/218926.ts
+#EXTINF:-1 tvg-id="" tvg-name="Udinese HD" tvg-logo="http://service.myvisio.life:80/images/fbf1377c021dd852f9f692128c0c1edd.png" group-title="Campionato Serie A",Udinese HD
+http://cane.nero.ws:80/live/cicciofro/sasy/218927.ts
+#EXTINF:-1 tvg-id="" tvg-name="Udinese SD" tvg-logo="http://service.myvisio.life:80/images/fbf1377c021dd852f9f692128c0c1edd.png" group-title="Campionato Serie A",Udinese SD
+http://cane.nero.ws:80/live/cicciofro/sasy/220417.ts
+#EXTINF:-1 tvg-id="" tvg-name="----- SKY CALCIO ------" tvg-logo="http://service.fullapple.me:80/images/31d52abda89527246184ec524330e337.png" group-title="Calcio",----- SKY CALCIO ------
+http://cane.nero.ws:80/live/cicciofro/sasy/22769.ts
+#EXTINF:-1 tvg-id="DAZNZona.it" tvg-name="Zona Dazn Serie A FHD" tvg-logo="http://service.myvisio.life:80/images/c54b124c08d5d6c6d229dccaaf05d835.png" group-title="Calcio",Zona Dazn Serie A FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/149099.ts
+#EXTINF:-1 tvg-id="DAZNZona.it" tvg-name="Zona Dazn Serie A HD" tvg-logo="http://service.myvisio.life:80/images/c54b124c08d5d6c6d229dccaaf05d835.png" group-title="Calcio",Zona Dazn Serie A HD
+http://cane.nero.ws:80/live/cicciofro/sasy/48842.ts
+#EXTINF:-1 tvg-id="DAZNZona.it" tvg-name="Zona Dazn Serie A SD" tvg-logo="http://service.myvisio.life:80/images/c54b124c08d5d6c6d229dccaaf05d835.png" group-title="Calcio",Zona Dazn Serie A SD
+http://cane.nero.ws:80/live/cicciofro/sasy/209105.ts
+#EXTINF:-1 tvg-id="DAZNZona.it" tvg-name="Zona Dazn Serie A FHD (Buffering)" tvg-logo="http://service.myvisio.life:80/images/c54b124c08d5d6c6d229dccaaf05d835.png" group-title="Calcio",Zona Dazn Serie A FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185833.ts
+#EXTINF:-1 tvg-id="" tvg-name="Evento Sportivo HDR (Fibra Top)" tvg-logo="http://service.fullapple.me:8000/images/4ccdcbc7ec60819cfb8bca1c20862b69.png" group-title="Calcio",Evento Sportivo HDR (Fibra Top)
+http://cane.nero.ws:80/live/cicciofro/sasy/170506.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eventi Napoli Calcio FHD" tvg-logo="http://service.myvisio.life:80/images/29e52fb713741c3c1b7134a10f613794.png" group-title="Calcio",Eventi Napoli Calcio FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/49864.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eventi Napoli Calcio HD" tvg-logo="http://service.myvisio.life:80/images/29e52fb713741c3c1b7134a10f613794.png" group-title="Calcio",Eventi Napoli Calcio HD
+http://cane.nero.ws:80/live/cicciofro/sasy/81090.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eventi Napoli Calcio SD" tvg-logo="http://service.myvisio.life:80/images/29e52fb713741c3c1b7134a10f613794.png" group-title="Calcio",Eventi Napoli Calcio SD
+http://cane.nero.ws:80/live/cicciofro/sasy/178249.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eventi Napoli Calcio FHD (Buffering)" tvg-logo="http://service.myvisio.life:80/images/29e52fb713741c3c1b7134a10f613794.png" group-title="Calcio",Eventi Napoli Calcio FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185831.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eventi Napoli Calcio BackUp" tvg-logo="http://service.fullapple.me:80/images/29e52fb713741c3c1b7134a10f613794.png" group-title="Calcio",Eventi Napoli Calcio BackUp
+http://cane.nero.ws:80/live/cicciofro/sasy/185411.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eventi Calcio Amazon Prime FHD" tvg-logo="http://service.myvisio.life:80/images/e3c496d9e754e3d6c84ee1e241990ad1.png" group-title="Calcio",Eventi Calcio Amazon Prime FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/148967.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eventi Calcio Amazon Prime HD" tvg-logo="http://service.myvisio.life:80/images/e3c496d9e754e3d6c84ee1e241990ad1.png" group-title="Calcio",Eventi Calcio Amazon Prime HD
+http://cane.nero.ws:80/live/cicciofro/sasy/148968.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eventi Calcio Amazon Prime SD" tvg-logo="http://service.myvisio.life:80/images/e3c496d9e754e3d6c84ee1e241990ad1.png" group-title="Calcio",Eventi Calcio Amazon Prime SD
+http://cane.nero.ws:80/live/cicciofro/sasy/178509.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eventi Calcio Amazon Prime FHD (Buffering)" tvg-logo="http://service.myvisio.life:80/images/e3c496d9e754e3d6c84ee1e241990ad1.png" group-title="Calcio",Eventi Calcio Amazon Prime FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185832.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eventi Calcio Amazon Prime BackUp" tvg-logo="http://service.myvisio.life:80/images/e3c496d9e754e3d6c84ee1e241990ad1.png" group-title="Calcio",Eventi Calcio Amazon Prime BackUp
+http://cane.nero.ws:80/live/cicciofro/sasy/185717.ts
+#EXTINF:-1 tvg-id="SkyCinemaUno.it" tvg-name="Sky Sport Bar 1 FHD" tvg-logo="http://service.myvisio.life:80/images/246e1890b1bc773653026b094d244051.png" group-title="Calcio",Sky Sport Bar 1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/149163.ts
+#EXTINF:-1 tvg-id="SkyCinemaUno.it" tvg-name="Sky Sport Bar 1 HD" tvg-logo="http://service.myvisio.life:80/images/246e1890b1bc773653026b094d244051.png" group-title="Calcio",Sky Sport Bar 1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/149164.ts
+#EXTINF:-1 tvg-id="SkyCinemaUno.it" tvg-name="Sky Sport Bar 1 SD" tvg-logo="http://service.myvisio.life:80/images/246e1890b1bc773653026b094d244051.png" group-title="Calcio",Sky Sport Bar 1 SD
+http://cane.nero.ws:80/live/cicciofro/sasy/209106.ts
+#EXTINF:-1 tvg-id="SkyCinemaUno.it" tvg-name="Sky Sport Bar 1 FHD (Buffering)" tvg-logo="http://service.myvisio.life:80/images/246e1890b1bc773653026b094d244051.png" group-title="Calcio",Sky Sport Bar 1 FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185834.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Sport Bar 1 BackUp" tvg-logo="http://service.myvisio.life:80/images/246e1890b1bc773653026b094d244051.png" group-title="Calcio",Sky Sport Bar 1 BackUp
+http://cane.nero.ws:80/live/cicciofro/sasy/185718.ts
+#EXTINF:-1 tvg-id="SkyCinemaUno.it" tvg-name="Sky Sport Bar 2 FHD" tvg-logo="http://service.myvisio.life:80/images/246e1890b1bc773653026b094d244051.png" group-title="Calcio",Sky Sport Bar 2 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/149166.ts
+#EXTINF:-1 tvg-id="SkyCinemaUno.it" tvg-name="Sky Sport Bar 2 HD" tvg-logo="http://service.myvisio.life:80/images/246e1890b1bc773653026b094d244051.png" group-title="Calcio",Sky Sport Bar 2 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/149165.ts
+#EXTINF:-1 tvg-id="SkyCinemaUno.it" tvg-name="Sky Sport Bar 2 SD" tvg-logo="http://service.myvisio.life:80/images/246e1890b1bc773653026b094d244051.png" group-title="Calcio",Sky Sport Bar 2 SD
+http://cane.nero.ws:80/live/cicciofro/sasy/209107.ts
+#EXTINF:-1 tvg-id="SkyCinemaUno.it" tvg-name="Sky Sport Bar 2 FHD (Buffering)" tvg-logo="http://service.fullapple.me:8000/images/246e1890b1bc773653026b094d244051.png" group-title="Calcio",Sky Sport Bar 2 FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185835.ts
+#EXTINF:-1 tvg-id="Sky Sport Calcio HD" tvg-name="Sky Sport Calcio FHD" tvg-logo="http://service.fullapple.me:80/images/246e1890b1bc773653026b094d244051.png" group-title="Calcio",Sky Sport Calcio FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/4495.ts
+#EXTINF:-1 tvg-id="Sky Sport Calcio HD" tvg-name="Sky Sport Calcio HD" tvg-logo="http://service.fullapple.me:80/images/246e1890b1bc773653026b094d244051.png" group-title="Calcio",Sky Sport Calcio HD
+http://cane.nero.ws:80/live/cicciofro/sasy/25.ts
+#EXTINF:-1 tvg-id="SkySportCalcio.it" tvg-name="Sky Sport Calcio SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skysport-seriea.png" group-title="Sky Italia SD",Sky Sport Calcio SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49752.ts
+#EXTINF:-1 tvg-id="Sky Sport Calcio HD" tvg-name="Sky Sport Calcio FHD (Buffering)" tvg-logo="http://service.fullapple.me:8000/images/246e1890b1bc773653026b094d244051.png" group-title="Calcio",Sky Sport Calcio FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185825.ts
+#EXTINF:-1 tvg-id="ky Sport 251 Full HD" tvg-name="Sky Sport 251 FHD" tvg-logo="http://service.fullapple.me:80/images/f3b640d43c4d9b958a421140a78733b3.png" group-title="Calcio",Sky Sport 251 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/9590.ts
+#EXTINF:-1 tvg-id="Sky Sport HD  251" tvg-name="Sky Sport 251 HD" tvg-logo="http://service.fullapple.me:80/images/f3b640d43c4d9b958a421140a78733b3.png" group-title="Calcio",Sky Sport 251 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/27.ts
+#EXTINF:-1 tvg-id="Sky Sport 251 HD" tvg-name="Sky Sport SD 251" tvg-logo="http://bs-update.ddns.net/Android/logos/skysport-hd1-7.png" group-title="Sky Italia SD",Sky Sport SD 251
+http://cane.nero.ws:80/live/cicciofro/sasy/49753.ts
+#EXTINF:-1 tvg-id="SkyCinemaUno.it" tvg-name="Sky Sport 251 FHD (Buffering)" tvg-logo="http://service.fullapple.me:8000/images/f3b640d43c4d9b958a421140a78733b3.png" group-title="Calcio",Sky Sport 251 FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185826.ts
+#EXTINF:-1 tvg-id="SkyCinemaUno.it" tvg-name="Sky Sport 252 FHD" tvg-logo="http://service.myvisio.life:80/images/f3b640d43c4d9b958a421140a78733b3.png" group-title="Calcio",Sky Sport 252 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/29043.ts
+#EXTINF:-1 tvg-id="SkyCinemaUno.it" tvg-name="Sky Sport 252 HD" tvg-logo="http://service.myvisio.life:80/images/f3b640d43c4d9b958a421140a78733b3.png" group-title="Calcio",Sky Sport 252 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/9619.ts
+#EXTINF:-1 tvg-id="SkySport252.it" tvg-name="Sky Sport SD 252" tvg-logo="http://bs-update.ddns.net/Android/logos/skysport-hd1-7.png" group-title="Sky Italia SD",Sky Sport SD 252
+http://cane.nero.ws:80/live/cicciofro/sasy/49754.ts
+#EXTINF:-1 tvg-id="SkyCinemaUno.it" tvg-name="Sky Sport 252 FHD (Buffering)" tvg-logo="http://service.fullapple.me:8000/images/f3b640d43c4d9b958a421140a78733b3.png" group-title="Calcio",Sky Sport 252 FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185830.ts
+#EXTINF:-1 tvg-id="SkyCinemaUno.it" tvg-name="Sky Sport 253 FHD" tvg-logo="http://service.myvisio.life:80/images/f3b640d43c4d9b958a421140a78733b3.png" group-title="Calcio",Sky Sport 253 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/26339.ts
+#EXTINF:-1 tvg-id="SkyCinemaUno.it" tvg-name="Sky Sport 253 HD" tvg-logo="http://service.myvisio.life:80/images/f3b640d43c4d9b958a421140a78733b3.png" group-title="Calcio",Sky Sport 253 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/29.ts
+#EXTINF:-1 tvg-id="SkyCinemaUno.it" tvg-name="Sky Sport SD 253" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/f3b640d43c4d9b958a421140a78733b3.png" group-title="Sky Italia SD",Sky Sport SD 253
+http://cane.nero.ws:80/live/cicciofro/sasy/49755.ts
+#EXTINF:-1 tvg-id="SkyCinemaUno.it" tvg-name="Sky Sport 253 FHD (Buffering)" tvg-logo="http://service.fullapple.me:8000/images/f3b640d43c4d9b958a421140a78733b3.png" group-title="Calcio",Sky Sport 253 FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185827.ts
+#EXTINF:-1 tvg-id="SkyCinemaUno.it" tvg-name="Sky Sport 254 FHD" tvg-logo="http://service.myvisio.life:80/images/f3b640d43c4d9b958a421140a78733b3.png" group-title="Calcio",Sky Sport 254 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/26340.ts
+#EXTINF:-1 tvg-id="SkyCinemaUno.it" tvg-name="Sky Sport 254 HD" tvg-logo="http://service.myvisio.life:80/images/f3b640d43c4d9b958a421140a78733b3.png" group-title="Calcio",Sky Sport 254 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/30.ts
+#EXTINF:-1 tvg-id="SkySport254.it" tvg-name="Sky Sport SD 254" tvg-logo="http://bs-update.ddns.net/Android/logos/skysport-hd1-7.png" group-title="Sky Italia SD",Sky Sport SD 254
+http://cane.nero.ws:80/live/cicciofro/sasy/49756.ts
+#EXTINF:-1 tvg-id="SkyCinemaUno.it" tvg-name="Sky Sport 254 FHD (Buffering)" tvg-logo="http://service.fullapple.me:8000/images/f3b640d43c4d9b958a421140a78733b3.png" group-title="Calcio",Sky Sport 254 FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185828.ts
+#EXTINF:-1 tvg-id="ky Sport 255 Full HD" tvg-name="Sky Sport 255 FHD" tvg-logo="http://service.fullapple.me:8000/images/f3b640d43c4d9b958a421140a78733b3.png" group-title="Calcio",Sky Sport 255 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/26341.ts
+#EXTINF:-1 tvg-id="ky Sport 255 Full HD" tvg-name="Sky Sport 255 HD" tvg-logo="http://service.fullapple.me:8000/images/f3b640d43c4d9b958a421140a78733b3.png" group-title="Calcio",Sky Sport 255 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/31.ts
+#EXTINF:-1 tvg-id="SkySport255.it" tvg-name="Sky Sport SD 255" tvg-logo="http://bs-update.ddns.net/Android/logos/skysport-hd1-7.png" group-title="Sky Italia SD",Sky Sport SD 255
+http://cane.nero.ws:80/live/cicciofro/sasy/49757.ts
+#EXTINF:-1 tvg-id="ky Sport 255 Full HD" tvg-name="Sky Sport 255 FHD (Buffering)" tvg-logo="http://service.fullapple.me:8000/images/f3b640d43c4d9b958a421140a78733b3.png" group-title="Calcio",Sky Sport 255 FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185829.ts
+#EXTINF:-1 tvg-id="ky Sport 256 Full HD" tvg-name="Sky Sport 256 HD" tvg-logo="http://service.fullapple.me:8000/images/f3b640d43c4d9b958a421140a78733b3.png" group-title="Calcio",Sky Sport 256 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/32.ts
+#EXTINF:-1 tvg-id="" tvg-name="Sky Sport SD 256" tvg-logo="http://bs-update.ddns.net/Android/logos/skysport-hd1-7.png" group-title="Sky Italia SD",Sky Sport SD 256
+http://cane.nero.ws:80/live/cicciofro/sasy/49758.ts
+#EXTINF:-1 tvg-id="ky Sport 256 Full HD" tvg-name="Sky Sport FHD 256 " tvg-logo="http://service.fullapple.me:8000/images/f3b640d43c4d9b958a421140a78733b3.png" group-title="Calcio",Sky Sport FHD 256 
+http://cane.nero.ws:80/live/cicciofro/sasy/186115.ts
+#EXTINF:-1 tvg-id="ky Sport 257 Full HD" tvg-name="Sky Sport 257 HD" tvg-logo="http://service.fullapple.me:80/images/f3b640d43c4d9b958a421140a78733b3.png" group-title="Calcio",Sky Sport 257 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/33.ts
+#EXTINF:-1 tvg-id="ky Sport 257 Full HD" tvg-name="Sky Sport FHD 257" tvg-logo="http://service.fullapple.me:80/images/f3b640d43c4d9b958a421140a78733b3.png" group-title="Calcio",Sky Sport FHD 257
+http://cane.nero.ws:80/live/cicciofro/sasy/186114.ts
+#EXTINF:-1 tvg-id="ky Sport 258 Full HD" tvg-name="Sky Sport 258 HD" tvg-logo="http://service.fullapple.me:80/images/f3b640d43c4d9b958a421140a78733b3.png" group-title="Calcio",Sky Sport 258 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/34.ts
+#EXTINF:-1 tvg-id="SkyCinemaUno.it" tvg-name="Sky Sport 259 HD" tvg-logo="http://service.fullapple.me:80/images/f3b640d43c4d9b958a421140a78733b3.png" group-title="Calcio",Sky Sport 259 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/35.ts
+#EXTINF:-1 tvg-id="HistoryChannel.it" tvg-name="Inter Tv" tvg-logo="http://service.fullapple.me:80/images/60ea955b9ce1266a388adf3664be51ea.png" group-title="Calcio",Inter Tv
+http://cane.nero.ws:80/live/cicciofro/sasy/83.ts
+#EXTINF:-1 tvg-id="" tvg-name="Juventus Tv" tvg-logo="http://service.fullapple.me:80/images/83a82c12b6f98e89e904b28f98da9298.png" group-title="Calcio",Juventus Tv
+http://cane.nero.ws:80/live/cicciofro/sasy/63356.ts
+#EXTINF:-1 tvg-id="LazioStyleChannel.it" tvg-name="Lazio Channel" tvg-logo="http://service.fullapple.me:80/images/236266406d3644cd053c96b7cb663f72.png" group-title="Calcio",Lazio Channel
+http://cane.nero.ws:80/live/cicciofro/sasy/87.ts
+#EXTINF:-1 tvg-id="MilanTV.it" tvg-name="Milan Tv" tvg-logo="http://service.fullapple.me:80/images/decbbefd38a4beb5f6311d064253587a.png" group-title="Calcio",Milan Tv
+http://cane.nero.ws:80/live/cicciofro/sasy/84.ts
+#EXTINF:-1 tvg-id="" tvg-name="Cavese TV" tvg-logo="http://service.myvisio.life:80/images/b7b22ffdbbab8d188ef8b172209b0471.png" group-title="Calcio",Cavese TV
+http://cane.nero.ws:80/live/cicciofro/sasy/223704.ts
+#EXTINF:-1 tvg-id="" tvg-name="Mola TV Calcio 1 FHD" tvg-logo="http://service.fullapple.me:8000/images/237a6b7970b45f40503cff824e5e9faa.jpg" group-title="Calcio",Mola TV Calcio 1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/214040.ts
+#EXTINF:-1 tvg-id="" tvg-name="Mola TV Calcio 2 FHD" tvg-logo="http://service.fullapple.me:8000/images/237a6b7970b45f40503cff824e5e9faa.jpg" group-title="Calcio",Mola TV Calcio 2 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/214041.ts
+#EXTINF:-1 tvg-id="" tvg-name="Mola TV Calcio 3 FHD" tvg-logo="http://service.fullapple.me:8000/images/237a6b7970b45f40503cff824e5e9faa.jpg" group-title="Calcio",Mola TV Calcio 3 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/214042.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 1 FHD" tvg-logo="http://service.fullapple.me:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/185670.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 1 FHD (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 1 FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185847.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 2 FHD" tvg-logo="http://service.fullapple.me:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 2 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/185671.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 2 FHD (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 2 FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185848.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 3 FHD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 3 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/185672.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 3 FHD (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 3 FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185849.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 4 FHD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 4 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/185673.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 4 FHD (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 4 FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185850.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 5 FHD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 5 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/185674.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 5 FHD (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 5 FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185851.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 6 FHD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 6 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/185675.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 6 FHD (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 6 FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185852.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 7 FHD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 7 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/185676.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 7 FHD (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 7 FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185853.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 8 FHD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 8 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/185677.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 8 FHD (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 8 FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185854.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 9 FHD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 9 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/185678.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 9 FHD (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 9 FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185855.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 10 FHD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 10 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/185679.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 10 FHD (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 10 FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185856.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 11 FHD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 11 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/185680.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 11 FHD (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 11 FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185857.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 12 FHD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 12 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/185681.ts
+#EXTINF:-1 tvg-id="" tvg-name="Champions League Infinity 12 FHD (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/93c99c5f8f68430dedb113eac4c4712b.png" group-title="Calcio",Champions League Infinity 12 FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185858.ts
+#EXTINF:-1 tvg-id="" tvg-name="----- BASKET SERIE A -----" tvg-logo="" group-title="Dazn Basket",----- BASKET SERIE A -----
+http://cane.nero.ws:80/live/cicciofro/sasy/228686.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A - PALLACANESTRO TRIESTE" tvg-logo="" group-title="Dazn Basket",Basket A - PALLACANESTRO TRIESTE
+http://cane.nero.ws:80/live/cicciofro/sasy/228698.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A - TRAPANI SHARK" tvg-logo="" group-title="Dazn Basket",Basket A - TRAPANI SHARK
+http://cane.nero.ws:80/live/cicciofro/sasy/228699.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A - VIRTUS SEGAFREDO BOLOGNA" tvg-logo="" group-title="Dazn Basket",Basket A - VIRTUS SEGAFREDO BOLOGNA
+http://cane.nero.ws:80/live/cicciofro/sasy/228741.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A - BERTRAM DERTHONA TORTONA" tvg-logo="" group-title="Dazn Basket",Basket A - BERTRAM DERTHONA TORTONA
+http://cane.nero.ws:80/live/cicciofro/sasy/228608.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A - OPENJOBMETIS VARESE" tvg-logo="" group-title="Dazn Basket",Basket A - OPENJOBMETIS VARESE
+http://cane.nero.ws:80/live/cicciofro/sasy/228609.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A - ACQUA S.BERNARDO CANTU'" tvg-logo="" group-title="Dazn Basket",Basket A - ACQUA S.BERNARDO CANTU'
+http://cane.nero.ws:80/live/cicciofro/sasy/228610.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A - UNAHOTELS REGGIO EMILIA" tvg-logo="" group-title="Dazn Basket",Basket A - UNAHOTELS REGGIO EMILIA
+http://cane.nero.ws:80/live/cicciofro/sasy/228611.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A - OLD WILD WEST UDINE" tvg-logo="" group-title="Dazn Basket",Basket A - OLD WILD WEST UDINE
+http://cane.nero.ws:80/live/cicciofro/sasy/228612.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A - GERMANI BRESCIA" tvg-logo="" group-title="Dazn Basket",Basket A - GERMANI BRESCIA
+http://cane.nero.ws:80/live/cicciofro/sasy/228613.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A - A|X ARMANI EXCHANGE MILANO" tvg-logo="" group-title="Dazn Basket",Basket A - A|X ARMANI EXCHANGE MILANO
+http://cane.nero.ws:80/live/cicciofro/sasy/228614.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A - BANCO DI SARDEGNA SASSARI" tvg-logo="" group-title="Dazn Basket",Basket A - BANCO DI SARDEGNA SASSARI
+http://cane.nero.ws:80/live/cicciofro/sasy/228615.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A - VANOLI BASKET CREMONA" tvg-logo="" group-title="Dazn Basket",Basket A - VANOLI BASKET CREMONA
+http://cane.nero.ws:80/live/cicciofro/sasy/228617.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A - NUTRIBULLET TREVISO BASKET" tvg-logo="" group-title="Dazn Basket",Basket A - NUTRIBULLET TREVISO BASKET
+http://cane.nero.ws:80/live/cicciofro/sasy/228618.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A - DOLOMITI ENERGIA TRENTINO" tvg-logo="" group-title="Dazn Basket",Basket A - DOLOMITI ENERGIA TRENTINO
+http://cane.nero.ws:80/live/cicciofro/sasy/228619.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A - UMANA REYER VENEZIA" tvg-logo="" group-title="Dazn Basket",Basket A - UMANA REYER VENEZIA
+http://cane.nero.ws:80/live/cicciofro/sasy/228620.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A - GEVI NAPOLI" tvg-logo="" group-title="Dazn Basket",Basket A - GEVI NAPOLI
+http://cane.nero.ws:80/live/cicciofro/sasy/228742.ts
+#EXTINF:-1 tvg-id="" tvg-name="----- BASKET SERIE A2 -----" tvg-logo="" group-title="Dazn Basket",----- BASKET SERIE A2 -----
+http://cane.nero.ws:80/live/cicciofro/sasy/228704.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A2 - LIBERTAS LIVORNO 1947" tvg-logo="" group-title="Dazn Basket",Basket A2 - LIBERTAS LIVORNO 1947
+http://cane.nero.ws:80/live/cicciofro/sasy/228687.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A2 - GRUPPO MASCIO BERGAMO" tvg-logo="" group-title="Dazn Basket",Basket A2 - GRUPPO MASCIO BERGAMO
+http://cane.nero.ws:80/live/cicciofro/sasy/228688.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A2 - REAL SEBASTIANI RIETI" tvg-logo="" group-title="Dazn Basket",Basket A2 - REAL SEBASTIANI RIETI
+http://cane.nero.ws:80/live/cicciofro/sasy/228689.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A2 - GEMINI MESTRE" tvg-logo="" group-title="Dazn Basket",Basket A2 - GEMINI MESTRE
+http://cane.nero.ws:80/live/cicciofro/sasy/228679.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A2 - HAPPY CASA BRINDISI" tvg-logo="" group-title="Dazn Basket",Basket A2 - HAPPY CASA BRINDISI
+http://cane.nero.ws:80/live/cicciofro/sasy/228616.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A2 - GIVOVA SCAFATI" tvg-logo="" group-title="Dazn Basket",Basket A2 - GIVOVA SCAFATI
+http://cane.nero.ws:80/live/cicciofro/sasy/228680.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A2 - LIOFILCHEM ROSETO" tvg-logo="" group-title="Dazn Basket",Basket A2 - LIOFILCHEM ROSETO
+http://cane.nero.ws:80/live/cicciofro/sasy/228681.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A2 - AVELLINO BASKET" tvg-logo="" group-title="Dazn Basket",Basket A2 - AVELLINO BASKET
+http://cane.nero.ws:80/live/cicciofro/sasy/228682.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A2 - ESTRA PISTOIA" tvg-logo="" group-title="Dazn Basket",Basket A2 - ESTRA PISTOIA
+http://cane.nero.ws:80/live/cicciofro/sasy/228683.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A2 - FERRARRONI JUVI CREMONA" tvg-logo="" group-title="Dazn Basket",Basket A2 - FERRARRONI JUVI CREMONA
+http://cane.nero.ws:80/live/cicciofro/sasy/228684.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A2 - FORTITUDO FLATS SERVICE BOLOGNA" tvg-logo="" group-title="Dazn Basket",Basket A2 - FORTITUDO FLATS SERVICE BOLOGNA
+http://cane.nero.ws:80/live/cicciofro/sasy/228685.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A2 - REALE MUTUA TORINO" tvg-logo="" group-title="Dazn Basket",Basket A2 - REALE MUTUA TORINO
+http://cane.nero.ws:80/live/cicciofro/sasy/228690.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A2 - RIVIERABANCA BASKET RIMINI" tvg-logo="" group-title="Dazn Basket",Basket A2 - RIVIERABANCA BASKET RIMINI
+http://cane.nero.ws:80/live/cicciofro/sasy/228691.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A2 - SELLA CENTO" tvg-logo="" group-title="Dazn Basket",Basket A2 - SELLA CENTO
+http://cane.nero.ws:80/live/cicciofro/sasy/228692.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A2 - TEZENIS VERONA" tvg-logo="" group-title="Dazn Basket",Basket A2 - TEZENIS VERONA
+http://cane.nero.ws:80/live/cicciofro/sasy/228693.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A2 - CRIFO WINES RUVO DI PUGLIA" tvg-logo="" group-title="Dazn Basket",Basket A2 - CRIFO WINES RUVO DI PUGLIA
+http://cane.nero.ws:80/live/cicciofro/sasy/228694.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A2 - UEB GESTECO CIVIDALE" tvg-logo="" group-title="Dazn Basket",Basket A2 - UEB GESTECO CIVIDALE
+http://cane.nero.ws:80/live/cicciofro/sasy/228695.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A2 - UNIEURO FORLI'" tvg-logo="" group-title="Dazn Basket",Basket A2 - UNIEURO FORLI'
+http://cane.nero.ws:80/live/cicciofro/sasy/228696.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A2 - URANIA MILANO" tvg-logo="" group-title="Dazn Basket",Basket A2 - URANIA MILANO
+http://cane.nero.ws:80/live/cicciofro/sasy/228697.ts
+#EXTINF:-1 tvg-id="" tvg-name="Basket A2 -  CARPEGNA PROSCIUTTO BASKET PESARO" tvg-logo="" group-title="Dazn Basket",Basket A2 -  CARPEGNA PROSCIUTTO BASKET PESARO
+http://cane.nero.ws:80/live/cicciofro/sasy/228740.ts
+#EXTINF:-1 tvg-id="" tvg-name="----- VETRINA LBA TV  -----" tvg-logo="" group-title="Dazn Basket",----- VETRINA LBA TV  -----
+http://cane.nero.ws:80/live/cicciofro/sasy/228678.ts
+#EXTINF:-1 tvg-id="" tvg-name="LBA TV 01 HD" tvg-logo="" group-title="Dazn Basket",LBA TV 01 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228677.ts
+#EXTINF:-1 tvg-id="" tvg-name="LBA TV 02 HD" tvg-logo="" group-title="Dazn Basket",LBA TV 02 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228676.ts
+#EXTINF:-1 tvg-id="" tvg-name="LBA TV 03 HD" tvg-logo="" group-title="Dazn Basket",LBA TV 03 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228675.ts
+#EXTINF:-1 tvg-id="" tvg-name="LBA TV 04 HD" tvg-logo="" group-title="Dazn Basket",LBA TV 04 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228674.ts
+#EXTINF:-1 tvg-id="" tvg-name="LBA TV 05 HD" tvg-logo="" group-title="Dazn Basket",LBA TV 05 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228673.ts
+#EXTINF:-1 tvg-id="" tvg-name="LBA TV 06 HD" tvg-logo="" group-title="Dazn Basket",LBA TV 06 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228672.ts
+#EXTINF:-1 tvg-id="" tvg-name="----- LNP VETRINA -----" tvg-logo="" group-title="Dazn Basket",----- LNP VETRINA -----
+http://cane.nero.ws:80/live/cicciofro/sasy/228671.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 01 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 01 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228670.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 02 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 02 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228669.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 03 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 03 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228668.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 04 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 04 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228667.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 05 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 05 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228666.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 20 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 20 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228651.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 19 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 19 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228652.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 18 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 18 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228653.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 17 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 17 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228654.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 16 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 16 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228655.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 15 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 15 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228656.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 14 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 14 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228657.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 13 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 13 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228658.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 12 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 12 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228659.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 11 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 11 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228660.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 10 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 10 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228661.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 09 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 09 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228662.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 08 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 08 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228663.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 07 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 07 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228664.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 06 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 06 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228665.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 50 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 50 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228621.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 49 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 49 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228622.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 48 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 48 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228623.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 47 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 47 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228624.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 46 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 46 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228625.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 45 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 45 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228626.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 44 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 44 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228627.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 43 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 43 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228628.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 42 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 42 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228629.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 41 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 41 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228630.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 40 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 40 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228631.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 39 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 39 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228632.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 38 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 38 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228633.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 37 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 37 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228634.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 36 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 36 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228635.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 35 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 35 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228636.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 34 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 34 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228637.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 33 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 33 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228638.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 32 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 32 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228639.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 31 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 31 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228640.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 30 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 30 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228641.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 29 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 29 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228642.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 28 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 28 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228643.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 27 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 27 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228644.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 26 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 26 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228645.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 25 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 25 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228646.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 24 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 24 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228647.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 23 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 23 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228648.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 22 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 22 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228649.ts
+#EXTINF:-1 tvg-id="" tvg-name="LNP PASS 21 HD" tvg-logo="" group-title="Dazn Basket",LNP PASS 21 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/228650.ts
+#EXTINF:-1 tvg-id="" tvg-name="----- DAZN LOCALE -----" tvg-logo="https://cdn.iconscout.com/icon/free/png-256/free-dazn-3628716-3029941.png" group-title="Dazn Locali",----- DAZN LOCALE -----
+http://cane.nero.ws:80/live/cicciofro/sasy/192192.ts
+#EXTINF:-1 tvg-id="DAZNZona.it" tvg-name="Zona Dazn FHD Exclusive" tvg-logo="http://service.fullapple.me:80/images/c54b124c08d5d6c6d229dccaaf05d835.png" group-title="Dazn Locali",Zona Dazn FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/48843.ts
+#EXTINF:-1 tvg-id="DAZNZona.it" tvg-name="Zona Dazn HD Exclusive" tvg-logo="http://service.fullapple.me:80/images/c54b124c08d5d6c6d229dccaaf05d835.png" group-title="Dazn Locali",Zona Dazn HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/49798.ts
+#EXTINF:-1 tvg-id="DAZNZona.it" tvg-name="Zona Dazn FHD Exclusive (Buffering)" tvg-logo="http://service.fullapple.me:8000/images/c54b124c08d5d6c6d229dccaaf05d835.png" group-title="Dazn Locali",Zona Dazn FHD Exclusive (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185860.ts
+#EXTINF:-1 tvg-id="" tvg-name="Zona Goal Serie A FHD Exclusive" tvg-logo="http://service.fullapple.me:80/images/daznExclusive.png" group-title="Dazn Locali",Zona Goal Serie A FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/189323.ts
+#EXTINF:-1 tvg-id="" tvg-name="Zona Goal Serie A HD Exclusive" tvg-logo="http://service.fullapple.me:80/images/daznExclusive.png" group-title="Dazn Locali",Zona Goal Serie A HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/189324.ts
+#EXTINF:-1 tvg-id="" tvg-name="Zona Goal Serie A FHD Exclusive (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/daznExclusive.png" group-title="Dazn Locali",Zona Goal Serie A FHD Exclusive (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/189325.ts
+#EXTINF:-1 tvg-id="" tvg-name="Zona Goal Serie B FHD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/daznExclusive.png" group-title="Dazn Locali",Zona Goal Serie B FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/185285.ts
+#EXTINF:-1 tvg-id="" tvg-name="Zona Goal Serie B HD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/daznExclusive.png" group-title="Dazn Locali",Zona Goal Serie B HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/185286.ts
+#EXTINF:-1 tvg-id="" tvg-name="Zona Goal Serie B FHD Exclusive (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/daznExclusive.png" group-title="Dazn Locali",Zona Goal Serie B FHD Exclusive (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185883.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn 1 Exclusive FHD" tvg-logo="http://service.myvisio.life:80/images/daznExclusive.png" group-title="Dazn Locali",Dazn 1 Exclusive FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/185250.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn 1 Exclusive HD" tvg-logo="http://service.myvisio.life:80/images/daznExclusive.png" group-title="Dazn Locali",Dazn 1 Exclusive HD
+http://cane.nero.ws:80/live/cicciofro/sasy/185252.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn 1 Exclusive FHD (Buffering)" tvg-logo="http://service.fullapple.me:8000/images/daznExclusive.png" group-title="Dazn Locali",Dazn 1 Exclusive FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185879.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn 2 Exclusive FHD" tvg-logo="http://service.myvisio.life:80/images/daznExclusive.png" group-title="Dazn Locali",Dazn 2 Exclusive FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/185253.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn 2 Exclusive HD" tvg-logo="http://service.myvisio.life:80/images/daznExclusive.png" group-title="Dazn Locali",Dazn 2 Exclusive HD
+http://cane.nero.ws:80/live/cicciofro/sasy/185254.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn 2 Exclusive FHD (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/daznExclusive.png" group-title="Dazn Locali",Dazn 2 Exclusive FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185880.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn 3 Exclusive FHD" tvg-logo="http://service.myvisio.life:80/images/daznExclusive.png" group-title="Dazn Locali",Dazn 3 Exclusive FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/185255.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn 3 Exclusive HD" tvg-logo="http://service.myvisio.life:80/images/daznExclusive.png" group-title="Dazn Locali",Dazn 3 Exclusive HD
+http://cane.nero.ws:80/live/cicciofro/sasy/185256.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn 3 Exclusive FHD (Buffering)" tvg-logo="http://service.fullapple.me:8000/images/daznExclusive.png" group-title="Dazn Locali",Dazn 3 Exclusive FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185881.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn 4 Exclusive FHD" tvg-logo="http://service.myvisio.life:80/images/daznExclusive.png" group-title="Dazn Locali",Dazn 4 Exclusive FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/185257.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn 4 Exclusive HD" tvg-logo="http://service.myvisio.life:80/images/daznExclusive.png" group-title="Dazn Locali",Dazn 4 Exclusive HD
+http://cane.nero.ws:80/live/cicciofro/sasy/185258.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn 4 Exclusive FHD (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/daznExclusive.png" group-title="Dazn Locali",Dazn 4 Exclusive FHD (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185882.ts
+#EXTINF:-1 tvg-id="" tvg-name="----- DAZN FLUSSO 1 -----" tvg-logo="https://cdn.iconscout.com/icon/free/png-256/free-dazn-3628716-3029941.png" group-title="Dazn Flusso 1",----- DAZN FLUSSO 1 -----
+http://cane.nero.ws:80/live/cicciofro/sasy/192193.ts
+#EXTINF:-1 tvg-id="" tvg-name="Vetrina Dazn Exclusive" tvg-logo="http://service.fullapple.me:80/images/377a325608ad4409fda530fbe41593c8.png" group-title="Dazn Flusso 1",Vetrina Dazn Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/105249.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Diretta Goal Serie A FHD Exclusive" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/DAZN_Logo_Master.svg/250px-DAZN_Logo_Master.svg.png" group-title="Dazn Flusso 1",Dazn Diretta Goal Serie A FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/151346.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Diretta Goal Serie A FHD Exclusive (Buffering)" tvg-logo="http://log.xpcontrol.city:80/images/ce1157b435af95b6ceebb6095cef160c.png" group-title="Dazn Flusso 1",Dazn Diretta Goal Serie A FHD Exclusive (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185871.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Diretta Goal Serie B FHD Exclusive" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/DAZN_Logo_Master.svg/250px-DAZN_Logo_Master.svg.png" group-title="Dazn Flusso 1",Dazn Diretta Goal Serie B FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/162826.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Diretta Goal Serie B FHD Exclusive (Buffering)" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/DAZN_Logo_Master.svg/250px-DAZN_Logo_Master.svg.png" group-title="Dazn Flusso 1",Dazn Diretta Goal Serie B FHD Exclusive (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185872.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 1 FHD Exclusive" tvg-logo="http://service.myvisio.life:80/images/c54b124c08d5d6c6d229dccaaf05d835.png" group-title="Dazn Flusso 1",Dazn Sport 1 FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/48846.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 1 HD Exclusive" tvg-logo="http://service.myvisio.life:80/images/c54b124c08d5d6c6d229dccaaf05d835.png" group-title="Dazn Flusso 1",Dazn Sport 1 HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/162814.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 1 FHD Exclusive (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/c54b124c08d5d6c6d229dccaaf05d835.png" group-title="Dazn Flusso 1",Dazn Sport 1 FHD Exclusive (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185861.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 1 SD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/c54b124c08d5d6c6d229dccaaf05d835.png" group-title="Dazn Flusso 1",Dazn Sport 1 SD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/162827.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 2 FHD Exclusive" tvg-logo="http://service.fullapple.me:8000/images/2a67d8b8d2533fbeb7d477e7cc472e3f.png" group-title="Dazn Flusso 1",Dazn Sport 2 FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/48848.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 2 HD Exclusive" tvg-logo="http://service.fullapple.me:8000/images/2a67d8b8d2533fbeb7d477e7cc472e3f.png" group-title="Dazn Flusso 1",Dazn Sport 2 HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/162815.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 2 FHD Exclusive (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/2a67d8b8d2533fbeb7d477e7cc472e3f.png" group-title="Dazn Flusso 1",Dazn Sport 2 FHD Exclusive (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185862.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 2 SD Exclusive" tvg-logo="http://bs-update.ddns.net/Android/logos/dazn-sport-2.png" group-title="Dazn Flusso 1",Dazn Sport 2 SD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/162828.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 3 FHD Exclusive" tvg-logo="http://service.fullapple.me:8000/images/96569490650d9269df0cfcafc93863c1.png" group-title="Dazn Flusso 1",Dazn Sport 3 FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/48850.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 3 HD Exclusive" tvg-logo="http://service.fullapple.me:8000/images/96569490650d9269df0cfcafc93863c1.png" group-title="Dazn Flusso 1",Dazn Sport 3 HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/162816.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 3 FHD Exclusive (Buffering)" tvg-logo="http://service.fullapple.me:8000/images/96569490650d9269df0cfcafc93863c1.png" group-title="Dazn Flusso 1",Dazn Sport 3 FHD Exclusive (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185863.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 3 SD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/96569490650d9269df0cfcafc93863c1.png" group-title="Dazn Flusso 1",Dazn Sport 3 SD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/162829.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 4 FHD Exclusive" tvg-logo="http://service.fullapple.me:8000/images/1abde79c95f306de9695fd43466271ac.png" group-title="Dazn Flusso 1",Dazn Sport 4 FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/48852.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 4 HD Exclusive" tvg-logo="http://service.fullapple.me:8000/images/1abde79c95f306de9695fd43466271ac.png" group-title="Dazn Flusso 1",Dazn Sport 4 HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/162817.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 4 FHD Exclusive (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/1abde79c95f306de9695fd43466271ac.png" group-title="Dazn Flusso 1",Dazn Sport 4 FHD Exclusive (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185864.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 4 SD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/1abde79c95f306de9695fd43466271ac.png" group-title="Dazn Flusso 1",Dazn Sport 4 SD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/162830.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 5 FHD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/05af6e04e0bae4d9924d12d6e43e598b.png" group-title="Dazn Flusso 1",Dazn Sport 5 FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/48854.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 5 HD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/05af6e04e0bae4d9924d12d6e43e598b.png" group-title="Dazn Flusso 1",Dazn Sport 5 HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/162818.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 5 FHD Exclusive (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/05af6e04e0bae4d9924d12d6e43e598b.png" group-title="Dazn Flusso 1",Dazn Sport 5 FHD Exclusive (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185865.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 5 SD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/05af6e04e0bae4d9924d12d6e43e598b.png" group-title="Dazn Flusso 1",Dazn Sport 5 SD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/162831.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 6 FHD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/cd1a7c65af4f35af2c6e044159197ea0.png" group-title="Dazn Flusso 1",Dazn Sport 6 FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/48856.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 6 HD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/cd1a7c65af4f35af2c6e044159197ea0.png" group-title="Dazn Flusso 1",Dazn Sport 6 HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/162819.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 6 FHD Exclusive (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/cd1a7c65af4f35af2c6e044159197ea0.png" group-title="Dazn Flusso 1",Dazn Sport 6 FHD Exclusive (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185866.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 6 SD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/cd1a7c65af4f35af2c6e044159197ea0.png" group-title="Dazn Flusso 1",Dazn Sport 6 SD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/162832.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 7 FHD Exclusive" tvg-logo="http://service.fullapple.me:8000/images/679e5eca6727433e52923d43a83414b9.png" group-title="Dazn Flusso 1",Dazn Sport 7 FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/48858.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 7 HD Exclusive" tvg-logo="http://service.fullapple.me:8000/images/679e5eca6727433e52923d43a83414b9.png" group-title="Dazn Flusso 1",Dazn Sport 7 HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/162820.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 7 FHD Exclusive (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/679e5eca6727433e52923d43a83414b9.png" group-title="Dazn Flusso 1",Dazn Sport 7 FHD Exclusive (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185867.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 7 SD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/679e5eca6727433e52923d43a83414b9.png" group-title="Dazn Flusso 1",Dazn Sport 7 SD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/162833.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 8 FHD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/95b762bfde63037a5a7c386b36b7aa05.png" group-title="Dazn Flusso 1",Dazn Sport 8 FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/48860.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 8 HD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/95b762bfde63037a5a7c386b36b7aa05.png" group-title="Dazn Flusso 1",Dazn Sport 8 HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/162821.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 8 FHD Exclusive (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/95b762bfde63037a5a7c386b36b7aa05.png" group-title="Dazn Flusso 1",Dazn Sport 8 FHD Exclusive (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185868.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 8 SD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/95b762bfde63037a5a7c386b36b7aa05.png" group-title="Dazn Flusso 1",Dazn Sport 8 SD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/162834.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 9 FHD Exclusive" tvg-logo="http://service.fullapple.me:8000/images/f097e1f3c471fc34f7e281df640df48c.png" group-title="Dazn Flusso 1",Dazn Sport 9 FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/48862.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 9 HD Exclusive" tvg-logo="http://service.fullapple.me:8000/images/f097e1f3c471fc34f7e281df640df48c.png" group-title="Dazn Flusso 1",Dazn Sport 9 HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/162822.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 9 FHD Exclusive (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/f097e1f3c471fc34f7e281df640df48c.png" group-title="Dazn Flusso 1",Dazn Sport 9 FHD Exclusive (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185869.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 9 SD Exclusive" tvg-logo="http://service.fullapple.me:8000/images/f097e1f3c471fc34f7e281df640df48c.png" group-title="Dazn Flusso 1",Dazn Sport 9 SD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/162835.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 10 FHD Exclusive" tvg-logo="http://service.fullapple.me:80/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 10 FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/81094.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 10 HD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 10 HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/162823.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 10 FHD Exclusive(Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 10 FHD Exclusive(Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185870.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 10 SD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 10 SD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/162836.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 11 FHD Exclusive" tvg-logo="http://service.fullapple.me:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 11 FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/179653.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 11 HD Exclusive" tvg-logo="http://service.fullapple.me:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 11 HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/179654.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 11 FHD Exclusive (Buffering)" tvg-logo="http://service.fullapple.me:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 11 FHD Exclusive (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185873.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 11 SD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 11 SD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/179655.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 12 FHD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 12 FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/179656.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 12 HD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 12 HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/179657.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 12 FHD Exclusive (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 12 FHD Exclusive (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185874.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 12 SD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 12 SD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/179658.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 13 FHD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 13 FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/179659.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 13 HD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 13 HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/179660.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 13 FHD Exclusive (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 13 FHD Exclusive (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185875.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 13 SD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 13 SD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/179661.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 14 FHD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 14 FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/179662.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 14 HD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 14 HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/179663.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 14 FHD Exclusive (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 14 FHD Exclusive (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185876.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 14 SD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 14 SD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/179664.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 15 FHD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 15 FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/179665.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 15 HD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 15 HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/179666.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 15 FHD Exclusive (Buffering)" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 15 FHD Exclusive (Buffering)
+http://cane.nero.ws:80/live/cicciofro/sasy/185877.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 15 SD Exclusive" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 15 SD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/179667.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 16 FHD Exclusive" tvg-logo="http://service.fullapple.me:80/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 16 FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/218938.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 16 HD Exclusive" tvg-logo="http://service.fullapple.me:80/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 16 HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/218937.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 16 SD Exclusive" tvg-logo="http://service.fullapple.me:80/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 16 SD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/218936.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 17 FHD Exclusive" tvg-logo="http://service.fullapple.me:80/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 17 FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/218933.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 17 HD Exclusive" tvg-logo="http://service.fullapple.me:80/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 17 HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/218934.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 17 SD Exclusive" tvg-logo="http://service.fullapple.me:80/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 17 SD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/218935.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 18 FHD Exclusive" tvg-logo="http://service.fullapple.me:80/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 18 FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/218939.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 18 HD Exclusive" tvg-logo="http://service.fullapple.me:80/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 18 HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/218940.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 18 SD Exclusive" tvg-logo="http://service.fullapple.me:80/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 18 SD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/218941.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 19 FHD Exclusive" tvg-logo="http://service.fullapple.me:80/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 19 FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/218944.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 19 HD Exclusive" tvg-logo="http://service.fullapple.me:80/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 19 HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/218943.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 19 SD Exclusive" tvg-logo="http://service.fullapple.me:80/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 19 SD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/218942.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 20 FHD Exclusive" tvg-logo="http://service.fullapple.me:80/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 20 FHD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/218945.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 20 HD Exclusive" tvg-logo="http://service.fullapple.me:80/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 20 HD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/218946.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn Sport 20 SD Exclusive" tvg-logo="http://service.fullapple.me:80/images/f77e3ec99fa7519705157abffb39dc98.png" group-title="Dazn Flusso 1",Dazn Sport 20 SD Exclusive
+http://cane.nero.ws:80/live/cicciofro/sasy/218947.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn NFL 1 FHD Exclsuive" tvg-logo="http://service.myvisio.life:80/images/bbc5a05b599bcb1b6c4350efe04397d6.png" group-title="Dazn Flusso 1",Dazn NFL 1 FHD Exclsuive
+http://cane.nero.ws:80/live/cicciofro/sasy/222475.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn NFL 2 FHD Exclsuive" tvg-logo="http://service.myvisio.life:80/images/bbc5a05b599bcb1b6c4350efe04397d6.png" group-title="Dazn Flusso 1",Dazn NFL 2 FHD Exclsuive
+http://cane.nero.ws:80/live/cicciofro/sasy/222476.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn NFL 3 FHD Exclsuive" tvg-logo="http://service.myvisio.life:80/images/bbc5a05b599bcb1b6c4350efe04397d6.png" group-title="Dazn Flusso 1",Dazn NFL 3 FHD Exclsuive
+http://cane.nero.ws:80/live/cicciofro/sasy/222477.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn NFL 4 FHD Exclsuive" tvg-logo="http://service.myvisio.life:80/images/bbc5a05b599bcb1b6c4350efe04397d6.png" group-title="Dazn Flusso 1",Dazn NFL 4 FHD Exclsuive
+http://cane.nero.ws:80/live/cicciofro/sasy/222478.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn NFL 5 FHD Exclsuive" tvg-logo="http://service.myvisio.life:80/images/bbc5a05b599bcb1b6c4350efe04397d6.png" group-title="Dazn Flusso 1",Dazn NFL 5 FHD Exclsuive
+http://cane.nero.ws:80/live/cicciofro/sasy/222479.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn NFL 6 FHD Exclsuive" tvg-logo="http://service.myvisio.life:80/images/bbc5a05b599bcb1b6c4350efe04397d6.png" group-title="Dazn Flusso 1",Dazn NFL 6 FHD Exclsuive
+http://cane.nero.ws:80/live/cicciofro/sasy/222480.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn NFL 7 FHD Exclsuive" tvg-logo="http://service.myvisio.life:80/images/bbc5a05b599bcb1b6c4350efe04397d6.png" group-title="Dazn Flusso 1",Dazn NFL 7 FHD Exclsuive
+http://cane.nero.ws:80/live/cicciofro/sasy/222481.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn NFL 8 FHD Exclsuive" tvg-logo="http://service.myvisio.life:80/images/bbc5a05b599bcb1b6c4350efe04397d6.png" group-title="Dazn Flusso 1",Dazn NFL 8 FHD Exclsuive
+http://cane.nero.ws:80/live/cicciofro/sasy/222482.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn NFL 9 FHD Exclsuive" tvg-logo="http://service.myvisio.life:80/images/bbc5a05b599bcb1b6c4350efe04397d6.png" group-title="Dazn Flusso 1",Dazn NFL 9 FHD Exclsuive
+http://cane.nero.ws:80/live/cicciofro/sasy/222483.ts
+#EXTINF:-1 tvg-id="" tvg-name="Dazn NFL 10 FHD Exclsuive" tvg-logo="http://service.myvisio.life:80/images/bbc5a05b599bcb1b6c4350efe04397d6.png" group-title="Dazn Flusso 1",Dazn NFL 10 FHD Exclsuive
+http://cane.nero.ws:80/live/cicciofro/sasy/222484.ts
+#EXTINF:-1 tvg-id="" tvg-name="----- ARENA TV - ELEVEN TV- FIFA+ -----" tvg-logo="" group-title="Arena Tv - Eleven Tv - Fifa +",----- ARENA TV - ELEVEN TV- FIFA+ -----
+http://cane.nero.ws:80/live/cicciofro/sasy/192244.ts
+#EXTINF:-1 tvg-id="" tvg-name="Arena Sport 1 FHD" tvg-logo="http://uniquetv.xyz/Arena_Sport_1.png" group-title="Arena Tv - Eleven Tv - Fifa +",Arena Sport 1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/48655.ts
+#EXTINF:-1 tvg-id="" tvg-name="Arena Sport 2 FHD" tvg-logo="http://uniquetv.xyz/Arena_Sport_2.png" group-title="Arena Tv - Eleven Tv - Fifa +",Arena Sport 2 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/48656.ts
+#EXTINF:-1 tvg-id="" tvg-name="Arena Sport 3 FHD" tvg-logo="http://uniquetv.xyz/Arena_Sport_3.png" group-title="Arena Tv - Eleven Tv - Fifa +",Arena Sport 3 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/48657.ts
+#EXTINF:-1 tvg-id="" tvg-name="Arena Sport 4 FHD" tvg-logo="http://uniquetv.xyz/Arena_Sport_4.png" group-title="Arena Tv - Eleven Tv - Fifa +",Arena Sport 4 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/48658.ts
+#EXTINF:-1 tvg-id="" tvg-name="Arena Sport 5 FHD" tvg-logo="http://uniquetv.xyz/Arena_Sport_5.png" group-title="Arena Tv - Eleven Tv - Fifa +",Arena Sport 5 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/48659.ts
+#EXTINF:-1 tvg-id="" tvg-name="Arena Sport 6 FHD" tvg-logo="http://uniquetv.xyz/Arena_Sport_5.png" group-title="Arena Tv - Eleven Tv - Fifa +",Arena Sport 6 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/48660.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eleven Sport 1 FHD" tvg-logo="https://static.epg.best/pl/ElevenSport1.pl.png" group-title="Arena Tv - Eleven Tv - Fifa +",Eleven Sport 1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/48823.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eleven Sport 2 FHD " tvg-logo="https://static.epg.best/pl/ElevenSport2.pl.png" group-title="Arena Tv - Eleven Tv - Fifa +",Eleven Sport 2 FHD 
+http://cane.nero.ws:80/live/cicciofro/sasy/48822.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eleven Sport 3 FHD" tvg-logo="https://static.epg.best/pl/ElevenSport3.pl.png" group-title="Arena Tv - Eleven Tv - Fifa +",Eleven Sport 3 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/48821.ts
+#EXTINF:-1 tvg-id="" tvg-name="Eleven Sport 4 FHD" tvg-logo="http://service.fullapple.me:8000/images/8fec283e5f91b1943ba635131f14c453.png" group-title="Arena Tv - Eleven Tv - Fifa +",Eleven Sport 4 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/48820.ts
+#EXTINF:-1 tvg-id="" tvg-name="Fifa+ 1 FHD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/9cd72732c6d66b789de8e0df64ea0ccc.png" group-title="Arena Tv - Eleven Tv - Fifa +",Fifa+ 1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/178885.ts
+#EXTINF:-1 tvg-id="" tvg-name="Fifa+ 2 FHD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/9cd72732c6d66b789de8e0df64ea0ccc.png" group-title="Arena Tv - Eleven Tv - Fifa +",Fifa+ 2 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/178886.ts
+#EXTINF:-1 tvg-id="" tvg-name="Fifa+ 3 FHD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/9cd72732c6d66b789de8e0df64ea0ccc.png" group-title="Arena Tv - Eleven Tv - Fifa +",Fifa+ 3 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/178888.ts
+#EXTINF:-1 tvg-id="" tvg-name="Fifa+ 4 FHD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/9cd72732c6d66b789de8e0df64ea0ccc.png" group-title="Arena Tv - Eleven Tv - Fifa +",Fifa+ 4 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/178889.ts
+#EXTINF:-1 tvg-id="" tvg-name="Fifa+ 5 FHD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/9cd72732c6d66b789de8e0df64ea0ccc.png" group-title="Arena Tv - Eleven Tv - Fifa +",Fifa+ 5 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/178890.ts
+#EXTINF:-1 tvg-id="" tvg-name="Fifa+ 6 FHD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/9cd72732c6d66b789de8e0df64ea0ccc.png" group-title="Arena Tv - Eleven Tv - Fifa +",Fifa+ 6 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/178891.ts
+#EXTINF:-1 tvg-id="" tvg-name="Fifa+ 7 FHD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/9cd72732c6d66b789de8e0df64ea0ccc.png" group-title="Arena Tv - Eleven Tv - Fifa +",Fifa+ 7 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/178892.ts
+#EXTINF:-1 tvg-id="" tvg-name="Fifa+ 8 FHD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/9cd72732c6d66b789de8e0df64ea0ccc.png" group-title="Arena Tv - Eleven Tv - Fifa +",Fifa+ 8 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/178893.ts
+#EXTINF:-1 tvg-id="" tvg-name="Fifa+ 9 FHD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/9cd72732c6d66b789de8e0df64ea0ccc.png" group-title="Arena Tv - Eleven Tv - Fifa +",Fifa+ 9 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/178894.ts
+#EXTINF:-1 tvg-id="" tvg-name="Fifa+ 10 FHD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/9cd72732c6d66b789de8e0df64ea0ccc.png" group-title="Arena Tv - Eleven Tv - Fifa +",Fifa+ 10 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/178895.ts
+#EXTINF:-1 tvg-id="" tvg-name="----- DOCUMENTARI -----" tvg-logo="http://service.fullapple.me:80/images/31d52abda89527246184ec524330e337.png" group-title="Documentari",----- DOCUMENTARI -----
+http://cane.nero.ws:80/live/cicciofro/sasy/22762.ts
+#EXTINF:-1 tvg-id="SkyArte.it" tvg-name="Sky Arte FHD" tvg-logo="http://service.myvisio.life:80/images/33c9eae0ad882c5df060f61f9c8da1ac.png" group-title="Documentari",Sky Arte FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/26338.ts
+#EXTINF:-1 tvg-id="SkyArte.it" tvg-name="Sky Arte HD" tvg-logo="http://service.myvisio.life:80/images/da3fbf5552a03c9148505f2025fab2b8.png" group-title="Documentari",Sky Arte HD
+http://cane.nero.ws:80/live/cicciofro/sasy/88.ts
+#EXTINF:-1 tvg-id="SkyArte.it" tvg-name="Sky Arte SD" tvg-logo="http://bs-update.ddns.net/Android/logos/skyarte-hd.png" group-title="Sky Italia SD",Sky Arte SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49721.ts
+#EXTINF:-1 tvg-id="SkyDocumentaries.it" tvg-name="Sky Documentaries FHD" tvg-logo="http://service.myvisio.life:80/images/7b2d1b30db349e587107f42e1e301670.png" group-title="Documentari",Sky Documentaries FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/146832.ts
+#EXTINF:-1 tvg-id="SkyDocumentaries.it" tvg-name="Sky Documentaries HD" tvg-logo="http://service.myvisio.life:80/images/7b2d1b30db349e587107f42e1e301670.png" group-title="Documentari",Sky Documentaries HD
+http://cane.nero.ws:80/live/cicciofro/sasy/146831.ts
+#EXTINF:-1 tvg-id="SkyDocumentaries.it" tvg-name="Sky Documentaries SD" tvg-logo="http://log.xpcontrol.city:80/images/7b2d1b30db349e587107f42e1e301670.png" group-title="Sky Italia SD",Sky Documentaries SD
+http://cane.nero.ws:80/live/cicciofro/sasy/146833.ts
+#EXTINF:-1 tvg-id="SkyAdventure.it" tvg-name="Sky Adventure FHD" tvg-logo="https://static.skyassets.com/contentstack/assets/bltdc2476c7b6b194dd/blt91a8ae3a1a197558/685a9ad350cb31e630b8ef05/Immagine1_sky_adv.png?downsize=640:*&output-format=jpg" group-title="Documentari",Sky Adventure FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/226820.ts
+#EXTINF:-1 tvg-id="SkyAdventure.it" tvg-name="Sky Adventure HD" tvg-logo="https://static.skyassets.com/contentstack/assets/bltdc2476c7b6b194dd/blt91a8ae3a1a197558/685a9ad350cb31e630b8ef05/Immagine1_sky_adv.png?downsize=640:*&output-format=jpg" group-title="Documentari",Sky Adventure HD
+http://cane.nero.ws:80/live/cicciofro/sasy/226819.ts
+#EXTINF:-1 tvg-id="Discovery.it" tvg-name="Discovery FHD" tvg-logo="http://service.myvisio.life:80/images/419c5c514a0381ba3dd87faa091627fe.png" group-title="Documentari",Discovery FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/26328.ts
+#EXTINF:-1 tvg-id="Discovery.it" tvg-name="Discovery HD" tvg-logo="http://service.myvisio.life:80/images/7f038c1babfde74a3071344e7ee895ea.png" group-title="Documentari",Discovery HD
+http://cane.nero.ws:80/live/cicciofro/sasy/89.ts
+#EXTINF:-1 tvg-id="Discovery.it" tvg-name="Discovery SD" tvg-logo="http://bs-update.ddns.net/Android/logos/discovery-hd.png" group-title="Sky Italia SD",Discovery SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49722.ts
+#EXTINF:-1 tvg-id="DiscoveryPlus1.it" tvg-name="Discovery +1 FHD" tvg-logo="http://service.myvisio.life:80/images/419c5c514a0381ba3dd87faa091627fe.png" group-title="Documentari",Discovery +1 FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/156915.ts
+#EXTINF:-1 tvg-id="DiscoveryPlus1.it" tvg-name="Discovery +1 HD" tvg-logo="http://service.myvisio.life:80/images/419c5c514a0381ba3dd87faa091627fe.png" group-title="Documentari",Discovery +1 HD
+http://cane.nero.ws:80/live/cicciofro/sasy/33370.ts
+#EXTINF:-1 tvg-id="SkyNature.it" tvg-name="Sky Nature FHD" tvg-logo="http://service.myvisio.life:80/images/e491987bbd0f9e7f2b36bac0332708bd.png" group-title="Documentari",Sky Nature FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/146837.ts
+#EXTINF:-1 tvg-id="SkyNature.it" tvg-name="Sky Nature HD" tvg-logo="http://service.myvisio.life:80/images/e491987bbd0f9e7f2b36bac0332708bd.png" group-title="Documentari",Sky Nature HD
+http://cane.nero.ws:80/live/cicciofro/sasy/146838.ts
+#EXTINF:-1 tvg-id="SkyNature.it" tvg-name="Sky Nature SD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/e491987bbd0f9e7f2b36bac0332708bd.png" group-title="Sky Italia SD",Sky Nature SD
+http://cane.nero.ws:80/live/cicciofro/sasy/146839.ts
+#EXTINF:-1 tvg-id="CrimeInvestigation.it" tvg-name="Crime + Inv FHD" tvg-logo="http://service.myvisio.life:80/images/c4489fb46fb4b1d144802f0a651cf0e2.png" group-title="Intrattenimento",Crime + Inv FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/226818.ts
+#EXTINF:-1 tvg-id="CrimeInvestigation.it" tvg-name="Crime + Inv HD" tvg-logo="http://service.myvisio.life:80/images/c4489fb46fb4b1d144802f0a651cf0e2.png" group-title="Intrattenimento",Crime + Inv HD
+http://cane.nero.ws:80/live/cicciofro/sasy/23.ts
+#EXTINF:-1 tvg-id="CrimeInvestigation.it" tvg-name="Crime + Inv. SD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/c4489fb46fb4b1d144802f0a651cf0e2.png" group-title="Sky Italia SD",Crime + Inv. SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49724.ts
+#EXTINF:-1 tvg-id="NatGeoWild.it" tvg-name="NatGeo Wild SD" tvg-logo="http://bs-update.ddns.net/Android/logos/natgeowild-hd.png" group-title="Sky Italia SD",NatGeo Wild SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49725.ts
+#EXTINF:-1 tvg-id="NationalGeo.it" tvg-name="NationalGeo SD" tvg-logo="http://bs-update.ddns.net/Android/logos/nationalgeo-hd.png" group-title="Sky Italia SD",NationalGeo SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49727.ts
+#EXTINF:-1 tvg-id="Sky.Uno.it" tvg-name="History FHD" tvg-logo="http://service.myvisio.life:80/images/98ddd35233c2a48ec3c558d365de6ed3.png" group-title="Documentari",History FHD
+http://cane.nero.ws:80/live/cicciofro/sasy/48669.ts
+#EXTINF:-1 tvg-id="Sky.Uno.it" tvg-name="History HD" tvg-logo="http://service.myvisio.life:80/images/8fd49766dd9f4632fad22cfb01ca344e.png" group-title="Documentari",History HD
+http://cane.nero.ws:80/live/cicciofro/sasy/95.ts
+#EXTINF:-1 tvg-id="History.it" tvg-name="History SD" tvg-logo="http://bs-update.ddns.net/Android/logos/history-hd.png" group-title="Sky Italia SD",History SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49728.ts
+#EXTINF:-1 tvg-id="Focus.HD.it" tvg-name="Sky Focus" tvg-logo="http://service.myvisio.life:80/images/1818d506396d77b3d035f719885c4cd1.png" group-title="Documentari",Sky Focus
+http://cane.nero.ws:80/live/cicciofro/sasy/631.ts
+#EXTINF:-1 tvg-id="Focus.it" tvg-name="Sky Focus SD" tvg-logo="http://bs-update.ddns.net/Android/logos/focus.png" group-title="Sky Italia SD",Sky Focus SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49729.ts
+#EXTINF:-1 tvg-id="DMAX.it" tvg-name="Dmax HD" tvg-logo="http://service.myvisio.life:80/images/c9bec96248605dd0dd45bf4897115504.png" group-title="Documentari",Dmax HD
+http://cane.nero.ws:80/live/cicciofro/sasy/343.ts
+#EXTINF:-1 tvg-id="DMAX.it" tvg-name="Dmax SD" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/c9bec96248605dd0dd45bf4897115504.png" group-title="Sky Italia SD",Dmax SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49730.ts
+#EXTINF:-1 tvg-id="TopCrime.it" tvg-name="Top Crime HD" tvg-logo="http://service.fullapple.me:80/images/2338e1f59fcab8c2243fc9d58b5a2213.png" group-title="Documentari",Top Crime HD
+http://cane.nero.ws:80/live/cicciofro/sasy/187419.ts
+#EXTINF:-1 tvg-id="SkyUno.it" tvg-name="Real Time HD" tvg-logo="http://service.fullapple.me:8000/images/6ddff5c9b7c2045a40a019e5b3fac124.png" group-title="Documentari",Real Time HD
+http://cane.nero.ws:80/live/cicciofro/sasy/293.ts
+#EXTINF:-1 tvg-id="RealTime.it" tvg-name="Real Time SD" tvg-logo="http://service.fullapple.me:8000/images/6ddff5c9b7c2045a40a019e5b3fac124.png" group-title="Sky Italia SD",Real Time SD
+http://cane.nero.ws:80/live/cicciofro/sasy/49731.ts
+#EXTINF:-1 tvg-id="SkyUno.it" tvg-name="Caccia e Pesca" tvg-logo="http://service.myvisio.life:80/images/e21914b1a2fe7ac745a5a035fad28c32.png" group-title="Documentari",Caccia e Pesca
+http://cane.nero.ws:80/live/cicciofro/sasy/98.ts
+#EXTINF:-1 tvg-id="" tvg-name="Caccia e Pesca +1" tvg-logo="http://service.fullapple.me:8000/images/e21914b1a2fe7ac745a5a035fad28c32.png" group-title="Documentari",Caccia e Pesca +1
+http://cane.nero.ws:80/live/cicciofro/sasy/9044.ts
+#EXTINF:-1 tvg-id="Pesca.it" tvg-name="Pesca e Caccia" tvg-logo="http://service.myvisio.life:80/images/e9fb4d5b7e79bbfbf3d35d0f6a00cf3c.png" group-title="Documentari",Pesca e Caccia
+http://cane.nero.ws:80/live/cicciofro/sasy/99.ts
+#EXTINF:-1 tvg-id="CartoonNetwork.it" tvg-name="Pesca e Caccia +1" tvg-logo="http://service.fullapple.me:8000/images/e9fb4d5b7e79bbfbf3d35d0f6a00cf3c.png" group-title="Documentari",Pesca e Caccia +1
+http://cane.nero.ws:80/live/cicciofro/sasy/9043.ts
+#EXTINF:-1 tvg-id="ItalianFishingTv.it" tvg-name="Italian Fishing Tv" tvg-logo="http://service.myvisio.life:80/images/0509a55eed723c8ce05c042e075f65ff.png" group-title="Documentari",Italian Fishing Tv
+http://cane.nero.ws:80/live/cicciofro/sasy/3869.ts
+#EXTINF:-1 tvg-id="" tvg-name="Samsung+ Italian Fishing Tv" tvg-logo="http://service.myvisio.life:80/images/0509a55eed723c8ce05c042e075f65ff.png" group-title="Documentari",Samsung+ Italian Fishing Tv
+http://cane.nero.ws:80/live/cicciofro/sasy/178628.ts
+#EXTINF:-1 tvg-id="" tvg-name="Passione Surf Casting" tvg-logo="http://service.fullapple.me:8000/images/96d6f2e7e1f705ab5e59c84a6dc009b2.png" group-title="Documentari",Passione Surf Casting
+http://cane.nero.ws:80/live/cicciofro/sasy/178629.ts
+#EXTINF:-1 tvg-id="" tvg-name="Passione Surf Casting 2" tvg-logo="http://servicelocandine.goldsecurepro.com:8000/images/96d6f2e7e1f705ab5e59c84a6dc009b2.png" group-title="Documentari",Passione Surf Casting 2
+http://cane.nero.ws:80/live/cicciofro/sasy/178630.ts
+#EXTINF:-1 tvg-id="BIKE.it" tvg-name="Horse TV HD" tvg-logo="http://service.myvisio.life:80/images/c5219a3ef08ab8fc3e6bca74d6bc7a00.png" group-title="Documentari",Horse TV HD
+http://cane.nero.ws:80/live/cicciofro/sasy/62723.ts
+#EXTINF:-1 tvg-id="GamberoRosso.it" tvg-name="Gambero Rosso HD" tvg-logo="http://service.myvisio.life:80/images/cf7363bfc3e8435e39c581081ad88034.png" group-title="Documentari",Gambero Rosso HD
+http://cane.nero.ws:80/live/cicciofro/sasy/100.ts
+#EXTINF:-1 tvg-id="FoodNetwork.it" tvg-name="Food Network" tvg-logo="http://service.myvisio.life:80/images/5382b51ca47c88d283e818ad2d1e3aca.png" group-title="Intrattenimento",Food Network
+http://cane.nero.ws:80/live/cicciofro/sasy/24748.ts
+#EXTINF:-1 tvg-id="HGTV.it" tvg-name="HGTV Home e Garden" tvg-logo="http://service.fullapple.me:8000/images/ecaf59047bbd5ef78f1cd878c2ffb449.png" group-title="Documentari",HGTV Home e Garden
+http://cane.nero.ws:80/live/cicciofro/sasy/161376.ts
