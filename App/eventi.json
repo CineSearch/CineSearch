@@ -33,14 +33,6 @@
                 "tvg_logo": "",
                 "type": "iptv",
                 "stream_url": "https://edge6-hel.live.mmcdn.com/live-hls/amlst:sigmasian-sd-93a2a9ad388e17c5df2.m3u8"
-            },
-            {
-                "id": "ch_69c3f25287b613.27902015",
-                "display_name": "Test 3",
-                "group_title": "Sport",
-                "tvg_logo": "",
-                "type": "iptv",
-                "stream_url": "https://edge6-hel.live.mmcdn.com/live-hls/amlst:sigmasian-sd-93a2a9ad388e17df2.m3u8"
             }
         ]
     }
