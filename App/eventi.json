@@ -1,40 +1,46 @@
 {
-    "playlist": {
-        "0": {
-            "id": "SkySportF1_it",
-            "display_name": "Sky Sport F1 FHD",
-            "group_title": "Sport",
-            "tvg_logo": "http://service.myvisio.life:80/images/0f4c797d14c5c64cb7e8fd7ed5e9cd94.png",
-            "type": "iptv",
-            "stream_url": "http://cane.nero.ws:80/live/cicciofro/sasy/4497.ts"
-        },
-        "1": {
-            "id": "SkySportMotoGP_it",
-            "display_name": "Sky Sport MotoGP FHD",
-            "group_title": "Sport",
-            "tvg_logo": "http://service.myvisio.life:80/images/314a9a576595b9e7aa5bd1c8de1adf39.png",
-            "type": "iptv",
-            "stream_url": "http://cane.nero.ws:80/live/cicciofro/sasy/4498.ts"
-        },
-        "2": {
-            "id": "DAZNZona_it",
-            "display_name": "Zona Dazn Serie A FHD",
-            "group_title": "Calcio",
-            "tvg_logo": "http://service.myvisio.life:80/images/c54b124c08d5d6c6d229dccaaf05d835.png",
-            "type": "iptv",
-            "stream_url": "http://cane.nero.ws:80/live/cicciofro/sasy/149099.ts"
-        },
-        "3": {
-            "id": "c50dbfae-9d67-4130-b74f-58d7b7eb2bbf",
-            "display_name": "DAZN 1",
-            "group_title": "dazn",
-            "tvg_logo": "https://liveac.net/sb/storage/v1/object/public/logos/dazn.png",
-            "type": "dash",
-            "mpd_url": "https://zh4-6-dashenc-live.zahs.tv/HD_dazn_event_1_ch/m_drm_widevine.mpd?z32=MF2WI2LPL5RW6ZDFMNZT2YLBMMTGG43JMQ6TCOBZIZCDKRJXGAZEEQRYII4UGLKEG43TANCFIEYECNCDGIZTIQJGMRZG2PLFPBYGS4TBORUW63R2GE3TONBZG4ZTCNRWEZUW42LUNFQWY4TBORST2MRQGAYDAJTNMF4HEYLUMU6TEMBQGAYCM3LJNZZGC5DFHUYTAMBQEZYHEZLGMVZHEZLEL5WGC3THOVQWOZJ5MVXCM43JM46TEMC7MVTGCZRZG4YDCYZZGY4WGZDCHE3GKOJWHBSGIN3EGIYTONJRMY2CM43VMJ2GS5DMMVZT22DJMRSGK3RNONSGQJTVONSXEX3JMQ6XG23ZL5RWQOR2GIYTANJRGQ2SM5R5GA",
-            "drm_key_id": "9f573b69dfebc966a7e9812b05930401,c2764db7f386dd974e554913ad9c2270,083ce152b99d17d645679ac834fd0b50,09c4838e9eacd08a5225cd4145b88fe1,a75e763f3f8c651b137c28fb29c50874,838c58e840cd490405968c59fbf07f82,855ff3bf73a80fbbf30b4ca9018a7073,43d1dc8e26f45980520f122023452023,713b795836be0f2b0ef6a1c20e7cbead,2156d374c476ce6b377c639755e8df96",
-            "drm_key": "75b61424cd051a586026a0f8988dde66,2c47f9582bf415ee6c6015f231b58697,3f948367ba2017bf58c36040986dfff3,f90d56815aed4027bbb8f3d81ab15d75,09710f1bd766161ba571bdeed3403306,70aa8fafcdbf15c413f566b000de1873,5b421b1967c1baf6ee680b6dbbfd6a9e,22ad57ad8df54ea5e6f41f41f1e102ea,6cc3ebc52236f59db876e7970f784f23,c0c5347a0c5c6654c1153e4a8b1f08f8"
-        },
-        "start": "SI",
-        "channels": []
-    }
+  "playlist": {
+    "start": "SI",
+    "channels": [
+      {
+        "tvg_id": "SkySportF1.it",
+        "tvg_name": "Sky Sport F1 FHD",
+        "tvg_logo": "http://service.myvisio.life:80/images/0f4c797d14c5c64cb7e8fd7ed5e9cd94.png",
+        "group_title": "Sport",
+        "display_name": "Sky Sport F1 FHD",
+        "stream_url": "http://cane.nero.ws:80/live/cicciofro/sasy/4497.ts"
+      },
+      {
+        "tvg_id": "SkySportMotoGP.it",
+        "tvg_name": "Sky Sport MotoGP FHD",
+        "tvg_logo": "http://service.myvisio.life:80/images/314a9a576595b9e7aa5bd1c8de1adf39.png",
+        "group_title": "Sport",
+        "display_name": "Sky Sport MotoGP FHD",
+        "stream_url": "http://cane.nero.ws:80/live/cicciofro/sasy/4498.ts"
+      },
+      {
+        "tvg_id": "DAZNZona.it",
+        "tvg_name": "Zona Dazn Serie A FHD",
+        "tvg_logo": "http://service.myvisio.life:80/images/c54b124c08d5d6c6d229dccaaf05d835.png",
+        "group_title": "Calcio",
+        "display_name": "Zona Dazn Serie A FHD",
+        "stream_url": "http://cane.nero.ws:80/live/cicciofro/sasy/149099.ts"
+      },
+      {
+        "id": "c50dbfae-9d67-4130-b74f-58d7b7eb2bbf",
+        "display_name": "DAZN 1",
+        "description": null,
+        "sport": "serie_a",
+        "event_date": "2026-03-24T17:36:06.228+00:00",
+        "tvg_logo": "https://liveac.net/sb/storage/v1/object/public/logos/dazn.png",
+        "mpd_url": "https://zh4-6-dashenc-live.zahs.tv/HD_dazn_event_1_ch/m_drm_widevine.mpd?z32=MF2WI2LPL5RW6ZDFMNZT2YLBMMTGG43JMQ6TCOBZIZCDKRJXGAZEEQRYII4UGLKEG43TANCFIEYECNCDGIZTIQJGMRZG2PLFPBYGS4TBORUW63R2GE3TONBZG4ZTCNRWEZUW42LUNFQWY4TBORST2MRQGAYDAJTNMF4HEYLUMU6TEMBQGAYCM3LJNZZGC5DFHUYTAMBQEZYHEZLGMVZHEZLEL5WGC3THOVQWOZJ5MVXCM43JM46TEMC7MVTGCZRZG4YDCYZZGY4WGZDCHE3GKOJWHBSGIN3EGIYTONJRMY2CM43VMJ2GS5DMMVZT22DJMRSGK3RNONSGQJTVONSXEX3JMQ6XG23ZL5RWQOR2GIYTANJRGQ2SM5R5GA",
+        "drm_key_id": "9f573b69dfebc966a7e9812b05930401,c2764db7f386dd974e554913ad9c2270,083ce152b99d17d645679ac834fd0b50,09c4838e9eacd08a5225cd4145b88fe1,a75e763f3f8c651b137c28fb29c50874,838c58e840cd490405968c59fbf07f82,855ff3bf73a80fbbf30b4ca9018a7073,43d1dc8e26f45980520f122023452023,713b795836be0f2b0ef6a1c20e7cbead,2156d374c476ce6b377c639755e8df96",
+        "drm_key": "75b61424cd051a586026a0f8988dde66,2c47f9582bf415ee6c6015f231b58697,3f948367ba2017bf58c36040986dfff3,f90d56815aed4027bbb8f3d81ab15d75,09710f1bd766161ba571bdeed3403306,70aa8fafcdbf15c413f566b000de1873,5b421b1967c1baf6ee680b6dbbfd6a9e,22ad57ad8df54ea5e6f41f41f1e102ea,6cc3ebc52236f59db876e7970f784f23,c0c5347a0c5c6654c1153e4a8b1f08f8",
+        "is_live": true,
+        "category": "dazn",
+        "drm_type": "none",
+        "stream_url": null
+      }
+    ]
+  }
 }
