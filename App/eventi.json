@@ -32,7 +32,7 @@
                 "group_title": "dazn",
                 "tvg_logo": "https://liveac.net/sb/storage/v1/object/public/logos/dazn.png",
                 "type": "dash",
-                "mpd_url": "https://edge6-hel.live.mmcdn.com/live-hls/amlst:sigmasian-sd-93a2a9ad388e17c5df20173953e9cfe21253212a00d89eecc89b4ab2ac3f2c9c_trns_h264/chunklist_w1822433749_b7128000_t64RlBTOjYwLjA=.m3u8",
+                "mpd_url": "https://zh4-6-dashenc-live.zahs.tv/HD_dazn_event_1_ch/m_drm_widevine.mpd?z32=MF2WI2LPL5RW6ZDFMNZT2YLBMMTGG43JMQ6TCOBZIZCDKRJXGAZEEQRYII4UGLKEG43TA",
                 "drm_key_id": "",
                 "drm_key": ""
             },
