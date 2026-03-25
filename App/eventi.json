@@ -25,14 +25,6 @@
                 "tvg_logo": "http://service.myvisio.life:80/images/c54b124c08d5d6c6d229dccaaf05d835.png",
                 "type": "iptv",
                 "stream_url": "http://cane.nero.ws:80/live/cicciofro/sasy/149099.ts"
-            },
-            {
-                "id": "ch_69c3bdd35d6e51_62726863",
-                "display_name": "Test",
-                "group_title": "Sport",
-                "tvg_logo": "",
-                "type": "iptv",
-                "stream_url": "https://edge6-hel.live.mmcdn.com/live-hls/amlst:sigmasian-sd-93a2a9ad388e17c5df20173953e9cfe21253212a00d89eecc89b4ab2ac3f2c9c_trns_h264/chunklist_w1822433749_b7128000_t64RlBTOjYwLjA=.m3u8"
             }
         ]
     }
