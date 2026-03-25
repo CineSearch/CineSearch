@@ -25,6 +25,14 @@
                 "tvg_logo": "http://service.myvisio.life:80/images/c54b124c08d5d6c6d229dccaaf05d835.png",
                 "type": "iptv",
                 "stream_url": "http://cane.nero.ws:80/live/cicciofro/sasy/149099.ts"
+            },
+            {
+                "id": "ch_e1d2b14f9e012180",
+                "display_name": "Inter TV",
+                "group_title": "Sport",
+                "tvg_logo": "https://imgur.com/FUTqh2L",
+                "type": "iptv",
+                "stream_url": "https://ilglobotv-live.akamaized.net/channels/InterTV/Live.m3u8"
             }
         ]
     }
