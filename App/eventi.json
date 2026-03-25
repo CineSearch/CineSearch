@@ -33,7 +33,7 @@
                 "tvg_logo": "https://liveac.net/sb/storage/v1/object/public/logos/dazn.png",
                 "type": "dash",
                 "mpd_url": "https://zh4-6-dashenc-live.zahs.tv/HD_dazn_event_1_ch/m_drm_widevine.mpd?z32=MF2WI2LPL5RW6ZDFMNZT2YLBMMTGG43JMQ6TCOBZIZCDKRJXGAZEEQRYII4UGLKEG43TA",
-                "drm_key_id": "",
+                "drm_key_id": "9f573b69dfebc966a7e9812b05930401,c2764db7f386dd974e554913ad9c2270,083ce152b99d17d645679ac834fd0b50,09c4838e9eacd08a5225cd4145b88fe1,a75e763f3f8c651b137c28fb29c50874,838c58e840cd490405968c59fbf07f82,855ff3bf73a80fbbf30b4ca9018a7073,43d1dc8e26f45980520f122023452023,713b795836be0f2b0ef6a1c20e7cbead,2156d374c476ce6b377c639755e8df96",
                 "drm_key": ""
             },
             {
