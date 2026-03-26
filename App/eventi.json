@@ -3,8 +3,8 @@
         "start": "NO",
         "channels": [
             {
-                "start_singolo": "NO",
                 "id": "SkySportF1_it",
+                "start_singolo": "NO",
                 "display_name": "Sky Sport F1 FHD",
                 "group_title": "Sport",
                 "tvg_logo": "http://service.myvisio.life:80/images/0f4c797d14c5c64cb7e8fd7ed5e9cd94.png",
@@ -12,8 +12,8 @@
                 "stream_url": "http://cane.nero.ws:80/live/cicciofro/sasy/4497.ts"
             },
             {
-                "start_singolo": "NO",
                 "id": "SkySportMotoGP_it",
+                "start_singolo": "NO",
                 "display_name": "Sky Sport MotoGP FHD",
                 "group_title": "Sport",
                 "tvg_logo": "http://service.myvisio.life:80/images/314a9a576595b9e7aa5bd1c8de1adf39.png",
@@ -21,13 +21,22 @@
                 "stream_url": "http://cane.nero.ws:80/live/cicciofro/sasy/4498.ts"
             },
             {
-                "start_singolo": "NO",
                 "id": "DAZNZona_it",
+                "start_singolo": "NO",
                 "display_name": "Zona Dazn Serie A FHD",
                 "group_title": "Calcio",
                 "tvg_logo": "http://service.myvisio.life:80/images/c54b124c08d5d6c6d229dccaaf05d835.png",
                 "type": "iptv",
                 "stream_url": "http://cane.nero.ws:80/live/cicciofro/sasy/149099.ts"
+            },
+            {
+                "id": "SkySportF1_it_75283a",
+                "start_singolo": "NO",
+                "display_name": "Sky Sport F1 HD Live",
+                "group_title": "Formula 1 - Moto Gp CAM",
+                "tvg_logo": "http://service.fullapple.me:8000/images/0f4c797d14c5c64cb7e8fd7ed5e9cd94.png",
+                "type": "iptv",
+                "stream_url": "http://dragone-2876.dyndns.biz:80/live/fabpellefro/sasy/70084.m3u8"
             }
         ]
     }
