@@ -1,6 +1,6 @@
 {
     "playlist": {
-        "start": "NO",
+        "start": "SI",
         "channels": [
             {
                 "id": "SkySportF1_it",
@@ -56,6 +56,7 @@
                 "type": "iptv",
                 "stream_url": "http://dragone-2876.dyndns.biz:80/live/fabpellefro/sasy/32108.m3u8"
             }
-        ]
+        ],
+        "scheduler_managed": false
     }
 }
