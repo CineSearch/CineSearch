@@ -3,6 +3,7 @@
         "start": "NO",
         "channels": [
             {
+                "start": "NO",
                 "id": "SkySportF1_it",
                 "display_name": "Sky Sport F1 FHD",
                 "group_title": "Sport",
@@ -11,6 +12,7 @@
                 "stream_url": "http://cane.nero.ws:80/live/cicciofro/sasy/4497.ts"
             },
             {
+                "start": "NO",
                 "id": "SkySportMotoGP_it",
                 "display_name": "Sky Sport MotoGP FHD",
                 "group_title": "Sport",
@@ -19,6 +21,7 @@
                 "stream_url": "http://cane.nero.ws:80/live/cicciofro/sasy/4498.ts"
             },
             {
+                "start": "NO",
                 "id": "DAZNZona_it",
                 "display_name": "Zona Dazn Serie A FHD",
                 "group_title": "Calcio",
