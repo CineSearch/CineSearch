@@ -28,6 +28,7 @@
                 "type": "iptv",
                 "stream_url": "http://cane.nero.ws:80/live/cicciofro/sasy/149099.ts"
             }
-        ]
+        ],
+        "start": "NO"
     }
 }
