@@ -4,7 +4,7 @@
         "channels": [
             {
                 "id": "SkySportF1_it",
-                "start_singolo": "SI",
+                "start_singolo": "NO",
                 "display_name": "Sky Sport F1 FHD",
                 "group_title": "Sport",
                 "tvg_logo": "http://service.myvisio.life:80/images/0f4c797d14c5c64cb7e8fd7ed5e9cd94.png",
