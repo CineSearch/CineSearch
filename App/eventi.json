@@ -53,7 +53,7 @@
                 "group_title": "Cinema",
                 "tvg_logo": "http://service.myvisio.life:80/images/bbb7a3c21c169a6bc0a6b2bf6736f29a.png",
                 "type": "iptv",
-                "start_singolo": "SI",
+                "start_singolo": "NO",
                 "stream_url": "http://dragone-2876.dyndns.biz:80/live/fabpellefro/sasy/32108.m3u8"
             }
         ],
