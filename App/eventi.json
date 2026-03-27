@@ -26,7 +26,7 @@
                 "group_title": "Calcio",
                 "tvg_logo": "http://service.myvisio.life:80/images/c54b124c08d5d6c6d229dccaaf05d835.png",
                 "type": "iptv",
-                "start_singolo": "SI",
+                "start_singolo": "NO",
                 "stream_url": "http://cane.nero.ws:80/live/cicciofro/sasy/149099.ts"
             },
             {
