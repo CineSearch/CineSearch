@@ -36,8 +36,18 @@
                 "tvg_logo": "http://service.fullapple.me:8000/images/0f4c797d14c5c64cb7e8fd7ed5e9cd94.png",
                 "type": "iptv",
                 "start_singolo": "SI",
-                "stream_url": "http://dragone-2876.dyndns.biz:80/live/fabpellefro/sasy/70084.m3u8"
+                "_url": "http://dragone-2876.dyndns.biz:80/live/fabpellefro/sasy/70084.m3u8"
             },
+            {
+                "id": "ch_98ab4407097e93b6",
+                "display_name": "test severus",
+                "group_title": "Cinema",
+                "tvg_logo": "",
+                "type": "iptv",
+                "start_singolo": "SI",
+                "stream_url": "https://is.gd/ZocTe6"
+            },
+            
             {
                 "id": "ch_98ab4407097e93b6",
                 "display_name": "Sky Cinema Uno FHD Bis",
