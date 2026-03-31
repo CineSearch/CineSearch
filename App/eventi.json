@@ -66,15 +66,6 @@
                 "stream_url": "http:\/\/dragone-2876.dyndns.biz:80\/live\/fabpellefro\/sasy\/32108.m3u8"
             },
             {
-                "id": "rai2",
-                "display_name": "Rai 2",
-                "group_title": "Nazionali",
-                "tvg_logo": "https:\/\/i.imgur.com\/zA0PTcs.png",
-                "type": "iptv",
-                "stream_url": "https:\/\/rai.zappr.stream\/rai2.m3u8",
-                "start_singolo": "SI"
-            },
-            {
                 "id": "rai3",
                 "display_name": "Rai 3",
                 "group_title": "Nazionali",
