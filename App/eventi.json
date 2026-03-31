@@ -64,15 +64,6 @@
                 "type": "iptv",
                 "start_singolo": "SI",
                 "stream_url": "http:\/\/dragone-2876.dyndns.biz:80\/live\/fabpellefro\/sasy\/32108.m3u8"
-            },
-            {
-                "id": "italia1",
-                "display_name": "Italia 1",
-                "group_title": "Nazionali",
-                "tvg_logo": "https:\/\/i.imgur.com\/oCiOxBG.png",
-                "type": "iptv",
-                "stream_url": "https:\/\/live02-seg.msf.cdn.mediaset.net\/live\/ch-i1\/i1-clr.isml\/index.m3u8",
-                "start_singolo": "SI"
             }
         ],
         "scheduler_managed": false
