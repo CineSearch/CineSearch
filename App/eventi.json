@@ -64,6 +64,60 @@
                 "type": "iptv",
                 "start_singolo": "SI",
                 "stream_url": "http:\/\/dragone-2876.dyndns.biz:80\/live\/fabpellefro\/sasy\/32108.m3u8"
+            },
+            {
+                "id": "rai1",
+                "display_name": "Rai 1",
+                "group_title": "Nazionali",
+                "tvg_logo": "https:\/\/i.imgur.com\/CAx7yRm.png",
+                "type": "iptv",
+                "stream_url": "https:\/\/rai.zappr.stream\/rai1.m3u8",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "rai2",
+                "display_name": "Rai 2",
+                "group_title": "Nazionali",
+                "tvg_logo": "https:\/\/i.imgur.com\/zA0PTcs.png",
+                "type": "iptv",
+                "stream_url": "https:\/\/rai.zappr.stream\/rai2.m3u8",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "rai3",
+                "display_name": "Rai 3",
+                "group_title": "Nazionali",
+                "tvg_logo": "https:\/\/i.imgur.com\/9kuQCIi.png",
+                "type": "iptv",
+                "stream_url": "https:\/\/rai.zappr.stream\/rai3.m3u8",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "rete4",
+                "display_name": "Rete 4",
+                "group_title": "Nazionali",
+                "tvg_logo": "https:\/\/i.imgur.com\/GWx2Fkl.png",
+                "type": "iptv",
+                "stream_url": "https:\/\/live02-seg.msf.cdn.mediaset.net\/live\/ch-r4\/r4-clr.isml\/index.m3u8",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canale5",
+                "display_name": "Canale 5",
+                "group_title": "Nazionali",
+                "tvg_logo": "https:\/\/i.imgur.com\/p6YdiR1.png",
+                "type": "iptv",
+                "stream_url": "https:\/\/live02-seg.msf.cdn.mediaset.net\/live\/ch-c5\/c5-clr.isml\/index.m3u8",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "italia1",
+                "display_name": "Italia 1",
+                "group_title": "Nazionali",
+                "tvg_logo": "https:\/\/i.imgur.com\/oCiOxBG.png",
+                "type": "iptv",
+                "stream_url": "https:\/\/live02-seg.msf.cdn.mediaset.net\/live\/ch-i1\/i1-clr.isml\/index.m3u8",
+                "start_singolo": "SI"
             }
         ],
         "scheduler_managed": false
