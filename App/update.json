@@ -1,8 +1,12 @@
 {
-  "version": "2.9.2",
+  "version": "3.0.9",
   "releaseNotes": [
-    "- Fix selettore bianco qualità su Firesick",
-    "- Fix filtro anno"
+    "- Fix episodio successivo di SerieTV/Anime",
+    "- Fix tasti blu su selezione qualità video",
+    "- In Modalità TV aggiunto sezione EVENTI attivabili in caso di partite, f1, motogp ecc",
+    "- Ora la TV non compare più su Continua a Guardare",
+    "- Possibilità di aggiungere liste e file m3u nei canali personalizzati",
+    "- Aggiunta funzione Trailer"
   ],
   "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk"
 }
