@@ -19,15 +19,6 @@
                 "type": "iptv",
                 "stream_url": "http:\/\/new.intheworlditalia.co:80\/live\/mgm_325\/HAY6hd98SJJNSK2\/72125.m3u8",
                 "start_singolo": "NO"
-            },
-            {
-                "id": "daznzona_it_bis3",
-                "display_name": "Zona Dazn Serie A FHD (Buffering) bis",
-                "group_title": "Calcio",
-                "tvg_logo": "http:\/\/service.myvisio.life:80\/images\/c54b124c08d5d6c6d229dccaaf05d835.png",
-                "type": "iptv",
-                "stream_url": "http:\/\/cloud.9kvgfqnluc.hitro879.xyz:80\/live\/marianpezz\/FKHPsrKLwd\/185833.m3u8",
-                "start_singolo": "SI"
             }
         ],
         "scheduler_managed": false
