@@ -21,15 +21,6 @@
                 "start_singolo": "NO"
             },
             {
-                "id": "daznzona_it_bis",
-                "display_name": "Zona Dazn Serie A HD bis",
-                "group_title": "Calcio",
-                "tvg_logo": "http:\/\/service.myvisio.life:80\/images\/c54b124c08d5d6c6d229dccaaf05d835.png",
-                "type": "iptv",
-                "stream_url": "http:\/\/cloud.9kvgfqnluc.hitro879.xyz:80\/live\/marianpezz\/FKHPsrKLwd\/48842.m3u8",
-                "start_singolo": "SI"
-            },
-            {
                 "id": "daznzona_it_bis2",
                 "display_name": "Zona Dazn Serie A SD bis",
                 "group_title": "Calcio",
