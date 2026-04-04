@@ -3,15 +3,6 @@
         "start": "SI",
         "channels": [
             {
-                "id": "daznzona_it",
-                "display_name": "Zona Dazn Serie A FHD",
-                "group_title": "Calcio",
-                "tvg_logo": "http:\/\/service.myvisio.life:80\/images\/c54b124c08d5d6c6d229dccaaf05d835.png",
-                "type": "iptv",
-                "stream_url": "http:\/\/cloud.9kvgfqnluc.hitro879.xyz:80\/live\/marianpezz\/FKHPsrKLwd\/149099.m3u8",
-                "start_singolo": "SI"
-            },
-            {
                 "id": "skysportf1_it",
                 "display_name": "Sky Sport F1 FHD",
                 "group_title": "Sport",
