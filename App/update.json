@@ -2,7 +2,7 @@
   "version": "3.3",
   "releaseNotes": [
     " Fix problema Server2",
-    " Cambiata visualizzazione cambio modalità su TV (inserita in alto)",
+    " Cambiata visualizzazione cambio modalità su TV (inserita in alto)"
   ],
   "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk"
 }
