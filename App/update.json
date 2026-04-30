@@ -1,7 +1,16 @@
 {
-  "version": "3.9",
+  "version": "4.5",
   "releaseNotes": [
-    " Fix problema Server1"
+    "Ristrutturata la logica di ricerca: priorità al Server1, fallback su Server2 con verifica in background per maggiore velocità",
+    "Ottimizzata la logica del Server2, ora più veloce nel caricamento dei contenuti",
+    "Aggiunti nel popup dettagli avanzati: durata, qualità, tracce audio e sottotitoli",
+    "Il tasto 'Guarda ora' si abilita subito se l'audio italiano è disponibile su Server1",
+    "Memorizzazione automatica del server preferito con audio italiano",
+    "Verifica automatica di stagioni ed episodi disponibili per le Serie TV",
+    "Aggiunto provider AnimeWorld nella sezione Anime (attivabile dalle impostazioni)",
+    "Fix avvio TV: ora i contenuti partono direttamente senza popup",
+    "Fix compatibilità player su alcune TV",
+    "Fix layout player su FireStick (risolto taglio dello schermo)"
   ],
   "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk"
 }
