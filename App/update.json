@@ -1,5 +1,5 @@
 {
-  "version": "3.9",
+  "version": "4.6",
   "releaseNotes": [
     "Ristrutturata la logica di ricerca: priorità al Server1, fallback su Server2 con verifica in background per maggiore velocità",
     "Ottimizzata la logica del Server2, ora più veloce nel caricamento dei contenuti",
