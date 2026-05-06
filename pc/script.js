@@ -98,9 +98,20 @@ function applyCorsProxy(url) {
   }
   if (
     cleanUrl.startsWith("data:") ||
-    cleanUrl.startsWith("blob:") ||
-    !cleanUrl.startsWith("https://vixsrc.to")
+    cleanUrl.startsWith("blob:")
   ) {
+    return url;
+  }
+
+  if (cleanUrl.startsWith("https://vixsrc.to/api/")) {
+    if (requiresEncoding) {
+      return `https://${CORS}${encodeURIComponent(cleanUrl)}`;
+    } else {
+      return `https://${CORS}${cleanUrl}`;
+    }
+  }
+
+  if (!cleanUrl.startsWith("https://vixsrc.to")) {
     return url;
   }
 

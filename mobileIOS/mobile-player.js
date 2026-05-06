@@ -856,23 +856,54 @@ function showMobileSubtitleSelector() {
 // Mantieni tutto il codice esistente qui sotto...
 async function getDirectStreamMobile(tmdbId, isMovie, season = null, episode = null) {
     try {
-        let vixsrcUrl = `https://${VIXSRC_URL}/${isMovie ? 'movie' : 'tv'}/${tmdbId}`;
-        if (!isMovie && season !== null && episode !== null) {
-            vixsrcUrl += `/${season}/${episode}`;
+        let vixsrcUrl;
+        if (isMovie) {
+            vixsrcUrl = `https://${VIXSRC_URL}/api/movie/${tmdbId}`;
+        } else {
+            vixsrcUrl = `https://${VIXSRC_URL}/api/tv/${tmdbId}/${season || 1}/${episode || 1}`;
         }
-        
-        // // console.log('Fetching vixsrc URL:', vixsrcUrl);
         
         const proxiedVixsrcUrl = applyCorsProxy(vixsrcUrl);
         const response = await fetch(proxiedVixsrcUrl);
-        const html = await response.text();
         
-        // Estrai parametri playlist
+        if (!response.ok) {
+            throw new Error(`Errore API: ${response.status}`);
+        }
+        
+        const text = await response.text();
+        
+        if (!text || !text.startsWith('{')) {
+            throw new Error('Nessuno stream disponibile');
+        }
+        
+        const data = JSON.parse(text);
+        
+        if (!data || !data.src) {
+            throw new Error('Nessuno stream disponibile');
+        }
+        
+        const embedUrl = data.src.startsWith('/') 
+            ? `https://${VIXSRC_URL}${data.src}`
+            : data.src;
+        
+        const embedProxiedUrl = applyCorsProxy(embedUrl);
+        const embedResponse = await fetch(embedProxiedUrl);
+        
+        if (!embedResponse.ok) {
+            hideLoading();
+            window.open(embedUrl, '_blank');
+            return null;
+        }
+        
+        const html = await embedResponse.text();
+        
         const playlistParamsRegex = /window\.masterPlaylist[^:]+params:[^{]+({[^<]+?})/;
         const playlistParamsMatch = html.match(playlistParamsRegex);
         
         if (!playlistParamsMatch) {
-            throw new Error('Parametri playlist non trovati');
+            hideLoading();
+            window.open(embedUrl, '_blank');
+            return null;
         }
         
         let playlistParamsStr = playlistParamsMatch[1]
@@ -886,18 +917,21 @@ async function getDirectStreamMobile(tmdbId, isMovie, season = null, episode = n
         try {
             playlistParams = JSON.parse(playlistParamsStr);
         } catch (e) {
-            throw new Error('Errore parsing parametri: ' + e.message);
+            hideLoading();
+            window.open(embedUrl, '_blank');
+            return null;
         }
         
         const playlistUrlRegex = /window\.masterPlaylist\s*=\s*\{[\s\S]*?url:\s*'([^']+)'/;
         const playlistUrlMatch = html.match(playlistUrlRegex);
         
         if (!playlistUrlMatch) {
-            throw new Error('URL playlist non trovato');
+            hideLoading();
+            window.open(embedUrl, '_blank');
+            return null;
         }
         
         const playlistUrl = playlistUrlMatch[1];
-        // // console.log('Playlist URL trovato:', playlistUrl);
         
         const canPlayFHDRegex = /window\.canPlayFHD\s+?=\s+?(\w+)/;
         const canPlayFHDMatch = html.match(canPlayFHDRegex);
@@ -912,21 +946,70 @@ async function getDirectStreamMobile(tmdbId, isMovie, season = null, episode = n
             '&token=' + playlistParams.token + 
             (canPlayFHD ? '&h=1' : '');
         
-        // // console.log('M3U8 URL ottenuto:', m3u8Url);
+        return {
+            iframeUrl: vixsrcUrl,
+            m3u8Url: m3u8Url
+        };
         
-        // DEBUG: Scarica e controlla la playlist M3U8
-        // // console.log('📱 MOBILE - DEBUG: Controllo contenuto playlist M3U8');
-        try {
-            const m3u8Response = await fetch(applyCorsProxy(m3u8Url));
-            const m3u8Content = await m3u8Response.text();
-            // // console.log('📱 MOBILE - Contenuto M3U8 (prime 500 caratteri):', m3u8Content.substring(0, 500));
-            
-            // Cerca riferimenti a chiavi
-            const keyLines = m3u8Content.split('\n').filter(line => line.includes('EXT-X-KEY'));
-            // // console.log('📱 MOBILE - Linee chiave trovate:', keyLines);
-        } catch (e) {
-            // // console.log('📱 MOBILE - Errore lettura M3U8:', e);
+    } catch (error) {
+        console.error('Errore getDirectStreamMobile:', error);
+        throw error;
+    }
+}
+        
+        const proxiedVixsrcUrl = applyCorsProxy(vixsrcUrl);
+        const response = await fetch(proxiedVixsrcUrl);
+        
+        if (!response.ok) {
+            throw new Error(`Errore API: ${response.status}`);
         }
+        
+        const html = await response.text();
+        
+        const playlistParamsRegex = /window\.masterPlaylist[^:]+params:[^{]+({[^<]+?})/;
+        const playlistParamsMatch = html.match(playlistParamsRegex);
+        
+        if (!playlistParamsMatch) {
+            console.warn("⚠️ Playlist params non trovati, prova API...");
+            return await getDirectStreamFromApiMobile(tmdbId, isMovie, season, episode);
+        }
+        
+        let playlistParamsStr = playlistParamsMatch[1]
+            .replace(/'/g, '"')
+            .replace(/\s+/g, '')
+            .replace(/\n/g, '')
+            .replace(/\\n/g, '')
+            .replace(',}', '}');
+        
+        let playlistParams;
+        try {
+            playlistParams = JSON.parse(playlistParamsStr);
+        } catch (e) {
+            return await getDirectStreamFromApiMobile(tmdbId, isMovie, season, episode);
+        }
+        
+        const playlistUrlRegex = /window\.masterPlaylist\s*=\s*\{[\s\S]*?url:\s*'([^']+)'/;
+        const playlistUrlMatch = html.match(playlistUrlRegex);
+        
+        if (!playlistUrlMatch) {
+            console.warn("⚠️ Playlist URL non trovato, prova API...");
+            return await getDirectStreamFromApiMobile(tmdbId, isMovie, season, episode);
+        }
+        
+        const playlistUrl = playlistUrlMatch[1];
+        
+        const canPlayFHDRegex = /window\.canPlayFHD\s+?=\s+?(\w+)/;
+        const canPlayFHDMatch = html.match(canPlayFHDRegex);
+        const canPlayFHD = canPlayFHDMatch && canPlayFHDMatch[1] === 'true';
+        
+        const hasQuery = /\?[^#]+/.test(playlistUrl);
+        const separator = hasQuery ? '&' : '?';
+        
+        const m3u8Url = playlistUrl + 
+            separator + 
+            'expires=' + playlistParams.expires + 
+            '&token=' + playlistParams.token + 
+            (canPlayFHD ? '&h=1' : '');
         
         return {
             iframeUrl: vixsrcUrl,
@@ -939,6 +1022,105 @@ async function getDirectStreamMobile(tmdbId, isMovie, season = null, episode = n
     }
 }
 
+async function getDirectStreamFromApiMobile(tmdbId, isMovie, season = null, episode = null) {
+    try {
+        let vixsrcUrl;
+        if (isMovie) {
+            vixsrcUrl = `https://${VIXSRC_URL}/api/movie/${tmdbId}`;
+        } else {
+            vixsrcUrl = `https://${VIXSRC_URL}/api/tv/${tmdbId}/${season || 1}/${episode || 1}`;
+        }
+        
+        const proxiedVixsrcUrl = applyCorsProxy(vixsrcUrl);
+        const response = await fetch(proxiedVixsrcUrl);
+        
+        if (!response.ok) {
+            throw new Error(`Errore API: ${response.status}`);
+        }
+        
+        const text = await response.text();
+        if (!text || !text.startsWith('{')) {
+            throw new Error('Nessuno stream disponibile');
+        }
+        
+        const data = JSON.parse(text);
+        if (!data || !data.src) {
+            throw new Error('Nessuno stream disponibile');
+        }
+        
+        const embedUrl = data.src.startsWith('/') 
+            ? `https://${VIXSRC_URL}${data.src}`
+            : data.src;
+        
+        const embedProxiedUrl = applyCorsProxy(embedUrl);
+        const embedResponse = await fetch(embedProxiedUrl);
+        
+        if (!embedResponse.ok) {
+            hideLoading();
+            window.open(embedUrl, '_blank');
+            return null;
+        }
+        
+        const html = await embedResponse.text();
+        
+        const playlistParamsRegex = /window\.masterPlaylist[^:]+params:[^{]+({[^<]+?})/;
+        const playlistParamsMatch = html.match(playlistParamsRegex);
+        
+        if (!playlistParamsMatch) {
+            hideLoading();
+            window.open(embedUrl, '_blank');
+            return null;
+        }
+        
+        let playlistParamsStr = playlistParamsMatch[1]
+            .replace(/'/g, '"')
+            .replace(/\s+/g, '')
+            .replace(/\n/g, '')
+            .replace(/\\n/g, '')
+            .replace(',}', '}');
+        
+        let playlistParams;
+        try {
+            playlistParams = JSON.parse(playlistParamsStr);
+        } catch (e) {
+            hideLoading();
+            window.open(embedUrl, '_blank');
+            return null;
+        }
+        
+        const playlistUrlRegex = /window\.masterPlaylist\s*=\s*\{[\s\S]*?url:\s*'([^']+)'/;
+        const playlistUrlMatch = html.match(playlistUrlRegex);
+        
+        if (!playlistUrlMatch) {
+            hideLoading();
+            window.open(embedUrl, '_blank');
+            return null;
+        }
+        
+        const playlistUrl = playlistUrlMatch[1];
+        
+        const canPlayFHDRegex = /window\.canPlayFHD\s+?=\s+?(\w+)/;
+        const canPlayFHDMatch = html.match(canPlayFHDRegex);
+        const canPlayFHD = canPlayFHDMatch && canPlayFHDMatch[1] === 'true';
+        
+        const hasQuery = /\?[^#]+/.test(playlistUrl);
+        const separator = hasQuery ? '&' : '?';
+        
+        const m3u8Url = playlistUrl + 
+            separator + 
+            'expires=' + playlistParams.expires + 
+            '&token=' + playlistParams.token + 
+            (canPlayFHD ? '&h=1' : '');
+        
+        return {
+            iframeUrl: vixsrcUrl,
+            m3u8Url: m3u8Url
+        };
+        
+    } catch (error) {
+        console.error('Errore getDirectStreamFromApiMobile:', error);
+        throw error;
+    }
 function trackVideoProgressMobile(tmdbId, mediaType, videoElement, season = null, episode = null) {
     let storageKey = `videoTime_${mediaType}_${tmdbId}`;
     if (mediaType === "tv" && season !== null && episode !== null) {

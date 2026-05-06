@@ -55,7 +55,6 @@ function applyCorsProxy(url) {
     // Decodifica se necessario per evitare doppia codifica
     try {
         const decodedUrl = decodeURIComponent(url);
-        // Se l'URL decodificato inizia già con il proxy, ritorna l'URL originale
         if (decodedUrl.startsWith(currentCorsProxy)) {
             return url;
         }
@@ -63,7 +62,13 @@ function applyCorsProxy(url) {
         // Ignora errori di decodifica
     }
     
-    return currentCorsProxy + encodeURIComponent(url);
+    // Applica il proxy solo per URL vixsrc.to/api/
+    if (url.startsWith('https://vixsrc.to/api/')) {
+        return currentCorsProxy + encodeURIComponent(url);
+    }
+    
+    // Non applicare per altri URL
+    return url;
 }
 
 function getCurrentProxyName() {

@@ -2,45 +2,24 @@ let player = null;
 let currentItem = null;
 let currentSeasons = [];
 
-async function openPlayer(item) {
-  // // console.log('🎬 player.js - openPlayer chiamato per:', item);
-  
-  currentItem = item;
+// Funzione per tentare accesso diretto (senza proxy)
+async function fetchDirect(url) {
+  // Prova prima senza proxy (funziona se il server supporta CORS)
+  return fetch(url, { mode: 'cors' });
+}
 
-  // Salva la sezione corrente prima di aprire il player
+async function openPlayer(item) {
+  currentItem = item;
   const currentSection = document.querySelector('section[style*="block"]')?.id || 'home';
-  
   document.getElementById("home").style.display = "none";
   document.getElementById("results").style.display = "none";
   document.getElementById("player").style.display = "block";
-
-  // Aggiungi stato all'history
-  history.pushState({ 
-    section: 'player', 
-    previousSection: currentSection,
-    item: item 
-  }, '', '#player');
-
+  history.pushState({ section: 'player', previousSection: currentSection, item: item }, '', '#player');
   if (player) {
-    // // console.log('🎬 player.js - Pulizia player esistente');
     player.dispose();
     player = null;
     const oldVideo = document.getElementById("player-video");
-    if (oldVideo) {
-      oldVideo.remove();
-    }
-    
-    const videoContainer = document.querySelector(".video-container");
-    const newVideo = document.createElement("video");
-    newVideo.id = "player-video";
-    newVideo.className = "video-js vjs-theme-cinesearch vjs-big-play-centered";
-    newVideo.setAttribute("controls", "");
-    newVideo.setAttribute("preload", "auto");
-    newVideo.setAttribute("playsinline", "");
-    newVideo.setAttribute("crossorigin", "anonymous");
-    
-    const loadingOverlay = document.getElementById("loading-overlay");
-    videoContainer.insertBefore(newVideo, loadingOverlay);
+    if (oldVideo) oldVideo.remove();
   }
 
   const title = item.title || item.name;
@@ -167,7 +146,13 @@ async function loadVideo(isMovie, id, season = null, episode = null) {
 
     // // console.log('🎬 player.js - Stream data ottenuto:', streamData);
 
-    if (!streamData || !streamData.m3u8Url) {
+    // Se streamData è null, significa che il video è stato aperto in nuova finestra
+    if (!streamData) {
+      showLoading(false);
+      return;
+    }
+
+    if (!streamData.m3u8Url) {
       throw new Error("Impossibile ottenere l'URL dello stream");
     }
 
@@ -302,33 +287,85 @@ async function getDirectStream(tmdbId, isMovie, season = null, episode = null) {
   try {
     showLoading(true, "Connessione al server...");
 
-    let vixsrcUrl = `https://${VIXSRC_URL}/${isMovie ? "movie" : "tv"}/${tmdbId}`;
-    if (!isMovie && season !== null && episode !== null) {
-      vixsrcUrl += `/${season}/${episode}`;
+    let vixsrcUrl;
+    if (isMovie) {
+      vixsrcUrl = `https://${VIXSRC_URL}/api/movie/${tmdbId}`;
+    } else {
+      vixsrcUrl = `https://${VIXSRC_URL}/api/tv/${tmdbId}/${season || 1}/${episode || 1}`;
     }
     
-    // // console.log('🎬 player.js - vixsrc URL:', vixsrcUrl);
-
-    showLoading(true, "Recupero pagina vixsrc...");
-    const proxiedUrl = applyCorsProxy(vixsrcUrl);
-    // // console.log('🎬 player.js - vixsrc URL con proxy:', proxiedUrl);
+    showLoading(true, "Recupero stream da VixSrc...");
     
-    const response = await fetch(proxiedUrl);
-    // // console.log('🎬 player.js - Risposta vixsrc status:', response.status);
+    let response;
+    let data;
     
-    const html = await response.text();
-    // // console.log('🎬 player.js - HTML ricevuto, lunghezza:', html.length);
+    // Prova diretto
+    try {
+      response = await fetchDirect(vixsrcUrl);
+      if (response.ok) {
+        const text = await response.text();
+        if (text && text.startsWith('{')) {
+          data = JSON.parse(text);
+        }
+      }
+    } catch (e) {
+      console.log("Fetch diretto fallito:", e.message);
+    }
+    
+    // Se fallisce, usa il proxy di default
+    if (!data || !data.src) {
+      const proxyUrl = applyCorsProxy(vixsrcUrl);
+      response = await fetch(proxyUrl);
+      const text = await response.text();
+      if (text && text.startsWith('{')) {
+        data = JSON.parse(text);
+      }
+    }
+    
+    if (!response || !response.ok || !data || !data.src) {
+      throw new Error("Nessuno stream disponibile");
+    }
+    
+    const embedUrl = data.src.startsWith('/') 
+      ? `https://${VIXSRC_URL}${data.src}`
+      : data.src;
 
-    showLoading(true, "Estrazione parametri stream...");
-
-    const playlistParamsRegex =
-      /window\.masterPlaylist[^:]+params:[^{]+({[^<]+?})/;
+    showLoading(true, "Recupero embed...");
+    
+    let html = null;
+    
+    // Prova fetch diretto per embed
+    try {
+      const embedResponse = await fetchDirect(embedUrl);
+      if (embedResponse.ok) {
+        html = await embedResponse.text();
+      }
+    } catch (e) {
+      console.log("Fetch embed diretto fallito:", e.message);
+    }
+    
+    // Se fallisce, usa il proxy
+    if (!html || !html.includes('masterPlaylist')) {
+      const proxyUrl = applyCorsProxy(embedUrl);
+      const embedResponse = await fetch(proxyUrl);
+      if (embedResponse.ok) {
+        html = await embedResponse.text();
+      }
+    }
+    
+    if (!html || !html.includes('masterPlaylist') || html.includes('Forbidden')) {
+      showLoading(false);
+      window.open(embedUrl, '_blank');
+      return null;
+    }
+    
+    const playlistParamsRegex = /window\.masterPlaylist[^:]+params:[^{]+({[^<]+?})/;
     const playlistParamsMatch = html.match(playlistParamsRegex);
 
-    // // console.log('🎬 player.js - Playlist params match:', playlistParamsMatch);
-
     if (!playlistParamsMatch) {
-      throw new Error("Impossibile trovare i parametri della playlist");
+      showLoading(false);
+      window.open(embedUrl, '_blank');
+      return null;
     }
 
     let playlistParamsStr = playlistParamsMatch[1]
@@ -338,35 +375,30 @@ async function getDirectStream(tmdbId, isMovie, season = null, episode = null) {
       .replace(/\\n/g, "")
       .replace(",}", "}");
 
-    // // console.log('🎬 player.js - Playlist params string:', playlistParamsStr);
-
     let playlistParams;
     try {
       playlistParams = JSON.parse(playlistParamsStr);
-      // // console.log('🎬 player.js - Playlist params parsed:', playlistParams);
     } catch (e) {
-      throw new Error("Errore nel parsing dei parametri: " + e.message);
+      showLoading(false);
+      window.open(embedUrl, '_blank');
+      return null;
     }
 
-    const playlistUrlRegex =
-      /window\.masterPlaylist\s*=\s*\{[\s\S]*?url:\s*'([^']+)'/;
+    const playlistUrlRegex = /window\.masterPlaylist\s*=\s*\{[\s\S]*?url:\s*'([^']+)'/;
     const playlistUrlMatch = html.match(playlistUrlRegex);
 
-    // // console.log('🎬 player.js - Playlist URL match:', playlistUrlMatch);
-
     if (!playlistUrlMatch) {
-      throw new Error("Impossibile trovare l'URL della playlist");
+      showLoading(false);
+      window.open(embedUrl, '_blank');
+      return null;
     }
 
     const playlistUrl = playlistUrlMatch[1];
-    // // console.log('🎬 player.js - Playlist URL:', playlistUrl);
 
     const canPlayFHDRegex = /window\.canPlayFHD\s+?=\s+?(\w+)/;
     const canPlayFHDMatch = html.match(canPlayFHDRegex);
     const canPlayFHD = canPlayFHDMatch && canPlayFHDMatch[1] === "true";
     
-    // // console.log('🎬 player.js - Can play FHD:', canPlayFHD);
-
     const hasQuery = /\?[^#]+/.test(playlistUrl);
     const separator = hasQuery ? "&" : "?";
 
@@ -378,8 +410,6 @@ async function getDirectStream(tmdbId, isMovie, season = null, episode = null) {
       "&token=" +
       playlistParams.token +
       (canPlayFHD ? "&h=1" : "");
-
-    // // console.log('🎬 player.js - M3U8 URL finale:', m3u8Url);
 
     baseStreamUrl = extractBaseUrl(m3u8Url);
 
@@ -397,8 +427,6 @@ async function getDirectStream(tmdbId, isMovie, season = null, episode = null) {
 }
 
 function goBack() {
-  // // console.log("🎬 player.js - goBack chiamato");
-  
   if (player) {
     player.dispose();
     player = null;
@@ -414,7 +442,6 @@ function goBack() {
 
   document.getElementById("player").style.display = "none";
   
-  // Torna alla sezione precedente dall'history
   const historyState = history.state;
   if (historyState && historyState.previousSection) {
     hideAllSections();

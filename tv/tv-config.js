@@ -199,6 +199,19 @@ function applyCorsProxy(url) {
         return url;
     }
     
+    // Applica il proxy solo per URL vixsrc.to/api/
+    if (url.startsWith('https://vixsrc.to/api/')) {
+        if (CURRENT_CORS_PROXY.includes("allorigins")) {
+            return `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+        } else if (CURRENT_CORS_PROXY.includes("corsproxy.io")) {
+            return `https://corsproxy.io/?${encodeURIComponent(url)}`;
+        } else if (CURRENT_CORS_PROXY.includes("api.codetabs.com/v1/proxy?quest=")) {
+            return `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`;
+        } else {
+            return `https://${CURRENT_CORS_PROXY}${url}`;
+        }
+    }
+    
     // Controlla se l'URL è relativo
     if (url.startsWith('/')) {
         url = `https://vixsrc.to${url}`;

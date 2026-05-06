@@ -840,31 +840,54 @@ function showMobileSubtitleSelector() {
 
 async function getDirectStreamMobile(tmdbId, isMovie, season = null, episode = null) {
     try {
-        let vixsrcUrl = `https://${VIXSRC_URL}/${isMovie ? 'movie' : 'tv'}/${tmdbId}`;
-        if (!isMovie && season !== null && episode !== null) {
-            vixsrcUrl += `/${season}/${episode}`;
+        let vixsrcUrl;
+        if (isMovie) {
+            vixsrcUrl = `https://${VIXSRC_URL}/api/movie/${tmdbId}`;
+        } else {
+            vixsrcUrl = `https://${VIXSRC_URL}/api/tv/${tmdbId}/${season || 1}/${episode || 1}`;
         }
         
-        // Forza User-Agent per iOS
-        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-        const userAgent = isIOS ? 
-            'Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1' :
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
-        
-    
         const proxiedVixsrcUrl = applyCorsProxy(vixsrcUrl);
-        const response = await fetch(proxiedVixsrcUrl, {
-            headers: {
-                'User-Agent': userAgent
-            }
-        });
-        const html = await response.text();
+        const response = await fetch(proxiedVixsrcUrl);
+        
+        if (!response.ok) {
+            throw new Error(`Errore API: ${response.status}`);
+        }
+        
+        const text = await response.text();
+        
+        if (!text || !text.startsWith('{')) {
+            throw new Error('Nessuno stream disponibile');
+        }
+        
+        const data = JSON.parse(text);
+        
+        if (!data || !data.src) {
+            throw new Error('Nessuno stream disponibile');
+        }
+        
+        const embedUrl = data.src.startsWith('/') 
+            ? `https://${VIXSRC_URL}${data.src}`
+            : data.src;
+        
+        const embedProxiedUrl = applyCorsProxy(embedUrl);
+        const embedResponse = await fetch(embedProxiedUrl);
+        
+        if (!embedResponse.ok) {
+            hideLoading();
+            window.open(embedUrl, '_blank');
+            return null;
+        }
+        
+        const html = await embedResponse.text();
         
         const playlistParamsRegex = /window\.masterPlaylist[^:]+params:[^{]+({[^<]+?})/;
         const playlistParamsMatch = html.match(playlistParamsRegex);
         
         if (!playlistParamsMatch) {
-            throw new Error('Parametri playlist non trovati');
+            hideLoading();
+            window.open(embedUrl, '_blank');
+            return null;
         }
         
         let playlistParamsStr = playlistParamsMatch[1]
@@ -878,14 +901,18 @@ async function getDirectStreamMobile(tmdbId, isMovie, season = null, episode = n
         try {
             playlistParams = JSON.parse(playlistParamsStr);
         } catch (e) {
-            throw new Error('Errore parsing parametri: ' + e.message);
+            hideLoading();
+            window.open(embedUrl, '_blank');
+            return null;
         }
         
         const playlistUrlRegex = /window\.masterPlaylist\s*=\s*\{[\s\S]*?url:\s*'([^']+)'/;
         const playlistUrlMatch = html.match(playlistUrlRegex);
         
         if (!playlistUrlMatch) {
-            throw new Error('URL playlist non trovato');
+            hideLoading();
+            window.open(embedUrl, '_blank');
+            return null;
         }
         
         const playlistUrl = playlistUrlMatch[1];
@@ -902,21 +929,6 @@ async function getDirectStreamMobile(tmdbId, isMovie, season = null, episode = n
             'expires=' + playlistParams.expires + 
             '&token=' + playlistParams.token + 
             (canPlayFHD ? '&h=1' : '');
-        
-        // // console.log('M3U8 URL ottenuto:', m3u8Url);
-
-        // // console.log('📱 MOBILE - DEBUG: Controllo contenuto playlist M3U8');
-        try {
-            const m3u8Response = await fetch(applyCorsProxy(m3u8Url));
-            const m3u8Content = await m3u8Response.text();
-            // // console.log('📱 MOBILE - Contenuto M3U8 (prime 500 caratteri):', m3u8Content.substring(0, 500));
-            
-            // Cerca riferimenti a chiavi
-            const keyLines = m3u8Content.split('\n').filter(line => line.includes('EXT-X-KEY'));
-            // // console.log('📱 MOBILE - Linee chiave trovate:', keyLines);
-        } catch (e) {
-            // // console.log('📱 MOBILE - Errore lettura M3U8:', e);
-        }
         
         return {
             iframeUrl: vixsrcUrl,

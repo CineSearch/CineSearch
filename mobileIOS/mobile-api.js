@@ -4,6 +4,32 @@ const API_KEY = "f75aac685f3389aa89c4f8580c078a28";
 const VIXSRC_URL = "vixsrc.to";
 const AVAILABILITY_CHECK_TIMEOUT = 5000;
 const ITEMS_PER_PAGE = 20;
+const AVAILABILITY_CACHE_DURATION = 24 * 60 * 60 * 1000;
+
+function getFromAvailabilityCache(tmdbId, isMovie) {
+    try {
+        const key = `mobile_avail_${isMovie ? 'movie' : 'tv'}_${tmdbId}`;
+        const cached = localStorage.getItem(key);
+        if (cached) {
+            const data = JSON.parse(cached);
+            if (Date.now() < data.expires) {
+                return data.available;
+            }
+            localStorage.removeItem(key);
+        }
+    } catch (e) {}
+    return null;
+}
+
+function setToAvailabilityCache(tmdbId, isMovie, available) {
+    try {
+        const key = `mobile_avail_${isMovie ? 'movie' : 'tv'}_${tmdbId}`;
+        localStorage.setItem(key, JSON.stringify({
+            available: available,
+            expires: Date.now() + AVAILABILITY_CACHE_DURATION
+        }));
+    } catch (e) {}
+}
 
 // ============ API TMDB ============
 async function fetchTMDB(endpoint, params = {}) {
@@ -30,6 +56,11 @@ async function fetchTMDB(endpoint, params = {}) {
 
 // ============ VERIFICA DISPONIBILITÀ ============
 async function checkAvailabilityOnVixsrc(tmdbId, isMovie, season = null, episode = null) {
+    const cached = getFromAvailabilityCache(tmdbId, isMovie);
+    if (cached !== null) {
+        return cached;
+    }
+    
     return new Promise((resolve) => {
         const timeout = setTimeout(() => {
             resolve(false);
@@ -40,17 +71,13 @@ async function checkAvailabilityOnVixsrc(tmdbId, isMovie, season = null, episode
                 let vixsrcUrl;
                 
                 if (isMovie) {
-                    vixsrcUrl = `https://${VIXSRC_URL}/movie/${tmdbId}`;
+                    vixsrcUrl = `https://${VIXSRC_URL}/api/movie/${tmdbId}`;
                 } else {
-                    if (season === null || episode === null) {
-                        vixsrcUrl = `https://${VIXSRC_URL}/tv/${tmdbId}/1/1`;
-                    } else {
-                        vixsrcUrl = `https://${VIXSRC_URL}/tv/${tmdbId}/${season}/${episode}`;
-                    }
+                    vixsrcUrl = `https://${VIXSRC_URL}/api/tv/${tmdbId}/1/1`;
                 }
                 
                 const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 3000);
+                const timeoutId = setTimeout(() => controller.abort(), 15000);
                 
                 const response = await fetch(applyCorsProxy(vixsrcUrl), {
                     signal: controller.signal
@@ -58,17 +85,27 @@ async function checkAvailabilityOnVixsrc(tmdbId, isMovie, season = null, episode
                 clearTimeout(timeoutId);
                 
                 if (response.status === 404) {
+                    setToAvailabilityCache(tmdbId, isMovie, false);
                     clearTimeout(timeout);
                     resolve(false);
                     return;
                 }
                 
-                const html = await response.text();
-                const hasPlaylist = /window\.masterPlaylist/.test(html);
-                const notFound = /not found|not available|no sources found|error 404/i.test(html);
+                const text = await response.text();
+                
+                if (!text || !text.startsWith('{')) {
+                    setToAvailabilityCache(tmdbId, isMovie, false);
+                    clearTimeout(timeout);
+                    resolve(false);
+                    return;
+                }
+                
+                const data = JSON.parse(text);
+                const available = Boolean(data && data.src);
+                setToAvailabilityCache(tmdbId, isMovie, available);
                 
                 clearTimeout(timeout);
-                resolve(hasPlaylist && !notFound);
+                resolve(available);
                 
             } catch (error) {
                 console.error("Errore in checkAvailabilityOnVixsrc:", error);
@@ -80,19 +117,32 @@ async function checkAvailabilityOnVixsrc(tmdbId, isMovie, season = null, episode
 }
 
 async function checkTvSeriesAvailability(tmdbId) {
+    const cached = getFromAvailabilityCache(tmdbId, false);
+    if (cached !== null) {
+        return cached;
+    }
+    
     try {
-        const firstEpisodeUrl = `https://${VIXSRC_URL}/tv/${tmdbId}/1/1`;
-        const response = await fetch(applyCorsProxy(firstEpisodeUrl));
+        const vixsrcUrl = `https://${VIXSRC_URL}/api/tv/${tmdbId}/1/1`;
+        const response = await fetch(applyCorsProxy(vixsrcUrl));
         
         if (!response.ok) {
+            setToAvailabilityCache(tmdbId, false, false);
             return false;
         }
         
-        const html = await response.text();
-        const hasPlaylist = /window\.masterPlaylist/.test(html);
-        const notFound = /not found|not available|no sources found|error 404/i.test(html);
+        const text = await response.text();
         
-        return hasPlaylist && !notFound;
+        if (!text || !text.startsWith('{')) {
+            setToAvailabilityCache(tmdbId, false, false);
+            return false;
+        }
+        
+        const data = JSON.parse(text);
+        const available = Boolean(data && data.src);
+        setToAvailabilityCache(tmdbId, false, available);
+        
+        return available;
     } catch (error) {
         return false;
     }

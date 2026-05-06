@@ -232,9 +232,15 @@ async getTVSeasons(tvId) {
 
     // Controlla disponibilità su Vixsrc (ottimizzato per TV)
     async checkAvailability(tmdbId, isMovie = true, season = null, episode = null) {
+    const CACHE_DURATION = 24 * 60 * 60 * 1000;
+    
+    const cached = TVStorage.get(`avail_${tmdbId}_${isMovie}`);
+    if (cached !== undefined) {
+        return cached;
+    }
+    
     return new Promise((resolve) => {
         const timeoutId = setTimeout(() => {
-            TVStorage.set(`avail_${tmdbId}_${isMovie}_${season}_${episode}`, false, 300000);
             resolve(false);
         }, TV_CONFIG.AVAILABILITY_TIMEOUT);
         
@@ -243,18 +249,14 @@ async getTVSeasons(tvId) {
                 let vixsrcUrl;
                 
                 if (isMovie) {
-                    vixsrcUrl = `https://${TV_CONFIG.VIXSRC_URL}/movie/${tmdbId}`;
+                    vixsrcUrl = `https://${TV_CONFIG.VIXSRC_URL}/api/movie/${tmdbId}`;
                 } else {
-                    if (season === null || episode === null) {
-                        vixsrcUrl = `https://${TV_CONFIG.VIXSRC_URL}/tv/${tmdbId}/1/1`;
-                    } else {
-                        vixsrcUrl = `https://${TV_CONFIG.VIXSRC_URL}/tv/${tmdbId}/${season}/${episode}`;
-                    }
+                    vixsrcUrl = `https://${TV_CONFIG.VIXSRC_URL}/api/tv/${tmdbId}/1/1`;
                 }
                 
                 const proxiedUrl = applyCorsProxy(vixsrcUrl);
                 const controller = new AbortController();
-                const fetchTimeoutId = setTimeout(() => controller.abort(), 6000);
+                const fetchTimeoutId = setTimeout(() => controller.abort(), 15000);
                 
                 const response = await fetch(proxiedUrl, {
                     signal: controller.signal
@@ -263,26 +265,31 @@ async getTVSeasons(tvId) {
                 clearTimeout(fetchTimeoutId);
                 
                 if (response.status === 404) {
-                    TVStorage.set(`avail_${tmdbId}_${isMovie}_${season}_${episode}`, false, 300000);
+                    TVStorage.set(`avail_${tmdbId}_${isMovie}`, false, CACHE_DURATION);
                     clearTimeout(timeoutId);
                     resolve(false);
                     return;
                 }
                 
-                const html = await response.text();
-                const hasPlaylist = /window\.masterPlaylist/.test(html);
-                const notFound = /not found|not available|no sources found|error 404/i.test(html);
+                const text = await response.text();
                 
-                const isAvailable = hasPlaylist && !notFound;
-                TVStorage.set(`avail_${tmdbId}_${isMovie}_${season}_${episode}`, isAvailable, 
-                             isAvailable ? 3600000 : 300000);
+                if (!text || !text.startsWith('{')) {
+                    TVStorage.set(`avail_${tmdbId}_${isMovie}`, false, CACHE_DURATION);
+                    clearTimeout(timeoutId);
+                    resolve(false);
+                    return;
+                }
+                
+                const data = JSON.parse(text);
+                const isAvailable = Boolean(data && data.src);
+                
+                TVStorage.set(`avail_${tmdbId}_${isMovie}`, isAvailable, CACHE_DURATION);
                 
                 clearTimeout(timeoutId);
                 resolve(isAvailable);
                 
             } catch (error) {
                 console.error("Availability check error:", error);
-                TVStorage.set(`avail_${tmdbId}_${isMovie}_${season}_${episode}`, false, 60000);
                 clearTimeout(timeoutId);
                 resolve(false);
             }
@@ -332,26 +339,54 @@ async loadWithAvailability(endpoint, limit = TV_CONFIG.CAROUSEL_ITEMS) {
     // Stream diretto da Vixsrc
     async getStream(tmdbId, isMovie = true, season = null, episode = null) {
         try {
-            let vixsrcUrl = `https://${TV_CONFIG.VIXSRC_URL}/${isMovie ? "movie" : "tv"}/${tmdbId}`;
-            if (!isMovie && season !== null && episode !== null) {
-                vixsrcUrl += `/${season}/${episode}`;
+            let vixsrcUrl;
+            if (isMovie) {
+                vixsrcUrl = `https://${TV_CONFIG.VIXSRC_URL}/api/movie/${tmdbId}`;
+            } else {
+                vixsrcUrl = `https://${TV_CONFIG.VIXSRC_URL}/api/tv/${tmdbId}/${season || 1}/${episode || 1}`;
             }
             
             const proxiedUrl = applyCorsProxy(vixsrcUrl);
             const response = await fetch(proxiedUrl);
             
             if (!response.ok) {
-                throw new Error(`Vixsrc error: ${response.status}`);
+                throw new Error(`API error: ${response.status}`);
             }
             
-            const html = await response.text();
+            const text = await response.text();
             
-            // Estrai parametri playlist
+            if (!text || !text.startsWith('{')) {
+                throw new Error("Nessuno stream disponibile");
+            }
+            
+            const data = JSON.parse(text);
+            
+            if (!data || !data.src) {
+                throw new Error("Nessuno stream disponibile");
+            }
+            
+            const embedUrl = data.src.startsWith('/') 
+                ? `https://${TV_CONFIG.VIXSRC_URL}${data.src}`
+                : data.src;
+            
+            const embedProxiedUrl = applyCorsProxy(embedUrl);
+            const embedResponse = await fetch(embedProxiedUrl);
+            
+            if (!embedResponse.ok) {
+                showToast("Video aperto in nuova scheda", "info");
+                window.open(embedUrl, '_blank');
+                return null;
+            }
+            
+            const html = await embedResponse.text();
+            
             const playlistParamsRegex = /window\.masterPlaylist[^:]+params:[^{]+({[^<]+?})/;
             const playlistParamsMatch = html.match(playlistParamsRegex);
             
             if (!playlistParamsMatch) {
-                throw new Error("Playlist params not found");
+                showToast("Video aperto in nuova scheda", "info");
+                window.open(embedUrl, '_blank');
+                return null;
             }
             
             let playlistParamsStr = playlistParamsMatch[1]
@@ -361,14 +396,22 @@ async loadWithAvailability(endpoint, limit = TV_CONFIG.CAROUSEL_ITEMS) {
                 .replace(/\\n/g, "")
                 .replace(",}", "}");
             
-            const playlistParams = JSON.parse(playlistParamsStr);
+            let playlistParams;
+            try {
+                playlistParams = JSON.parse(playlistParamsStr);
+            } catch (e) {
+                showToast("Video aperto in nuova scheda", "info");
+                window.open(embedUrl, '_blank');
+                return null;
+            }
             
-            // Estrai URL playlist
             const playlistUrlRegex = /window\.masterPlaylist\s*=\s*\{[\s\S]*?url:\s*'([^']+)'/;
             const playlistUrlMatch = html.match(playlistUrlRegex);
             
             if (!playlistUrlMatch) {
-                throw new Error("Playlist URL not found");
+                showToast("Video aperto in nuova scheda", "info");
+                window.open(embedUrl, '_blank');
+                return null;
             }
             
             const playlistUrl = playlistUrlMatch[1];
@@ -434,7 +477,7 @@ async function fetchWithAvailability(type, limit = TV_CONFIG.CAROUSEL_ITEMS) {
 }
 
 async function checkSeriesAvailability(tmdbId) {
-    return tvApi.checkAvailability(tmdbId, false, 1, 1);
+    return tvApi.checkAvailability(tmdbId, false);
 }
 
 // Esponi al global scope
