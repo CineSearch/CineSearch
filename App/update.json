@@ -1,8 +1,10 @@
 {
-  "version": "4.6.3",
+  "version": "5.1",
   "releaseNotes": [
-    "Fix Card che sparivano nella ricerca",
-    "Fix aggiornamento in app"
+    "Nuova UI",
+    "Fix Server2 ora non compare più l'errore Source Error",
+    "Aggiunti e aggiornati gli estrattori",
+    "Aggiunti e aggiornati alcuni provider"
   ],
   "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk"
 }
