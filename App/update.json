@@ -1,10 +1,7 @@
 {
-  "version": "5.1",
+  "version": "5.1.1",
   "releaseNotes": [
-    "Nuova UI",
-    "Fix Server2 ora non compare più l'errore Source Error",
-    "Aggiunti e aggiornati gli estrattori",
-    "Aggiunti e aggiornati alcuni provider"
+    "Fix codice e nuove impostazioni"
   ],
   "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk"
 }
