@@ -1,7 +1,8 @@
 {
-  "version": "5.1.1",
+  "version": "5.2",
   "releaseNotes": [
-    "Fix codice e nuove impostazioni"
+    "Fix firestick 1gen",
+    "Fix Android 7"
   ],
   "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk"
 }
