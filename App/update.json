@@ -1,8 +1,20 @@
 {
-  "version": "5.2",
+  "version": "5.4",
   "releaseNotes": [
-    "Fix firestick 1gen",
-    "Fix Android 7"
+    "Fix modalità ANIME: corretto il player che forzava estensioni errate causando crash dopo circa 5 minuti di visione",
+    "Fix selezione episodio/stagione errata da Continua a Guardare passando alla stagione successiva",
+    "Aggiunto selettore provider Server 2 predefinito nelle impostazioni",
+    "Aggiunto fallback automatico tra i due provider",
+    "Nelle card aggiunta distinzione tra Film e Serie TV",
+    "Nel popup aggiunta la voce Categoria",
+    "Fix cambio colore utente",
+    "Ripristinato il simbolo filtro",
+    "Aggiunta impostazione per la visualizzazione dei preferiti",
+    "Nella sezione Categorie ora vengono mostrate anche le Serie TV con filtro Film/Serie TV",
+    "Aggiunto Parental Control nelle impostazioni",
+    "Aggiornato estrattore MixDrop con il nuovo dominio",
+    "Fix Fire Stick 1ª generazione",
+    "Fix compatibilità Android 7"
   ],
   "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk"
 }
