@@ -1,20 +1,11 @@
 {
-  "version": "5.4",
+  "version": "5.4.3",
   "releaseNotes": [
-    "Fix modalità ANIME: corretto il player che forzava estensioni errate causando crash dopo circa 5 minuti di visione",
-    "Fix selezione episodio/stagione errata da Continua a Guardare passando alla stagione successiva",
-    "Aggiunto selettore provider Server 2 predefinito nelle impostazioni",
-    "Aggiunto fallback automatico tra i due provider",
-    "Nelle card aggiunta distinzione tra Film e Serie TV",
-    "Nel popup aggiunta la voce Categoria",
-    "Fix cambio colore utente",
-    "Ripristinato il simbolo filtro",
-    "Aggiunta impostazione per la visualizzazione dei preferiti",
-    "Nella sezione Categorie ora vengono mostrate anche le Serie TV con filtro Film/Serie TV",
-    "Aggiunto Parental Control nelle impostazioni",
-    "Aggiornato estrattore MixDrop con il nuovo dominio",
-    "Fix Fire Stick 1ª generazione",
-    "Fix compatibilità Android 7"
+    "Fix estrattore Vidxgo: corretto problema di scadenza token che causava Source Error dopo alcuni minuti di riproduzione",
+    "Il player ora mantiene in memoria l’ultima modalità zoom utilizzata",
+    "TV Live: aggiunta una seconda lista canali",
+    "Fix su mobile: dopo la rimozione di un Film/Serie TV dalla Home, lo scorrimento non torna più all’inizio",
+    "Inserito highlighting sulla navbar mobile per fornire un feedback visivo della sezione attiva"
   ],
   "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk"
 }
