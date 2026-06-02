@@ -1,11 +1,13 @@
 {
-  "version": "5.4.3",
+  "version": "5.5",
   "releaseNotes": [
-    "Fix estrattore Vidxgo: corretto problema di scadenza token che causava Source Error dopo alcuni minuti di riproduzione",
-    "Il player ora mantiene in memoria l’ultima modalità zoom utilizzata",
-    "TV Live: aggiunta una seconda lista canali",
-    "Fix su mobile: dopo la rimozione di un Film/Serie TV dalla Home, lo scorrimento non torna più all’inizio",
-    "Inserito highlighting sulla navbar mobile per fornire un feedback visivo della sezione attiva"
+    "Fix opensubtitols",
+    "Fix Categorie ora carica più di 15 card",
+    "Fix HBO che non caricava il provider",
+    "Aggiunto provider CB01",
+    "Aggiunta possibilità di caricare sottotitoli da file locale",
+    "Aggiunto pulsante sul popup per cambiare provider Server2",
+    "Preferiti in ordine dal più recente al più vecchio"
   ],
   "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk"
 }
