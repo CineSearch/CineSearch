@@ -1,5 +1,5 @@
 {
-  "version": "5.5",
+  "version": "5.6",
   "releaseNotes": [
     "Fix opensubtitols",
     "Fix Categorie ora carica più di 15 card",
