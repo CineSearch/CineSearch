@@ -1,0 +1,13 @@
+{
+  "version": "5.5",
+  "releaseNotes": [
+    "Fix opensubtitols",
+    "Fix Categorie ora carica più di 15 card",
+    "Fix HBO che non caricava il provider",
+    "Aggiunto provider CB01",
+    "Aggiunta possibilità di caricare sottotitoli da file locale",
+    "Aggiunto pulsante sul popup per cambiare provider Server2",
+    "Preferiti in ordine dal più recente al meno recente"
+  ],
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk"
+}
