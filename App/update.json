@@ -11,7 +11,7 @@
     "Supporto multi-dispositivo"
   ],
   "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk",
-  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchUniversal.apk",
-  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk",
-  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchMobile.apk"
+  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.6/CineSearch-universal-release.apk",
+  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.6/CineSearch-tv-release.apk",
+  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.6/CineSearch-mobile-release.apk"
 }
