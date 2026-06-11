@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CineSearch - FAQ</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0f;
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(ellipse at 20% 50%, rgba(42, 9, 229, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(229, 9, 20, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(42, 9, 229, 0.05) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .logo {
+            display: flex; align-items: center; gap: 12px;
+            font-size: 1.6rem; font-weight: 800;
+            background: linear-gradient(135deg, #2a09e5, #7c3aed);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; text-decoration: none;
+        }
+        .logo i { font-size: 1.4rem; -webkit-text-fill-color: #2a09e5; }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
+        .nav-links a {
+            color: rgba(255,255,255,0.7); text-decoration: none;
+            font-size: 0.9rem; transition: color 0.3s; font-weight: 500;
+        }
+        .nav-links a:hover { color: #fff; }
+        .nav-links .btn-outline {
+            border: 1px solid rgba(255,255,255,0.2); padding: 8px 20px;
+            border-radius: 50px; transition: all 0.3s;
+        }
+        .nav-links .btn-outline:hover {
+            border-color: #2a09e5; background: rgba(42,9,229,0.1);
+        }
+
+        .faq-section { padding: 60px 0 80px; }
+        .page-title {
+            text-align: center; font-size: 2.2rem; font-weight: 800;
+            margin-bottom: 48px;
+            background: linear-gradient(135deg, #fff 0%, #a78bfa 50%, #2a09e5 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .faq-item {
+            background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px; padding: 28px 32px;
+            margin-bottom: 20px; transition: all 0.3s;
+        }
+        .faq-item:hover {
+            border-color: rgba(42,9,229,0.3);
+            box-shadow: 0 8px 30px rgba(42,9,229,0.1);
+        }
+        .faq-item h3 {
+            font-size: 1.15rem; font-weight: 700; margin-bottom: 12px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .faq-item h3 i { color: #2a09e5; font-size: 1rem; }
+        .faq-item p {
+            font-size: 0.9rem; color: rgba(255,255,255,0.6);
+            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center; padding: 40px 0;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.3); font-size: 0.85rem;
+        }
+        footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+        footer a:hover { color: #a78bfa; }
+
+        @media (max-width: 768px) {
+            .page-title { font-size: 1.6rem; }
+            .faq-item { padding: 20px 20px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <a href="index.html" class="logo">
+                <i class="fas fa-film"></i>
+                <span>CineSearch</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-arrow-left"></i> Torna indietro</a>
+            </div>
+        </nav>
+
+        <section class="faq-section">
+            <h1 class="page-title">Domande Frequenti</h1>
+
+            <div class="faq-item">
+                <h3><i class="fas fa-sync-alt"></i> Come funziona la sincronizzazione?</h3>
+                <p>Tutti i dispositivi devono essere collegati allo stesso WiFi e successivamente premere il tasto sincronizzazione.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3><i class="fas fa-download"></i> Dove devo usare il codice downloader?</h3>
+                <p>Da inserire nell'applicazione Downloader di AFTVnews disponibile nello store delle TV.</p>
+            </div>
+            <div class="faq-item">
+                <h3><i class="fas fa-tag"></i> Cosa significa <code>ITA</code>, <code>SUB-ITA</code>, <code>SUB?</code>?</h3>
+                <p>
+                    <strong>ITA</strong> &mdash; Il film/serie TV è disponibile con audio in italiano.<br>
+                    <strong>SUB-ITA</strong> &mdash; Il film/serie TV è disponibile con sottotitoli in italiano.<br>
+                    <strong>SUB?</strong> &mdash; Potrebbe essere con audio in italiano, ma al momento il server non fornisce questa informazione.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3><i class="fas fa-shield-alt"></i> Scan VirusTotal degli eseguibili</h3>
+                <p>
+                    Puoi verificare la scansione VirusTotal di ogni eseguibile di CineSearch ai seguenti link:<br><br>
+                    <i class="fab fa-android" style="color:#3ddc84;"></i> <strong>Android Universal</strong> &mdash; <a href="https://www.virustotal.com/gui/file/1158263ae2cde6cbbd71fbcbe00c33f1aac8fa56f38aa02f254324481ade165a?nocache=1" target="_blank" rel="noopener">Link VirusTotal</a><br>
+                    <i class="fas fa-tv" style="color:#6b7280;"></i> <strong>Android TV</strong> &mdash; <a href="https://www.virustotal.com/gui/file/4045978ed8f28deee2a99cc7f809fe0ea7374775ba9405faeac1d341c4ad4f08?nocache=1" target="_blank" rel="noopener">Link VirusTotal</a><br>
+                    <i class="fas fa-mobile-alt" style="color:#3ddc84;"></i> <strong>Android Mobile</strong> &mdash; <a href="https://www.virustotal.com/gui/file/257855e7c490d49198615ed3ac4036b7bab65eff3cd9c965f0ac7a62123f2c84?nocache=1" target="_blank" rel="noopener">Link VirusTotal</a><br>
+                    <i class="fab fa-windows" style="color:#00adef;"></i> <strong>Windows</strong> &mdash; <a href="https://www.virustotal.com/gui/file/b122c763c739c52815a015e649dfe5a26a549c8e46f244ee9fbe14416af00c9a?nocache=1" target="_blank" rel="noopener">Link VirusTotal</a>
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p><a href="index.html">CineSearch</a> &mdash; Progetto Freeware</p>
+        </div>
+    </footer>
+
+</body>
+</html>

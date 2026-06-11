@@ -1,16 +1,14 @@
 {
-  "version": "5.5",
-  "releaseNotes": [
-    "Fix opensubtitols",
-    "Fix Categorie ora carica più di 15 card",
-    "Fix HBO che non caricava il provider",
-    "Aggiunto provider CB01",
-    "Aggiunta possibilità di caricare sottotitoli da file locale",
-    "Aggiunto pulsante sul popup per cambiare provider Server2",
-    "Preferiti in ordine dal più recente al meno recente",
-    "Supporto multi-dispositivo"
-  ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk",
+"version": "5.6",
+"releaseNotes": [
+  "Aggiunto il provider GuardaSerie",
+  "Aggiunto l'estrattore dedicato per GuardaSerie",
+  "Aggiunto il selettore di impaginazione nelle Serie TV (Originale, Distribuzione Netflix, ecc.)",
+  "Ripristinato il pulsante 'Esterno' sui dispositivi mobile",
+  "Sostituito il pulsante 'Cambio Provider' con uno spinner di selezione provider",
+  "Risolto un problema di sincronizzazione che poteva inserire Film e Serie TV già completati nella sezione 'Continua a guardare'"
+],
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.6/CineSearch-universal-release.apk",
   "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.6/CineSearch-universal-release.apk",
   "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.6/CineSearch-tv-release.apk",
   "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.6/CineSearch-mobile-release.apk"

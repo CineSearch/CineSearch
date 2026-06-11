@@ -3,393 +3,566 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-<script>
-function getDeviceType() {
-    const ua = navigator.userAgent.toLowerCase();
+    <title>CineSearch - Streaming Gratuito</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0f;
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(ellipse at 20% 50%, rgba(42, 9, 229, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(229, 9, 20, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(42, 9, 229, 0.05) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
-    const isTV =
-        ua.includes("smarttv") ||
-        ua.includes("appletv") ||
-        ua.includes("googletv") ||
-        ua.includes("android tv") ||
-        ua.includes("fire tv") ||
-        ua.includes("aft") ||
-        /android.*(tv|set-top|box)/i.test(ua);
+        /* Navbar */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .logo {
+            display: flex; align-items: center; gap: 12px;
+            font-size: 1.6rem; font-weight: 800;
+            background: linear-gradient(135deg, #2a09e5, #7c3aed);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .logo i { font-size: 1.4rem; -webkit-text-fill-color: #2a09e5; }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
+        .nav-links a {
+            color: rgba(255,255,255,0.7); text-decoration: none;
+            font-size: 0.9rem; transition: color 0.3s; font-weight: 500;
+        }
+        .nav-links a:hover { color: #fff; }
+        .nav-links .btn-outline {
+            border: 1px solid rgba(255,255,255,0.2); padding: 8px 20px;
+            border-radius: 50px; transition: all 0.3s;
+        }
+        .nav-links .btn-outline:hover {
+            border-color: #2a09e5; background: rgba(42,9,229,0.1);
+        }
 
-    const isIOS =
-        ua.includes("iphone") ||
-        ua.includes("ipad") ||
-        ua.includes("ipod");
+        /* Hero */
+        .hero {
+            text-align: center; padding: 100px 0 60px;
+            position: relative;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(42,9,229,0.15); border: 1px solid rgba(42,9,229,0.3);
+            padding: 8px 20px; border-radius: 50px; font-size: 0.85rem;
+            color: #a78bfa; margin-bottom: 32px;
+        }
+        .hero-badge i { font-size: 0.75rem; }
+        .hero h1 {
+            font-size: 3.8rem; font-weight: 800; line-height: 1.15;
+            margin-bottom: 20px; letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #fff 0%, #a78bfa 50%, #2a09e5 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: 1.2rem; color: rgba(255,255,255,0.6);
+            max-width: 600px; margin: 0 auto 48px;
+        }
 
-    const isAndroid =
-        ua.includes("android") && !isTV;
+        /* Stats */
+        .stats {
+            display: flex; justify-content: center; gap: 48px;
+            margin-bottom: 56px; flex-wrap: wrap;
+        }
+        .stat-item { text-align: center; }
+        .stat-number {
+            font-size: 1.8rem; font-weight: 800; color: #fff;
+        }
+        .stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-top: 4px; }
+        .stat-item i { color: #2a09e5; margin-right: 8px; }
 
-    if (isTV) return "tv";
-    if (isIOS) return "ios";
-    if (isAndroid) return "android";
-    return "desktop";
-}
+        /* Badges row */
+        .badges-row {
+            display: flex; justify-content: center; gap: 12px;
+            margin-bottom: 56px; flex-wrap: wrap;
+        }
+        .badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 20px; border-radius: 50px; font-size: 0.85rem;
+            font-weight: 600; text-decoration: none; transition: all 0.3s;
+        }
+        .badge-green {
+            background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.3);
+            color: #4ade80;
+        }
+        .badge-blue {
+            background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.3);
+            color: #60a5fa;
+        }
+        .badge-purple {
+            background: rgba(42,9,229,0.12); border: 1px solid rgba(42,9,229,0.3);
+            color: #a78bfa;
+        }
+        .badge-github {
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
+            color: #ccc;
+        }
+        .badge:hover { transform: translateY(-2px); }
 
-const device = getDeviceType();
-const path = window.location.pathname;
+        /* Download Section */
+        .download-section { padding: 20px 0 80px; }
+        .section-label {
+            text-align: center; font-size: 0.8rem; text-transform: uppercase;
+            letter-spacing: 3px; color: rgba(255,255,255,0.4); margin-bottom: 40px;
+        }
+        .download-cards {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 24px; max-width: 1100px; margin: 0 auto;
+        }
+        .download-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px; padding: 40px 28px;
+            text-align: center; transition: all 0.4s ease;
+            position: relative; overflow: hidden;
+        }
+        .download-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 3px; border-radius: 20px 20px 0 0;
+            opacity: 0; transition: opacity 0.4s;
+        }
+        .download-card:hover::before { opacity: 1; }
+        .download-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(42,9,229,0.3);
+            box-shadow: 0 20px 60px rgba(42,9,229,0.15);
+        }
+        .download-card .icon {
+            font-size: 2.8rem; margin-bottom: 20px; display: block;
+        }
+        .download-card h3 {
+            font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;
+        }
+        .download-card p {
+            font-size: 0.85rem; color: rgba(255,255,255,0.5);
+            margin-bottom: 24px; line-height: 1.5;
+        }
+        .download-card .btn-download {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 14px 32px; border-radius: 50px; font-size: 1rem;
+            font-weight: 700; cursor: pointer; transition: all 0.3s;
+            text-decoration: none; border: none;
+        }
+        .btn-download-android {
+            background: linear-gradient(135deg, #16a34a, #22c55e);
+            color: #fff;
+        }
+        .btn-download-android:hover { box-shadow: 0 8px 30px rgba(22,163,74,0.4); transform: scale(1.05); }
+        .btn-download-tv {
+            background: linear-gradient(135deg, #2a09e5, #7c3aed);
+            color: #fff;
+        }
+        .btn-download-tv:hover { box-shadow: 0 8px 30px rgba(42,9,229,0.4); transform: scale(1.05); }
+        .btn-download-windows {
+            background: linear-gradient(135deg, #0284c7, #38bdf8);
+            color: #fff;
+        }
+        .btn-download-windows:hover { box-shadow: 0 8px 30px rgba(2,132,199,0.4); transform: scale(1.05); }
+        .btn-download-universal {
+            background: linear-gradient(135deg, #e94e1f, #f97316);
+            color: #fff;
+        }
+        .btn-download-universal:hover { box-shadow: 0 8px 30px rgba(233,78,31,0.4); transform: scale(1.05); }
 
-if (device === "tv" && !path.includes("/tv/")) {
-    window.location.href = "tv/index.html";
-}
-else if (device === "ios" && !path.includes("/mobileIOS/")) {
-    window.location.href = "mobileIOS/index.html";
-}
-else if (device === "android" && !path.includes("/mobileAndroid/")) {
-    window.location.href = "mobileAndroid/index.html";
-}
-// PC → index.html (nessuna azione)
-</script>
-<script>
-  const isTV = /TV|SmartTV|WebOS|Tizen|Android TV|GoogleTV/i.test(navigator.userAgent);
+        .card-android::before { background: linear-gradient(90deg, #16a34a, #22c55e); }
+        .card-tv::before { background: linear-gradient(90deg, #2a09e5, #7c3aed); }
+        .card-windows::before { background: linear-gradient(90deg, #0284c7, #38bdf8); }
+        .card-universal::before { background: linear-gradient(90deg, #e94e1f, #f97316); }
 
-  if (isTV) {
-    document.body.classList.add('tv');
-  }
-</script>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/solid/film.svg">
+        .card-android:hover { border-color: rgba(22,163,74,0.3); box-shadow: 0 20px 60px rgba(22,163,74,0.12); }
+        .card-windows:hover { border-color: rgba(2,132,199,0.3); box-shadow: 0 20px 60px rgba(2,132,199,0.12); }
+        .card-universal:hover { border-color: rgba(233,78,31,0.3); box-shadow: 0 20px 60px rgba(233,78,31,0.12); }
 
-    <title>CineSearch</title>
+        .download-count-badge {
+            display: inline-block; margin-top: 12px;
+            font-size: 0.75rem; color: rgba(255,255,255,0.4);
+        }
+        .dl-code-row {
+            display: inline-flex; align-items: center; gap: 8px;
+            margin-top: 10px; padding: 6px 14px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 50px; font-size: 0.8rem;
+        }
+        .dl-code-row code {
+            color: rgba(255,255,255,0.6); font-family: 'Consolas', monospace;
+            letter-spacing: 0.5px;
+        }
+        .dl-code-row .copy-btn {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: rgba(255,255,255,0.08);
+            border: none; color: rgba(255,255,255,0.5);
+            padding: 4px 10px; border-radius: 50px;
+            font-size: 0.7rem; cursor: pointer;
+            transition: all 0.3s; text-decoration: none;
+        }
+        .dl-code-row .copy-btn:hover {
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+        }
+        .alpha-badge {
+            display: inline-block;
+            background: rgba(239,68,68,0.15);
+            border: 1px solid rgba(239,68,68,0.3);
+            color: #f87171;
+            font-size: 0.65rem; font-weight: 700;
+            padding: 2px 10px; border-radius: 50px;
+            letter-spacing: 1px; margin-bottom: 8px;
+        }
 
-    <link href="https://vjs.zencdn.net/8.16.1/video-js.css" rel="stylesheet" />
-    <script src="https://vjs.zencdn.net/8.16.1/video.min.js"></script>
+        /* Features */
+        .features {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 24px; padding: 60px 0 80px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .feature {
+            text-align: center; padding: 24px;
+        }
+        .feature i {
+            font-size: 2rem; color: #2a09e5; margin-bottom: 16px;
+            background: rgba(42,9,229,0.1); padding: 16px;
+            border-radius: 16px;
+        }
+        .feature h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+        .feature p { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/videojs-hls-quality-selector@2.0.0/dist/videojs-hls-quality-selector.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/videojs-hls-quality-selector@2.0.0/dist/videojs-hls-quality-selector.min.js"></script>
-    
-    <link rel="stylesheet" href="pc/style.css">
-  </head>
-  <body>
-    <header id="header">
-<div class="logo">
-  <i class="fas fa-film"></i>
-  <span>CineSearch</span>
-</div>
-      <div class="header-controls">
-        <div class="cors-selector">
-          <label class="cors-label" for="cors-select">🌐 CORS Proxy</label>
-          <select id="cors-select"></select>
-        </div>
-        <div class="search-container">
-          <input
-            type="text"
-            id="search"
-            placeholder="🔍 Cerca film, serie TV..."
-          />
-        </div>
-      </div>
-      <div class="preferiti-counter" onclick="showPreferiti()" style="cursor: pointer;">
-        <span class="fav-icon">⭐</span>
-        <span id="preferiti-count">0</span>
-      </div>
-    </header>
-    <main>
-      <div id="home">
+        /* Ko-fi */
+        .ko-fi-section {
+            text-align: center; padding: 60px 0 40px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .ko-fi-section p {
+            color: rgba(255,255,255,0.5); margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        .ko-fi-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: #ff5e5b; color: #fff; padding: 16px 36px;
+            border-radius: 50px; font-size: 1.1rem; font-weight: 700;
+            text-decoration: none; transition: all 0.3s;
+        }
+        .ko-fi-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 40px rgba(255,94,91,0.35);
+        }
+        .ko-fi-btn i { font-size: 1.3rem; }
+
+        /* Footer */
+        footer {
+            text-align: center; padding: 40px 0;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.3); font-size: 0.85rem;
+        }
+        footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+        footer a:hover { color: #a78bfa; }
+
+        /* Version */
+        .version {
+            text-align: center; font-size: 0.8rem;
+            color: rgba(255,255,255,0.2); margin-top: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* Community */
+        .community-section {
+            text-align: center; padding: 60px 0;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .community-links {
+            display: flex; justify-content: center; gap: 20px;
+            flex-wrap: wrap;
+        }
+        .community-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: rgba(42,9,229,0.15);
+            border: 1px solid rgba(42,9,229,0.3);
+            color: #a78bfa;
+            padding: 14px 28px; border-radius: 50px;
+            font-size: 1rem; font-weight: 600;
+            text-decoration: none; transition: all 0.3s;
+        }
+        .community-btn:hover {
+            background: rgba(42,9,229,0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(42,9,229,0.2);
+        }
+        .community-btn i { font-size: 1.2rem; }
+        .community-sub {
+            color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-top: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
+            .download-cards { grid-template-columns: 1fr; max-width: 400px; }
+            .features { grid-template-columns: 1fr; }
+            .stats { gap: 24px; }
+            .stat-number { font-size: 1.4rem; }
+            .nav-links { display: none; }
+        }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .download-cards { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <i class="fas fa-film"></i>
+                <span>CineSearch</span>
+            </div>
+            <div class="nav-links">
+                <a href="#download">Scarica</a>
+                <a href="#features">Caratteristiche</a>
+                <a href="server.html">Server</a>
+                <a href="faq.html">FAQ</a>
+                <a href="https://github.com/CineSearch/CineSearch" target="_blank" rel="noopener" class="btn-outline">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
         <section class="hero">
-          <div class="hero-content">
-            <h1>Benvenuto su CineSearch</h1>
-            <p>La tua piattaforma per film e serie TV</p>
-            
-            <div class="navigation-buttons" style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-              <button class="nav-btn" onclick="showAllMovies()">🎬 Tutti i Film</button>
-              <button class="nav-btn" onclick="showAllTV()">📺 Tutte le Serie TV</button>
-              <button class="nav-btn" onclick="showCategories()">🎭 Categorie</button>
-              <button class="nav-btn" onclick="showPreferiti()">⭐ Preferiti</button>
+            <div class="hero-badge">
+                <i class="fas fa-star"></i> v5.6 &mdash; Ultima versione disponibile
             </div>
-          </div>
+            <h1>Il tuo cinema,<br>sempre con te.</h1>
+            <p>
+                CineSearch ti permette di guardare Film/SerieTV, Anime e TV Live
+                in streaming gratuito su qualsiasi dispositivo.
+                Scegli la tua piattaforma e inizia subito.
+            </p>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number"><i class="fas fa-download"></i><span id="total-downloads">--</span></div>
+                    <div class="stat-label">Download totali</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number"><i class="fas fa-star"></i> <span id="github-stars">--</span></div>
+                    <div class="stat-label">Star su GitHub</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number"><i class="fas fa-code-branch"></i> <span id="github-forks">--</span></div>
+                    <div class="stat-label">Forks</div>
+                </div>
+            </div>
+
+            <div class="badges-row">
+                <span class="badge badge-green"><i class="fas fa-shield-alt"></i> Virus Free</span>
+                <span class="badge badge-blue"><i class="fas fa-check-circle"></i> 100% Gratuito</span>
+                <span class="badge badge-purple"><i class="fas fa-infinity"></i> Senza Limiti</span>
+                <span class="badge badge-github">
+                    <i class="fas fa-code"></i> Freeware
+                </span>
+            </div>
+
+            <div class="badges-row" style="margin-top: -32px;">
+                <span class="badge" style="background:rgba(239,68,68,0.12);border-color:rgba(239,68,68,0.3);color:#f87171;"><i class="fas fa-film"></i> Film/SerieTV</span>
+                <span class="badge" style="background:rgba(236,72,153,0.12);border-color:rgba(236,72,153,0.3);color:#f472b6;"><i class="fas fa-dragon"></i> Anime</span>
+                <span class="badge" style="background:rgba(34,211,238,0.12);border-color:rgba(34,211,238,0.3);color:#67e8f9;"><i class="fas fa-broadcast-tower"></i> TV Live</span>
+            </div>
         </section>
 
-        <section id="continua-visione" style="display: none;">
-          <h2>▶️ Continua visione</h2>
-          <div class="carousel-wrapper">
-            <button class="arrow left" data-target="continua-carousel">◀</button>
-            <div class="carousel-container">
-              <div class="carousel" id="continua-carousel"></div>
+        <section class="download-section" id="download">
+            <div class="section-label">— Scegli la tua piattaforma —</div>
+            <div class="download-cards">
+                <div class="download-card card-android">
+                    <span class="icon"><i class="fas fa-mobile-alt"></i></span>
+                    <h3>Android</h3>
+                    <p>App nativa per smartphone e tablet Android. Leggera e veloce.</p>
+                    <a href="https://github.com/CineSearch/CineSearch/releases/download/Release_v5.6/CineSearch-mobile-release.apk" target="_blank" rel="noopener" class="btn-download btn-download-android">
+                        <i class="fas fa-download"></i> Android APK
+                    </a>
+                    <span class="download-count-badge"><span id="android-dl">--</span> download</span>
+                    <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:10px;font-weight:700;">Codice AFTVnews:</div>
+                    <div class="dl-code-row"><code>3355692</code><button class="copy-btn" onclick="navigator.clipboard.writeText('3355692');this.innerHTML='✅ Copiato';setTimeout(()=>this.innerHTML='<i class=\'fas fa-copy\'></i> Copia',2000)"><i class="fas fa-copy"></i> Copia</button></div>
+                </div>
+
+                <div class="download-card card-tv">
+                    <span class="icon"><i class="fas fa-tv"></i></span>
+                    <h3>TV</h3>
+                    <p>Versione ottimizzata per Android TV, Fire TV e Google TV.</p>
+                    <a href="https://github.com/CineSearch/CineSearch/releases/download/Release_v5.6/CineSearch-tv-release.apk" target="_blank" rel="noopener" class="btn-download btn-download-tv">
+                        <i class="fas fa-download"></i> TV APK
+                    </a>
+                    <span class="download-count-badge"><span id="tv-dl">--</span> download</span>
+                    <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:10px;font-weight:700;">Codice AFTVnews:</div>
+                    <div class="dl-code-row"><code>5818034</code><button class="copy-btn" onclick="navigator.clipboard.writeText('5818034');this.innerHTML='✅ Copiato';setTimeout(()=>this.innerHTML='<i class=\'fas fa-copy\'></i> Copia',2000)"><i class="fas fa-copy"></i> Copia</button></div>
+                </div>
+
+                <div class="download-card card-windows">
+                    <span class="icon"><i class="fab fa-windows"></i></span>
+                    <span class="alpha-badge">ALPHA</span>
+                    <h3>Windows</h3>
+                    <p>Versione desktop per Windows 10/11. In fase ALPHA — il futuro dello sviluppo dipende dal feedback e dall'interesse della community.</p>
+                    <a href="https://github.com/CineSearch/CineSearch/releases/download/Release_v5.6/CineSearch.exe" target="_blank" rel="noopener" class="btn-download btn-download-windows">
+                        <i class="fas fa-download"></i> EXE
+                    </a>
+                    <div class="download-count-badge"><span id="windows-dl">--</span> download</div>
+                </div>
+
+                <div class="download-card card-universal">
+                    <span class="icon"><i class="fab fa-android"></i></span>
+                    <h3>Android+TV</h3>
+                    <p>App universale per smartphone, tablet e Android TV. Un'unica soluzione.</p>
+                    <a href="https://github.com/CineSearch/CineSearch/releases/download/Release_v5.6/CineSearch-universal-release.apk" target="_blank" rel="noopener" class="btn-download btn-download-universal">
+                        <i class="fas fa-download"></i> Universal APK
+                    </a>
+                    <span class="download-count-badge"><span id="universal-dl">--</span> download</span>
+                    <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:10px;font-weight:700;">Codice AFTVnews:</div>
+                    <div class="dl-code-row"><code>7488086</code><button class="copy-btn" onclick="navigator.clipboard.writeText('7488086');this.innerHTML='✅ Copiato';setTimeout(()=>this.innerHTML='<i class=\'fas fa-copy\'></i> Copia',2000)"><i class="fas fa-copy"></i> Copia</button></div>
+                </div>
             </div>
-            <button class="arrow right" data-target="continua-carousel">▶</button>
-          </div>
         </section>
 
-        <section id="preferiti" style="display: none;">
-          <h2>⭐ Preferiti</h2>
-          <div class="carousel-wrapper">
-            <button class="arrow left" data-target="preferiti-carousel">◀</button>
-            <div class="carousel-container">
-              <div class="carousel" id="preferiti-carousel"></div>
+        <section class="features" id="features">
+            <div class="feature">
+                <i class="fas fa-play-circle"></i>
+                <h4>Continua a Guardare</h4>
+                <p>Riprendi la visione di film e serie esattamente da dove li hai lasciati, anche dopo giorni.</p>
             </div>
-            <button class="arrow right" data-target="preferiti-carousel">▶</button>
-          </div>
+            <div class="feature">
+                <i class="fas fa-heart"></i>
+                <h4>Preferiti</h4>
+                <p>Crea la tua libreria personale salvando i titoli che ami di più e accedici in un tap.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-sync-alt"></i>
+                <h4>Sincronizzazione Dispositivi</h4>
+                <p>Passa da Android a TV a Windows senza perdere i progressi. Tutto sincronizzato in tempo reale.</p>
+            </div>
         </section>
 
-        <section id="trending">
-          <h2>🔥 Trending</h2>
-          <div class="carousel-wrapper">
-            <button class="arrow left" data-target="trending-carousel">◀</button>
-            <div class="carousel-container">
-              <div class="carousel" id="trending-carousel"></div>
+        <section class="community-section">
+            <div class="section-label">— ASSISTENZA —</div>
+            <div class="community-links">
+                <a href="https://t.me/+9yp0UCZGICczNWU0" target="_blank" rel="noopener" class="community-btn">
+                    <i class="fab fa-telegram"></i> Contatta l'assistenza
+                </a>
             </div>
-            <button class="arrow right" data-target="trending-carousel">▶</button>
-          </div>
         </section>
 
-        <section id="nowPlaying">
-          <h2>🎬 Ultimi Film</h2>
-          <div class="carousel-wrapper">
-            <button class="arrow left" data-target="nowPlaying-carousel">◀</button>
-            <div class="carousel-container">
-              <div class="carousel" id="nowPlaying-carousel"></div>
-            </div>
-            <button class="arrow right" data-target="nowPlaying-carousel">▶</button>
-          </div>
-        </section>
-
-        <section id="popularMovies">
-          <h2>⭐ Film Popolari</h2>
-          <div class="carousel-wrapper">
-            <button class="arrow left" data-target="popularMovies-carousel">◀</button>
-            <div class="carousel-container">
-              <div class="carousel" id="popularMovies-carousel"></div>
-            </div>
-            <button class="arrow right" data-target="popularMovies-carousel">▶</button>
-          </div>
-        </section>
-
-        <section id="onTheAir">
-          <h2>📺 Ultime Serie</h2>
-          <div class="carousel-wrapper">
-            <button class="arrow left" data-target="onTheAir-carousel">◀</button>
-            <div class="carousel-container">
-              <div class="carousel" id="onTheAir-carousel"></div>
-            </div>
-            <button class="arrow right" data-target="onTheAir-carousel">▶</button>
-          </div>
-        </section>
-
-        <section id="popularTV">
-          <h2>🏆 Serie Popolari</h2>
-          <div class="carousel-wrapper">
-            <button class="arrow left" data-target="popularTV-carousel">◀</button>
-            <div class="carousel-container">
-              <div class="carousel" id="popularTV-carousel"></div>
-            </div>
-            <button class="arrow right" data-target="popularTV-carousel">▶</button>
-          </div>
-        </section>
-      </div>
-
-      <!-- RISULTATI RICERCA - Modificato per usare griglia verticale -->
-      <section id="results" style="display: none;">
-        <div class="grid-header">
-          <button class="back-to-home" onclick="goBackToHome()" style="background: #2a09e5; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer;">
-            ← Torna alla Home
-          </button>
-          <h2 id="results-title">Risultati ricerca</h2>
-        </div>
-        <div class="availability-check" id="search-checking" style="margin: 0 4% 1rem;"></div>
-        <div class="vertical-grid" id="search-grid"></div>
-        <div class="no-results" id="search-no-results" style="display: none; grid-column: 1 / -1; text-align: center; padding: 3rem; margin: 0 4%;">
-          Nessun risultato disponibile trovato
-        </div>
-      </section>
-
-      <div id="player">
-        <div class="player-header">
-          <button class="back-btn" onclick="goBack()">← Torna indietro</button>
-        </div>
-
-        <div class="player-info" id="player-info">
-          <h1 id="player-title"></h1>
-          <div class="meta" id="player-meta"></div>
-          <div class="overview" id="player-overview"></div>
-        </div>
-
-        <div class="player-content">
-          <div class="video-container">
-            <div
-              id="episode-warning"
-              class="select-episode-warning"
-              style="display: none"
-            >
-              <div class="icon">📺</div>
-              <h3>Seleziona un episodio</h3>
-              <p>
-                Scegli una stagione e un episodio dalla lista a destra per
-                iniziare la riproduzione
-              </p>
-            </div>
-
-            <video
-              id="player-video"
-              class="video-js vjs-theme-cinesearch vjs-big-play-centered"
-              controls
-              preload="auto"
-              playsinline
-              crossorigin="anonymous"
-            ></video>
-
-            <div
-              id="loading-overlay"
-              class="loading-overlay"
-              style="display: none"
-            >
-              <div class="loading"></div>
-              <div class="loading-text">Caricamento stream...</div>
-            </div>
-          </div>
-          <div
-            class="episode-selector"
-            id="episode-selector"
-            style="display: none"
-          >
-            <h3>Seleziona episodio</h3>
-            <div class="season-selector">
-              <label>Stagione:</label>
-              <select id="season-select"></select>
-            </div>
-            <div class="episodes-list" id="episodes-list"></div>
-          </div>
-        </div>
-      </div>
-    </main>
-<!-- TUTTI I FILM -->
-<section id="allMovies" style="display: none;">
-  <div class="grid-header">
-    <button class="back-to-home" onclick="goBackToHome()" style="background: #2a09e5; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer;">
-      ← Torna alla Home
-    </button>
-    <h2>🎬 Tutti i Film</h2>
-    <div class="grid-controls">
-      <div class="year-filter" style="display: flex; align-items: center; gap: 10px;">
-        <label style="color: #fff;">Filtra per anno:</label>
-        <input type="number" id="movieMinYear" placeholder="Da" style="padding: 8px; width: 80px; border-radius: 4px; border: 1px solid #333;">
-        <span>-</span>
-        <input type="number" id="movieMaxYear" placeholder="A" style="padding: 8px; width: 80px; border-radius: 4px; border: 1px solid #333;">
-        <button onclick="applyMovieYearFilter()" style="background: #2a09e5; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">
-          Applica
-        </button>
-        <button onclick="clearMovieYearFilter()" style="background: #666; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">
-          Reset
-        </button>
-      </div>
+<section class="community-section">
+    <div class="section-label">— Unisciti alla community —</div>
+    <p class="community-sub">
+        Vuoi parlare di CineSearch? Di una tua serie preferita e altro?
+    </p>
+    <div style="margin-top: 16px;">
+        <a href="https://t.me/+0ank3lR_TvwzNWM0" target="_blank" rel="noopener" class="community-btn">
+            <i class="fab fa-telegram"></i> Unisciti al nostro gruppo
+        </a>
     </div>
-  </div>
-  <div class="pagination-info" id="movie-pagination-info" style="margin: 0 4% 1rem; color: #aaa;"></div>
-  <div class="vertical-grid" id="allMovies-grid"></div>
-  <div class="pagination-controls">
-    <button class="page-btn prev" onclick="prevMoviePage()" disabled>◀ Precedente</button>
-    <span class="page-info" id="movie-page-info">Pagina 1</span>
-    <button class="page-btn next" onclick="nextMoviePage()">Successiva ▶</button>
-  </div>
 </section>
 
-<!-- TUTTE LE SERIE TV -->
-<section id="allTV" style="display: none;">
-  <div class="grid-header">
-    <button class="back-to-home" onclick="goBackToHome()" style="background: #2a09e5; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer;">
-      ← Torna alla Home
-    </button>
-    <h2>📺 Tutte le Serie TV</h2>
-    <div class="grid-controls">
-      <div class="year-filter" style="display: flex; align-items: center; gap: 10px;">
-        <label style="color: #fff;">Filtra per anno:</label>
-        <input type="number" id="tvMinYear" placeholder="Da" style="padding: 8px; width: 80px; border-radius: 4px; border: 1px solid #333;">
-        <span>-</span>
-        <input type="number" id="tvMaxYear" placeholder="A" style="padding: 8px; width: 80px; border-radius: 4px; border: 1px solid #333;">
-        <button onclick="applyTVYearFilter()" style="background: #2a09e5; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">
-          Applica
-        </button>
-        <button onclick="clearTVYearFilter()" style="background: #666; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">
-          Reset
-        </button>
-      </div>
+<section class="community-section">
+    <div class="section-label">— SOSTIENICI —</div>
+    <p class="community-sub">
+        Grazie per utilizzare CineSearch! ❤️ Se desideri supportare il nostro lavoro e contribuire alla crescita del progetto, puoi offrirci un caffè. ☕
+    </p>
+    <div style="margin-top: 16px;">
+        <a href="https://ko-fi.com/aimodsita" target="_blank" rel="noopener" class="ko-fi-btn">
+            <i class="fas fa-coffee"></i> Offrici un caffè
+        </a>
     </div>
-  </div>
-  <div class="pagination-info" id="tv-pagination-info" style="margin: 0 4% 1rem; color: #aaa;"></div>
-  <div class="vertical-grid" id="allTV-grid"></div>
-  <div class="pagination-controls">
-    <button class="page-btn prev" onclick="prevTVPage()" disabled>◀ Precedente</button>
-    <span class="page-info" id="tv-page-info">Pagina 1</span>
-    <button class="page-btn next" onclick="nextTVPage()">Successiva ▶</button>
-  </div>
 </section>
+    </div>
 
-<!-- CATEGORIE -->
-<section id="categories" style="display: none;">
-  <div class="grid-header">
-    <button class="back-to-home" onclick="goBackToHome()" style="background: #2a09e5; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer;">
-      ← Torna alla Home
-    </button>
-    <h2>🎭 Categorie</h2>
-  </div>
-  <div class="categories-grid" id="categories-grid"></div>
-</section>
+    <footer>
+        <div class="container">
+            <p>CineSearch v5.6 &mdash; <a href="https://github.com/CineSearch/CineSearch" target="_blank" rel="noopener">GitHub</a> &mdash; <a href="https://t.me/+9yp0UCZGICczNWU0" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> Assistenza</a> &mdash; <a href="https://t.me/+0ank3lR_TvwzNWM0" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> Gruppo</a></p>
+            <p>&copy; 2026 CineSearch &mdash; Progetto Freeware</p>
+            <div class="version">made with <i class="fas fa-heart" style="color:#ff5e5b;"></i> by the community</div>
+        </div>
+    </footer>
 
-<!-- RISULTATI CATEGORIA -->
-<section id="category-results" style="display: none;">
-  <div class="grid-header">
-    <button class="back-to-categories" onclick="goBackToCategories()" style="background: #2a09e5; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer;">
-      ← Torna alle Categorie
-    </button>
-    <h2 id="category-results-title">Categoria</h2>
-    <div class="grid-controls">
-      <div class="year-filter" style="display: flex; align-items: center; gap: 10px;">
-        <label style="color: #fff;">Filtra per anno:</label>
-        <input type="number" id="minYear" placeholder="Da" style="padding: 8px; width: 80px; border-radius: 4px; border: 1px solid #333;">
-        <span>-</span>
-        <input type="number" id="maxYear" placeholder="A" style="padding: 8px; width: 80px; border-radius: 4px; border: 1px solid #333;">
-        <button onclick="applyYearFilter()" style="background: #2a09e5; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">
-          Applica
-        </button>
-        <button onclick="clearYearFilter()" style="background: #666; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">
-          Reset
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="pagination-info" id="category-pagination-info" style="margin: 0 4% 1rem; color: #aaa;"></div>
-  <div class="vertical-grid" id="category-grid"></div>
-  <div class="pagination-controls">
-    <button class="page-btn prev" onclick="prevCategoryPage()" disabled>◀ Precedente</button>
-    <span class="page-info" id="category-page-info">Pagina 1</span>
-    <button class="page-btn next" onclick="nextCategoryPage()">Successiva ▶</button>
-  </div>
-</section>
-<section id="preferiti-section" style="display: none;">
-  <h2>⭐ I tuoi Preferiti</h2>
-  <div class="carousel-wrapper">
-    <button class="arrow left" onclick="scrollCarouselPreferiti(-1)">◀</button>
-    <div class="carousel-container">
-      <div class="carousel" id="preferiti-section-carousel"></div>
-    </div>
-    <button class="arrow right" onclick="scrollCarouselPreferiti(1)">▶</button>
-  </div>
-  <div class="preferiti-message" id="preferiti-message" style="text-align: center; padding: 2rem; color: #888;">
-    Aggiungi contenuti ai preferiti per vederli qui
-  </div>
-</section>
-<script src="pc/script.js?v=04"></script>
-<script src="pc/api.js?v=04"></script>
-<script src="pc/cors.js?v=04"></script>
-<script src="pc/preferiti.js?v=04"></script>
-<script src="pc/continua-visione.js?v=04"></script>
-<script src="pc/card.js?v=04"></script>
-<script src="pc/categorie.js?v=04"></script>
-<script src="pc/film-serie.js?v=04"></script>
-<script src="pc/ricerca.js?v=04"></script>
-<script src="pc/player.js?v=06"></script>
-<footer style="text-align: center; padding: 2rem; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 3rem;">
-        <p>CineSearch PC v.2.1</p>
-        <p>© 2026 Copyright AIMODS</p>
-</footer>
-  </body>
+    <script>
+    async function fetchGitHubStats() {
+        try {
+            const [repoRes, releasesRes] = await Promise.all([
+                fetch('https://api.github.com/repos/CineSearch/CineSearch'),
+                fetch('https://api.github.com/repos/CineSearch/CineSearch/releases')
+            ]);
+            const repo = await repoRes.json();
+            const releases = await releasesRes.json();
+
+            document.getElementById('github-stars').textContent = repo.stargazers_count || 0;
+            document.getElementById('github-forks').textContent = repo.forks_count || 0;
+
+            let totalDownloads = 0;
+            let tvDownloads = 0;
+            let androidDownloads = 0;
+            let windowsDownloads = 0;
+            let universalDownloads = 0;
+
+            if (Array.isArray(releases)) {
+                for (const release of releases) {
+                    if (Array.isArray(release.assets)) {
+                        for (const asset of release.assets) {
+                            totalDownloads += asset.download_count || 0;
+                            const name = (asset.name || '').toLowerCase();
+                            if (name.includes('universal')) {
+                                universalDownloads += asset.download_count || 0;
+                            } else if (name.includes('tv')) {
+                                tvDownloads += asset.download_count || 0;
+                            } else if (name.includes('android')) {
+                                androidDownloads += asset.download_count || 0;
+                            } else if (name.includes('windows') || name.includes('win') || name.includes('exe')) {
+                                windowsDownloads += asset.download_count || 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Persist download counts across version bumps (localStorage)
+            const prefix = 'cs_dl_';
+            const counts = { totalDownloads, tvDownloads, androidDownloads, windowsDownloads, universalDownloads };
+            for (const [key, value] of Object.entries(counts)) {
+                const stored = localStorage.getItem(prefix + key);
+                if (stored !== null) {
+                    const storedNum = parseInt(stored, 10);
+                    if (value < storedNum) {
+                        counts[key] = storedNum;
+                    }
+                }
+                localStorage.setItem(prefix + key, counts[key]);
+            }
+
+            document.getElementById('total-downloads').textContent = counts.totalDownloads.toLocaleString();
+            document.getElementById('tv-dl').textContent = counts.tvDownloads > 0 ? counts.tvDownloads.toLocaleString() : 'N/A';
+            document.getElementById('android-dl').textContent = counts.androidDownloads > 0 ? counts.androidDownloads.toLocaleString() : 'N/A';
+            document.getElementById('windows-dl').textContent = counts.windowsDownloads > 0 ? counts.windowsDownloads.toLocaleString() : 'N/A';
+            document.getElementById('universal-dl').textContent = counts.universalDownloads > 0 ? counts.universalDownloads.toLocaleString() : 'N/A';
+
+        } catch (err) {
+            document.getElementById('total-downloads').textContent = 'N/A';
+            document.getElementById('github-stars').textContent = 'N/A';
+            document.getElementById('github-forks').textContent = 'N/A';
+            document.querySelectorAll('.download-count-badge span').forEach(el => el.textContent = 'N/A');
+        }
+    }
+    fetchGitHubStats();
+    </script>
+</body>
 </html>

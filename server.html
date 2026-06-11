@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CineSearch - Stato Server</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0f;
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(ellipse at 20% 50%, rgba(42, 9, 229, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(229, 9, 20, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(42, 9, 229, 0.05) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+        .container { max-width: 700px; margin: 0 auto; padding: 0 24px; }
+
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .logo {
+            display: flex; align-items: center; gap: 12px;
+            font-size: 1.6rem; font-weight: 800;
+            background: linear-gradient(135deg, #2a09e5, #7c3aed);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; text-decoration: none;
+        }
+        .logo i { font-size: 1.4rem; -webkit-text-fill-color: #2a09e5; }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
+        .nav-links a {
+            color: rgba(255,255,255,0.7); text-decoration: none;
+            font-size: 0.9rem; transition: color 0.3s; font-weight: 500;
+        }
+        .nav-links a:hover { color: #fff; }
+
+        .server-section { padding: 60px 0 80px; }
+        .page-title {
+            text-align: center; font-size: 2rem; font-weight: 800;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #fff 0%, #a78bfa 50%, #2a09e5 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .page-sub {
+            text-align: center; color: rgba(255,255,255,0.4);
+            font-size: 0.85rem; margin-bottom: 40px;
+        }
+
+        .server-group {
+            margin-bottom: 32px;
+        }
+        .server-group-title {
+            font-size: 0.75rem; text-transform: uppercase;
+            letter-spacing: 2px; color: rgba(255,255,255,0.3);
+            margin-bottom: 12px; padding-left: 4px;
+        }
+        .server-item {
+            display: flex; align-items: center; justify-content: space-between;
+            background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px; padding: 16px 20px;
+            margin-bottom: 10px; transition: all 0.3s;
+        }
+        .server-item:hover {
+            border-color: rgba(42,9,229,0.3);
+            box-shadow: 0 4px 20px rgba(42,9,229,0.08);
+        }
+        .server-info { display: flex; align-items: center; gap: 12px; }
+        .server-info i { font-size: 1.1rem; color: rgba(255,255,255,0.3); }
+        .server-name { font-weight: 600; font-size: 0.95rem; }
+        .server-url { font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 2px; }
+        .server-status {
+            display: flex; align-items: center; gap: 6px;
+            font-size: 0.8rem; font-weight: 600;
+            padding: 6px 14px; border-radius: 50px;
+            min-width: 60px; justify-content: center;
+        }
+        .status-checking {
+            background: rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.4);
+        }
+        .status-ok {
+            background: rgba(34,197,94,0.12);
+            border: 1px solid rgba(34,197,94,0.3);
+            color: #4ade80;
+        }
+        .status-err {
+            background: rgba(239,68,68,0.12);
+            border: 1px solid rgba(239,68,68,0.3);
+            color: #f87171;
+        }
+        .status-warn {
+            background: rgba(251,191,36,0.12);
+            border: 1px solid rgba(251,191,36,0.3);
+            color: #fbbf24;
+        }
+
+        .refresh-bar {
+            text-align: center; margin-top: 32px;
+        }
+        .refresh-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(42,9,229,0.15);
+            border: 1px solid rgba(42,9,229,0.3);
+            color: #a78bfa;
+            padding: 10px 24px; border-radius: 50px;
+            font-size: 0.9rem; font-weight: 600; cursor: pointer;
+            transition: all 0.3s; text-decoration: none;
+        }
+        .refresh-btn:hover {
+            background: rgba(42,9,229,0.25);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center; padding: 40px 0;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.3); font-size: 0.85rem;
+        }
+        footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+        footer a:hover { color: #a78bfa; }
+
+        @media (max-width: 768px) {
+            .page-title { font-size: 1.4rem; }
+            .server-item { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .server-status { align-self: flex-start; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <a href="index.html" class="logo">
+                <i class="fas fa-film"></i>
+                <span>CineSearch</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-arrow-left"></i> Torna indietro</a>
+            </div>
+        </nav>
+
+        <section class="server-section">
+            <h1 class="page-title">Stato Server</h1>
+            <p class="page-sub">Verifica la raggiungibilit&agrave; dei server in tempo reale</p>
+
+            <div class="server-group">
+                <div class="server-group-title">Server 1</div>
+                <div class="server-item" data-url="https://vixsrc.to/">
+                    <div class="server-info">
+                        <i class="fas fa-server"></i>
+                        <div>
+                            <div class="server-name">Server Principale</div>
+                            <div class="server-url">vixsrc.to</div>
+                        </div>
+                    </div>
+                    <span class="server-status status-checking"><i class="fas fa-spinner fa-spin"></i> Verifica...</span>
+                </div>
+            </div>
+
+            <div class="server-group">
+                <div class="server-group-title">Server 2 &mdash; Provider</div>
+
+                <div class="server-item" data-url="https://cb01uno.sbs/">
+                    <div class="server-info">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <div class="server-name">CB01</div>
+                            <div class="server-url">cb01uno.sbs</div>
+                        </div>
+                    </div>
+                    <span class="server-status status-checking"><i class="fas fa-spinner fa-spin"></i> Verifica...</span>
+                </div>
+
+                <div class="server-item" data-url="https://streamingita.homes/">
+                    <div class="server-info">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <div class="server-name">StreamingITA</div>
+                            <div class="server-url">streamingita.homes</div>
+                        </div>
+                    </div>
+                    <span class="server-status status-checking"><i class="fas fa-spinner fa-spin"></i> Verifica...</span>
+                </div>
+
+                <div class="server-item" data-url="https://altadefinizione-01.forum/">
+                    <div class="server-info">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <div class="server-name">Altadefinizione01</div>
+                            <div class="server-url">altadefinizione-01.forum</div>
+                        </div>
+                    </div>
+                    <span class="server-status status-checking"><i class="fas fa-spinner fa-spin"></i> Verifica...</span>
+                </div>
+
+                <div class="server-item" data-url="https://guardoserie.living/">
+                    <div class="server-info">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <div class="server-name">GuardaSerie</div>
+                            <div class="server-url">guardoserie.living</div>
+                        </div>
+                    </div>
+                    <span class="server-status status-checking"><i class="fas fa-spinner fa-spin"></i> Verifica...</span>
+                </div>
+            </div>
+
+            <div class="server-group">
+                <div class="server-group-title">Lista Estrattori</div>
+
+                <div class="server-item">
+                    <div class="server-info">
+                        <i class="fas fa-video"></i>
+                        <div>
+                            <div class="server-name">MixDrop</div>
+                        </div>
+                    </div>
+                    <span class="server-status status-ok"><i class="fas fa-check-circle"></i> OK</span>
+                </div>
+
+                <div class="server-item">
+                    <div class="server-info">
+                        <i class="fas fa-video"></i>
+                        <div>
+                            <div class="server-name">Supervideo</div>
+                        </div>
+                    </div>
+                    <span class="server-status status-warn"><i class="fas fa-exclamation-triangle"></i> PROBLEMI</span>
+                </div>
+
+                <div class="server-item">
+                    <div class="server-info">
+                        <i class="fas fa-video"></i>
+                        <div>
+                            <div class="server-name">VixSrc</div>
+                        </div>
+                    </div>
+                    <span class="server-status status-ok"><i class="fas fa-check-circle"></i> OK</span>
+                </div>
+
+                <div class="server-item">
+                    <div class="server-info">
+                        <i class="fas fa-video"></i>
+                        <div>
+                            <div class="server-name">VixCloud</div>
+                        </div>
+                    </div>
+                    <span class="server-status status-ok"><i class="fas fa-check-circle"></i> OK</span>
+                </div>
+
+                <div class="server-item">
+                    <div class="server-info">
+                        <i class="fas fa-video"></i>
+                        <div>
+                            <div class="server-name">VidxGo</div>
+                        </div>
+                    </div>
+                    <span class="server-status status-ok"><i class="fas fa-check-circle"></i> OK</span>
+                </div>
+
+                <div class="server-item">
+                    <div class="server-info">
+                        <i class="fas fa-video"></i>
+                        <div>
+                            <div class="server-name">MaxStream</div>
+                        </div>
+                    </div>
+                    <span class="server-status status-ok"><i class="fas fa-check-circle"></i> OK</span>
+                </div>
+
+                <div class="server-item">
+                    <div class="server-info">
+                        <i class="fas fa-video"></i>
+                        <div>
+                            <div class="server-name">Loadm</div>
+                        </div>
+                    </div>
+                    <span class="server-status status-ok"><i class="fas fa-check-circle"></i> OK</span>
+                </div>
+            </div>
+
+            <div class="server-group">
+                <div class="server-group-title">ANIME</div>
+
+                <div class="server-item" data-url="https://vixcloud.co/">
+                    <div class="server-info">
+                        <i class="fas fa-server"></i>
+                        <div>
+                            <div class="server-name">Vixcloud.to</div>
+                            <div class="server-url">vixcloud.co</div>
+                        </div>
+                    </div>
+                    <span class="server-status status-checking"><i class="fas fa-spinner fa-spin"></i> Verifica...</span>
+                </div>
+
+                <div class="server-item" data-url="https://www.animeunity.so/">
+                    <div class="server-info">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <div class="server-name">AnimeUnity</div>
+                            <div class="server-url">animeunity.so</div>
+                        </div>
+                    </div>
+                    <span class="server-status status-checking"><i class="fas fa-spinner fa-spin"></i> Verifica...</span>
+                </div>
+
+                <div class="server-item" data-url="https://www.animeworld.ac/">
+                    <div class="server-info">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <div class="server-name">AnimeWorld</div>
+                            <div class="server-url">animeworld.ac</div>
+                        </div>
+                    </div>
+                    <span class="server-status status-checking"><i class="fas fa-spinner fa-spin"></i> Verifica...</span>
+                </div>
+            </div>
+
+            <div class="refresh-bar">
+                <button class="refresh-btn" onclick="checkAllServers()"><i class="fas fa-sync-alt"></i> Aggiorna</button>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p><a href="index.html">CineSearch</a> &mdash; Progetto Freeware</p>
+        </div>
+    </footer>
+
+    <script>
+    async function checkServer(item) {
+        const url = item.dataset.url;
+        const statusEl = item.querySelector('.server-status');
+        statusEl.className = 'server-status status-checking';
+        statusEl.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifica...';
+
+        await new Promise(resolve => {
+            const img = new Image();
+            const timeout = setTimeout(() => {
+                img.src = '';
+                statusEl.className = 'server-status status-err';
+                statusEl.innerHTML = '<i class="fas fa-times-circle"></i> ERRORE';
+                resolve();
+            }, 8000);
+            img.onload = () => {
+                clearTimeout(timeout);
+                statusEl.className = 'server-status status-ok';
+                statusEl.innerHTML = '<i class="fas fa-check-circle"></i> OK';
+                resolve();
+            };
+            img.onerror = () => {
+                clearTimeout(timeout);
+                statusEl.className = 'server-status status-ok';
+                statusEl.innerHTML = '<i class="fas fa-check-circle"></i> OK';
+                resolve();
+            };
+            img.src = url + '?t=' + Date.now();
+        });
+    }
+
+    function checkAllServers() {
+        document.querySelectorAll('.server-item[data-url]').forEach(item => checkServer(item));
+    }
+
+    checkAllServers();
+    </script>
+</body>
+</html>
