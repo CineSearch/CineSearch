@@ -7,7 +7,11 @@
     "Aggiunto provider CB01",
     "Aggiunta possibilità di caricare sottotitoli da file locale",
     "Aggiunto pulsante sul popup per cambiare provider Server2",
-    "Preferiti in ordine dal più recente al meno recente"
+    "Preferiti in ordine dal più recente al meno recente",
+    "Supporto multi-dispositivo"
   ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk",
+  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchUniversal.apk",
+  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchTV.apk",
+  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release/CineSearchMobile.apk"
 }
