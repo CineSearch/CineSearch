@@ -1,7 +1,3689 @@
 {
     "playlist": {
         "start": "NO",
-        "channels": [],
+        "channels": [
+            {
+                "id": "___tvp_info_hevc",
+                "display_name": "↺TVP INFO HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvpinfo.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796901&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "___tvp_hevc",
+                "display_name": "↺TVP HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796900&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "___tvp_1_hevc",
+                "display_name": "↺TVP 1 HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp1.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796899&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "___tvp_2_hevc",
+                "display_name": "↺TVP 2 HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796898&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "___tvp_3_hevc",
+                "display_name": "↺TVP 3 HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796897&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "___tv4_hevc",
+                "display_name": "↺TV4 HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tv4.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796896&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "___tvn_hevc",
+                "display_name": "↺TVN HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvn.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796895&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "___polsat_hevc",
+                "display_name": "↺POLSAT HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsat.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796894&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "___polsat_2_hevc",
+                "display_name": "↺POLSAT 2 HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsat2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796893&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "___polsat_news_hevc",
+                "display_name": "↺POLSAT NEWS HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatnews.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796892&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "___polsat_news_2_hevc",
+                "display_name": "↺POLSAT NEWS 2 HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatnews2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796891&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "___tvn_24_hevc",
+                "display_name": "↺TVN 24 HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvn24.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796890&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "___ttv_hevc",
+                "display_name": "↺TTV HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/ttv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796889&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "___novelas__hevc",
+                "display_name": "↺NOVELAS+ HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/novelaplus.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796888&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvn_24_bis_hevc",
+                "display_name": "TVN 24 BIS HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvn24bis.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796887&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "super_polsat_hevc",
+                "display_name": "SUPER POLSAT HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/superpolsat.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796886&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_play_hevc",
+                "display_name": "POLSAT PLAY HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatplay.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796885&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_cafe_hevc",
+                "display_name": "POLSAT CAFE HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatcafe.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796884&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_seriale_hevc",
+                "display_name": "POLSAT SERIALE HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatseriale.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796883&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_rodzina_hevc",
+                "display_name": "POLSAT RODZINA HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatrodzina.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796882&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_games_hevc",
+                "display_name": "POLSAT GAMES HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatgames.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796881&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "romance_tv_hevc",
+                "display_name": "ROMANCE TV HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/romancetv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796880&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvn_7_hevc",
+                "display_name": "TVN 7 HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvn7.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796879&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvn_style_hevc",
+                "display_name": "TVN STYLE HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvnstyle.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796878&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvn_turbo_hevc",
+                "display_name": "TVN TURBO HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvnturba.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796877&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvn_fabula_hevc",
+                "display_name": "TVN FABULA HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvnfabula.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796876&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tv6_hevc",
+                "display_name": "TV6 HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tv6.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796875&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tv_puls_hevc",
+                "display_name": "TV PULS HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvpuls.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796874&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "puls_2_hevc",
+                "display_name": "PULS 2 HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/puls2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796873&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_polonia_hevc",
+                "display_name": "TVP POLONIA HEVC",
+                "group_title": "PL ✴️POLSKA HEVC",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvppolonia.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796872&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_info_fhd",
+                "display_name": "TVP INFO FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvpinfo.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439675&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_info_hd",
+                "display_name": "TVP INFO HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvpinfo.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439674&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_fhd",
+                "display_name": "TVP FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439673&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_hd",
+                "display_name": "TVP HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439672&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_1_fhd",
+                "display_name": "TVP 1 FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp1.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439671&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_1_hd",
+                "display_name": "TVP 1 HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp1.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439670&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_2_fhd",
+                "display_name": "TVP 2 FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439669&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_2_hd",
+                "display_name": "TVP 2 HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439668&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_fhd",
+                "display_name": "TVP 3 FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439667&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_hd",
+                "display_name": "TVP 3 HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439666&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tv4_fhd",
+                "display_name": "TV4 FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tv4.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439665&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tv4_hd",
+                "display_name": "TV4 HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tv4.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439664&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tv_trwam",
+                "display_name": "TV TRWAM",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/trwam.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439663&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvn_fhd",
+                "display_name": "TVN FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvn.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439662&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvn_hd",
+                "display_name": "TVN HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvn.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439661&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvn_7_fhd",
+                "display_name": "TVN 7 FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvn7.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439660&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvn_7_hd",
+                "display_name": "TVN 7 HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvn7.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439659&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tv6_fhd",
+                "display_name": "TV6 FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tv6.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439658&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tv6_hd",
+                "display_name": "TV6 HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tv6.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439657&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvn_fabula_fhd",
+                "display_name": "TVN FABULA FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvnfabula.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439656&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvn_fabula_hd",
+                "display_name": "TVN FABULA HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvnfabula.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439655&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvn_style_fhd",
+                "display_name": "TVN STYLE FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvnstyle.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439654&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvn_style_hd",
+                "display_name": "TVN STYLE HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvnstyle.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439653&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvn_turbo_fhd",
+                "display_name": "TVN TURBO FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvnturba.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439652&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvn_turbo_hd",
+                "display_name": "TVN TURBO HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvnturba.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439651&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvn_24_fhd",
+                "display_name": "TVN 24 FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvn24.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439650&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvn_24_hd",
+                "display_name": "TVN 24 HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvn24.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439649&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvn24_bis_fhd",
+                "display_name": "TVN24 BIS FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvn24bis.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439648&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvn24_bis_hd",
+                "display_name": "TVN24 BIS HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvn24bis.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439647&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvs_fhd",
+                "display_name": "TVS FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvs.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439646&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvs_hd",
+                "display_name": "TVS HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvs.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439645&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvc_fhd",
+                "display_name": "TVC FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/europa\/poland\/tvc-pl.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858772&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvc_hd",
+                "display_name": "TVC HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/europa\/poland\/tvc-pl.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858771&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "antena_fhd",
+                "display_name": "ANTENA FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/antena.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858695&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "antena_hd",
+                "display_name": "ANTENA HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/antena.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858694&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "inultra_tv_4k",
+                "display_name": "INULTRA TV 4K",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/inultra.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858755&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "novelas__fhd",
+                "display_name": "NOVELAS+ FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/novelaplus.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439644&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "novelas__hd",
+                "display_name": "NOVELAS+ HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/novelaplus.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439643&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_news_fhd",
+                "display_name": "POLSAT NEWS FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatnews.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439642&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_news_hd",
+                "display_name": "POLSAT NEWS HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatnews.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439641&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_news_2_fhd",
+                "display_name": "POLSAT NEWS 2 FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatnews2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439640&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_news_2_hd",
+                "display_name": "POLSAT NEWS 2 HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatnews2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439639&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_fhd",
+                "display_name": "POLSAT FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsat.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439638&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_hd",
+                "display_name": "POLSAT HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsat.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439637&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_2_fhd",
+                "display_name": "POLSAT 2 FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsat2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439636&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_2_hd",
+                "display_name": "POLSAT 2 HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsat2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439635&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_play_fhd",
+                "display_name": "POLSAT PLAY FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatplay.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439634&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_play_hd",
+                "display_name": "POLSAT PLAY HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatplay.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439633&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_cafe_fhd",
+                "display_name": "POLSAT CAFE FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatcafe.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439632&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_cafe_hd",
+                "display_name": "POLSAT CAFE HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatcafe.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439631&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_seriale_fhd",
+                "display_name": "POLSAT SERIALE FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatseriale.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439630&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_seriale_hd",
+                "display_name": "POLSAT SERIALE HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatseriale.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439629&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_games_fhd",
+                "display_name": "POLSAT GAMES FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatgames.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439628&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_games_hd",
+                "display_name": "POLSAT GAMES HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatgames.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439627&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_rodzina_fhd",
+                "display_name": "POLSAT RODZINA FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatrodzina.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439626&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_rodzina_hd",
+                "display_name": "POLSAT RODZINA HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatrodzina.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439625&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "super_polsat_fhd",
+                "display_name": "SUPER POLSAT FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/superpolsat.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439624&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "super_polsat_hd",
+                "display_name": "SUPER POLSAT HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/superpolsat.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439623&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "romance_tv_fhd",
+                "display_name": "ROMANCE TV FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/romancetv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439622&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "romance_tv_hd",
+                "display_name": "ROMANCE TV HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/romancetv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439621&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tv_puls_fhd",
+                "display_name": "TV PULS FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvpuls.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439620&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "puls_hd",
+                "display_name": "PULS HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvpuls.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439619&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "puls_2_fhd",
+                "display_name": "PULS 2 FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/puls2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439618&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "puls_2_hd",
+                "display_name": "PULS 2 HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/puls2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439617&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_polonia_fhd",
+                "display_name": "TVP POLONIA FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvppolonia.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439616&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_polonia_hd",
+                "display_name": "TVP POLONIA HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvppolonia.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439615&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_rozrywka_hd",
+                "display_name": "TVP ROZRYWKA HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvprozrywka.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439614&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_kobieta_fhd",
+                "display_name": "TVP KOBIETA FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvpkobieta.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858768&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_kultura_fhd",
+                "display_name": "TVP KULTURA FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvpkultura.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439613&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tbn_polska_fhd",
+                "display_name": "TBN POLSKA FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tbnpolska.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858782&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tbn_polska_hd",
+                "display_name": "TBN POLSKA HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tbnpolska.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858781&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "ttv_fhd",
+                "display_name": "TTV FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/ttv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439612&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "ttv_hd",
+                "display_name": "TTV HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/ttv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439611&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvt",
+                "display_name": "TVT",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvt.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858756&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "wp_fhd",
+                "display_name": "WP FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/wp.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439610&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "wpolsce_fhd",
+                "display_name": "WPOLSCE FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/wpolsce.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439609&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tele_5",
+                "display_name": "TELE 5",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tele5.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439608&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tv_republika_fhd",
+                "display_name": "TV REPUBLIKA FHD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/republika.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439607&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tv_republika_hd",
+                "display_name": "TV REPUBLIKA HD",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/republika.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858773&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "novela_tv",
+                "display_name": "NOVELA TV",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/novelaplus.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439606&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "zoom_tv",
+                "display_name": "ZOOM TV",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/Toplu\/Poland\/ZoomTv-PL.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439605&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "fokus_tv",
+                "display_name": "FOKUS TV",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/Toplu\/Poland\/FokusTv-PL.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439604&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "stopklatka_tv",
+                "display_name": "STOPKLATKA TV",
+                "group_title": "PL ✴️POLSKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/Toplu\/Poland\/StopklaktaTv-PL.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439603&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "home",
+                "display_name": "HOME",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/home.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439601&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "nat_geo_wild_fhd",
+                "display_name": "NAT GEO WILD FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/natgeowild.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439600&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "nat_geo_wild_hd",
+                "display_name": "NAT GEO WILD HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/natgeowild.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439599&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "national_geographic_fhd",
+                "display_name": "NATIONAL GEOGRAPHIC FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/nationalgeographic.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439598&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "national_geographic_hd",
+                "display_name": "NATIONAL GEOGRAPHIC HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/nationalgeographic.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439597&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "nat_geo_people_fhd",
+                "display_name": "NAT GEO PEOPLE FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/natgeopeople.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439596&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "nat_geo_people_hd",
+                "display_name": "NAT GEO PEOPLE HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/natgeopeople.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439595&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "animal_planet_fhd",
+                "display_name": "ANIMAL PLANET FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/animalplanet.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439594&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "animal_planet_hd",
+                "display_name": "ANIMAL PLANET HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/animalplanet.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439593&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_dokument_fhd",
+                "display_name": "TVP DOKUMENT FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvpdokument.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858770&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_dokument_hd",
+                "display_name": "TVP DOKUMENT HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvpdokument.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858769&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_nauka_fhd",
+                "display_name": "TVP NAUKA FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvpnauka.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858767&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_nauka_hd",
+                "display_name": "TVP NAUKA HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvpnauka.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858766&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "discovery_fhd",
+                "display_name": "DISCOVERY FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/discovery.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439592&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "discovery_hd",
+                "display_name": "DISCOVERY HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/discovery.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439591&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "discovery_science_fhd",
+                "display_name": "DISCOVERY SCIENCE FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/scidiscoveryscience.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439590&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "discovery_science_hd",
+                "display_name": "DISCOVERY SCIENCE HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/scidiscoveryscience.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439589&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "discovery_life_fhd",
+                "display_name": "DISCOVERY LIFE FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/discoverylife.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439588&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "discovery_life_hd",
+                "display_name": "DISCOVERY LIFE HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/discoverylife.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439587&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "discovery_historia_sd",
+                "display_name": "DISCOVERY HISTORIA SD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/discoveryhistoria.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439586&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "discovery_historia",
+                "display_name": "DISCOVERY HISTORIA",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/discoveryhistoria.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439585&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "da_vinci_learning_fhd",
+                "display_name": "DA VINCI LEARNING FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/davinci.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439584&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "da_vinci_learning_hd",
+                "display_name": "DA VINCI LEARNING HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/davinci.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439583&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "e__entertainment_fhd",
+                "display_name": "E! ENTERTAINMENT FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/e.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439582&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "e__entertainment_hd",
+                "display_name": "E! ENTERTAINMENT HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/e.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439581&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "love_nature_4k",
+                "display_name": "LOVE NATURE 4K",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/lovenature.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858822&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "history_fhd",
+                "display_name": "HISTORY FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/history.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439580&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "history_hd",
+                "display_name": "HISTORY HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/history.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439579&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "history_2_fhd",
+                "display_name": "HISTORY 2 FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/history2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439578&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "history_2_hd",
+                "display_name": "HISTORY 2 HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/history2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439577&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "bbc_earth_fhd",
+                "display_name": "BBC EARTH FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/bbcearth.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439576&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "bbc_earth_hd",
+                "display_name": "BBC EARTH HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/bbcearth.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439575&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "bbc_brit_fhd",
+                "display_name": "BBC BRIT FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/bbcbrit.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439574&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "bbc_brit_hd",
+                "display_name": "BBC BRIT HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/bbcbrit.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439573&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "bbc_first_fhd",
+                "display_name": "BBC FIRST FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/bbcfirst.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439572&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "bbc_first_hd",
+                "display_name": "BBC FIRST HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/bbcfirst.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439571&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "bbc_lifestyle_fhd",
+                "display_name": "BBC LIFESTYLE FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/tvlogo.nl\/files\/ch\/POLONYA\/bbc-lifestyle.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439570&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "bbc_lifestyle_hd",
+                "display_name": "BBC LIFESTYLE HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/tvlogo.nl\/files\/ch\/POLONYA\/bbc-lifestyle.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439569&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "bbc_news_eng",
+                "display_name": "BBC NEWS ENG",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/bbcnews.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858701&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "bbc_player",
+                "display_name": "BBC PLAYER",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/bbcplayer.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858700&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tv_boleslawiec",
+                "display_name": "TV BOLESLAWIEC",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvboleslawiec.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858774&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_world_fhd",
+                "display_name": "TVP WORLD FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvpworld.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858765&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_world_hd",
+                "display_name": "TVP WORLD HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvpworld.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858764&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "echo_24_fhd",
+                "display_name": "ECHO 24 FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/echo24.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858806&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "echo_24_hd",
+                "display_name": "ECHO 24 HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/echo24.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858805&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "belsat_fhd",
+                "display_name": "BELSAT FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/belsat.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858699&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "belsat_hd",
+                "display_name": "BELSAT HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/belsat.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858698&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "biznes_24_fhd",
+                "display_name": "BIZNES 24 FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/biznes24.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858697&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "biznes_24_hd",
+                "display_name": "BIZNES 24 HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/biznes24.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858696&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "dlaciebie_tv_fhd",
+                "display_name": "DLACIEBIE TV FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/dlaciebie.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858762&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "dlaciebie_tv_hd",
+                "display_name": "DLACIEBIE TV HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/dlaciebie.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858763&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "wydarzenia_24_fhd",
+                "display_name": "WYDARZENIA 24 FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/wydarzenia24.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858709&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "wydarzenia_24_hd",
+                "display_name": "WYDARZENIA 24 HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/wydarzenia24.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858708&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_news_polityka_fhd",
+                "display_name": "POLSAT NEWS POLITYKA FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatnewspolityka.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858812&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_news_polityka_hd",
+                "display_name": "POLSAT NEWS POLITYKA HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatnewspolityka.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858811&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "planete__fhd",
+                "display_name": "PLANETE+ FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/planete.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439568&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "planete__hd",
+                "display_name": "PLANETE+ HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/planete.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439567&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_doku_fhd",
+                "display_name": "POLSAT DOKU FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatdoku.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439566&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_doku_hd",
+                "display_name": "POLSAT DOKU HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatdoku.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439565&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "dokubox_fhd",
+                "display_name": "DOKUBOX FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/docubox.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858802&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "dokubox_hd",
+                "display_name": "DOKUBOX HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/docubox.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858801&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_viasat_explore_fhd",
+                "display_name": "POLSAT VIASAT EXPLORE FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatviasatexplore.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439564&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_viasat_explore_hd",
+                "display_name": "POLSAT VIASAT EXPLORE HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatviasatexplore.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439563&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_viasat_history_fhd",
+                "display_name": "POLSAT VIASAT HISTORY FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatviasathistory.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439562&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_viasat_history_hd",
+                "display_name": "POLSAT VIASAT HISTORY HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatviasathistory.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439561&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_viasat_nature_fhd",
+                "display_name": "POLSAT VIASAT NATURE FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatviasatnature.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439560&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_viasat_nature_hd",
+                "display_name": "POLSAT VIASAT NATURE HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatviasatnature.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439559&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "viasat_true_crime_fhd",
+                "display_name": "VIASAT TRUE CRIME FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/viasattruecrime.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858754&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "viasat_true_crime_hd",
+                "display_name": "VIASAT TRUE CRIME HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/viasattruecrime.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858753&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "crime__investigation_fhd",
+                "display_name": "CRIME+ INVESTIGATION FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/crimeinvestiagonpolsat.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439558&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "crime__investigation_hd",
+                "display_name": "CRIME+ INVESTIGATION HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/crimeinvestiagonpolsat.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439557&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__kuchnia_fhd",
+                "display_name": "CANAL+ KUCHNIA FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/canalpluskuchnia.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439556&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__kuchnia_hd",
+                "display_name": "CANAL+ KUCHNIA HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/canalpluskuchnia.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439555&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__dokument_fhd",
+                "display_name": "CANAL+ DOKUMENT FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/canalplusdokument.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439554&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__dokument_hd",
+                "display_name": "CANAL+ DOKUMENT HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/canalplusdokument.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439553&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__domo_fhd",
+                "display_name": "CANAL+ DOMO FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/canalplusdomo.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439552&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__domo_hd",
+                "display_name": "CANAL+ DOMO HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/canalplusdomo.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439551&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "travel_channel_fhd",
+                "display_name": "TRAVEL CHANNEL FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/travelchannel.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439550&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "travel_channel_hd",
+                "display_name": "TRAVEL CHANNEL HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/travelchannel.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439549&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "wtk_fhd",
+                "display_name": "WTK FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/wtk.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858711&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "wtk_hd",
+                "display_name": "WTK HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/wtk.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858710&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tlc_fhd",
+                "display_name": "TLC FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/tvlogo.nl\/files\/ch\/ALBANEXYU\/TLC.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439548&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tlc_hd",
+                "display_name": "TLC HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/tvlogo.nl\/files\/ch\/ALBANEXYU\/TLC.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439547&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "dtx_fhd",
+                "display_name": "DTX FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/dtx.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439546&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "dtx_hd",
+                "display_name": "DTX HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/dtx.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439545&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "hgtv_fhd",
+                "display_name": "HGTV FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/hgtv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439544&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "hgtv_hd",
+                "display_name": "HGTV HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/hgtv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439543&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "water_planet_sd",
+                "display_name": "WATER PLANET SD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/europa\/poland\/planet-water-pl.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439542&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "water_planet",
+                "display_name": "WATER PLANET",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/europa\/poland\/planet-water-pl.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439541&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "studiomed_tv_fhd",
+                "display_name": "STUDIOMED TV FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/studiomed.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439540&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "studiomed_tv_hd",
+                "display_name": "STUDIOMED TV HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/studiomed.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439539&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "adventure_fhd",
+                "display_name": "ADVENTURE FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/europa\/poland\/adventure-hd-pl.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439538&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "adventure_hd",
+                "display_name": "ADVENTURE HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/europa\/poland\/adventure-hd-pl.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439537&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "food_network_fhd",
+                "display_name": "FOOD NETWORK FHD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/foodnetwor.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439536&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "food_network_hd",
+                "display_name": "FOOD NETWORK HD",
+                "group_title": "PL ✴️DOKUMENTACJA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/foodnetwor.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439535&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "cbs_europa_fhd",
+                "display_name": "CBS EUROPA FHD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/tvlogo.nl\/files\/ch\/POLONYA\/CBS_Europa.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439523&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "cbs_europa_hd",
+                "display_name": "CBS EUROPA HD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/tvlogo.nl\/files\/ch\/POLONYA\/CBS_Europa.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439522&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "cbs_reality_fhd",
+                "display_name": "CBS REALITY FHD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/cbsrealtity.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439521&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "cbs_reality_hd",
+                "display_name": "CBS REALITY HD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/cbsrealtity.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439520&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_historia_fhd",
+                "display_name": "TVP HISTORIA FHD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvphistroia.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439519&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_historia_hd",
+                "display_name": "TVP HISTORIA HD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvphistroia.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439518&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_seriale",
+                "display_name": "TVP SERIALE",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvpseriale.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439517&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_film_hd",
+                "display_name": "POLSAT FILM HD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatfilm.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439516&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "sci-fi_fhd",
+                "display_name": "SCI-FI FHD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/scifi.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858808&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "sci-fi_hd",
+                "display_name": "SCI-FI HD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/scifi.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858807&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "active_family_fhd",
+                "display_name": "ACTIVE FAMILY FHD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/activefamily.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439515&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "active_family_hd",
+                "display_name": "ACTIVE FAMILY HD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/activefamily.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858690&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "sky_show_time_1_fhd",
+                "display_name": "SKY SHOW TIME 1 FHD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/skyshowtime.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858786&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "sky_show_time_1_hd",
+                "display_name": "SKY SHOW TIME 1 HD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/skyshowtime.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858785&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "sky_showtime_2_fhd",
+                "display_name": "SKY SHOWTIME 2 FHD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/skyshowtime2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858784&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "sky_showtime_2_hd",
+                "display_name": "SKY SHOWTIME 2 HD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/skyshowtime2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858783&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__seriale",
+                "display_name": "CANAL+ SERIALE",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/canalplusseriale.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439514&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__film_hd",
+                "display_name": "CANAL+ FILM HD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/canalplusfilm.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439513&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__family_hd",
+                "display_name": "CANAL+ FAMILY HD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/Toplu\/Poland\/Canal-Plus-Family-PL.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439512&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__film",
+                "display_name": "CANAL+ FILM",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/canalplusfilm.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439511&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__1_fhd",
+                "display_name": "CANAL+ 1 FHD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/canalplus1.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439510&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__360",
+                "display_name": "CANAL+ 360",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/canalplus360.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858702&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "warner_tv",
+                "display_name": "WARNER TV",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/warnertv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858712&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "vidoc_tv",
+                "display_name": "VIDOC TV",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/vidoctv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858714&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "axn",
+                "display_name": "AXN",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/axn.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439507&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "axn_spin",
+                "display_name": "AXN SPIN",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/axnspin.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439506&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "axn_black",
+                "display_name": "AXN BLACK",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/axnblack.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439509&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "axn_white",
+                "display_name": "AXN WHITE",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/axnwhite.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439508&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "fox_hd",
+                "display_name": "FOX HD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/Toplu\/Poland\/Fx-PL.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439505&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "fox_comedy",
+                "display_name": "FOX COMEDY",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/Toplu\/Poland\/Fx-Comedy-PL.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439504&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "amc_fhd",
+                "display_name": "AMC FHD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/amc.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439503&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "amc_hd",
+                "display_name": "AMC HD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/amc.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858693&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "ale_kino__hd",
+                "display_name": "ALE KINO+ HD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/europa\/poland\/ale-kino-plus-pl%20%281%29.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439502&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "comedy_central",
+                "display_name": "COMEDY CENTRAL",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/comedycentral.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439501&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "13_ulica_fhd",
+                "display_name": "13 ULICA FHD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/13ulica.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858689&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "13_ulica_hd",
+                "display_name": "13 ULICA HD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/13ulica.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439500&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "universal_hd",
+                "display_name": "UNIVERSAL HD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/germany\/UNIVERSAL.TV.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439498&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "sundance_fhd",
+                "display_name": "SUNDANCE FHD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/sundancetv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439497&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "kino_polska_hd",
+                "display_name": "KINO POLSKA HD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/europa\/poland\/kino-polska-pl%20%281%29.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439496&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_comedy_central_extra",
+                "display_name": "POLSAT COMEDY CENTRAL EXTRA",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatcomedycentralextra.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439495&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__premium",
+                "display_name": "CANAL+ PREMIUM",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/europa\/poland\/canal-plus-premium-pl%20%281%29.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439494&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "hbo",
+                "display_name": "HBO",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/hbo.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439493&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "hbo_2",
+                "display_name": "HBO 2",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/hbo2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439492&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "hbo_3",
+                "display_name": "HBO 3",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/hbo3.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439491&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "filmbox_family",
+                "display_name": "FILMBOX FAMILY",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/filmboxfamily.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439490&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "filmbox_action",
+                "display_name": "FILMBOX ACTION",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/filmboxaction.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439489&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "filmbox_extra",
+                "display_name": "FILMBOX EXTRA",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/filmboxextra.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439488&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "filmbox_premium",
+                "display_name": "FILMBOX PREMIUM",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/filmboxpremium.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439487&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "paramount_network_fhd",
+                "display_name": "PARAMOUNT NETWORK FHD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/tvlogo.nl\/files\/ch\/DAN%C4%B0MARKA\/paramountNetwork.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439486&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "cinemax_fhd",
+                "display_name": "CINEMAX FHD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/cinemax.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858707&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "cinemax_hd",
+                "display_name": "CINEMAX HD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/europa\/poland\/Cinemax-pl.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439484&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "cinemax_2_fhd",
+                "display_name": "CINEMAX 2 FHD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/cinemax2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858706&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "cinemax_2_hd",
+                "display_name": "CINEMAX 2 HD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/cinemax2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439485&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "metro",
+                "display_name": "METRO",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/europa\/poland\/metro.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439483&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "nowa_tv_hd",
+                "display_name": "NOWA TV HD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/europa\/poland\/NOWA%2BTV%20%281%29.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439482&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "epic_drama_hd",
+                "display_name": "EPIC DRAMA HD",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/epicdrama.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439481&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polska_24__7_kino_1",
+                "display_name": "POLSKA 24\/ 7 KINO 1",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/germany\/24-7.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=553546&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polska_24__7_kino_2",
+                "display_name": "POLSKA 24\/ 7 KINO 2",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/germany\/24-7.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=553545&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polska_24__7_kino_3",
+                "display_name": "POLSKA 24\/ 7 KINO 3",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/germany\/24-7.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=553544&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polska_24__7_kino_4",
+                "display_name": "POLSKA 24\/ 7 KINO 4",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/germany\/24-7.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=553543&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polska_24__7_kino_5",
+                "display_name": "POLSKA 24\/ 7 KINO 5",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/germany\/24-7.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=553542&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polska_7_24_cinema_1",
+                "display_name": "POLSKA 7\/24 CINEMA 1",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/germany\/24-7.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=553541&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polska_7_24_cinema_2",
+                "display_name": "POLSKA 7\/24 CINEMA 2",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/germany\/24-7.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=553540&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polska_7_24_cinema_3",
+                "display_name": "POLSKA 7\/24 CINEMA 3",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/germany\/24-7.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=553539&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polska_7_24_cinema_4",
+                "display_name": "POLSKA 7\/24 CINEMA 4",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/germany\/24-7.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=553538&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "filmbox_arthouse",
+                "display_name": "FILMBOX ARTHOUSE",
+                "group_title": "PL ✴️CINEMA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/filmboxarthouse.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439480&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__4k_uhd",
+                "display_name": "CANAL+ 4K UHD",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/europa\/poland\/canal-plus-4k-ultra-hd-pl.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439676&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "eleven_sports_4k",
+                "display_name": "ELEVEN SPORTS 4K",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/elevensport1uhd.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439478&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "eleven_sport_hd",
+                "display_name": "ELEVEN SPORT HD",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/elevensport1.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439477&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "eleven_sports_1",
+                "display_name": "ELEVEN SPORTS 1",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/elevensport1.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439476&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "eleven_sports_2",
+                "display_name": "ELEVEN SPORTS 2",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/elevensport2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439475&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "eleven_sports_3",
+                "display_name": "ELEVEN SPORTS 3",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/elevensport3.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439474&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "eleven_sports_4",
+                "display_name": "ELEVEN SPORTS 4",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/elevensport4.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439473&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_sport_news",
+                "display_name": "POLSAT SPORT NEWS",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatnews.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439472&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_sport_extra",
+                "display_name": "POLSAT SPORT EXTRA",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/europa\/poland\/polsat-sport-extra-pl.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439471&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_sport_fight",
+                "display_name": "POLSAT SPORT FIGHT",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatsportfight.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439470&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_sport_fhd",
+                "display_name": "POLSAT SPORT FHD",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatsport1.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439469&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_sport_hd",
+                "display_name": "POLSAT SPORT HD",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatsport1.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439468&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_sport_premium_1",
+                "display_name": "POLSAT SPORT PREMIUM 1",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatsportpremium1super.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439467&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_sport_premium_2",
+                "display_name": "POLSAT SPORT PREMIUM 2",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatsportpremium2super.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439466&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_sport_premium_3",
+                "display_name": "POLSAT SPORT PREMIUM 3",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatsportpremium3super.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439465&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_sport_premium_4",
+                "display_name": "POLSAT SPORT PREMIUM 4",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatsportpremium4super.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439464&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_sport_premium_5",
+                "display_name": "POLSAT SPORT PREMIUM 5",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatsportpremium5super.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439463&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_sport_premium_6",
+                "display_name": "POLSAT SPORT PREMIUM 6",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatsportpremium6super.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439462&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__sport_1",
+                "display_name": "CANAL+ SPORT 1",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/canalplussport.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439461&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__sport_2",
+                "display_name": "CANAL+ SPORT 2",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/canalplussport2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439460&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__sport_3",
+                "display_name": "CANAL+ SPORT 3",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/canalplussport3.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439459&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__sport_4",
+                "display_name": "CANAL+ SPORT 4",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/canalplussport4.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439458&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__sport_5",
+                "display_name": "CANAL+ SPORT 5",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/canalplussport5.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439457&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__extra_1",
+                "display_name": "CANAL+ EXTRA 1",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/epg.ovh\/logo\/Canal++Extra+1.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=783099&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__extra_2",
+                "display_name": "CANAL+ EXTRA 2",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/epg.ovh\/logo\/Canal++Extra+2.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=783098&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__extra_3",
+                "display_name": "CANAL+ EXTRA 3",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/epg.ovh\/logo\/Canal++Extra+3.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=783097&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__extra_4",
+                "display_name": "CANAL+ EXTRA 4",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/epg.ovh\/logo\/Canal++Extra+4.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=783096&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__extra_5",
+                "display_name": "CANAL+ EXTRA 5",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/epg.ovh\/logo\/Canal++Extra+4.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858647&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__extra_6",
+                "display_name": "CANAL+ EXTRA 6",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/epg.ovh\/logo\/Canal++Extra+6.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858648&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__extra_7",
+                "display_name": "CANAL+ EXTRA 7",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/epg.ovh\/logo\/Canal++Extra+7.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858649&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__extra_8",
+                "display_name": "CANAL+ EXTRA 8",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/epg.ovh\/logo\/Canal++Extra+8.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858650&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__extra_9",
+                "display_name": "CANAL+ EXTRA 9",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/epg.ovh\/logo\/Canal++Extra+9.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858651&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__extra_event_1",
+                "display_name": "CANAL+ EXTRA EVENT 1",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/epg.ovh\/logo\/Canal++Live.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858790&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__extra_event_2",
+                "display_name": "CANAL+ EXTRA EVENT 2",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/epg.ovh\/logo\/Canal++Live.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858789&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__extra_event_3",
+                "display_name": "CANAL+ EXTRA EVENT 3",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/epg.ovh\/logo\/Canal++Live.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858788&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "canal__extra_event_4",
+                "display_name": "CANAL+ EXTRA EVENT 4",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/epg.ovh\/logo\/Canal++Live.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858787&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "eurosport_1",
+                "display_name": "EUROSPORT 1",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/eurosport1.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439456&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "eurosport_2",
+                "display_name": "EUROSPORT 2",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/eurosport2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439455&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "nsport__hd",
+                "display_name": "NSPORT+ HD",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/europa\/poland\/nsport-plus-pl.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439454&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_sport_fhd",
+                "display_name": "TVP SPORT FHD",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvpsport.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858757&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_sport_hd",
+                "display_name": "TVP SPORT HD",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvpsport.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439453&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "golf_channel_hd",
+                "display_name": "GOLF CHANNEL HD",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/europa\/poland\/golf-channel-polska-pl.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439452&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "sportklub_hd",
+                "display_name": "SPORTKLUB HD",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/Sirbistan\/SPORT_KLUB_HD.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439451&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "extreme_sport",
+                "display_name": "EXTREME SPORT",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/extreamechannel.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439450&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "motowizja",
+                "display_name": "MOTOWIZJA",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/motowizja.Playnow.jpeg",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439449&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "fightbox",
+                "display_name": "FIGHTBOX",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/fightbox.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439448&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "fightklub",
+                "display_name": "FIGHTKLUB",
+                "group_title": "PL ✴️ SPORTY",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/fightbox.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439447&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "baby_tv",
+                "display_name": "BABY TV",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/babytv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439445&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "boomerang_hd",
+                "display_name": "BOOMERANG HD",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/tvlogo.nl\/files\/ch\/ALBANEXYU\/BOOMERANG.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439444&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "disney_xd",
+                "display_name": "DISNEY XD",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/disneyxd.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439443&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "disney_channel_fhd",
+                "display_name": "DISNEY CHANNEL FHD",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/disneychannel.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858761&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "disney_channel_hd",
+                "display_name": "DISNEY CHANNEL HD",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/disneychannel.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439442&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "disney_junior",
+                "display_name": "DISNEY JUNIOR",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/disneyjr.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439441&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "cartoon_network_fhd",
+                "display_name": "CARTOON NETWORK FHD",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/cartoonnetwork.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439440&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "cartoon_network_hd",
+                "display_name": "CARTOON NETWORK HD",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/cartoonnetwork.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858703&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "cartoonito_fhd",
+                "display_name": "CARTOONITO FHD",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/cartoonito.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858705&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "cartoonito_hd",
+                "display_name": "CARTOONITO HD",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/cartoonito.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858704&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "alfa_tvp_fhd",
+                "display_name": "ALFA TVP FHD",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/alfatvp.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858692&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "alfa_tvp_hd",
+                "display_name": "ALFA TVP HD",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/alfatvp.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858691&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "cbeebies",
+                "display_name": "CBEEBIES",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/cbeebiesbbc.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439439&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "teen_nick_fhd",
+                "display_name": "TEEN NICK FHD",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/teennick.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858778&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "teen_nick_hd",
+                "display_name": "TEEN NICK HD",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/teennick.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858777&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "nick_jr",
+                "display_name": "NICK JR",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/tvlogo.nl\/files\/ch\/BULGAR\/NICKJR.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439438&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "nicktoons_hd",
+                "display_name": "NICKTOONS HD",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/tvlogo.nl\/files\/ch\/SCANDINAVIAN\/NICKTOONS.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439437&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "nickelodeon",
+                "display_name": "NICKELODEON",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/tvlogo.nl\/files\/ch\/%C4%B0TALYA\/NICKELODEON.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439436&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "minimini__fhd",
+                "display_name": "MINIMINI+ FHD",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/minimini.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439435&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "jim_jam",
+                "display_name": "JIM JAM",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/tvlogo.nl\/files\/ch\/BELC%C4%B0KA\/JIMJAM.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439434&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "duck_tv_fhd",
+                "display_name": "DUCK TV FHD",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/r.resimlink.com\/xrqao.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858803&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "duck_tv_hd",
+                "display_name": "DUCK TV HD",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/r.resimlink.com\/xrqao.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858804&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "teletoon___fhd",
+                "display_name": "TELETOON+  FHD",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/teletoon.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439433&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_abc",
+                "display_name": "TVP ABC",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvpabc.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439432&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "4fun_kids",
+                "display_name": "4FUN KIDS",
+                "group_title": "PL ✴️DLA DZIECI",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/4funkids.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439431&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_bialystok_fhd",
+                "display_name": "TVP 3 BIALYSTOK FHD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3bialystok.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858746&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_bialystok_hd",
+                "display_name": "TVP 3 BIALYSTOK HD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3bialystok.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858745&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_bydgoszcz_fhd",
+                "display_name": "TVP 3 BYDGOSZCZ FHD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3bydgoszcz.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858744&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_bydgoszcz_hd",
+                "display_name": "TVP 3 BYDGOSZCZ HD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3bydgoszcz.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858743&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_gdansk_fhd",
+                "display_name": "TVP 3 GDANSK FHD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3gdansk.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858742&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_gdansk_hd",
+                "display_name": "TVP 3 GDANSK HD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3gdansk.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858741&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_gorzow_wielkopolski_fhd",
+                "display_name": "TVP 3 GORZOW WIELKOPOLSKI FHD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3gorzowwielkopolski.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858740&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_gorzow_wielkopolski_hd",
+                "display_name": "TVP 3 GORZOW WIELKOPOLSKI HD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3gorzowwielkopolski.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858739&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_katowice_fhd",
+                "display_name": "TVP 3 KATOWICE FHD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3katowice.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858738&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_katowice_hd",
+                "display_name": "TVP 3 KATOWICE HD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3katowice.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858737&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_kielce_fhd",
+                "display_name": "TVP 3 KIELCE FHD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3kielce.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858736&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_kielce_hd",
+                "display_name": "TVP 3 KIELCE HD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3kielce.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858735&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_krakow_fhd",
+                "display_name": "TVP 3 KRAKOW FHD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3krakow.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858734&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_krakow_hd",
+                "display_name": "TVP 3 KRAKOW HD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3krakow.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858733&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_lodz_fhd",
+                "display_name": "TVP 3 LODZ FHD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3lodz.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858732&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_lodz_hd",
+                "display_name": "TVP 3 LODZ HD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3lodz.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858731&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_lublin_fhd",
+                "display_name": "TVP 3 LUBLIN FHD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3lubnin.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858730&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_lublin_hd",
+                "display_name": "TVP 3 LUBLIN HD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3lubnin.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858729&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_olsztyn_fhd",
+                "display_name": "TVP 3 OLSZTYN FHD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3olsztyn.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858728&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_olsztyn_hd",
+                "display_name": "TVP 3 OLSZTYN HD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3olsztyn.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858727&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_opole_fhd",
+                "display_name": "TVP 3 OPOLE FHD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3opole.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858726&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_opole_hd",
+                "display_name": "TVP 3 OPOLE HD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3opole.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858725&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_poznan_fhd",
+                "display_name": "TVP 3 POZNAN FHD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3poznan.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858724&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_poznan_hd",
+                "display_name": "TVP 3 POZNAN HD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3poznan.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858723&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_rzeszow_fhd",
+                "display_name": "TVP 3 RZESZOW FHD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3rzeszow.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858722&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_rzeszow_hd",
+                "display_name": "TVP 3 RZESZOW HD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3rzeszow.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858721&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_szczecin_fhd",
+                "display_name": "TVP 3 SZCZECIN FHD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3szczecin.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858720&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_szczecin_hd",
+                "display_name": "TVP 3 SZCZECIN HD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3szczecin.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858719&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_warszawa_fhd",
+                "display_name": "TVP 3 WARSZAWA FHD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3warszawa.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858718&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_warszawa_hd",
+                "display_name": "TVP 3 WARSZAWA HD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3warszawa.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858717&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_wroclaw_fhd",
+                "display_name": "TVP 3 WROCLAW FHD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3wroclaw.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858716&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "tvp_3_wroclaw_hd",
+                "display_name": "TVP 3 WROCLAW HD",
+                "group_title": "PL ✴️TVP 3",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvp3wroclaw.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858715&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "rmf_classic",
+                "display_name": "RMF CLASSIC",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/rmfclassic.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858815&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "rmf_fm",
+                "display_name": "RMF FM",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/rmf.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858814&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "club_mtv",
+                "display_name": "CLUB MTV",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/mtvclubtv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858759&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "clubbing_tv",
+                "display_name": "CLUBBING TV",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/clubbingtv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858758&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "mtv_music",
+                "display_name": "MTV MUSIC",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/mtv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439410&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "mtv_live",
+                "display_name": "MTV LIVE",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/mtvlive.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439408&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "mtv_polska",
+                "display_name": "MTV POLSKA",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/mtv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439409&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "mtv_hits",
+                "display_name": "MTV HITS",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/mtvhits.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858817&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "mtv_00s",
+                "display_name": "MTV 00S",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/mtv00s.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858819&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "mtv_90s",
+                "display_name": "MTV 90S",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/mtv90s.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439407&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "mtv_80s",
+                "display_name": "MTV 80S",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/mtvhits.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858818&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "disco_polo_music",
+                "display_name": "DISCO POLO MUSIC",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/discopolomusic.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858760&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polo_tv",
+                "display_name": "POLO TV",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polotv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439406&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "stars_tv",
+                "display_name": "STARS TV",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/starstv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439405&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "4fun_tv",
+                "display_name": "4FUN TV",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/4funtv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439404&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "4fun_gold_hits",
+                "display_name": "4FUN GOLD HITS",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/Toplu\/Poland\/4Fun-Gold-Tv-PL.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439403&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "4fun_dance",
+                "display_name": "4FUN DANCE",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/4fundancetv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439402&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "eska_rock_tv",
+                "display_name": "ESKA ROCK TV",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/eskarock.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439401&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "eska_tv_extra",
+                "display_name": "ESKA TV EXTRA",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/eskatvextra.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439400&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "eska_tv",
+                "display_name": "ESKA TV",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/eskatv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439399&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "rmf_maxxx",
+                "display_name": "RMF MAXXX",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/rmfmaxx.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858813&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "radio_eska",
+                "display_name": "RADIO ESKA",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/eskaradio.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858810&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "radio_eska_2",
+                "display_name": "RADIO ESKA 2",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/eska2.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858809&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "vox_music_tv",
+                "display_name": "VOX MUSIC TV",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/voxmusic.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439398&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "vox_fm",
+                "display_name": "VOX FM",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/voxradio.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858713&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "nuta_tv",
+                "display_name": "NUTA TV",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/nutatv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439413&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "polsat_music",
+                "display_name": "POLSAT MUSIC",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/polsatmusic.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439412&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "radio_357",
+                "display_name": "RADIO 357",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/radio357.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858821&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "radio_nowy_swiat",
+                "display_name": "RADIO NOWY SWIAT",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/radionowyswiat.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=858820&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "power_tv",
+                "display_name": "POWER TV",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/powertv.Playnow.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439397&extension=ts",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "disco_polo_music_bis",
+                "display_name": "DISCO POLO MUSIC bis",
+                "group_title": "PL ✴️MUZYKA",
+                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/Toplu\/Poland\/Disco-Polo-Music-PL.png",
+                "type": "iptv",
+                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=439411&extension=ts",
+                "start_singolo": "SI"
+            }
+        ],
         "scheduler_managed": false
     }
 }
