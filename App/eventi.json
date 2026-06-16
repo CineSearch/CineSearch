@@ -3,15 +3,6 @@
         "start": "NO",
         "channels": [
             {
-                "id": "___tvp_info_hevc",
-                "display_name": "↺TVP INFO HEVC",
-                "group_title": "PL ✴️POLSKA HEVC",
-                "tvg_logo": "https:\/\/www.tvlogolar.xyz\/logo\/PolandPlayNowLogo\/tvpinfo.Playnow.png",
-                "type": "iptv",
-                "stream_url": "http:\/\/firstclass007.com:8080\/play\/live.php?mac=00:1A:79:13:58:90&stream=796901&extension=ts",
-                "start_singolo": "SI"
-            },
-            {
                 "id": "___tvp_hevc",
                 "display_name": "↺TVP HEVC",
                 "group_title": "PL ✴️POLSKA HEVC",
