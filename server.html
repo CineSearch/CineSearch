@@ -189,7 +189,7 @@
                             <div class="server-url">streamingita.homes</div>
                         </div>
                     </div>
-                    <span class="server-status status-checking"><i class="fas fa-spinner fa-spin"></i> Verifica...</span>
+                        <span class="server-status status-warn"><i class="fas fa-exclamation-triangle"></i> PROBLEMI</span>
                 </div>
 
                 <div class="server-item" data-url="https://altadefinizione-01.forum/">
@@ -369,9 +369,15 @@
         });
     }
 
-    function checkAllServers() {
-        document.querySelectorAll('.server-item[data-url]').forEach(item => checkServer(item));
-    }
+function checkAllServers() {
+    document.querySelectorAll('.server-item[data-url]').forEach(item => {
+        if (item.dataset.forceStatus) {
+            // Se ha force-status, non fare la verifica
+            return;
+        }
+        checkServer(item);
+    });
+}
 
     checkAllServers();
     </script>
