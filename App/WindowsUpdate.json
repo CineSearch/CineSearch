@@ -1,7 +1,11 @@
 {
-  "version": "5.6",
+  "version": "5.7",
   "releaseNotes": [
-    "Release v5.6"
+"Corretti Provider Attuali (server2)",
+"Aggiunti Nuovi Provider (server2)",
+"Corretto Problema Card Bloccate",
+"Corretto Problema Tag delle Card",
+"Aggiunta Valutazione Film sulla Card"
   ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.6/CineSearch.exe"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.7/CineSearch.exe"
 }
