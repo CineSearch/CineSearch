@@ -1,10 +1,10 @@
 {
-"version": "5.6.1",
+"version": "5.7",
 "releaseNotes": [
-  "Fix serietv/anime su continua a guardare"
+  "Aggiunto pulsante download (server1/server2)"
 ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.6.1/CineSearch-universal-release.apk",
-  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.6.1/CineSearch-universal-release.apk",
-  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.6.1/CineSearch-tv-release.apk",
-  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.6.1/CineSearch-mobile-release.apk"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.7/CineSearch-universal-release.apk",
+  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.7/CineSearch-universal-release.apk",
+  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.7/CineSearch-tv-release.apk",
+  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.7/CineSearch-mobile-release.apk"
 }
