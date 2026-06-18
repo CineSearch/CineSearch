@@ -612,105 +612,90 @@
         const result = { android: [], windows: [] };
         if (!body) return result;
 
-        // Try to find Android and Windows sections
-        const androidMatch = body.match(/(?:##?\s*)?Android/i);
-        const windowsMatch = body.match(/(?:##?\s*)?Windows/i);
+        const lines = body.split('\n');
+        let currentSection = 'none';
+        let inChangelog = false;
 
-        let androidStart = androidMatch ? androidMatch.index : -1;
-        let windowsStart = windowsMatch ? windowsMatch.index : -1;
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i].trim();
+            if (!line) continue;
 
-        // If no sections found, try to detect by keywords in lines
-        if (androidStart === -1 && windowsStart === -1) {
-            const lines = body.split('\n');
-            let currentSection = 'general';
-            const generalItems = [];
+            const lower = line.toLowerCase();
 
-            for (const line of lines) {
-                const trimmed = line.trim();
-                if (!trimmed) continue;
-
-                const lower = trimmed.toLowerCase();
-                if (lower.includes('android') && !lower.includes('windows')) {
-                    currentSection = 'android';
-                    continue;
-                } else if (lower.includes('windows') && !lower.includes('android')) {
-                    currentSection = 'windows';
-                    continue;
-                } else if (lower.includes('android') && lower.includes('windows')) {
-                    // Both mentioned, try to infer
+            // Detect section headers
+            if (lower.includes('android') && (line.includes('###') || line.includes('##') || line.match(/^android/i))) {
+                // Check if it's "### Changelog" - skip it, we need the content after
+                if (lower.includes('changelog')) {
                     continue;
                 }
+                currentSection = 'android';
+                inChangelog = true;
+                continue;
+            }
 
-                // Check if it's a list item
-                const isListItem = trimmed.match(/^[\s]*[-*•]\s+/);
-                const itemText = isListItem ? trimmed.replace(/^[\s]*[-*•]\s+/, '').trim() : trimmed;
+            if (lower.includes('windows') && (line.includes('###') || line.includes('##') || line.match(/^windows/i))) {
+                if (lower.includes('changelog')) {
+                    continue;
+                }
+                currentSection = 'windows';
+                inChangelog = true;
+                continue;
+            }
 
-                if (itemText && itemText.length > 3) {
-                    if (currentSection === 'android') {
-                        result.android.push(itemText);
-                    } else if (currentSection === 'windows') {
-                        result.windows.push(itemText);
-                    } else {
-                        generalItems.push(itemText);
+            // Skip the main "### Changelog" header
+            if (lower.includes('changelog') && (line.includes('###') || line.includes('##'))) {
+                continue;
+            }
+
+            // If we're in a section and line looks like a list item or bullet point
+            if (inChangelog && currentSection !== 'none') {
+                // Check if it's a list item (starts with -, *, •, or number with dot)
+                const isListItem = line.match(/^[\s]*[-*•]\s+/) || line.match(/^[\s]*\d+\.\s+/);
+                if (isListItem) {
+                    const itemText = line.replace(/^[\s]*[-*•]\s+/, '').replace(/^[\s]*\d+\.\s+/, '').trim();
+                    if (itemText && itemText.length > 2) {
+                        result[currentSection].push(itemText);
+                    }
+                } else if (line.length > 3 && !line.match(/^[#-]/) && !line.match(/^```/)) {
+                    // If it's not a header, not a separator, and has content, treat as changelog item
+                    // But skip if it's a separator like "---" or "==="
+                    if (!line.match(/^[=\-]{3,}/) && !line.match(/^#/)) {
+                        result[currentSection].push(line);
                     }
                 }
             }
 
-            // If we have general items and one section is empty, distribute them
-            if (generalItems.length > 0) {
-                if (result.android.length === 0 && result.windows.length === 0) {
-                    // Try to split by keywords within general items
-                    for (const item of generalItems) {
-                        const lower = item.toLowerCase();
-                        if (lower.includes('android') || lower.includes('mobile') || lower.includes('apk')) {
-                            result.android.push(item.replace(/android/i, '').trim() || item);
-                        } else if (lower.includes('windows') || lower.includes('win') || lower.includes('exe') || lower.includes('pc')) {
-                            result.windows.push(item.replace(/windows/i, '').trim() || item);
-                        } else {
-                            // Assign to both if can't determine
-                            result.android.push(item);
-                            result.windows.push(item);
-                        }
-                    }
-                } else if (result.android.length === 0) {
-                    result.android = [...generalItems];
-                } else if (result.windows.length === 0) {
-                    result.windows = [...generalItems];
+            // Detect end of sections (when we hit a new header that's not a continuation)
+            if (line.match(/^##/) || line.match(/^###/)) {
+                if (!lower.includes('android') && !lower.includes('windows') && !lower.includes('changelog')) {
+                    inChangelog = false;
                 }
             }
-
-            return result;
         }
 
-        // Parse using section boundaries
-        const sections = [];
-        const sortedStarts = [];
-        if (androidStart !== -1) sortedStarts.push({ section: 'android', index: androidStart });
-        if (windowsStart !== -1) sortedStarts.push({ section: 'windows', index: windowsStart });
-        sortedStarts.sort((a, b) => a.index - b.index);
-
-        for (let i = 0; i < sortedStarts.length; i++) {
-            const start = sortedStarts[i].index;
-            const end = i < sortedStarts.length - 1 ? sortedStarts[i + 1].index : body.length;
-            const sectionText = body.substring(start, end);
-            const lines = sectionText.split('\n');
-
-            let sectionItems = [];
+        // If no sections found with explicit headers, try to find by looking for Android/Windows keywords in lines
+        if (result.android.length === 0 && result.windows.length === 0) {
+            let current = 'none';
             for (const line of lines) {
                 const trimmed = line.trim();
                 if (!trimmed) continue;
-                // Skip section header
-                if (trimmed.match(/^##?\s*(Android|Windows)/i)) continue;
-                // Check if list item
-                const isListItem = trimmed.match(/^[\s]*[-*•]\s+/);
-                const itemText = isListItem ? trimmed.replace(/^[\s]*[-*•]\s+/, '').trim() : trimmed;
-                if (itemText && itemText.length > 2 && !itemText.match(/^##?\s/)) {
-                    sectionItems.push(itemText);
-                }
-            }
+                const lower = trimmed.toLowerCase();
 
-            if (sectionItems.length > 0) {
-                result[sortedStarts[i].section] = sectionItems;
+                if (lower.includes('android') && !lower.includes('windows')) {
+                    current = 'android';
+                    continue;
+                } else if (lower.includes('windows') && !lower.includes('android')) {
+                    current = 'windows';
+                    continue;
+                }
+
+                const isListItem = trimmed.match(/^[\s]*[-*•]\s+/) || trimmed.match(/^[\s]*\d+\.\s+/);
+                if (isListItem && current !== 'none') {
+                    const item = trimmed.replace(/^[\s]*[-*•]\s+/, '').replace(/^[\s]*\d+\.\s+/, '').trim();
+                    if (item && item.length > 2) {
+                        result[current].push(item);
+                    }
+                }
             }
         }
 
