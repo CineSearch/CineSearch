@@ -306,6 +306,91 @@
             color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-top: 12px;
         }
 
+        /* Changelog */
+        .changelog-section {
+            padding: 40px 0 60px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .changelog-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .changelog-box {
+            background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 28px 24px;
+        }
+        .changelog-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .changelog-box h3 i {
+            font-size: 1.3rem;
+        }
+        .changelog-box h3 .badge-android {
+            color: #4ade80;
+            background: rgba(34,197,94,0.12);
+            padding: 2px 12px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            border: 1px solid rgba(34,197,94,0.2);
+        }
+        .changelog-box h3 .badge-windows {
+            color: #60a5fa;
+            background: rgba(59,130,246,0.12);
+            padding: 2px 12px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            border: 1px solid rgba(59,130,246,0.2);
+        }
+        .changelog-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        .changelog-box ul li {
+            padding: 6px 0 6px 24px;
+            position: relative;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.92rem;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .changelog-box ul li:last-child {
+            border-bottom: none;
+        }
+        .changelog-box ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #2a09e5;
+            font-weight: 700;
+        }
+        .changelog-version {
+            display: inline-block;
+            background: rgba(42,9,229,0.15);
+            border: 1px solid rgba(42,9,229,0.3);
+            color: #a78bfa;
+            padding: 2px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .changelog-empty {
+            color: rgba(255,255,255,0.4);
+            font-style: italic;
+            padding: 12px 0;
+            text-align: center;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
@@ -315,6 +400,7 @@
             .stats { gap: 24px; }
             .stat-number { font-size: 1.4rem; }
             .nav-links { display: none; }
+            .changelog-grid { grid-template-columns: 1fr; }
         }
         @media (min-width: 769px) and (max-width: 1024px) {
             .download-cards { grid-template-columns: repeat(2, 1fr); }
@@ -332,6 +418,7 @@
             <div class="nav-links">
                 <a href="#download">Scarica</a>
                 <a href="#features">Caratteristiche</a>
+                <a href="#changelog">Changelog</a>
                 <a href="server.html">Server</a>
                 <a href="faq.html">FAQ</a>
                 <a href="https://github.com/CineSearch/CineSearch" target="_blank" rel="noopener" class="btn-outline">
@@ -437,6 +524,28 @@
             </div>
         </section>
 
+        <!-- CHANGELOG SECTION -->
+        <section class="changelog-section" id="changelog">
+            <div class="section-label">— Novità dell'ultima versione —</div>
+            <div style="text-align:center;margin-bottom:32px;">
+                <span class="changelog-version" id="changelog-version">v5.7</span>
+            </div>
+            <div class="changelog-grid" id="changelog-grid">
+                <div class="changelog-box" id="android-changelog">
+                    <h3><i class="fas fa-mobile-alt" style="color:#4ade80;"></i> Android <span class="badge-android">Mobile</span></h3>
+                    <ul id="android-changelog-list">
+                        <li class="changelog-empty">Caricamento in corso...</li>
+                    </ul>
+                </div>
+                <div class="changelog-box" id="windows-changelog">
+                    <h3><i class="fab fa-windows" style="color:#60a5fa;"></i> Windows <span class="badge-windows">Desktop</span></h3>
+                    <ul id="windows-changelog-list">
+                        <li class="changelog-empty">Caricamento in corso...</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <section class="features" id="features">
             <div class="feature">
                 <i class="fas fa-play-circle"></i>
@@ -498,7 +607,117 @@
     </footer>
 
     <script>
-    async function fetchGitHubStats() {
+    // Helper to parse changelog from release body
+    function parseChangelog(body) {
+        const result = { android: [], windows: [] };
+        if (!body) return result;
+
+        // Try to find Android and Windows sections
+        const androidMatch = body.match(/(?:##?\s*)?Android/i);
+        const windowsMatch = body.match(/(?:##?\s*)?Windows/i);
+
+        let androidStart = androidMatch ? androidMatch.index : -1;
+        let windowsStart = windowsMatch ? windowsMatch.index : -1;
+
+        // If no sections found, try to detect by keywords in lines
+        if (androidStart === -1 && windowsStart === -1) {
+            const lines = body.split('\n');
+            let currentSection = 'general';
+            const generalItems = [];
+
+            for (const line of lines) {
+                const trimmed = line.trim();
+                if (!trimmed) continue;
+
+                const lower = trimmed.toLowerCase();
+                if (lower.includes('android') && !lower.includes('windows')) {
+                    currentSection = 'android';
+                    continue;
+                } else if (lower.includes('windows') && !lower.includes('android')) {
+                    currentSection = 'windows';
+                    continue;
+                } else if (lower.includes('android') && lower.includes('windows')) {
+                    // Both mentioned, try to infer
+                    continue;
+                }
+
+                // Check if it's a list item
+                const isListItem = trimmed.match(/^[\s]*[-*•]\s+/);
+                const itemText = isListItem ? trimmed.replace(/^[\s]*[-*•]\s+/, '').trim() : trimmed;
+
+                if (itemText && itemText.length > 3) {
+                    if (currentSection === 'android') {
+                        result.android.push(itemText);
+                    } else if (currentSection === 'windows') {
+                        result.windows.push(itemText);
+                    } else {
+                        generalItems.push(itemText);
+                    }
+                }
+            }
+
+            // If we have general items and one section is empty, distribute them
+            if (generalItems.length > 0) {
+                if (result.android.length === 0 && result.windows.length === 0) {
+                    // Try to split by keywords within general items
+                    for (const item of generalItems) {
+                        const lower = item.toLowerCase();
+                        if (lower.includes('android') || lower.includes('mobile') || lower.includes('apk')) {
+                            result.android.push(item.replace(/android/i, '').trim() || item);
+                        } else if (lower.includes('windows') || lower.includes('win') || lower.includes('exe') || lower.includes('pc')) {
+                            result.windows.push(item.replace(/windows/i, '').trim() || item);
+                        } else {
+                            // Assign to both if can't determine
+                            result.android.push(item);
+                            result.windows.push(item);
+                        }
+                    }
+                } else if (result.android.length === 0) {
+                    result.android = [...generalItems];
+                } else if (result.windows.length === 0) {
+                    result.windows = [...generalItems];
+                }
+            }
+
+            return result;
+        }
+
+        // Parse using section boundaries
+        const sections = [];
+        const sortedStarts = [];
+        if (androidStart !== -1) sortedStarts.push({ section: 'android', index: androidStart });
+        if (windowsStart !== -1) sortedStarts.push({ section: 'windows', index: windowsStart });
+        sortedStarts.sort((a, b) => a.index - b.index);
+
+        for (let i = 0; i < sortedStarts.length; i++) {
+            const start = sortedStarts[i].index;
+            const end = i < sortedStarts.length - 1 ? sortedStarts[i + 1].index : body.length;
+            const sectionText = body.substring(start, end);
+            const lines = sectionText.split('\n');
+
+            let sectionItems = [];
+            for (const line of lines) {
+                const trimmed = line.trim();
+                if (!trimmed) continue;
+                // Skip section header
+                if (trimmed.match(/^##?\s*(Android|Windows)/i)) continue;
+                // Check if list item
+                const isListItem = trimmed.match(/^[\s]*[-*•]\s+/);
+                const itemText = isListItem ? trimmed.replace(/^[\s]*[-*•]\s+/, '').trim() : trimmed;
+                if (itemText && itemText.length > 2 && !itemText.match(/^##?\s/)) {
+                    sectionItems.push(itemText);
+                }
+            }
+
+            if (sectionItems.length > 0) {
+                result[sortedStarts[i].section] = sectionItems;
+            }
+        }
+
+        return result;
+    }
+
+    async function fetchGitHubStatsAndChangelog() {
         try {
             const [repoRes, releasesRes] = await Promise.all([
                 fetch('https://api.github.com/repos/CineSearch/CineSearch'),
@@ -534,6 +753,50 @@
                         }
                     }
                 }
+
+                // Get latest release for changelog
+                const latestRelease = releases[0];
+                if (latestRelease) {
+                    // Update version badge
+                    const versionEl = document.getElementById('changelog-version');
+                    if (versionEl) {
+                        versionEl.textContent = latestRelease.tag_name || 'v5.7';
+                    }
+
+                    // Parse changelog from release body
+                    const body = latestRelease.body || '';
+                    const changelog = parseChangelog(body);
+
+                    // Update Android changelog
+                    const androidList = document.getElementById('android-changelog-list');
+                    if (androidList) {
+                        androidList.innerHTML = '';
+                        if (changelog.android && changelog.android.length > 0) {
+                            for (const item of changelog.android) {
+                                const li = document.createElement('li');
+                                li.textContent = item;
+                                androidList.appendChild(li);
+                            }
+                        } else {
+                            androidList.innerHTML = '<li class="changelog-empty">Nessuna novità Android in questa release</li>';
+                        }
+                    }
+
+                    // Update Windows changelog
+                    const windowsList = document.getElementById('windows-changelog-list');
+                    if (windowsList) {
+                        windowsList.innerHTML = '';
+                        if (changelog.windows && changelog.windows.length > 0) {
+                            for (const item of changelog.windows) {
+                                const li = document.createElement('li');
+                                li.textContent = item;
+                                windowsList.appendChild(li);
+                            }
+                        } else {
+                            windowsList.innerHTML = '<li class="changelog-empty">Nessuna novità Windows in questa release</li>';
+                        }
+                    }
+                }
             }
 
             // Persist download counts across version bumps (localStorage)
@@ -557,13 +820,24 @@
             document.getElementById('universal-dl').textContent = counts.universalDownloads > 0 ? counts.universalDownloads.toLocaleString() : 'N/A';
 
         } catch (err) {
+            console.error('Error fetching data:', err);
             document.getElementById('total-downloads').textContent = 'N/A';
             document.getElementById('github-stars').textContent = 'N/A';
             document.getElementById('github-forks').textContent = 'N/A';
             document.querySelectorAll('.download-count-badge span').forEach(el => el.textContent = 'N/A');
+            
+            // Set fallback changelog
+            const androidList = document.getElementById('android-changelog-list');
+            if (androidList) {
+                androidList.innerHTML = '<li class="changelog-empty">Impossibile caricare il changelog</li>';
+            }
+            const windowsList = document.getElementById('windows-changelog-list');
+            if (windowsList) {
+                windowsList.innerHTML = '<li class="changelog-empty">Impossibile caricare il changelog</li>';
+            }
         }
     }
-    fetchGitHubStats();
+    fetchGitHubStatsAndChangelog();
     </script>
 </body>
 </html>
