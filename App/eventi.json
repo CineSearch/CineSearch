@@ -1,7 +1,53 @@
 {
     "playlist": {
         "start": "NO",
-        "channels": [],
+        "channels": [
+            {
+                "id": "rai_1",
+                "display_name": "Rai 1",
+                "group_title": "Italia",
+                "tvg_logo": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/e\/e1\/Rai_1_logo_2016.png",
+                "type": "iptv",
+                "stream_url": "https:\/\/mediapolis.rai.it\/relinker\/relinkerServlet.hvm?gethls=false&format=m3u8&cont=1",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "rai_2",
+                "display_name": "Rai 2",
+                "group_title": "Italia",
+                "tvg_logo": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/a\/a3\/Rai_2_logo_2016.png",
+                "type": "iptv",
+                "stream_url": "https:\/\/mediapolis.rai.it\/relinker\/relinkerServlet.hvm?gethls=false&format=m3u8&cont=2",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "rai_3",
+                "display_name": "Rai 3",
+                "group_title": "Italia",
+                "tvg_logo": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/1\/1d\/Rai_3_logo_2016.png",
+                "type": "iptv",
+                "stream_url": "https:\/\/mediapolis.rai.it\/relinker\/relinkerServlet.hvm?gethls=false&format=m3u8&cont=3",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "nasa_tv",
+                "display_name": "NASA TV",
+                "group_title": "Scienza",
+                "tvg_logo": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/1\/1b\/NASA_logo.svg",
+                "type": "iptv",
+                "stream_url": "https:\/\/ntv1.akamaized.net\/hls\/live\/2014075\/NASA-NTV1-HLS\/master.m3u8",
+                "start_singolo": "SI"
+            },
+            {
+                "id": "al_jazeera_english",
+                "display_name": "Al Jazeera English",
+                "group_title": "News",
+                "tvg_logo": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/3\/36\/Al_Jazeera_English.svg",
+                "type": "iptv",
+                "stream_url": "https:\/\/live-hls-web-aje.getaj.net\/AJE\/index.m3u8",
+                "start_singolo": "SI"
+            }
+        ],
         "scheduler_managed": false
     }
 }
