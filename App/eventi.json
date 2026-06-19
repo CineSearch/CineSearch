@@ -1,62 +1,7 @@
 {
     "playlist": {
         "start": "NO",
-        "channels": [
-            {
-                "id": "rai_2",
-                "display_name": "Rai 2",
-                "group_title": "Importato",
-                "tvg_logo": "",
-                "type": "iptv",
-                "stream_url": "https:\/\/mediapolis.rai.it\/relinker\/relinkerServlet.hls=false&format=m3u8&cont=2",
-                "start_singolo": "SI"
-            },
-            {
-                "id": "rai_3",
-                "display_name": "Rai 3",
-                "group_title": "Importato",
-                "tvg_logo": "",
-                "type": "iptv",
-                "stream_url": "https:\/\/mediapolis.rai.it\/relinker\/relinkerServlet.hvm?gethls=false&format=m3u8&cont=3",
-                "start_singolo": "SI"
-            },
-            {
-                "id": "al_jazeera_english",
-                "display_name": "Al Jazeera English",
-                "group_title": "Importato",
-                "tvg_logo": "",
-                "type": "iptv",
-                "stream_url": "https:\/\/live-hls-web-aje.getaj.net\/AJE\/index.m3u8",
-                "start_singolo": "SI"
-            },
-            {
-                "id": "sky_news",
-                "display_name": "Sky News",
-                "group_title": "Importato",
-                "tvg_logo": "",
-                "type": "iptv",
-                "stream_url": "https:\/\/skynews-live.akamaized.net\/hls\/live\/2002669\/skynews\/master.m3u8",
-                "start_singolo": "SI"
-            },
-            {
-                "id": "dw_english",
-                "display_name": "DW English",
-                "group_title": "Importato",
-                "tvg_logo": "",
-                "type": "iptv",
-                "stream_url": "https:\/\/dwstream72-lh.akamaihd.net\/i\/dwstream72_live@123339\/master.m3u8",
-                "start_singolo": "SI"
-            },
-            {
-                "id": "bloomberg_television",
-                "display_name": "Bloomberg Television",
-                "group_title": "Importato",
-                "tvg_logo": "",
-                "type": "iptv",
-                "stream_url": "https:\/\/bloomberg-preview-us.akamaized.net\/hls\/live\/593787\/1709271137535\/master.m3u8",
-                "start_singolo": "SI"
-            }
-        ],
+        "channels": [],
         "scheduler_managed": false
     }
 }
