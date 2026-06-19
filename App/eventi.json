@@ -3,15 +3,6 @@
         "start": "NO",
         "channels": [
             {
-                "id": "rai_1",
-                "display_name": "Rai 1",
-                "group_title": "Importato",
-                "tvg_logo": "",
-                "type": "iptv",
-                "stream_url": "https:\/\/mediapolis.rai.it\/relinker\/relinkerServlet.hvm?gethls=false&format=m3u8&cont=1",
-                "start_singolo": "SI"
-            },
-            {
                 "id": "rai_2",
                 "display_name": "Rai 2",
                 "group_title": "Importato",
@@ -30,30 +21,12 @@
                 "start_singolo": "SI"
             },
             {
-                "id": "nasa_tv",
-                "display_name": "NASA TV",
-                "group_title": "Importato",
-                "tvg_logo": "",
-                "type": "iptv",
-                "stream_url": "https:\/\/ntv1.akamaized.net\/hls\/live\/2014075\/NASA-NTV1-HLS\/master.m3u8",
-                "start_singolo": "SI"
-            },
-            {
                 "id": "al_jazeera_english",
                 "display_name": "Al Jazeera English",
                 "group_title": "Importato",
                 "tvg_logo": "",
                 "type": "iptv",
                 "stream_url": "https:\/\/live-hls-web-aje.getaj.net\/AJE\/index.m3u8",
-                "start_singolo": "SI"
-            },
-            {
-                "id": "france_24_english",
-                "display_name": "France 24 English",
-                "group_title": "Importato",
-                "tvg_logo": "",
-                "type": "iptv",
-                "stream_url": "https:\/\/static.france24.com\/live\/F24_EN_HI_HLS\/live_web.m3u8",
                 "start_singolo": "SI"
             },
             {
@@ -81,15 +54,6 @@
                 "tvg_logo": "",
                 "type": "iptv",
                 "stream_url": "https:\/\/bloomberg-preview-us.akamaized.net\/hls\/live\/593787\/1709271137535\/master.m3u8",
-                "start_singolo": "SI"
-            },
-            {
-                "id": "euronews_english",
-                "display_name": "Euronews English",
-                "group_title": "Importato",
-                "tvg_logo": "",
-                "type": "iptv",
-                "stream_url": "https:\/\/euronews-euronews-en-1.samsung.wurl.tv\/playlist.m3u8",
                 "start_singolo": "SI"
             }
         ],
