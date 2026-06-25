@@ -1,10 +1,17 @@
 {
-"version": "5.7",
+"version": "5.8",
 "releaseNotes": [
-  "Aggiunto pulsante download (server1/server2)"
+  "Aggiunto qualità massima impostata automaticamente",
+  "Aggiunto fix software encode",
+  "Fix path cartella download su alcuni dispositivi",
+  "Fix sincronizzazioni serietvle quali andavano come \"gia visto\" anche se non erano finite",
+  "Fix sincronizzazione tv-tv",
+  "Possibilità di scaricare intera stagione (sia serietv che anime)",
+  "Fix comandi in modalità pip",
+  "Rimosso da tv selezione posizione download in quanto non previsto su tv"
 ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.7/CineSearch-universal-release.apk",
-  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.7/CineSearch-universal-release.apk",
-  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.7/CineSearch-tv-release.apk",
-  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.7/CineSearch-mobile-release.apk"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.8/CineSearch-universal-release.apk",
+  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.8/CineSearch-universal-release.apk",
+  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.8/CineSearch-tv-release.apk",
+  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.8/CineSearch-mobile-release.apk"
 }

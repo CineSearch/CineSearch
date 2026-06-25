@@ -1,11 +1,11 @@
 {
-  "version": "5.7",
+  "version": "5.8",
   "releaseNotes": [
-"Corretti Provider Attuali (server2)",
-"Aggiunti Nuovi Provider (server2)",
-"Corretto Problema Card Bloccate",
-"Corretto Problema Tag delle Card",
-"Aggiunta Valutazione Film sulla Card"
+"Aggiunto opensubtitles",
+ "Aggiunto qualità massima impostata automaticamente",
+ "Aggiunto download film/serietv e anime",
+ "Fix ripresa video",
+ "Possibilità di scaricare intera stagione (sia serietv che anime)"
   ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.7/CineSearch.exe"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.8/CineSearch.exe"
 }

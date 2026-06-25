@@ -120,7 +120,7 @@
             letter-spacing: 3px; color: rgba(255,255,255,0.4); margin-bottom: 40px;
         }
         .download-cards {
-            display: grid; grid-template-columns: repeat(4, 1fr);
+            display: grid; grid-template-columns: repeat(5, 1fr);
             gap: 24px; max-width: 1100px; margin: 0 auto;
         }
         .download-card {
@@ -177,15 +177,22 @@
             color: #fff;
         }
         .btn-download-universal:hover { box-shadow: 0 8px 30px rgba(233,78,31,0.4); transform: scale(1.05); }
+        .btn-download-ios {
+            background: linear-gradient(135deg, #8e8e93, #aeaeb2);
+            color: #fff;
+        }
+        .btn-download-ios:hover { box-shadow: 0 8px 30px rgba(142,142,147,0.4); transform: scale(1.05); }
 
         .card-android::before { background: linear-gradient(90deg, #16a34a, #22c55e); }
         .card-tv::before { background: linear-gradient(90deg, #2a09e5, #7c3aed); }
         .card-windows::before { background: linear-gradient(90deg, #0284c7, #38bdf8); }
         .card-universal::before { background: linear-gradient(90deg, #e94e1f, #f97316); }
+        .card-ios::before { background: linear-gradient(90deg, #8e8e93, #aeaeb2); }
 
         .card-android:hover { border-color: rgba(22,163,74,0.3); box-shadow: 0 20px 60px rgba(22,163,74,0.12); }
         .card-windows:hover { border-color: rgba(2,132,199,0.3); box-shadow: 0 20px 60px rgba(2,132,199,0.12); }
         .card-universal:hover { border-color: rgba(233,78,31,0.3); box-shadow: 0 20px 60px rgba(233,78,31,0.12); }
+        .card-ios:hover { border-color: rgba(142,142,147,0.3); box-shadow: 0 20px 60px rgba(142,142,147,0.12); }
 
         .download-count-badge {
             display: inline-block; margin-top: 12px;
@@ -403,7 +410,7 @@
             .changelog-grid { grid-template-columns: 1fr; }
         }
         @media (min-width: 769px) and (max-width: 1024px) {
-            .download-cards { grid-template-columns: repeat(2, 1fr); }
+            .download-cards { grid-template-columns: repeat(3, 1fr); }
         }
     </style>
 </head>
@@ -431,10 +438,10 @@
 <div class="container">
     <section class="hero">
         <div class="hero-badge">
-            <i class="fas fa-star"></i> Windows — v5.7 &mdash; Ultima versione disponibile
+            <i class="fas fa-star"></i> Windows — v5.8 &mdash; Ultima versione disponibile
         </div>
         <div class="hero-badge android-badge">
-            <i class="fas fa-star"></i> Android — v5.7 &mdash; Ultima versione disponibile
+            <i class="fas fa-star"></i> Android — v5.8 &mdash; Ultima versione disponibile
         </div>
         <h1>Il tuo cinema,<br>sempre con te.</h1>
         <p>
@@ -452,10 +459,7 @@
                     <div class="stat-number"><i class="fas fa-star"></i> <span id="github-stars">--</span></div>
                     <div class="stat-label">Star su GitHub</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number"><i class="fas fa-code-branch"></i> <span id="github-forks">--</span></div>
-                    <div class="stat-label">Forks</div>
-                </div>
+
             </div>
 
             <div class="badges-row">
@@ -481,45 +485,58 @@
                     <span class="icon"><i class="fas fa-mobile-alt"></i></span>
                     <h3>Android</h3>
                     <p>App nativa per smartphone e tablet Android. Leggera e veloce.</p>
-                    <a href="https://github.com/CineSearch/CineSearch/releases/download/Release_v5.7/CineSearch-mobile-release.apk" target="_blank" rel="noopener" class="btn-download btn-download-android">
+                    <a href="https://github.com/CineSearch/CineSearch/releases/download/Release_v5.8/CineSearch-mobile-release.apk" target="_blank" rel="noopener" class="btn-download btn-download-android">
                         <i class="fas fa-download"></i> Android APK
                     </a>
                     <span class="download-count-badge"><span id="android-dl">--</span> download</span>
                     <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:10px;font-weight:700;">Codice AFTVnews:</div>
-                    <div class="dl-code-row"><code>5120107</code><button class="copy-btn" onclick="navigator.clipboard.writeText('5120107');this.innerHTML='✅ Copiato';setTimeout(()=>this.innerHTML='<i class=\'fas fa-copy\'></i> Copia',2000)"><i class="fas fa-copy"></i> Copia</button></div>
+                    <div class="dl-code-row"><code>5110866</code><button class="copy-btn" onclick="navigator.clipboard.writeText('5110866');this.innerHTML='✅ Copiato';setTimeout(()=>this.innerHTML='<i class=\'fas fa-copy\'></i> Copia',2000)"><i class="fas fa-copy"></i> Copia</button></div>
                 </div>
 
                 <div class="download-card card-tv">
                     <span class="icon"><i class="fas fa-tv"></i></span>
                     <h3>TV</h3>
                     <p>Versione ottimizzata per Android TV, Fire TV e Google TV.</p>
-                    <a href="https://github.com/CineSearch/CineSearch/releases/download/Release_v5.7/CineSearch-tv-release.apk" target="_blank" rel="noopener" class="btn-download btn-download-tv">
+                    <a href="https://github.com/CineSearch/CineSearch/releases/download/Release_v5.8/CineSearch-tv-release.apk" target="_blank" rel="noopener" class="btn-download btn-download-tv">
                         <i class="fas fa-download"></i> TV APK
                     </a>
                     <span class="download-count-badge"><span id="tv-dl">--</span> download</span>
                     <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:10px;font-weight:700;">Codice AFTVnews:</div>
-                    <div class="dl-code-row"><code>4613161</code><button class="copy-btn" onclick="navigator.clipboard.writeText('4613161');this.innerHTML='✅ Copiato';setTimeout(()=>this.innerHTML='<i class=\'fas fa-copy\'></i> Copia',2000)"><i class="fas fa-copy"></i> Copia</button></div>
+                    <div class="dl-code-row"><code>7504725</code><button class="copy-btn" onclick="navigator.clipboard.writeText('7504725');this.innerHTML='✅ Copiato';setTimeout(()=>this.innerHTML='<i class=\'fas fa-copy\'></i> Copia',2000)"><i class="fas fa-copy"></i> Copia</button></div>
                 </div>
                 <div class="download-card card-universal">
                     <span class="icon"><i class="fab fa-android"></i></span>
                     <h3>Android+TV</h3>
                     <p>App universale per smartphone, tablet e Android TV. Un'unica soluzione.</p>
-                    <a href="https://github.com/CineSearch/CineSearch/releases/download/Release_v5.7/CineSearch-universal-release.apk" target="_blank" rel="noopener" class="btn-download btn-download-universal">
+                    <a href="https://github.com/CineSearch/CineSearch/releases/download/Release_v5.8/CineSearch-universal-release.apk" target="_blank" rel="noopener" class="btn-download btn-download-universal">
                         <i class="fas fa-download"></i> Universal APK
                     </a>
                     <span class="download-count-badge"><span id="universal-dl">--</span> download</span>
                     <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:10px;font-weight:700;">Codice AFTVnews:</div>
-                    <div class="dl-code-row"><code>5145507</code><button class="copy-btn" onclick="navigator.clipboard.writeText('5145507');this.innerHTML='✅ Copiato';setTimeout(()=>this.innerHTML='<i class=\'fas fa-copy\'></i> Copia',2000)"><i class="fas fa-copy"></i> Copia</button></div>
+                    <div class="dl-code-row"><code>7283767</code><button class="copy-btn" onclick="navigator.clipboard.writeText('7283767');this.innerHTML='✅ Copiato';setTimeout(()=>this.innerHTML='<i class=\'fas fa-copy\'></i> Copia',2000)"><i class="fas fa-copy"></i> Copia</button></div>
                 </div>
                 <div class="download-card card-windows">
                     <span class="icon"><i class="fab fa-windows"></i></span>
                     <span class="alpha-badge">BETA</span>
                     <h3>Windows</h3>
                     <p>Versione desktop per Windows 10/11.</p>
-                    <a href="https://github.com/CineSearch/CineSearch/releases/download/Release_v5.7/CineSearch.exe" target="_blank" rel="noopener" class="btn-download btn-download-windows">
+                    <a href="https://github.com/CineSearch/CineSearch/releases/download/Release_v5.8/CineSearch.exe" target="_blank" rel="noopener" class="btn-download btn-download-windows">
                         <i class="fas fa-download"></i> EXE
                     </a>
                     <div class="download-count-badge"><span id="windows-dl">--</span> download</div>
+                </div>
+                                <div class="download-card card-ios">
+                    <span class="icon"><i class="fab fa-apple"></i></span>
+                    <span class="alpha-badge">WEB</span>
+                    <h3>IOS-MACOS</h3>
+                    <p>Versione Web per iOS e macOS. Accesso immediato, senza installazione.</p>
+                    <div style="background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.2);border-radius:10px;padding:10px 12px;margin-bottom:16px;font-size:0.72rem;color:#fbbf24;line-height:1.5;text-align:left;">
+                        <div style="font-weight:700;margin-bottom:4px;"><i class="fas fa-info-circle"></i> Solo Web</div>
+                        <div style="opacity:0.85;">NON sono previste queste funzioni:<br>- Continua a guardare<br>- Sincronizzazione<br>- Verifica film/serie TV<br>- Anime<br>- TV Live</div>
+                    </div>
+                    <a href="ios-macos/index.html" class="btn-download btn-download-ios">
+                        <i class="fas fa-globe"></i> Web
+                    </a>
                 </div>
             </div>
         </section>
@@ -528,7 +545,7 @@
         <section class="changelog-section" id="changelog">
             <div class="section-label">— Novità dell'ultima versione —</div>
             <div style="text-align:center;margin-bottom:32px;">
-                <span class="changelog-version" id="changelog-version">v5.7</span>
+                <span class="changelog-version" id="changelog-version">v5.8</span>
             </div>
             <div class="changelog-grid" id="changelog-grid">
                 <div class="changelog-box" id="android-changelog">
@@ -712,7 +729,6 @@
             const releases = await releasesRes.json();
 
             document.getElementById('github-stars').textContent = repo.stargazers_count || 0;
-            document.getElementById('github-forks').textContent = repo.forks_count || 0;
 
             let totalDownloads = 0;
             let tvDownloads = 0;
@@ -745,7 +761,7 @@
                     // Update version badge
                     const versionEl = document.getElementById('changelog-version');
                     if (versionEl) {
-                        versionEl.textContent = latestRelease.tag_name || 'v5.7';
+                        versionEl.textContent = latestRelease.tag_name || 'v5.8';
                     }
 
                     // Parse changelog from release body
@@ -808,7 +824,6 @@
             console.error('Error fetching data:', err);
             document.getElementById('total-downloads').textContent = 'N/A';
             document.getElementById('github-stars').textContent = 'N/A';
-            document.getElementById('github-forks').textContent = 'N/A';
             document.querySelectorAll('.download-count-badge span').forEach(el => el.textContent = 'N/A');
             
             // Set fallback changelog
