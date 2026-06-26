@@ -1,11 +1,8 @@
 {
-  "version": "5.8",
+  "version": "5.8.1",
   "releaseNotes": [
-"Aggiunto opensubtitles",
- "Aggiunto qualità massima impostata automaticamente",
- "Aggiunto download film/serietv e anime",
- "Fix ripresa video",
- "Possibilità di scaricare intera stagione (sia serietv che anime)"
+ "Fix provider Altadefinizione01",
+ "Fix download Server1"
   ],
   "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.8/CineSearch.exe"
 }
