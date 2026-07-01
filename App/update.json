@@ -1,11 +1,12 @@
 {
-"version": "5.8.1",
+"version": "5.9",
 "releaseNotes": [
-  "Fix provider Altadefinizione01",
-  "Fix pulsante esterno dal player mobile"
+  "Fix download su mobile",
+  "Fix sincronizzazione TV-TV",
+  "Fix TVLive"
 ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.8.1/CineSearch-universal-release.apk",
-  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.8.1/CineSearch-universal-release.apk",
-  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.8.1/CineSearch-tv-release.apk",
-  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.8.1/CineSearch-mobile-release.apk"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.9/CineSearch-universal-release.apk",
+  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.9/CineSearch-universal-release.apk",
+  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.9/CineSearch-tv-release.apk",
+  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.9/CineSearch-mobile-release.apk"
 }

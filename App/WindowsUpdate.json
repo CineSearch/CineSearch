@@ -1,8 +1,9 @@
 {
-  "version": "5.8.1",
+  "version": "5.9",
   "releaseNotes": [
- "Fix provider Altadefinizione01",
- "Fix download Server1"
+   "Aggiunto tag INVALID nelle altre pagine app",
+   "Fix TVLive",
+   "Fix AnimeWorld"
   ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.8.1/CineSearch.exe"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v5.9/CineSearch.exe"
 }
