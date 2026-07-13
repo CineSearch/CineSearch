@@ -1,9 +1,10 @@
 {
 "version": "6.0",
 "releaseNotes": [
-  "Fix download su mobile",
-  "Fix sincronizzazione TV-TV",
-  "Fix TVLive"
+  "Fix download con audio",
+  "Aggiunto Provider VidSrc",
+  "Rimosso scelta provider da impostazioni",
+  "Rimosso provider StreamingITA"
 ],
   "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.0/CineSearch-universal-release.apk",
   "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.0/CineSearch-universal-release.apk",
