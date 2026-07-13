@@ -1,14 +1,15 @@
 {
-"version": "6.0",
+"version": "6.0.1",
 "releaseNotes": [
   "Fix download con audio",
   "Aggiunto Provider VidSrc",
   "Rimosso scelta provider da impostazioni",
   "Rimosso provider StreamingITA",
-  "Fix Codice Loop Estrattore Token Server2"
+  "Fix Codice Loop Estrattore Token Server2",
+  "Fix provider ANIME (vixcloud)"
 ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.0/CineSearch-universal-release.apk",
-  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.0/CineSearch-universal-release.apk",
-  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.0/CineSearch-tv-release.apk",
-  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.0/CineSearch-mobile-release.apk"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.0.1/CineSearch-universal-release.apk",
+  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.0.1/CineSearch-universal-release.apk",
+  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.0.1/CineSearch-tv-release.apk",
+  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.0.1/CineSearch-mobile-release.apk"
 }
