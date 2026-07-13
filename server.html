@@ -102,6 +102,11 @@
             border: 1px solid rgba(251,191,36,0.3);
             color: #fbbf24;
         }
+        .status-timeout {
+            background: rgba(251,191,36,0.12);
+            border: 1px solid rgba(251,191,36,0.3);
+            color: #fbbf24;
+        }
 
         .refresh-bar {
             text-align: center; margin-top: 32px;
@@ -181,16 +186,16 @@
                     <span class="server-status status-checking"><i class="fas fa-spinner fa-spin"></i> Verifica...</span>
                 </div>
 
-<div class="server-item" data-url="https://streamingita.homes/" data-force-status="warn">
-    <div class="server-info">
-        <i class="fas fa-globe"></i>
-        <div>
-            <div class="server-name">StreamingITA</div>
-            <div class="server-url">streamingita.homes</div>
-        </div>
-    </div>
-    <span class="server-status status-warn"><i class="fas fa-exclamation-triangle"></i> PROBLEMI</span>
-</div>
+                <div class="server-item" data-url="https://streamingita.homes/" data-force-status="warn">
+                    <div class="server-info">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <div class="server-name">StreamingITA</div>
+                            <div class="server-url">streamingita.homes</div>
+                        </div>
+                    </div>
+                    <span class="server-status status-warn"><i class="fas fa-exclamation-triangle"></i> PROBLEMI</span>
+                </div>
 
                 <div class="server-item" data-url="https://altadefinizione-01.forum/">
                     <div class="server-info">
@@ -211,7 +216,7 @@
                             <div class="server-url">guardoserie.courses</div>
                         </div>
                     </div>
-    <span class="server-status status-warn"><i class="fas fa-exclamation-triangle"></i> PROBLEMI</span>
+                    <span class="server-status status-warn"><i class="fas fa-exclamation-triangle"></i> PROBLEMI</span>
                 </div>
             </div>
 
@@ -342,43 +347,54 @@
     async function checkServer(item) {
         const url = item.dataset.url;
         const statusEl = item.querySelector('.server-status');
+        
+        // Se ha force-status, salta la verifica
+        if (item.dataset.forceStatus) {
+            return;
+        }
+        
         statusEl.className = 'server-status status-checking';
         statusEl.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifica...';
 
-        await new Promise(resolve => {
-            const img = new Image();
-            const timeout = setTimeout(() => {
-                img.src = '';
+        try {
+            // Usa fetch in modalità no-cors
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 8000);
+            
+            const response = await fetch(url, {
+                method: 'HEAD',
+                mode: 'no-cors',
+                signal: controller.signal,
+                cache: 'no-store'
+            });
+            
+            clearTimeout(timeoutId);
+            
+            // In modalità no-cors, la risposta è opaca
+            // Se la richiesta arriva a destinazione, consideriamo il server raggiungibile
+            statusEl.className = 'server-status status-ok';
+            statusEl.innerHTML = '<i class="fas fa-check-circle"></i> OK';
+            
+        } catch (error) {
+            // Se c'è un errore, probabilmente il server non è raggiungibile
+            if (error.name === 'AbortError') {
+                statusEl.className = 'server-status status-timeout';
+                statusEl.innerHTML = '<i class="fas fa-clock"></i> TIMEOUT';
+            } else {
+                // ERR_NAME_NOT_RESOLVED, connessione rifiutata, ecc.
                 statusEl.className = 'server-status status-err';
                 statusEl.innerHTML = '<i class="fas fa-times-circle"></i> ERRORE';
-                resolve();
-            }, 8000);
-            img.onload = () => {
-                clearTimeout(timeout);
-                statusEl.className = 'server-status status-ok';
-                statusEl.innerHTML = '<i class="fas fa-check-circle"></i> OK';
-                resolve();
-            };
-            img.onerror = () => {
-                clearTimeout(timeout);
-                statusEl.className = 'server-status status-ok';
-                statusEl.innerHTML = '<i class="fas fa-check-circle"></i> OK';
-                resolve();
-            };
-            img.src = url + '?t=' + Date.now();
+            }
+        }
+    }
+
+    function checkAllServers() {
+        document.querySelectorAll('.server-item[data-url]').forEach(item => {
+            checkServer(item);
         });
     }
 
-function checkAllServers() {
-    document.querySelectorAll('.server-item[data-url]').forEach(item => {
-        if (item.dataset.forceStatus) {
-            // Se ha force-status, non fare la verifica
-            return;
-        }
-        checkServer(item);
-    });
-}
-
+    // Avvia la verifica al caricamento della pagina
     checkAllServers();
     </script>
 </body>
