@@ -233,12 +233,21 @@
 
         /* Features */
         .features {
-            display: grid; grid-template-columns: repeat(3, 1fr);
+            display: grid; grid-template-columns: repeat(4, 1fr);
             gap: 24px; padding: 60px 0 80px;
             border-top: 1px solid rgba(255,255,255,0.06);
         }
         .feature {
             text-align: center; padding: 24px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.04);
+            transition: all 0.3s ease;
+        }
+        .feature:hover {
+            border-color: rgba(42,9,229,0.2);
+            transform: translateY(-4px);
+            background: rgba(42,9,229,0.05);
         }
         .feature i {
             font-size: 2rem; color: #2a09e5; margin-bottom: 16px;
@@ -398,6 +407,12 @@
             text-align: center;
         }
 
+        /* Download feature icon specific */
+        .feature-download i {
+            color: #f97316;
+            background: rgba(249,115,22,0.1);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
@@ -411,6 +426,7 @@
         }
         @media (min-width: 769px) and (max-width: 1024px) {
             .download-cards { grid-template-columns: repeat(3, 1fr); }
+            .features { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -563,6 +579,7 @@
             </div>
         </section>
 
+        <!-- FEATURES SECTION - AGGIORNATA CON DOWNLOAD DEI CONTENUTI -->
         <section class="features" id="features">
             <div class="feature">
                 <i class="fas fa-play-circle"></i>
@@ -578,6 +595,11 @@
                 <i class="fas fa-sync-alt"></i>
                 <h4>Sincronizzazione Dispositivi</h4>
                 <p>Passa da Android a TV a Windows senza perdere i progressi. Tutto sincronizzato in tempo reale.</p>
+            </div>
+            <div class="feature feature-download">
+                <i class="fas fa-cloud-download-alt"></i>
+                <h4>Download dei contenuti</h4>
+                <p>Scarica Film, SerieTV e Anime direttamente sul tuo dispositivo per guardarli offline, ovunque e in qualsiasi momento.</p>
             </div>
         </section>
 
