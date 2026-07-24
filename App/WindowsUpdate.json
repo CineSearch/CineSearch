@@ -1,11 +1,15 @@
 {
-  "version": "6.0.1",
+  "version": "6.1",
   "releaseNotes": [
-  "Fix download con audio",
-  "Aggiunto Provider VidSrc",
-  "Rimosso scelta provider da impostazioni",
-  "Rimosso provider StreamingITA",
-  "Fix provider ANIME (vixcloud)"
+  "Rimosso vidsrc (dava problemi app)",
+  "Nuovo menù impostazioni",
+  "Aggiunto in impostazioni (Backup e Ripristino) per resettare la cache e i dati senza perdere i preferiti",
+  "Aggiunto sistema di valutazione film/serietv per farti suggerire dall'app i film/Serietv che più ti appassioano",
+  "Inserito Vavoo in TV LIVE accessibile solo tramite codice",
+  "Fix codice Anime",
+  "Fix provider Animeworld",
+  "Aggiunte categorie su AnimeWorld",
+  "Aggiunto filtri su Film/Serietv"
   ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.0.1/CineSearch.exe"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.1/CineSearch.exe"
 }
