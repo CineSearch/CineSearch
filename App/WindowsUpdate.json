@@ -1,8 +1,9 @@
 {
-  "version": "6.1",
+  "version": "6.2",
   "releaseNotes": [
   "Inserito trailer in app film/serietv",
+  "Fix vavoo (ora si vedono tutti i canli",
   "Fix vari"
   ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.1/CineSearch.exe"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.2/CineSearch.exe"
 }

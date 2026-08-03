@@ -1,13 +1,14 @@
 {
-"version": "6.1",
+"version": "6.2",
 "releaseNotes": [
   "Correzione Vavoo",
   "Correzione codice vavo su android 5.1",
   "Inserito trailer in app film/serietv",
+  "Inserito sleeptimer",
   "Fix vari"
 ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.1/CineSearch-universal-release.apk",
-  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.1/CineSearch-universal-release.apk",
-  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.1/CineSearch-tv-release.apk",
-  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.1/CineSearch-mobile-release.apk"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.2/CineSearch-universal-release.apk",
+  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.2/CineSearch-universal-release.apk",
+  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.2/CineSearch-tv-release.apk",
+  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.2/CineSearch-mobile-release.apk"
 }
