@@ -1,9 +1,10 @@
 {
-  "version": "6.2",
+  "version": "6.2.1",
   "releaseNotes": [
-  "Inserito trailer in app film/serietv",
-  "Fix vavoo (ora si vedono tutti i canli",
-  "Fix vari"
+  "Fix dei problemi segnalati",
+  "Aggiunto EPG su vavoo e canali github",
+  "Inserita logica episodio successivo con relativi comandi per passaggio all'episodio successivo",
+  "Inserito nome film/serie/anime/Canale"
   ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.2/CineSearch.exe"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.2.1/CineSearch.exe"
 }
