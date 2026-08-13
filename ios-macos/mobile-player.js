@@ -81,7 +81,7 @@ function activatePlayer(url) {
         iframe = document.createElement('iframe');
         iframe.id = 'main-player-iframe';
         iframe.allowFullscreen = true;
-        iframe.referrerPolicy = 'no-referrer';
+        iframe.referrerPolicy = 'origin';
         iframe.setAttribute('allow', 'autoplay; encrypted-media; fullscreen; picture-in-picture');
         mount.appendChild(iframe);
     }
