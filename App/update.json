@@ -1,10 +1,23 @@
 {
-"version": "6.5",
+"version": "6.6",
 "releaseNotes": [
-  "Major release, vedi changelog completo sul sito"
+"Fix TV LIVE sezione eventi",
+"Fix TV LIVE sezione TV Now",
+"Fix ANIME selezione card su TV",
+"Fix microfono su googletv",
+"Fix download (mobile)",
+"Traduzione APP in ENG",
+"Implementazione SERVER 3 ENG con film/Serietv fino a 4k",
+"Loudness aggiunto su Server 2 e Server 3",
+"Implementazione Watch Toghether (BETA)",
+"Implementazione cronologia ricerca",
+"Implementazioni suggeriti durante la ricerca",
+"Implementazione filtri anime anche per animeunity",
+"Sviluppata logica sottotitoli. (Vengono mantenuti per il film/serietv se selezionati e ripartono in automatico da continua a guardare anche per gli episodi successivi)",
+"Pulizia codice"
 ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.5/CineSearch-universal-release.apk",
-  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.5/CineSearch-universal-release.apk",
-  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.5/CineSearch-tv-release.apk",
-  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.5/CineSearch-mobile-release.apk"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.6/CineSearch-universal-release.apk",
+  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.6/CineSearch-universal-release.apk",
+  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.6/CineSearch-tv-release.apk",
+  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.6/CineSearch-mobile-release.apk"
 }
