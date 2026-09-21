@@ -1,4 +1,4 @@
-// mobile-player.js - Player video con embed diretto (senza iframe)
+// mobile-player.js - Player video con redirect diretto a VixSrc (senza iframe)
 
 let currentMobileItem = null;
 let currentMobileSeasons = [];
@@ -52,16 +52,14 @@ async function openMobilePlayer(item) {
 }
 
 function playItemMobile(id, type, season = null, episode = null) {
-    showMobileLoading(true, "Caricamento player...");
+    showMobileLoading(true, "Reindirizzamento al player...");
 
     currentEmbedUrl = getEmbedUrlMobile(id, type === 'movie', season, episode);
 
     showMobileLoading(false);
 
-    // Reindirizza direttamente al player esterno
-    if (currentEmbedUrl) {
-        window.open(currentEmbedUrl, '_blank');
-    }
+    // Redirect top-level diretto al player VixSrc
+    window.open(currentEmbedUrl, '_blank');
 }
 
 function getEmbedUrlMobile(tmdbId, isMovie, season = null, episode = null) {
