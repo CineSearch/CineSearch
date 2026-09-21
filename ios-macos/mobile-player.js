@@ -1,4 +1,4 @@
-// mobile-player.js - Player video con iframe embed (senza video.js)
+// mobile-player.js - Player video con embed diretto (senza iframe)
 
 let currentMobileItem = null;
 let currentMobileSeasons = [];
@@ -54,49 +54,15 @@ async function openMobilePlayer(item) {
 function playItemMobile(id, type, season = null, episode = null) {
     showMobileLoading(true, "Caricamento player...");
 
-    const mount = document.getElementById('player-mount');
-    const overlay = document.getElementById('player-overlay');
-    if (!mount) return;
-
-    let oldIframe = mount.querySelector('iframe');
-    if (oldIframe) oldIframe.remove();
-
-    currentEmbedUrl = null;
-
-    const embedUrl = getEmbedUrlMobile(id, type === 'movie', season, episode);
-    currentEmbedUrl = embedUrl;
+    currentEmbedUrl = getEmbedUrlMobile(id, type === 'movie', season, episode);
 
     showMobileLoading(false);
 
-    if (overlay) overlay.style.display = 'flex';
-}
-
-function activatePlayer(url) {
-    const mount = document.getElementById('player-mount');
-    const overlay = document.getElementById('player-overlay');
-    if (!mount || !url) return;
-
-    let iframe = mount.querySelector('iframe');
-    if (!iframe) {
-        iframe = document.createElement('iframe');
-        iframe.id = 'main-player-iframe';
-        iframe.allowFullscreen = true;
-        iframe.referrerPolicy = 'origin';
-        iframe.setAttribute('allow', 'autoplay; encrypted-media; fullscreen; picture-in-picture');
-        mount.appendChild(iframe);
+    // Reindirizza direttamente al player esterno
+    if (currentEmbedUrl) {
+        window.location.href = currentEmbedUrl;
     }
-    iframe.src = url;
-    if (overlay) overlay.style.display = 'none';
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    const overlay = document.getElementById('player-overlay');
-    if (overlay) {
-        overlay.addEventListener('click', () => {
-            if (currentEmbedUrl) activatePlayer(currentEmbedUrl);
-        });
-    }
-});
 
 function getEmbedUrlMobile(tmdbId, isMovie, season = null, episode = null) {
     if (isMovie) {
@@ -194,18 +160,6 @@ function playTVEpisodeMobile(tmdbId, seasonNumber, episodeNumber) {
 
 // ============ PLAYER CLEANUP ============
 function closePlayerMobile() {
-    const mount = document.getElementById('player-mount');
-    if (mount) {
-        const iframe = mount.querySelector('iframe');
-        if (iframe) {
-            iframe.src = '';
-            iframe.remove();
-        }
-    }
-
-    const overlay = document.getElementById('player-overlay');
-    if (overlay) overlay.style.display = 'flex';
-
     currentMobileItem = null;
     currentMobileSeasons = [];
     currentEmbedUrl = null;
