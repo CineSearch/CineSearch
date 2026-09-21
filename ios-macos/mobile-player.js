@@ -60,7 +60,7 @@ function playItemMobile(id, type, season = null, episode = null) {
 
     // Reindirizza direttamente al player esterno
     if (currentEmbedUrl) {
-        window.location.href = currentEmbedUrl;
+        window.open(currentEmbedUrl, '_blank');
     }
 }
 
