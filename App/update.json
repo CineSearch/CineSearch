@@ -1,15 +1,10 @@
 {
-"version": "6.7",
+"version": "6.7.1",
 "releaseNotes": [
-  "Cambio grafica",
-  "Aggiunti provider GuardaSerie e GuardaPlay",
-  "Rimozione Altadefinizione01",
-  "Fix estrattore Maxstream",
-  "Fix estrattore TurboVid",
-  "Unificati provider Anime"
+  "Fix DNS cloudflare con aggiunta di nuovi DNS ora i film/serie/anime partono subito correttamente (anche senza vpn)"
 ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.7/CineSearch-universal-release.apk",
-  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.7/CineSearch-universal-release.apk",
-  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.7/CineSearch-tv-release.apk",
-  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.7/CineSearch-mobile-release.apk"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.7.1/CineSearch-universal-release.apk",
+  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.7.1/CineSearch-universal-release.apk",
+  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.7.1/CineSearch-tv-release.apk",
+  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.7.1/CineSearch-mobile-release.apk"
 }
