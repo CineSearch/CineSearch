@@ -1,14 +1,15 @@
 {
-"version": "6.6.1",
+"version": "6.7",
 "releaseNotes": [
-"Fix per canali TV NOW e DemiTV sia mobile che TV (sono lenti ad agganciare il flusso ma dopo vanno tranquillamente) aumentato il precaricamento",
-"Fix Altadefinizione01 aveva smesso di funzionare",
-"Fix CB01 che non trovava alcune serietv in quanto aveva le stagioni e episodi gestiti in una pagina separata e ora quest'ultima viene gestita dall'app",
-"Aggiunta del forced dei sottotitoli nelle impostazioni--riproduzione",
-"Fix microfono che parte subito appena apri la ricerca"
+  "Cambio grafica",
+  "Aggiunti provider GuardaSerie e GuardaPlay",
+  "Rimozione Altadefinizione01",
+  "Fix estrattore Maxstream",
+  "Fix estrattore TurboVid",
+  "Unificati provider Anime"
 ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.6.1/CineSearch-universal-release.apk",
-  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.6.1/CineSearch-universal-release.apk",
-  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.6.1/CineSearch-tv-release.apk",
-  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.6.1/CineSearch-mobile-release.apk"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.7/CineSearch-universal-release.apk",
+  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.7/CineSearch-universal-release.apk",
+  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.7/CineSearch-tv-release.apk",
+  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.7/CineSearch-mobile-release.apk"
 }
