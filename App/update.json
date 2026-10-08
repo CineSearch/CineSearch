@@ -1,10 +1,22 @@
 {
-"version": "6.7.1",
-"releaseNotes": [
-  "Fix DNS cloudflare con aggiunta di nuovi DNS ora i film/serie/anime partono subito correttamente (anche senza vpn)"
-],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.7.1/CineSearch-universal-release.apk",
-  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.7.1/CineSearch-universal-release.apk",
-  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.7.1/CineSearch-tv-release.apk",
-  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.7.1/CineSearch-mobile-release.apk"
+  "version": "6.8",
+  "releaseNotes": [
+    "-(Ri)Aggiunto Altadefinizione01 in quanto ora usa anche il provider vidxgo (non tutti i film/serie partono in quanto stanno ancora sistemando)",
+    "-Fix lentezza avvio server2 su alcuni mirror",
+    "-Fix l'HLS \"HLS non ancora generato\" e metteva il \"sub?\" ora dovrebbe riconoscerli correttamente (quasi) tutti",
+    "-Fix player (alcune volte scattava)",
+    "-Fix canali TV (vavoo + github)",
+    "-Fix avvio canali delle liste aggiunte (non partivano)",
+    "-Rimosso TvNow sui canalitv",
+    "-Su continua a guardare ora i film/serie/anime partono direttamente senza dover riselezionare il tutto",
+    "-Aggiunti i profili utente, per avere tutto sincronizzato su ogni dispositivo senza farlo manualmente",
+    "-In caso di nome lungo, rimanendo con il focus sulla card, farà scorrere il titolo",
+    "-Il cerca ora funziona anche per ID di TMDB",
+    "-Cambio grafica mobile",
+    "-Creazione canale dedicato https://t.me/cinesearchchannel"
+  ],
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.8/CineSearch-universal-release.apk",
+  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.8/CineSearch-universal-release.apk",
+  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.8/CineSearch-tv-release.apk",
+  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.8/CineSearch-mobile-release.apk"
 }
