@@ -1,22 +1,18 @@
 {
-  "version": "6.8",
+  "version": "6.8.1",
   "releaseNotes": [
-    "-(Ri)Aggiunto Altadefinizione01 in quanto ora usa anche il provider vidxgo (non tutti i film/serie partono in quanto stanno ancora sistemando)",
-    "-Fix lentezza avvio server2 su alcuni mirror",
-    "-Fix l'HLS \"HLS non ancora generato\" e metteva il \"sub?\" ora dovrebbe riconoscerli correttamente (quasi) tutti",
-    "-Fix player (alcune volte scattava)",
-    "-Fix canali TV (vavoo + github)",
-    "-Fix avvio canali delle liste aggiunte (non partivano)",
-    "-Rimosso TvNow sui canalitv",
-    "-Su continua a guardare ora i film/serie/anime partono direttamente senza dover riselezionare il tutto",
-    "-Aggiunti i profili utente, per avere tutto sincronizzato su ogni dispositivo senza farlo manualmente",
-    "-In caso di nome lungo, rimanendo con il focus sulla card, farà scorrere il titolo",
-    "-Il cerca ora funziona anche per ID di TMDB",
-    "-Cambio grafica mobile",
-    "-Creazione canale dedicato https://t.me/cinesearchchannel"
+    "Fix tasto download su mobile",
+    "Fix ricerca per cast",
+    "Aggiunto tasto Bitrate sulle impostazioni player"
   ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.8/CineSearch-universal-release.apk",
-  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.8/CineSearch-universal-release.apk",
-  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.8/CineSearch-tv-release.apk",
-  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.8/CineSearch-mobile-release.apk"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.8.1/CineSearch-universal-release.apk",
+  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.8.1/CineSearch-universal-release.apk",
+  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.8.1/CineSearch-tv-release.apk",
+  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.8.1/CineSearch-mobile-release.apk",
+  "sha256Universal": "63b328a76c6d719b5af45b39c66106fe3dfdeea7f2dc2a74f3c4f67fe8e5d6c3",
+  "signatureUniversal": "hg53CSPFdPN66Bm2anEpWxXCpSLdRWE5/Zn/LPFSJQCai8XBojLZh8RVGBHLcSHTiCnFLvtr2J4qsA0CzBWIFvDNVuIMK1lmdzineohH5I9V9cOXImB7l2FK7SVo80+wc3wv6YfoS9Nm6X0GjI5V6piOgyMd7CMSOpWXzjC+JAaRvimQnIJE9oCRy4VKC9V/qdA7cb6bqS/MU8z62+qpMV5N2iqyHw7Rxv44lTN01DUFwlxE2A5ZCmgIa3CKk47/Mxm2jLIwFHaQgdPWqB2xKvLY3iIZ8EzV7buXCzdV6vgLGJS8SHqYCntMzOOEvWECl1zkL8bsuElns0ldBUXArQ==",
+  "sha256TV": "12b7b7576157e97a47c301ac5c205f1faab01d8e277188af89f2f0314c7901a3",
+  "signatureTV": "EFwey8SEjCale32EDcPo5OqSLL35TAKCa4T2NHXGxdQ9ftErWda6aOuu7WvQtY1rRjIWfLqcblCE2wyO9pDvl3um6tRaDLOj/4WjH37H/farBSoWrob98LkKr9Yh4OWO/3Xwepf3cWda+4NmjWl6wP/BnJo55OgYOqHRKGD/hXiWnTAH3JPob3IefRsfxc8Mh8ahDWASqx5afnDJ6JrtcfxpfJENyUrbq8R4JmX7yM4ncDBgQLFtfX3tgtrBIwzZgei2sIBVrb/8iZxu66vPFUBRDQnohC6c7+XKOlAQUmeR5MU76wUSizBNb6KVewuCv0mGg3BlV6FToeyh75kuqQ==",
+  "sha256Mobile": "d163cd3ace07f1752516f60828cb381af35e542848067ed983e113ee64e99e78",
+  "signatureMobile": "FNo3/251W5ZccwZMLTzCCcHg3Mi/tTxf5uLmGzb2jb0N9LxwBWRgSU8zG2/8q1ZxC9IKPrluKaPtG1mGQGWEhzKrQD6niQ2J6RLeL0c79u6M1X2xBsbVFQ+V7DtCEorG+XXRpW0Ctd5QZKpPlfgFmqLaUEdeUti1zo9nvjv2AmprMBwbz+prIsaUobCTH4S+o2hIwpVX4pQ5/77GlWVxTOyM1UrdAQEQr/j+QK7vX/eeXUCfEjy2AwBVJKKNr4F4hYqpxErnEpcSjePmnriZ109fpAXgsEaY+eUAGZH/yqKLCbsCOcUQP8Ywn0uYDpuB/mlwLx3K78d2usJ8Wkb/1g=="
 }
