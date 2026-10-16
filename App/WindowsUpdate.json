@@ -1,10 +1,14 @@
 {
-  "version": "6.7",
+  "version": "6.9",
   "releaseNotes": [
-  "Cambio grafica",
-  "Aggiunti provider GuardaSerie e GuardaPlay",
-  "Rimozione Altadefinizione01",
-  "Fix estrattori"
+    "Grafica allineata alla versione Android, con nuova tonalità viola",
+    "Corretti tutti gli estrattori del Server 2",
+    "Aggiunto il tasto Player esterno per riprodurre i contenuti tramite app esterne",
+    "Corretto il download di film, serie TV e anime",
+    "Sezione TVLIVE allineata alla versione Android",
+    "Aggiunto Server 3 (ENG) come su Android",
+    "Logo aggiornato e allineato alla versione Android",
+    "Aggiunta la gestione degli account come su Android"
   ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.7/CineSearch.exe"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.9/CineSearch.exe"
 }
