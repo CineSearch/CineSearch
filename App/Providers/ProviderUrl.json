@@ -1,0 +1,29 @@
+{
+  "CB01": {
+    "baseUrl": "https://cb01one.stream/"
+  },
+  "StreamingCommunity": {
+    "baseUrl": "https://streamingunity.fun"
+  },
+  "GuardaSerie": {
+    "baseUrl": "https://guardoseries.rest"
+  },
+  "Altadefinizione01": {
+    "baseUrl": "https://altadefinizione-01.autos"
+  },
+  "Eurostreaming": {
+    "baseUrl": "https://eurostream.fun/"
+  },
+  "AnimeWorld": {
+    "baseUrl": "https://www.animeworld.ac"
+  },
+  "Loonex": {
+    "baseUrl": "https://loonex.eu/cartoni/"
+  },
+  "ToonItalia": {
+    "baseUrl": "https://toonitalia.xyz"
+  },
+  "GuardaFlix": {
+    "baseUrl": "https://guardaplay.cam"
+  }
+}
