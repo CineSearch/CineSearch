@@ -1,9 +1,16 @@
 {
-  "version": "6.9.1",
+  "version": "7.0",
   "releaseNotes": [
-    "Aggiunto StreamingCommunity come alternativa, in seguito ai recenti problemi con VixSrc",
-    "Risolti i problemi con AnimeUnity",
-    "Corretto il funzionamento del pulsante Cerca"
+    "Aggiunto il provider Loonex nella sezione Anime, dedicato ai cartoni animati",
+    "Aggiunta la possibilità di collegare il proprio account [Trakt.tv](https://trakt.tv/)",
+    "Aggiunto Vavoo alla sezione TV LIVE",
+    "Aggiunto TvNow alla sezione TV LIVE",
+    "Aggiunta la possibilità di cambiare server per TvNow ed EVENTI",
+    "Riorganizzate le interfacce delle varie sezioni per una navigazione più chiara e intuitiva",
+    "Risolti numerosi problemi di rallentamento e crash, migliorando la stabilità generale dell'app",
+    "Corretta l'estrazione dei contenuti nella sezione EVENTI di TV LIVE",
+    "Rinnovata l'interfaccia della sezione TV LIVE",
+    "Corretta e migliorata la traduzione inglese dell'app"
   ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v6.9.1/CineSearch.exe"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.0/CineSearch.exe"
 }
