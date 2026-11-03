@@ -1,8 +1,7 @@
 {
-  "version": "7.1",
+  "version": "7.1.1",
   "releaseNotes": [
-    "Fix problemi segnalati",
-    "Introdotto server 4 con contenuti fino al 4k in ITA"
+    "Maxstream block"
   ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.1/CineSearch.exe"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.1.1/CineSearch.exe"
 }
