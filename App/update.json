@@ -1,27 +1,11 @@
 {
-  "version": "7.0",
+  "version": "7.1",
   "releaseNotes": [
-    "Corretta e migliorata la traduzione inglese dell'app",
-    "Interfaccia TV LIVE completamente rinnovata",
-    "Aggiunto TvNow alla sezione TV LIVE",
-    "Aggiornato ExoPlayer per una riproduzione più efficiente",
-    "Rinnovata e ottimizzata l'interfaccia del player",
-    "Corretto il download dei contenuti su memorie esterne",
-    "Migliorate notevolmente le prestazioni, con avvio più rapido e navigazione più fluida",
-    "Corretta l'estrazione dei contenuti nella sezione EVENTI di TV LIVE",
-    "Risolto un problema che impediva occasionalmente la visualizzazione dei risultati di ricerca",
-    "Ottimizzata e velocizzata la sezione Continua a guardare",
-    "Integrata la gestione del bitrate direttamente nel player",
-    "Riorganizzate le impostazioni e aggiunte nuove impostazioni globali del player nella sezione Riproduzione",
-    "Introdotto un nuovo sistema audio per un suono più nitido e cristallino",
-    "Introdotta la nuova modalità OFFLINE",
-    "Aggiunta la possibilità di riprodurre film, serie TV e anime scaricati direttamente con il player integrato di CineSearch",
-    "Aggiunto il provider Loonex nella sezione Anime, dedicato ai cartoni animati",
-    "Aggiunta la possibilità di collegare il proprio account [Trakt.tv](https://trakt.tv/)"
-
+    "Fix problemi segnalati",
+    "Introdotto server 4 con contenuti fino al 4k in ITA"
   ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.0/CineSearch-universal-release.apk",
-  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.0/CineSearch-universal-release.apk",
-  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.0/CineSearch-tv-release.apk",
-  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.0/CineSearch-mobile-release.apk"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.1/CineSearch-universal-release.apk",
+  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.1/CineSearch-universal-release.apk",
+  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.1/CineSearch-tv-release.apk",
+  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.1/CineSearch-mobile-release.apk"
 }
