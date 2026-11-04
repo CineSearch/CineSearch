@@ -2,8 +2,7 @@
   "version": "7.1.2",
   "releaseNotes": [
     "Fix Maxstream",
-    "Fix TvLive vavoo",
-    "Aggiunta selezione Server"
+    "Fix TvLive vavoo"
   ],
   "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.1.2/CineSearch.exe"
 }
