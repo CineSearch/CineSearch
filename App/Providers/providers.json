@@ -15,6 +15,11 @@
       "logo": "{base}/wp-content/uploads/2026/06/cropped-icon-2-32x32.png",
       "logoUrl": "https://guardoseries.autos/wp-content/uploads/2026/06/cropped-icon-2-32x32.png"
     },
+    "CBUno": {
+      "baseUrl": "https://cb01primo.bar",
+      "logo": "{base}/templates/CINEBLOG01/img/favicon.ico",
+      "logoUrl": "https://cb01primo.bar/templates/CINEBLOG01/img/favicon.ico"
+    },
     "Altadefinizione01": {
       "baseUrl": "https://altadefinizione-01.best",
       "logo": "{base}/favicon.ico",
