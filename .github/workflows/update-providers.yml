@@ -1,0 +1,121 @@
+name: Aggiorna provider
+
+# Aggiorna baseUrl e URL immagini in App/Providers/providers.json e committa solo se cambia.
+# Il lavoro lo fa update_providers.py: redirect HTTP, pagine-fonte, validazione dei
+# domini parcheggiati e verifica che l'immagine risponda davvero come image/*.
+
+on:
+  schedule:
+    # ogni giorno alle 07:00 (01:30 UTC: il cron di GitHub è sempre in UTC)
+    - cron: "30 1 * * *"
+  workflow_dispatch:
+    inputs:
+      only:
+        description: "Solo questi provider, separati da virgola (vuoto = tutti)"
+        required: false
+        default: ""
+      permute:
+        description: "Prova anche le permutazioni di TLD (più richieste, più lento)"
+        type: boolean
+        default: false
+      strict:
+        description: "Fallisce il job se un provider resta irrisolto"
+        type: boolean
+        default: false
+      dry_run:
+        description: "Solo verifica: non scrive e non committa"
+        type: boolean
+        default: false
+
+# serve per pushare il commit; il resto è sola lettura
+permissions:
+  contents: write
+
+concurrency:
+  group: update-providers
+  cancel-in-progress: false
+
+env:
+  # percorsi dentro il repo: script e JSON vivono nel modulo Kotlin
+  SCRIPT_FILE: App/Providers/Update/update_providers.py
+  PROVIDERS_FILE: App/Providers/providers.json
+  REPORT_FILE: report.json
+  PYTHONUNBUFFERED: "1"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # un token con permessi di scrittura, altrimenti il push fallisce
+          persist-credentials: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # nessuna dipendenza esterna: lo script usa solo la stdlib
+      - name: Controlla sintassi
+        # ast.parse invece di py_compile: non lascia __pycache__ nel repo
+        run: python -c "import ast,sys; ast.parse(open(sys.argv[1], encoding='utf-8').read())" "$SCRIPT_FILE"
+
+      - name: Aggiorna providers
+        id: update
+        env:
+          ONLY: ${{ inputs.only }}
+          PERMUTE: ${{ inputs.permute }}
+          STRICT: ${{ inputs.strict }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          set -euo pipefail
+          args=(-f "$PROVIDERS_FILE" --ci --report "$REPORT_FILE" --workers 8 --timeout 20)
+          [ -n "${ONLY:-}" ] && args+=(--only "$ONLY")
+          [ "${PERMUTE:-false}" = "true" ] && args+=(--permute --max-permutations 20)
+          [ "${STRICT:-false}" = "true" ] && args+=(--fail-on-unresolved)
+          [ "${DRY_RUN:-false}" = "true" ] && args+=(--dry-run)
+          echo "comando: python $SCRIPT_FILE ${args[*]}"
+          python "$SCRIPT_FILE" "${args[@]}"
+
+      - name: Mostra il diff
+        if: always()
+        run: git --no-pager diff --stat -- "$PROVIDERS_FILE" || true
+
+      - name: Commit e push
+        if: ${{ steps.update.outputs.changed == 'true' && inputs.dry_run != true }}
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- "$PROVIDERS_FILE"; then
+            echo "Nessuna modifica reale: niente commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$PROVIDERS_FILE"
+          git commit -m "chore(providers): aggiorna domini e immagini (${{ steps.update.outputs.changed_count }} cambiati)"
+          # se qualcuno ha pushato durante il run, allineo e riprovo una volta
+          if ! git push; then
+            echo "push rifiutato: allineo al remoto e riprovo"
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME:-main}"
+            git push
+          fi
+
+      - name: Carica il report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: providers-report
+          path: ${{ env.REPORT_FILE }}
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Esito
+        if: always()
+        run: |
+          echo "baseUrl cambiati : ${{ steps.update.outputs.changed_count }}"
+          echo "immagini nuove  : ${{ steps.update.outputs.updated_logos }}"
+          echo "non risolti     : ${{ steps.update.outputs.unresolved }}"
