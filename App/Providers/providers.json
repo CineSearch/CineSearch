@@ -11,14 +11,14 @@
       "logoUrl": "https://streamingunity.fun/apple-touch-icon.png"
     },
     "GuardaSerie": {
-      "baseUrl": "https://guardoseries.rest",
+      "baseUrl": "https://guardoseries.autos",
       "logo": "{base}/wp-content/uploads/2026/06/cropped-icon-2-32x32.png",
-      "logoUrl": "https://guardoseries.rest/wp-content/uploads/2026/06/cropped-icon-2-32x32.png"
+      "logoUrl": "https://guardoseries.autos/wp-content/uploads/2026/06/cropped-icon-2-32x32.png"
     },
     "Altadefinizione01": {
       "baseUrl": "https://altadefinizione-01.autos",
-      "logo": "{base}/templates/Darktemplate_pagespeed/images/logo.png",
-      "logoUrl": "https://altadefinizione-01.autos/templates/Darktemplate_pagespeed/images/logo.png"
+      "logo": "{base}/favicon.ico",
+      "logoUrl": "https://altadefinizione-01.autos/favicon.ico"
     },
     "Eurostreaming": {
       "baseUrl": "https://eurostream.one",
