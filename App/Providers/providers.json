@@ -11,24 +11,24 @@
       "logoUrl": "https://streamingunity.fun/apple-touch-icon.png"
     },
     "GuardaSerie": {
-      "baseUrl": "https://guardoseries.autos",
+      "baseUrl": "https://guardoseries.rest",
       "logo": "{base}/wp-content/uploads/2026/06/cropped-icon-2-32x32.png",
-      "logoUrl": "https://guardoseries.autos/wp-content/uploads/2026/06/cropped-icon-2-32x32.png"
+      "logoUrl": "https://guardoseries.rest/wp-content/uploads/2026/06/cropped-icon-2-32x32.png"
     },
     "Altadefinizione01": {
-      "baseUrl": "https://altadefinizione-01.best",
+      "baseUrl": "https://altadefinizione-01.autos",
       "logo": "{base}/templates/Darktemplate_pagespeed/images/logo.png",
-      "logoUrl": "https://altadefinizione-01.best/favicon.ico"
+      "logoUrl": "https://altadefinizione-01.autos/templates/Darktemplate_pagespeed/images/logo.png"
     },
     "Eurostreaming": {
       "baseUrl": "https://eurostream.one",
-      "logo": "{base}/wp-content/uploads/2017/08/logo_upt.png",
-      "logoUrl": "https://eurostream.one/wp-content/uploads/2017/08/logo_upt.png"
+      "logo": "{base}/wp-content/uploads/2018/09/favicon18.jpg",
+      "logoUrl": "https://eurostream.one/wp-content/uploads/2018/09/favicon18.jpg"
     },
     "AnimeWorld": {
       "baseUrl": "https://www.animeworld.ac",
       "logo": "{base}/assets/images/favicon/android-icon-192x192.png?4",
-      "logoUrl": "https://static.animeworld.ac/assets/images/favicon/apple-icon-57x57.png?3"
+      "logoUrl": "https://www.animeworld.ac/assets/images/favicon/android-icon-192x192.png?4"
     },
     "ToonItalia": {
       "baseUrl": "https://toonitalia.xyz",
@@ -36,9 +36,9 @@
       "logoUrl": "https://toonitalia.xyz/wp-content/uploads/2026/04/Toonitalia-personaggi.png"
     },
     "GuardaFlix": {
-      "baseUrl": "https://guardaplay.autos",
+      "baseUrl": "https://guardaplay.cam",
       "logo": "{base}/wp-content/uploads/2026/06/cropped-GuardaPlay.png",
-      "logoUrl": "https://guardaplay.autos/wp-content/uploads/2026/06/cropped-GuardaPlay.png"
+      "logoUrl": "https://guardaplay.cam/wp-content/uploads/2026/06/cropped-GuardaPlay.png"
     },
     "Filmez": {
       "baseUrl": "https://filmez.club",
