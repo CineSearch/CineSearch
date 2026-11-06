@@ -42,8 +42,8 @@
     },
     "Filmez": {
       "baseUrl": "https://filmez.club",
-      "logo": "{base}/wp-content/uploads/2022/11/cropped-logo_filmez2.jpg",
-      "logoUrl": "https://filmez.club/wp-content/uploads/2022/11/cropped-logo_filmez2.jpg"
+      "logo": "{base}/wp-content/uploads/2022/11/favicon_filmez.jpg",
+      "logoUrl": "https://filmez.club/wp-content/uploads/2022/11/favicon_filmez.jpg"
     }
   }
 }
