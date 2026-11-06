@@ -366,6 +366,23 @@ HUB_PAGES: dict[str, dict] = {
 }
 
 
+# Immagine "vera" del provider: ha la precedenza sul template del JSON.
+# Serve quando nel JSON c'è un path che risponde 200 ma non è il logo mostrato
+# dall'app (Eurostreaming: logo_upt.png è vecchio, l'app usa favicon18.jpg).
+# Scrivendo qui il path, il campo "logo" del JSON viene riallineato a ogni run.
+LOGO_OVERRIDES: dict[str, str] = {
+    "Eurostreaming": "{base}/wp-content/uploads/2018/09/favicon18.jpg",
+}
+
+
+def logo_override(name: str, entry: dict) -> str:
+    """Override dal JSON ("logoOverride") oppure dalla tabella LOGO_OVERRIDES."""
+    own = entry.get("logoOverride")
+    if isinstance(own, str) and own:
+        return own
+    return LOGO_OVERRIDES.get(name, "")
+
+
 class _AnchorParser(HTMLParser):
     """Raccoglie gli <a href> con classi e testo interno (anche con svg/h1 dentro)."""
 
@@ -627,9 +644,12 @@ def resolve_provider(name: str, entry: dict, opts: argparse.Namespace) -> dict:
     return result
 
 
-def logo_candidates(entry: dict, base: str) -> list[str]:
+def logo_candidates(entry: dict, base: str, name: str = "") -> list[str]:
     """URL immagine da provare, in ordine di priorità."""
     cands: list[str] = []
+    override = logo_override(name, entry) if name else ""
+    if override:
+        cands.append(override.replace("{base}", base.rstrip("/")))
     tmpl = entry.get("logo") or entry.get("logoUrl") or ""
     if tmpl:
         cands.append(tmpl.replace("{base}", base.rstrip("/")))
@@ -648,7 +668,7 @@ def logo_candidates(entry: dict, base: str) -> list[str]:
 
 def resolve_logo(name: str, entry: dict, base: str, opts: argparse.Namespace) -> dict:
     old_logo = entry.get("logoUrl", "")
-    for url in logo_candidates(entry, base):
+    for url in logo_candidates(entry, base, name):
         r = http_get(url, timeout=opts.timeout, insecure=opts.insecure)
         good, why = validate_image(r)
         if good:
@@ -877,6 +897,10 @@ def main(argv: list[str] | None = None) -> int:
         entry["baseUrl"] = r["baseUrl"]
         if r.get("logoUrl"):
             entry["logoUrl"] = r["logoUrl"]
+        override = logo_override(name, entry)
+        if override:
+            # il template nel JSON deve descrivere la stessa immagine di logoUrl
+            entry["logo"] = override
         if opts.with_status:
             if r["status"] == "ok":
                 entry.pop("_status", None)
