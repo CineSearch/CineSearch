@@ -6,7 +6,10 @@ update_providers.py — Aggiorna baseUrl e URL immagini dei provider partendo da
 Come ricava l'indirizzo nuovo ("basandosi sulle fonti"):
 
   1. REDIRECT   segue la catena HTTP del baseUrl attuale e prende l'origin finale
-                (es. cb01one.stream -> 301 -> cb01one.org).
+                (es. cb01one.stream -> 301 -> cb01one.org). Se il dominio risponde
+                200 ma la pagina rimanda altrove con <meta refresh>, window.location,
+                canonical o og:url, segue anche quel salto — ma solo se il dominio di
+                destinazione risponde davvero e contiene il brand.
   2. HUB        se il dominio non risponde (o è dietro Cloudflare) legge la pagina
                 "hub" del provider e prende l'href del pulsante con l'indirizzo
                 corrente: GuardaSerie -> https://guardaserie.foo/, dove il bottone
@@ -319,6 +322,41 @@ def looks_challenge(res: Response) -> bool:
     return any(marker in low for marker in CHALLENGE_MARKERS)
 
 
+
+def same_site(host_a: str, host_b: str) -> bool:
+    """Stesso sito a meno del www: evita di rimbalzare fra dominio.com e www.dominio.com."""
+    a = (host_a or "").lower().removeprefix("www.")
+    b = (host_b or "").lower().removeprefix("www.")
+    return a == b
+
+
+def extract_redirect_target(html: str, page_url: str) -> str | None:
+    """Dove la pagina dice di andare, quando non lo dice l'HTTP.
+
+    Questi siti cambiano dominio con <meta http-equiv=refresh>, con
+    window.location nei primi byte, o dichiarando un canonical/og:url nuovo.
+    Un client HTTP non li segue: senza questo, un dominio che risponde 200
+    con un rimando "morbido" sembra quello buono per sempre.
+    """
+    patterns = (
+        r'<meta[^>]+http-equiv=["\']?refresh["\']?[^>]*content=["\'][^"\'>]*?url=\s*["\']?([^"\'>\s]+)',
+        r'<meta[^>]+content=["\'][^"\'>]*?url=\s*["\']?([^"\'>\s]+)["\']?["\'][^>]*http-equiv=["\']?refresh',
+        r'<link[^>]+rel=["\']canonical["\'][^>]*href=["\']([^"\']+)',
+        r'<link[^>]+href=["\']([^"\']+)["\'][^>]*rel=["\']canonical["\']',
+        r'<meta[^>]+property=["\']og:url["\'][^>]*content=["\']([^"\']+)',
+        r'(?:window\.|document\.)?location(?:\.href)?\s*=\s*["\'](https?://[^"\']+)["\']',
+        r'location\.replace\(\s*["\'](https?://[^"\']+)["\']',
+    )
+    for pat in patterns:
+        m = re.search(pat, html, re.I)
+        if not m:
+            continue
+        target = m.group(1).strip()
+        if target.startswith(("http://", "https://", "//")):
+            return urllib.parse.urljoin(page_url, target)
+    return None
+
+
 def validate_site(res: Response, brand: re.Pattern) -> tuple[str, str]:
     """-> (stato, motivo). stati: ok | challenge | parked | dead"""
     if res.error:
@@ -372,6 +410,7 @@ HUB_PAGES: dict[str, dict] = {
 # Scrivendo qui il path, il campo "logo" del JSON viene riallineato a ogni run.
 LOGO_OVERRIDES: dict[str, str] = {
     "Eurostreaming": "{base}/wp-content/uploads/2018/09/favicon18.jpg",
+    "Altadefinizione01": "{base}/favicon.ico",
 }
 
 
@@ -574,9 +613,26 @@ def resolve_provider(name: str, entry: dict, opts: argparse.Namespace) -> dict:
     log(f"  redirect: {' -> '.join(res.chain) or 'nessun hop'} | {state} ({why})")
 
     if state == "ok":
-        result["baseUrl"] = normalize_origin(res.final_url or old_base)
+        final = normalize_origin(res.final_url or old_base)
+        result["baseUrl"] = final
         result["status"] = "ok"
         result["note"] = why
+
+        # redirect HTTP già seguito sopra; qui guardo il rimando "morbido"
+        soft = extract_redirect_target(res.text, res.final_url or old_base)
+        if soft:
+            soft_origin = normalize_origin(soft)
+            if (soft_origin
+                    and not same_site(host_of(soft_origin), host_of(final))
+                    and brand.search(host_of(soft_origin))):
+                sres = http_get(soft_origin, timeout=opts.timeout, insecure=opts.insecure)
+                sstate, swhy = validate_site(sres, brand)
+                if sstate == "ok":
+                    log(f"  la pagina rimanda a {soft_origin} -> lo adotto ({swhy})")
+                    result["baseUrl"] = normalize_origin(sres.final_url or soft_origin)
+                    result["note"] = f"seguito il rimando della pagina verso {result['baseUrl']} ({swhy})"
+                else:
+                    log(f"  la pagina rimanda a {soft_origin} ma non risponde ({sstate}: {swhy}): tengo {final}")
     elif state == "challenge":
         # Sito vivo ma protetto: seguo il redirect se il brand combacia, altrimenti tengo.
         final = normalize_origin(res.final_url or old_base)
@@ -815,9 +871,40 @@ def build_summary(results: dict, changed: list, updated_logos: int, stamp: str) 
     return "\n".join(rows)
 
 
+def check_duplicate_keys(raw: str) -> list[str]:
+    """Chiavi ripetute nello stesso oggetto JSON.
+
+    json.load tiene silenziosamente l'ultima, quindi un file con "baseUrl" scritto
+    due volte sembra valido ma dice una cosa diversa da quella che si legge.
+    """
+    dups: list[str] = []
+
+    def hook(pairs: list) -> dict:
+        seen: set[str] = set()
+        for key, _value in pairs:
+            if key in seen:
+                dups.append(key)
+            seen.add(key)
+        return dict(pairs)
+
+    try:
+        json.loads(raw, object_pairs_hook=hook)
+    except json.JSONDecodeError:
+        return []
+    return sorted(set(dups))
+
+
 def load_providers(path: str) -> tuple[dict, dict]:
     with open(path, "r", encoding="utf-8") as fh:
-        data = json.load(fh)
+        raw = fh.read()
+    dups = check_duplicate_keys(raw)
+    if dups:
+        msg = (f"chiavi duplicate in {path}: {', '.join(dups)} "
+               f"— tengo l'ultima occorrenza, il file riscritto viene ripulito")
+        print(f"attenzione: {msg}", file=sys.stderr)
+        if os.environ.get("GITHUB_ACTIONS", "").lower() == "true":
+            print(f"::warning file={path}::{msg}", flush=True)
+    data = json.loads(raw)
     if "providers" in data and isinstance(data["providers"], dict):
         return data, data["providers"]
     return data, data
