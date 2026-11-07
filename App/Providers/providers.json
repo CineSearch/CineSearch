@@ -40,10 +40,10 @@
       "logo": "{base}/assets/images/favicon/android-icon-192x192.png?4",
       "logoUrl": "https://www.animeworld.ac/assets/images/favicon/android-icon-192x192.png?4"
     },
-    "ToonItalia": {
-      "baseUrl": "https://toonitalia.xyz",
-      "logo": "{base}/wp-content/uploads/2026/04/Toonitalia-personaggi.png",
-      "logoUrl": "https://toonitalia.xyz/wp-content/uploads/2026/04/Toonitalia-personaggi.png"
+    "AnimeUnity": {
+      "baseUrl": "https://www.animeunity.co",
+      "logo": "{base}/favicon-32x32.png",
+      "logoUrl": "https://www.animeunity.co/favicon-32x32.png"
     },
     "GuardaFlix": {
       "baseUrl": "https://guardaplay.cam",
