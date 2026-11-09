@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CineSearch - Streaming Gratuito</title>
+    <title>CineSearch - Free Streaming</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.1.0/css/all.min.css">
     <style>
@@ -26,6 +26,7 @@
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+            gap: 20px;
         }
         .logo {
             display: flex; align-items: center; gap: 12px;
@@ -33,8 +34,10 @@
             background: linear-gradient(135deg, #2a09e5, #7c3aed);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             background-clip: text;
+            flex-shrink: 0;
         }
         .logo i { font-size: 1.4rem; -webkit-text-fill-color: #2a09e5; }
+        .nav-right { display: flex; align-items: center; gap: 24px; }
         .nav-links { display: flex; gap: 24px; align-items: center; }
         .nav-links a {
             color: rgba(255,255,255,0.7); text-decoration: none;
@@ -47,6 +50,67 @@
         }
         .nav-links .btn-outline:hover {
             border-color: #2a09e5; background: rgba(42,9,229,0.1);
+        }
+
+        /* ===== NEW LANGUAGE SWITCH ===== */
+        .lang-switch {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            width: 92px;
+            height: 38px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 999px;
+            cursor: pointer;
+            padding: 3px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.2), 0 4px 12px rgba(0,0,0,0.15);
+            flex-shrink: 0;
+        }
+        .lang-switch:hover {
+            border-color: rgba(124, 58, 237, 0.5);
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.2), 0 4px 20px rgba(42,9,229,0.25);
+        }
+        .lang-switch .lang-slider {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 44px;
+            height: 30px;
+            background: linear-gradient(135deg, #2a09e5, #7c3aed);
+            border-radius: 999px;
+            transition: transform 0.45s cubic-bezier(0.68, -0.35, 0.32, 1.35);
+            box-shadow: 0 2px 10px rgba(42,9,229,0.5), inset 0 1px 0 rgba(255,255,255,0.2);
+            z-index: 1;
+        }
+        .lang-switch.en .lang-slider {
+            transform: translateX(42px);
+        }
+        .lang-option {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            width: 44px;
+            height: 30px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: rgba(255,255,255,0.45);
+            transition: color 0.4s ease;
+            user-select: none;
+            pointer-events: none;
+        }
+        .lang-option .flag { font-size: 0.85rem; line-height: 1; }
+        .lang-switch.it .lang-option[data-lang="it"],
+        .lang-switch.en .lang-option[data-lang="en"] {
+            color: #fff;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.4);
         }
 
         /* Hero */
@@ -233,30 +297,101 @@
 
         /* Features */
         .features {
-            display: grid; grid-template-columns: repeat(4, 1fr);
-            gap: 24px; padding: 60px 0 80px;
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px; 
+            padding: 60px 0 80px;
             border-top: 1px solid rgba(255,255,255,0.06);
         }
         .feature {
-            text-align: center; padding: 24px;
-            background: rgba(255,255,255,0.02);
-            border-radius: 16px;
+            text-align: center; 
+            padding: 40px 24px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            border-radius: 20px;
             border: 1px solid rgba(255,255,255,0.04);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
+        /* Linea luminosa in alto all'hover */
+        .feature::before {
+            content: ''; 
+            position: absolute; 
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #2a09e5, transparent);
+            opacity: 0; 
+            transition: opacity 0.4s;
+        }
+        .feature:hover::before { opacity: 1; }
+        
         .feature:hover {
-            border-color: rgba(42,9,229,0.2);
-            transform: translateY(-4px);
-            background: rgba(42,9,229,0.05);
+            border-color: rgba(42,9,229,0.25);
+            transform: translateY(-6px);
+            background: rgba(42,9,229,0.04);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
-        .feature i {
-            font-size: 2rem; color: #2a09e5; margin-bottom: 16px;
-            background: rgba(42,9,229,0.1); padding: 16px;
-            border-radius: 16px;
-        }
-        .feature h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
-        .feature p { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
 
+        /* Nuovo stile per l'icona: cerchio perfetto senza quadratoni */
+        .feature .icon-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: rgba(42,9,229,0.12);
+            border: 1px solid rgba(42,9,229,0.2);
+            margin-bottom: 24px;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 20px rgba(42,9,229,0.1) inset;
+        }
+        .feature .icon-wrapper i {
+            font-size: 1.6rem;
+            color: #a78bfa;
+            transition: all 0.4s ease;
+        }
+        .feature:hover .icon-wrapper {
+            background: rgba(42,9,229,0.2);
+            border-color: rgba(42,9,229,0.5);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 30px rgba(42,9,229,0.3) inset, 0 0 20px rgba(42,9,229,0.2);
+        }
+        .feature:hover .icon-wrapper i {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+
+        .feature h4 { 
+            font-size: 1.15rem; 
+            font-weight: 700; 
+            margin-bottom: 12px; 
+            color: #fff;
+        }
+        .feature p { 
+            font-size: 0.88rem; 
+            color: rgba(255,255,255,0.5); 
+            line-height: 1.6;
+        }
+
+        /* Stile specifico per l'icona arancione del download */
+        .feature-download .icon-wrapper {
+            background: rgba(249,115,22,0.12);
+            border-color: rgba(249,115,22,0.2);
+            box-shadow: 0 0 20px rgba(249,115,22,0.1) inset;
+        }
+        .feature-download .icon-wrapper i {
+            color: #fb923c;
+        }
+        .feature-download:hover .icon-wrapper {
+            background: rgba(249,115,22,0.2);
+            border-color: rgba(249,115,22,0.5);
+            box-shadow: 0 0 30px rgba(249,115,22,0.3) inset, 0 0 20px rgba(249,115,22,0.2);
+        }
+        .feature-download:hover .icon-wrapper i {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
         /* Ko-fi */
         .ko-fi-section {
             text-align: center; padding: 60px 0 40px;
@@ -438,15 +573,23 @@
                 <i class="fas fa-film"></i>
                 <span>CineSearch</span>
             </div>
-            <div class="nav-links">
-                <a href="#download">Scarica</a>
-                <a href="#features">Caratteristiche</a>
-                <a href="#changelog">Changelog</a>
-                <a href="server.html">Server</a>
-                <a href="faq.html">FAQ</a>
-                <a href="https://github.com/CineSearch/CineSearch" target="_blank" rel="noopener" class="btn-outline">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="#download" data-i18n="nav_download">Scarica</a>
+                    <a href="#features" data-i18n="nav_features">Caratteristiche</a>
+                    <a href="#changelog" data-i18n="nav_changelog">Changelog</a>
+                    <a href="server.html" data-i18n="nav_server">Server</a>
+                    <a href="faq.html" data-i18n="nav_faq">FAQ</a>
+                    <a href="https://github.com/CineSearch/CineSearch" target="_blank" rel="noopener" class="btn-outline">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+                <!-- NEW LANGUAGE SWITCH -->
+                <button class="lang-switch it" id="langSwitch" onclick="toggleLanguage()" aria-label="Switch language">
+                    <span class="lang-slider"></span>
+                    <span class="lang-option" data-lang="it"><span class="flag">🇮🇹</span> IT</span>
+                    <span class="lang-option" data-lang="en"><span class="flag">🇬🇧</span> EN</span>
+                </button>
             </div>
         </nav>
     </div>
@@ -454,13 +597,13 @@
 <div class="container">
     <section class="hero">
         <div class="hero-badge">
-            <i class="fas fa-star"></i> Windows — v7.1.2 &mdash; Ultima versione disponibile
+            <i class="fas fa-star"></i> <span data-i18n="hero_badge_win">Windows — v7.1.2 — Ultima versione disponibile</span>
         </div>
         <div class="hero-badge android-badge">
-            <i class="fas fa-star"></i> Android — v7.1.2 &mdash; Ultima versione disponibile
+            <i class="fas fa-star"></i> <span data-i18n="hero_badge_android">Android — v7.1.2 — Ultima versione disponibile</span>
         </div>
-        <h1>Il tuo cinema,<br>sempre con te.</h1>
-        <p>
+        <h1 data-i18n="hero_title">Il tuo cinema,<br>sempre con te.</h1>
+        <p data-i18n="hero_subtitle">
             CineSearch ti permette di guardare Film/SerieTV, Anime e TV Live
             in streaming gratuito su qualsiasi dispositivo.
             Scegli la tua piattaforma e inizia subito.
@@ -469,89 +612,89 @@
             <div class="stats">
                 <div class="stat-item">
                     <div class="stat-number"><i class="fas fa-download"></i><span id="total-downloads">--</span></div>
-                    <div class="stat-label">Download totali</div>
+                    <div class="stat-label" data-i18n="stat_total_downloads">Download totali</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number"><i class="fas fa-star"></i> <span id="github-stars">--</span></div>
-                    <div class="stat-label">Star su GitHub</div>
+                    <div class="stat-label" data-i18n="stat_github_stars">Star su GitHub</div>
                 </div>
 
             </div>
 
             <div class="badges-row">
-                <span class="badge badge-green"><i class="fas fa-shield-alt"></i> Virus Free</span>
-                <span class="badge badge-blue"><i class="fas fa-check-circle"></i> 100% Gratuito</span>
-                <span class="badge badge-purple"><i class="fas fa-infinity"></i> Senza Limiti</span>
+                <span class="badge badge-green"><i class="fas fa-shield-alt"></i> <span data-i18n="badge_virus_free">Virus Free</span></span>
+                <span class="badge badge-blue"><i class="fas fa-check-circle"></i> <span data-i18n="badge_free">100% Gratuito</span></span>
+                <span class="badge badge-purple"><i class="fas fa-infinity"></i> <span data-i18n="badge_no_limits">Senza Limiti</span></span>
                 <span class="badge badge-github">
-                    <i class="fas fa-code"></i> Freeware
+                    <i class="fas fa-code"></i> <span data-i18n="badge_freeware">Freeware</span>
                 </span>
             </div>
 
             <div class="badges-row" style="margin-top: -32px;">
-                <span class="badge" style="background:rgba(239,68,68,0.12);border-color:rgba(239,68,68,0.3);color:#f87171;"><i class="fas fa-film"></i> Film/SerieTV</span>
-                <span class="badge" style="background:rgba(236,72,153,0.12);border-color:rgba(236,72,153,0.3);color:#f472b6;"><i class="fas fa-dragon"></i> Anime</span>
-                <span class="badge" style="background:rgba(34,211,238,0.12);border-color:rgba(34,211,238,0.3);color:#67e8f9;"><i class="fas fa-broadcast-tower"></i> TV Live</span>
+                <span class="badge" style="background:rgba(239,68,68,0.12);border-color:rgba(239,68,68,0.3);color:#f87171;"><i class="fas fa-film"></i> <span data-i18n="badge_movies">Film/SerieTV</span></span>
+                <span class="badge" style="background:rgba(236,72,153,0.12);border-color:rgba(236,72,153,0.3);color:#f472b6;"><i class="fas fa-dragon"></i> <span data-i18n="badge_anime">Anime</span></span>
+                <span class="badge" style="background:rgba(34,211,238,0.12);border-color:rgba(34,211,238,0.3);color:#67e8f9;"><i class="fas fa-broadcast-tower"></i> <span data-i18n="badge_tv_live">TV Live</span></span>
             </div>
         </section>
 
         <section class="download-section" id="download">
-            <div class="section-label">— Scegli la tua piattaforma —</div>
+            <div class="section-label" data-i18n="section_choose_platform">— Scegli la tua piattaforma —</div>
             <div class="download-cards">
                 <div class="download-card card-android">
                     <span class="icon"><i class="fas fa-mobile-alt"></i></span>
-                    <h3>Android</h3>
-                    <p>App nativa per smartphone e tablet Android. Leggera e veloce.</p>
+                    <h3 data-i18n="card_android_title">Android</h3>
+                    <p data-i18n="card_android_desc">App nativa per smartphone e tablet Android. Leggera e veloce.</p>
                     <a href="https://github.com/CineSearch/CineSearch/releases/download/Release_v7.1.2/CineSearch-mobile-release.apk" target="_blank" rel="noopener" class="btn-download btn-download-android">
-                        <i class="fas fa-download"></i> Android APK
+                        <i class="fas fa-download"></i> <span data-i18n="btn_android_apk">Android APK</span>
                     </a>
-                    <span class="download-count-badge"><span id="android-dl">--</span> download</span>
-                    <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:10px;font-weight:700;">Codice AFTVnews:</div>
-                    <div class="dl-code-row"><code>8813914</code><button class="copy-btn" onclick="navigator.clipboard.writeText('8813914');this.innerHTML='✅ Copiato';setTimeout(()=>this.innerHTML='<i class=\'fas fa-copy\'></i> Copia',2000)"><i class="fas fa-copy"></i> Copia</button></div>
+                    <span class="download-count-badge"><span id="android-dl">--</span> <span data-i18n="label_download">download</span></span>
+                    <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:10px;font-weight:700;" data-i18n="label_aftvnews_code">Codice AFTVnews:</div>
+                    <div class="dl-code-row"><code>8813914</code><button class="copy-btn" onclick="copyCode(this,'8813914')"><i class="fas fa-copy"></i> <span data-i18n="btn_copy">Copia</span></button></div>
                 </div>
 
                 <div class="download-card card-tv">
                     <span class="icon"><i class="fas fa-tv"></i></span>
-                    <h3>TV</h3>
-                    <p>Versione ottimizzata per Android TV, Fire TV e Google TV.</p>
+                    <h3 data-i18n="card_tv_title">TV</h3>
+                    <p data-i18n="card_tv_desc">Versione ottimizzata per Android TV, Fire TV e Google TV.</p>
                     <a href="https://github.com/CineSearch/CineSearch/releases/download/Release_v7.1.2/CineSearch-tv-release.apk" target="_blank" rel="noopener" class="btn-download btn-download-tv">
-                        <i class="fas fa-download"></i> TV APK
+                        <i class="fas fa-download"></i> <span data-i18n="btn_tv_apk">TV APK</span>
                     </a>
-                    <span class="download-count-badge"><span id="tv-dl">--</span> download</span>
-                    <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:10px;font-weight:700;">Codice AFTVnews:</div>
-                    <div class="dl-code-row"><code>7384549</code><button class="copy-btn" onclick="navigator.clipboard.writeText('7384549');this.innerHTML='✅ Copiato';setTimeout(()=>this.innerHTML='<i class=\'fas fa-copy\'></i> Copia',2000)"><i class="fas fa-copy"></i> Copia</button></div>
+                    <span class="download-count-badge"><span id="tv-dl">--</span> <span data-i18n="label_download">download</span></span>
+                    <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:10px;font-weight:700;" data-i18n="label_aftvnews_code">Codice AFTVnews:</div>
+                    <div class="dl-code-row"><code>7384549</code><button class="copy-btn" onclick="copyCode(this,'7384549')"><i class="fas fa-copy"></i> <span data-i18n="btn_copy">Copia</span></button></div>
                 </div>
                 <div class="download-card card-universal">
                     <span class="icon"><i class="fab fa-android"></i></span>
-                    <h3>Android+TV</h3>
-                    <p>App universale per smartphone, tablet e Android TV. Un'unica soluzione.</p>
+                    <h3 data-i18n="card_universal_title">Android+TV</h3>
+                    <p data-i18n="card_universal_desc">App universale per smartphone, tablet e Android TV. Un'unica soluzione.</p>
                     <a href="https://github.com/CineSearch/CineSearch/releases/download/Release_v7.1.2/CineSearch-universal-release.apk" target="_blank" rel="noopener" class="btn-download btn-download-universal">
-                        <i class="fas fa-download"></i> Universal APK
+                        <i class="fas fa-download"></i> <span data-i18n="btn_universal_apk">Universal APK</span>
                     </a>
-                    <span class="download-count-badge"><span id="universal-dl">--</span> download</span>
-                    <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:10px;font-weight:700;">Codice AFTVnews:</div>
-                    <div class="dl-code-row"><code>9013712</code><button class="copy-btn" onclick="navigator.clipboard.writeText('9013712');this.innerHTML='✅ Copiato';setTimeout(()=>this.innerHTML='<i class=\'fas fa-copy\'></i> Copia',2000)"><i class="fas fa-copy"></i> Copia</button></div>
+                    <span class="download-count-badge"><span id="universal-dl">--</span> <span data-i18n="label_download">download</span></span>
+                    <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:10px;font-weight:700;" data-i18n="label_aftvnews_code">Codice AFTVnews:</div>
+                    <div class="dl-code-row"><code>9013712</code><button class="copy-btn" onclick="copyCode(this,'9013712')"><i class="fas fa-copy"></i> <span data-i18n="btn_copy">Copia</span></button></div>
                 </div>
                 <div class="download-card card-windows">
                     <span class="icon"><i class="fab fa-windows"></i></span>
-                    <span class="alpha-badge">BETA</span>
-                    <h3>Windows</h3>
-                    <p>Versione desktop per Windows 10/11.</p>
+                    <span class="alpha-badge" data-i18n="badge_beta">BETA</span>
+                    <h3 data-i18n="card_windows_title">Windows</h3>
+                    <p data-i18n="card_windows_desc">Versione desktop per Windows 10/11.</p>
                     <a href="https://github.com/CineSearch/CineSearch/releases/download/Release_v7.1.2/CineSearch.exe" target="_blank" rel="noopener" class="btn-download btn-download-windows">
-                        <i class="fas fa-download"></i> EXE
+                        <i class="fas fa-download"></i> <span data-i18n="btn_windows_exe">EXE</span>
                     </a>
-                    <div class="download-count-badge"><span id="windows-dl">--</span> download</div>
+                    <div class="download-count-badge"><span id="windows-dl">--</span> <span data-i18n="label_download">download</span></div>
                 </div>
                 <div class="download-card card-ios">
                     <span class="icon"><i class="fab fa-apple"></i></span>
-                    <span class="alpha-badge">WEB</span>
-                    <h3>IOS-MACOS</h3>
-                    <p>Versione Web per iOS e macOS. Accesso immediato, senza installazione.</p>
+                    <span class="alpha-badge" data-i18n="badge_web">WEB</span>
+                    <h3 data-i18n="card_ios_title">IOS-MACOS</h3>
+                    <p data-i18n="card_ios_desc">Versione Web per iOS e macOS. Accesso immediato, senza installazione.</p>
                     <div style="background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.2);border-radius:10px;padding:10px 12px;margin-bottom:16px;font-size:0.72rem;color:#fbbf24;line-height:1.5;text-align:left;">
-                        <div style="font-weight:700;margin-bottom:4px;"><i class="fas fa-info-circle"></i> Solo Web</div>
-                        <div style="opacity:0.85;">NON sono previste queste funzioni:<br>- Continua a guardare<br>- Sincronizzazione<br>- Verifica film/serie TV<br>- Anime<br>- TV Live</div>
+                        <div style="font-weight:700;margin-bottom:4px;"><i class="fas fa-info-circle"></i> <span data-i18n="ios_warning_title">Solo Web</span></div>
+                        <div style="opacity:0.85;" data-i18n="ios_warning_text">NON sono previste queste funzioni:<br>- Continua a guardare<br>- Sincronizzazione<br>- Verifica film/serie TV<br>- Anime<br>- TV Live</div>
                     </div>
                     <a href="ios-macos/index.html" class="btn-download btn-download-ios">
-                        <i class="fas fa-globe"></i> Web
+                        <i class="fas fa-globe"></i> <span data-i18n="btn_ios_web">Web</span>
                     </a>
                 </div>
             </div>
@@ -559,86 +702,86 @@
 
         <!-- CHANGELOG SECTION -->
         <section class="changelog-section" id="changelog">
-            <div class="section-label">— Novità dell'ultima versione —</div>
+            <div class="section-label" data-i18n="section_changelog">— Novità dell'ultima versione —</div>
             <div style="text-align:center;margin-bottom:32px;">
                 <span class="changelog-version" id="changelog-version">v7.1.2</span>
             </div>
             <div class="changelog-grid" id="changelog-grid">
                 <div class="changelog-box" id="android-changelog">
-                    <h3><i class="fas fa-mobile-alt" style="color:#4ade80;"></i> Android <span class="badge-android">Mobile</span></h3>
+                    <h3><i class="fas fa-mobile-alt" style="color:#4ade80;"></i> Android <span class="badge-android" data-i18n="badge_mobile">Mobile</span></h3>
                     <ul id="android-changelog-list">
-                        <li class="changelog-empty">Caricamento in corso...</li>
+                        <li class="changelog-empty" data-i18n="changelog_loading">Caricamento in corso...</li>
                     </ul>
                 </div>
                 <div class="changelog-box" id="windows-changelog">
-                    <h3><i class="fab fa-windows" style="color:#60a5fa;"></i> Windows <span class="badge-windows">Desktop</span></h3>
+                    <h3><i class="fab fa-windows" style="color:#60a5fa;"></i> Windows <span class="badge-windows" data-i18n="badge_desktop">Desktop</span></h3>
                     <ul id="windows-changelog-list">
-                        <li class="changelog-empty">Caricamento in corso...</li>
+                        <li class="changelog-empty" data-i18n="changelog_loading">Caricamento in corso...</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- FEATURES SECTION - AGGIORNATA CON DOWNLOAD DEI CONTENUTI -->
+        <!-- FEATURES SECTION -->
         <section class="features" id="features">
             <div class="feature">
                 <i class="fas fa-play-circle"></i>
-                <h4>Continua a Guardare</h4>
-                <p>Riprendi la visione di film e serie esattamente da dove li hai lasciati, anche dopo giorni.</p>
+                <h4 data-i18n="feature_continue_title">Continua a Guardare</h4>
+                <p data-i18n="feature_continue_desc">Riprendi la visione di film e serie esattamente da dove li hai lasciati, anche dopo giorni.</p>
             </div>
             <div class="feature">
                 <i class="fas fa-heart"></i>
-                <h4>Preferiti</h4>
-                <p>Crea la tua libreria personale salvando i titoli che ami di più e accedici in un tap.</p>
+                <h4 data-i18n="feature_favorites_title">Preferiti</h4>
+                <p data-i18n="feature_favorites_desc">Crea la tua libreria personale salvando i titoli che ami di più e accedici in un tap.</p>
             </div>
             <div class="feature">
                 <i class="fas fa-sync-alt"></i>
-                <h4>Sincronizzazione Dispositivi</h4>
-                <p>Passa da Android a TV a Windows senza perdere i progressi. Tutto sincronizzato in tempo reale.</p>
+                <h4 data-i18n="feature_sync_title">Sincronizzazione Dispositivi</h4>
+                <p data-i18n="feature_sync_desc">Passa da Android a TV a Windows senza perdere i progressi. Tutto sincronizzato in tempo reale.</p>
             </div>
             <div class="feature feature-download">
                 <i class="fas fa-cloud-download-alt"></i>
-                <h4>Download dei contenuti</h4>
-                <p>Scarica Film, SerieTV e Anime direttamente sul tuo dispositivo per guardarli offline, ovunque e in qualsiasi momento.</p>
+                <h4 data-i18n="feature_download_title">Download dei contenuti</h4>
+                <p data-i18n="feature_download_desc">Scarica Film, SerieTV e Anime direttamente sul tuo dispositivo per guardarli offline, ovunque e in qualsiasi momento.</p>
             </div>
         </section>
         <section class="community-section">
-            <div class="section-label">— CANALE —</div>
+            <div class="section-label" data-i18n="section_channel">— CANALE —</div>
             <div class="community-links">
                 <a href="https://t.me/cinesearchchannel" target="_blank" rel="noopener" class="community-btn">
-                    <i class="fab fa-telegram"></i> Unisciti al nostro canale
+                    <i class="fab fa-telegram"></i> <span data-i18n="btn_join_channel">Unisciti al nostro canale</span>
                 </a>
             </div>
         </section>
         <section class="community-section">
-            <div class="section-label">— ASSISTENZA —</div>
+            <div class="section-label" data-i18n="section_support">— ASSISTENZA —</div>
             <div class="community-links">
                 <a href="https://t.me/+9yp0UCZGICczNWU0" target="_blank" rel="noopener" class="community-btn">
-                    <i class="fab fa-telegram"></i> Contatta l'assistenza
+                    <i class="fab fa-telegram"></i> <span data-i18n="btn_contact_support">Contatta l'assistenza</span>
                 </a>
             </div>
         </section>
 
 <section class="community-section">
-    <div class="section-label">— Unisciti alla community —</div>
-    <p class="community-sub">
+    <div class="section-label" data-i18n="section_join_community">— Unisciti alla community —</div>
+    <p class="community-sub" data-i18n="community_sub_text">
         Vuoi parlare di CineSearch? Di una tua serie preferita e altro?
     </p>
     <div style="margin-top: 16px;">
         <a href="https://t.me/+0ank3lR_TvwzNWM0" target="_blank" rel="noopener" class="community-btn">
-            <i class="fab fa-telegram"></i> Unisciti al nostro gruppo
+            <i class="fab fa-telegram"></i> <span data-i18n="btn_join_group">Unisciti al nostro gruppo</span>
         </a>
     </div>
 </section>
 
 <section class="community-section">
-    <div class="section-label">— SOSTIENICI —</div>
-    <p class="community-sub">
+    <div class="section-label" data-i18n="section_support_us">— SOSTIENICI —</div>
+    <p class="community-sub" data-i18n="support_sub_text">
         Grazie per utilizzare CineSearch! ❤️ Se desideri supportare il nostro lavoro e contribuire alla crescita del progetto, puoi offrirci un caffè. ☕
     </p>
     <div style="margin-top: 16px;">
         <a href="https://www.paypal.com/paypalme/AiMods22" target="_blank" rel="noopener" class="ko-fi-btn">
-            <i class="fas fa-coffee"></i> Offrici un caffè
+            <i class="fas fa-coffee"></i> <span data-i18n="btn_buy_coffee">Offrici un caffè</span>
         </a>
     </div>
 </section>
@@ -646,14 +789,242 @@
 
     <footer>
         <div class="container">
-            <p>CineSearch&mdash; <a href="https://github.com/CineSearch/CineSearch" target="_blank" rel="noopener">GitHub</a> &mdash; <a href="https://t.me/+9yp0UCZGICczNWU0" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> Assistenza</a> &mdash; <a href="https://t.me/+0ank3lR_TvwzNWM0" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> Gruppo</a></p>
-            <p>&copy; 2026 CineSearch &mdash; Progetto Freeware</p>
+            <p>CineSearch&mdash; <a href="https://github.com/CineSearch/CineSearch" target="_blank" rel="noopener">GitHub</a> &mdash; <a href="https://t.me/+9yp0UCZGICczNWU0" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> <span data-i18n="footer_support">Assistenza</span></a> &mdash; <a href="https://t.me/+0ank3lR_TvwzNWM0" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> <span data-i18n="footer_group">Gruppo</span></a></p>
+            <p>&copy; 2026 CineSearch &mdash; <span data-i18n="footer_freeware">Progetto Freeware</span></p>
             <div class="version">made with <i class="fas fa-heart" style="color:#ff5e5b;"></i> by the community</div>
         </div>
     </footer>
 
     <script>
-    // Helper to parse changelog from release body
+    // ========== TRANSLATIONS ==========
+    const translations = {
+        it: {
+            nav_download: "Scarica",
+            nav_features: "Caratteristiche",
+            nav_changelog: "Changelog",
+            nav_server: "Server",
+            nav_faq: "FAQ",
+            hero_badge_win: "Windows — v7.1.2 — Ultima versione disponibile",
+            hero_badge_android: "Android — v7.1.2 — Ultima versione disponibile",
+            hero_title: "Il tuo cinema,<br>sempre con te.",
+            hero_subtitle: "CineSearch ti permette di guardare Film/SerieTV, Anime e TV Live in streaming gratuito su qualsiasi dispositivo. Scegli la tua piattaforma e inizia subito.",
+            stat_total_downloads: "Download totali",
+            stat_github_stars: "Star su GitHub",
+            badge_virus_free: "Virus Free",
+            badge_free: "100% Gratuito",
+            badge_no_limits: "Senza Limiti",
+            badge_freeware: "Freeware",
+            badge_movies: "Film/SerieTV",
+            badge_anime: "Anime",
+            badge_tv_live: "TV Live",
+            section_choose_platform: "— Scegli la tua piattaforma —",
+            card_android_title: "Android",
+            card_android_desc: "App nativa per smartphone e tablet Android. Leggera e veloce.",
+            btn_android_apk: "Android APK",
+            card_tv_title: "TV",
+            card_tv_desc: "Versione ottimizzata per Android TV, Fire TV e Google TV.",
+            btn_tv_apk: "TV APK",
+            card_universal_title: "Android+TV",
+            card_universal_desc: "App universale per smartphone, tablet e Android TV. Un'unica soluzione.",
+            btn_universal_apk: "Universal APK",
+            card_windows_title: "Windows",
+            card_windows_desc: "Versione desktop per Windows 10/11.",
+            btn_windows_exe: "EXE",
+            card_ios_title: "IOS-MACOS",
+            card_ios_desc: "Versione Web per iOS e macOS. Accesso immediato, senza installazione.",
+            ios_warning_title: "Solo Web",
+            ios_warning_text: "NON sono previste queste funzioni:<br>- Continua a guardare<br>- Sincronizzazione<br>- Verifica film/serie TV<br>- Anime<br>- TV Live",
+            btn_ios_web: "Web",
+            label_download: "download",
+            label_aftvnews_code: "Codice AFTVnews:",
+            btn_copy: "Copia",
+            btn_copied: "Copiato",
+            badge_beta: "BETA",
+            badge_web: "WEB",
+            badge_mobile: "Mobile",
+            badge_desktop: "Desktop",
+            section_changelog: "— Novità dell'ultima versione —",
+            changelog_loading: "Caricamento in corso...",
+            changelog_no_android: "Nessuna novità Android in questa release",
+            changelog_no_windows: "Nessuna novità Windows in questa release",
+            changelog_error: "Impossibile caricare il changelog",
+            feature_continue_title: "Continua a Guardare",
+            feature_continue_desc: "Riprendi la visione di film e serie esattamente da dove li hai lasciati, anche dopo giorni.",
+            feature_favorites_title: "Preferiti",
+            feature_favorites_desc: "Crea la tua libreria personale salvando i titoli che ami di più e accedici in un tap.",
+            feature_sync_title: "Sincronizzazione Dispositivi",
+            feature_sync_desc: "Passa da Android a TV a Windows senza perdere i progressi. Tutto sincronizzato in tempo reale.",
+            feature_download_title: "Download dei contenuti",
+            feature_download_desc: "Scarica Film, SerieTV e Anime direttamente sul tuo dispositivo per guardarli offline, ovunque e in qualsiasi momento.",
+            section_channel: "— CANALE —",
+            btn_join_channel: "Unisciti al nostro canale",
+            section_support: "— ASSISTENZA —",
+            btn_contact_support: "Contatta l'assistenza",
+            section_join_community: "— Unisciti alla community —",
+            community_sub_text: "Vuoi parlare di CineSearch? Di una tua serie preferita e altro?",
+            btn_join_group: "Unisciti al nostro gruppo",
+            section_support_us: "— SOSTIENICI —",
+            support_sub_text: "Grazie per utilizzare CineSearch! ❤️ Se desideri supportare il nostro lavoro e contribuire alla crescita del progetto, puoi offrirci un caffè. ☕",
+            btn_buy_coffee: "Offrici un caffè",
+            footer_support: "Assistenza",
+            footer_group: "Gruppo",
+            footer_freeware: "Progetto Freeware"
+        },
+        en: {
+            nav_download: "Download",
+            nav_features: "Features",
+            nav_changelog: "Changelog",
+            nav_server: "Server",
+            nav_faq: "FAQ",
+            hero_badge_win: "Windows — v7.1.2 — Latest version available",
+            hero_badge_android: "Android — v7.1.2 — Latest version available",
+            hero_title: "Your cinema,<br>always with you.",
+            hero_subtitle: "CineSearch lets you watch Movies/TV Series, Anime and Live TV in free streaming on any device. Choose your platform and start now.",
+            stat_total_downloads: "Total downloads",
+            stat_github_stars: "GitHub Stars",
+            badge_virus_free: "Virus Free",
+            badge_free: "100% Free",
+            badge_no_limits: "No Limits",
+            badge_freeware: "Freeware",
+            badge_movies: "Movies/TV Series",
+            badge_anime: "Anime",
+            badge_tv_live: "Live TV",
+            section_choose_platform: "— Choose your platform —",
+            card_android_title: "Android",
+            card_android_desc: "Native app for Android smartphones and tablets. Light and fast.",
+            btn_android_apk: "Android APK",
+            card_tv_title: "TV",
+            card_tv_desc: "Optimized version for Android TV, Fire TV and Google TV.",
+            btn_tv_apk: "TV APK",
+            card_universal_title: "Android+TV",
+            card_universal_desc: "Universal app for smartphones, tablets and Android TV. One single solution.",
+            btn_universal_apk: "Universal APK",
+            card_windows_title: "Windows",
+            card_windows_desc: "Desktop version for Windows 10/11.",
+            btn_windows_exe: "EXE",
+            card_ios_title: "IOS-MACOS",
+            card_ios_desc: "Web version for iOS and macOS. Immediate access, no installation.",
+            ios_warning_title: "Web Only",
+            ios_warning_text: "These features are NOT available:<br>- Continue watching<br>- Sync<br>- Movie/TV verification<br>- Anime<br>- Live TV",
+            btn_ios_web: "Web",
+            label_download: "downloads",
+            label_aftvnews_code: "AFTVnews code:",
+            btn_copy: "Copy",
+            btn_copied: "Copied",
+            badge_beta: "BETA",
+            badge_web: "WEB",
+            badge_mobile: "Mobile",
+            badge_desktop: "Desktop",
+            section_changelog: "— Latest version news —",
+            changelog_loading: "Loading...",
+            changelog_no_android: "No Android news in this release",
+            changelog_no_windows: "No Windows news in this release",
+            changelog_error: "Unable to load changelog",
+            feature_continue_title: "Continue Watching",
+            feature_continue_desc: "Resume watching movies and series exactly where you left off, even days later.",
+            feature_favorites_title: "Favorites",
+            feature_favorites_desc: "Create your personal library by saving the titles you love most and access them in one tap.",
+            feature_sync_title: "Device Sync",
+            feature_sync_desc: "Switch from Android to TV to Windows without losing progress. Everything synced in real time.",
+            feature_download_title: "Content Download",
+            feature_download_desc: "Download Movies, TV Series and Anime directly on your device to watch offline, anywhere and anytime.",
+            section_channel: "— CHANNEL —",
+            btn_join_channel: "Join our channel",
+            section_support: "— SUPPORT —",
+            btn_contact_support: "Contact support",
+            section_join_community: "— Join the community —",
+            community_sub_text: "Want to talk about CineSearch? Your favorite series and more?",
+            btn_join_group: "Join our group",
+            section_support_us: "— SUPPORT US —",
+            support_sub_text: "Thanks for using CineSearch! ❤️ If you'd like to support our work and contribute to the project's growth, you can buy us a coffee. ☕",
+            btn_buy_coffee: "Buy us a coffee",
+            footer_support: "Support",
+            footer_group: "Group",
+            footer_freeware: "Freeware Project"
+        }
+    };
+
+    let currentLang = localStorage.getItem('cs_lang') || 'it';
+
+    function applyTranslations(lang) {
+        const dict = translations[lang];
+        if (!dict) return;
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (dict[key]) {
+                if (key === 'hero_title' || key === 'ios_warning_text') {
+                    el.innerHTML = dict[key];
+                } else {
+                    el.textContent = dict[key];
+                }
+            }
+        });
+        document.documentElement.lang = lang;
+
+        // Update switch state
+        const sw = document.getElementById('langSwitch');
+        if (sw) {
+            sw.classList.toggle('it', lang === 'it');
+            sw.classList.toggle('en', lang === 'en');
+        }
+
+        if (window._lastChangelogData) {
+            renderChangelog(window._lastChangelogData);
+        }
+    }
+
+    function toggleLanguage() {
+        currentLang = currentLang === 'it' ? 'en' : 'it';
+        localStorage.setItem('cs_lang', currentLang);
+        applyTranslations(currentLang);
+    }
+
+    function copyCode(btn, code) {
+        navigator.clipboard.writeText(code);
+        const dict = translations[currentLang];
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = `<i class="fas fa-check"></i> ${dict.btn_copied || 'Copiato'}`;
+        btn.style.color = '#4ade80';
+        setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.style.color = '';
+        }, 2000);
+    }
+
+    window._translations = translations;
+    window._currentLang = () => currentLang;
+
+    // ========== CHANGELOG RENDERING ==========
+    function renderChangelog(changelog) {
+        const lang = currentLang;
+        const dict = translations[lang];
+        const androidList = document.getElementById('android-changelog-list');
+        const windowsList = document.getElementById('windows-changelog-list');
+        if (!androidList || !windowsList) return;
+
+        if (changelog.android && changelog.android.length > 0) {
+            androidList.innerHTML = '';
+            for (const item of changelog.android) {
+                const li = document.createElement('li');
+                li.textContent = item;
+                androidList.appendChild(li);
+            }
+        } else {
+            androidList.innerHTML = `<li class="changelog-empty">${dict.changelog_no_android || 'Nessuna novità Android in questa release'}</li>`;
+        }
+
+        if (changelog.windows && changelog.windows.length > 0) {
+            windowsList.innerHTML = '';
+            for (const item of changelog.windows) {
+                const li = document.createElement('li');
+                li.textContent = item;
+                windowsList.appendChild(li);
+            }
+        } else {
+            windowsList.innerHTML = `<li class="changelog-empty">${dict.changelog_no_windows || 'Nessuna novità Windows in questa release'}</li>`;
+        }
+    }
+
     function parseChangelog(body) {
         const result = { android: [], windows: [] };
         if (!body) return result;
@@ -668,34 +1039,25 @@
 
             const lower = line.toLowerCase();
 
-            // Detect section headers
             if (lower.includes('android') && (line.includes('###') || line.includes('##') || line.match(/^android/i))) {
-                // Check if it's "### Changelog" - skip it, we need the content after
-                if (lower.includes('changelog')) {
-                    continue;
-                }
+                if (lower.includes('changelog')) continue;
                 currentSection = 'android';
                 inChangelog = true;
                 continue;
             }
 
             if (lower.includes('windows') && (line.includes('###') || line.includes('##') || line.match(/^windows/i))) {
-                if (lower.includes('changelog')) {
-                    continue;
-                }
+                if (lower.includes('changelog')) continue;
                 currentSection = 'windows';
                 inChangelog = true;
                 continue;
             }
 
-            // Skip the main "### Changelog" header
             if (lower.includes('changelog') && (line.includes('###') || line.includes('##'))) {
                 continue;
             }
 
-            // If we're in a section and line looks like a list item or bullet point
             if (inChangelog && currentSection !== 'none') {
-                // Check if it's a list item (starts with -, *, •, or number with dot)
                 const isListItem = line.match(/^[\s]*[-*•]\s+/) || line.match(/^[\s]*\d+\.\s+/);
                 if (isListItem) {
                     const itemText = line.replace(/^[\s]*[-*•]\s+/, '').replace(/^[\s]*\d+\.\s+/, '').trim();
@@ -703,15 +1065,12 @@
                         result[currentSection].push(itemText);
                     }
                 } else if (line.length > 3 && !line.match(/^[#-]/) && !line.match(/^```/)) {
-                    // If it's not a header, not a separator, and has content, treat as changelog item
-                    // But skip if it's a separator like "---" or "==="
                     if (!line.match(/^[=\-]{3,}/) && !line.match(/^#/)) {
                         result[currentSection].push(line);
                     }
                 }
             }
 
-            // Detect end of sections (when we hit a new header that's not a continuation)
             if (line.match(/^##/) || line.match(/^###/)) {
                 if (!lower.includes('android') && !lower.includes('windows') && !lower.includes('changelog')) {
                     inChangelog = false;
@@ -719,7 +1078,6 @@
             }
         }
 
-        // If no sections found with explicit headers, try to find by looking for Android/Windows keywords in lines
         if (result.android.length === 0 && result.windows.length === 0) {
             let current = 'none';
             for (const line of lines) {
@@ -748,6 +1106,7 @@
         return result;
     }
 
+    // ========== GITHUB API ==========
     async function fetchGitHubStatsAndChangelog() {
         try {
             const [repoRes, releasesRes] = await Promise.all([
@@ -784,52 +1143,20 @@
                     }
                 }
 
-                // Get latest release for changelog
                 const latestRelease = releases[0];
                 if (latestRelease) {
-                    // Update version badge
                     const versionEl = document.getElementById('changelog-version');
                     if (versionEl) {
                         versionEl.textContent = latestRelease.tag_name || 'v7.1.2';
                     }
 
-                    // Parse changelog from release body
                     const body = latestRelease.body || '';
                     const changelog = parseChangelog(body);
-
-                    // Update Android changelog
-                    const androidList = document.getElementById('android-changelog-list');
-                    if (androidList) {
-                        androidList.innerHTML = '';
-                        if (changelog.android && changelog.android.length > 0) {
-                            for (const item of changelog.android) {
-                                const li = document.createElement('li');
-                                li.textContent = item;
-                                androidList.appendChild(li);
-                            }
-                        } else {
-                            androidList.innerHTML = '<li class="changelog-empty">Nessuna novità Android in questa release</li>';
-                        }
-                    }
-
-                    // Update Windows changelog
-                    const windowsList = document.getElementById('windows-changelog-list');
-                    if (windowsList) {
-                        windowsList.innerHTML = '';
-                        if (changelog.windows && changelog.windows.length > 0) {
-                            for (const item of changelog.windows) {
-                                const li = document.createElement('li');
-                                li.textContent = item;
-                                windowsList.appendChild(li);
-                            }
-                        } else {
-                            windowsList.innerHTML = '<li class="changelog-empty">Nessuna novità Windows in questa release</li>';
-                        }
-                    }
+                    window._lastChangelogData = changelog;
+                    renderChangelog(changelog);
                 }
             }
 
-            // Persist download counts across version bumps (localStorage)
             const prefix = 'cs_dl_';
             const counts = { totalDownloads, tvDownloads, androidDownloads, windowsDownloads, universalDownloads };
             for (const [key, value] of Object.entries(counts)) {
@@ -854,18 +1181,21 @@
             document.getElementById('total-downloads').textContent = 'N/A';
             document.getElementById('github-stars').textContent = 'N/A';
             document.querySelectorAll('.download-count-badge span').forEach(el => el.textContent = 'N/A');
-            
-            // Set fallback changelog
+
+            const dict = translations[currentLang];
             const androidList = document.getElementById('android-changelog-list');
             if (androidList) {
-                androidList.innerHTML = '<li class="changelog-empty">Impossibile caricare il changelog</li>';
+                androidList.innerHTML = `<li class="changelog-empty">${dict.changelog_error || 'Impossibile caricare il changelog'}</li>`;
             }
             const windowsList = document.getElementById('windows-changelog-list');
             if (windowsList) {
-                windowsList.innerHTML = '<li class="changelog-empty">Impossibile caricare il changelog</li>';
+                windowsList.innerHTML = `<li class="changelog-empty">${dict.changelog_error || 'Impossibile caricare il changelog'}</li>`;
             }
         }
     }
+
+    // ========== INIT ==========
+    applyTranslations(currentLang);
     fetchGitHubStatsAndChangelog();
     </script>
 </body>
