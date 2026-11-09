@@ -37,8 +37,8 @@
     },
     "AnimeWorld": {
       "baseUrl": "https://www.animeworld.ac",
-      "logo": "{base}/assets/images/favicon/android-icon-192x192.png?4",
-      "logoUrl": "https://www.animeworld.ac/assets/images/favicon/android-icon-192x192.png?4"
+      "logo": "{base}/assets/images/favicon/apple-icon-60x60.png?3",
+      "logoUrl": "https://static.animeworld.ac/assets/images/favicon/apple-icon-60x60.png?3"
     },
     "AnimeUnity": {
       "baseUrl": "https://www.animeunity.co",
