@@ -1,9 +1,9 @@
 {
   "providers": {
     "CB01": {
-      "baseUrl": "https://cb01one.org",
+      "baseUrl": "https://cb01one.uno",
       "logo": "{base}/apple-icon-180x180px.png",
-      "logoUrl": "https://cb01one.org/apple-icon-180x180px.png"
+      "logoUrl": "https://cb01one.uno/apple-icon-180x180px.png"
     },
     "StreamingCommunity": {
       "baseUrl": "https://streamingunity.fun",
@@ -38,7 +38,7 @@
     "AnimeWorld": {
       "baseUrl": "https://www.animeworld.ac",
       "logo": "{base}/assets/images/favicon/apple-icon-60x60.png?3",
-      "logoUrl": "https://static.animeworld.ac/assets/images/favicon/apple-icon-60x60.png?3"
+      "logoUrl": "https://static.animeworld.ac/assets/images/favicon/apple-icon-57x57.png?3"
     },
     "AnimeUnity": {
       "baseUrl": "https://www.animeunity.co",
