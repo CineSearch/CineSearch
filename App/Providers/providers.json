@@ -45,6 +45,11 @@
       "logo": "{base}/favicon-32x32.png",
       "logoUrl": "https://www.animeunity.co/favicon-32x32.png"
     },
+    "AnimeSaturn": {
+      "baseUrl": "https://www.animesaturn.net/",
+      "logo": "{base}/assets/img/favicon/favicon-96x96.png?v=1780099803",
+      "logoUrl": "hhttps://www.animesaturn.net/assets/img/favicon/favicon-96x96.png?v=1780099803"
+    },
     "GuardaFlix": {
       "baseUrl": "https://guardaplay.autos",
       "logo": "{base}/wp-content/uploads/2026/06/cropped-GuardaPlay.png",
