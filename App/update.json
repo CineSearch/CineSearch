@@ -1,5 +1,5 @@
 {
-  "version": "7.1.2",
+  "version": "7.2",
   "releaseNotes": [
 "Aggiunto il pulsante ESPLORA nella Home, con i provider organizzati in sezioni separate",
 "Aggiunti due nuovi controlli video: AFR e Video Tunneling",
@@ -16,8 +16,8 @@
 "Corretti i problemi del provider AnimeUnity",
 "Migliorata la gestione dei contenuti in 4K"
   ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.1.2/CineSearch-universal-release.apk",
-  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.1.2/CineSearch-universal-release.apk",
-  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.1.2/CineSearch-tv-release.apk",
-  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.1.2/CineSearch-mobile-release.apk"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.2/CineSearch-universal-release.apk",
+  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.2/CineSearch-universal-release.apk",
+  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.2/CineSearch-tv-release.apk",
+  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.2/CineSearch-mobile-release.apk"
 }
