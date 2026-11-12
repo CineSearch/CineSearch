@@ -1,10 +1,10 @@
 {
-  "version": "7.1.2",
+  "version": "7.2",
   "releaseNotes": [
 "Corretti diversi crash segnalati, migliorando la stabilità dell'app",
 "Aggiunti i provider organizzati in sezioni separate nella Home, come su Android",
 "Aggiunti due nuovi provider: CBuno e AltadefinizioneALT",
 "Introdotta la gestione centralizzata dei provider, che consente di aggiornare automaticamente i collegamenti senza aggiornare l'app"
   ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.1.2/CineSearch.exe"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.2/CineSearch.exe"
 }
