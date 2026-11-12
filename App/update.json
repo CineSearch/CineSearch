@@ -1,9 +1,20 @@
 {
   "version": "7.1.2",
   "releaseNotes": [
-    "Fix Maxstream",
-    "Fix TvLive vavoo",
-    "Aggiunta selezione Server"
+"Aggiunto il pulsante ESPLORA nella Home, con i provider organizzati in sezioni separate",
+"Aggiunti due nuovi controlli video: AFR e Video Tunneling",
+"Corretti i problemi di WebView su alcuni provider",
+"Esteso il supporto Loudness a tutti i provider del Server 2",
+"Aggiunto un pulsante dedicato alla selezione del Server direttamente nel player",
+"Aggiunto uno sfondo per migliorare la leggibilità dei sottotitoli",
+"Aggiunti due nuovi provider: CBuno e AltadefinizioneALT",
+"Ottimizzata la ricerca su TV LIVE per evitare l'apertura automatica della tastiera",
+"Introdotta la gestione centralizzata dei provider, che consente di aggiornare automaticamente i collegamenti senza aggiornare l'app",
+"Ampliata la ricerca di film e serie TV: se TMDB non restituisce risultati, CineSearch cerca automaticamente anche sui provider disponibili",
+"Corretto un problema che impediva la riproduzione dei canali preferiti di TV LIVE sui dispositivi mobili",
+"Corretti i problemi della sezione Continua a guardare",
+"Corretti i problemi del provider AnimeUnity",
+"Migliorata la gestione dei contenuti in 4K"
   ],
   "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.1.2/CineSearch-universal-release.apk",
   "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.1.2/CineSearch-universal-release.apk",
