@@ -41,9 +41,9 @@
       "logoUrl": "https://static.animeworld.ac/assets/images/favicon/apple-icon-57x57.png?3"
     },
     "AnimeUnity": {
-      "baseUrl": "https://www.animeunity.co",
+      "baseUrl": "https://animeunity.cx",
       "logo": "{base}/favicon-32x32.png",
-      "logoUrl": "https://www.animeunity.co/favicon-32x32.png"
+      "logoUrl": "https://animeunity.cx/favicon-32x32.png"
     },
     "AnimeSaturn": {
       "baseUrl": "https://www.animesaturn.net",
