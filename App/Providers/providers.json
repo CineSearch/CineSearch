@@ -42,8 +42,8 @@
     },
     "AnimeUnity": {
       "baseUrl": "https://animeunity.cx",
-      "logo": "{base}/favicon-32x32.png",
-      "logoUrl": "https://animeunity.cx/favicon-32x32.png"
+      "logo": "{base}/icon/favicon-32x32.png",
+      "logoUrl": "https://animeunity.cx/icon/favicon-32x32.png"
     },
     "AnimeSaturn": {
       "baseUrl": "https://www.animesaturn.net",
