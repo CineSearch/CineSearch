@@ -1,14 +1,12 @@
 {
-  "version": "7.2.2",
+  "version": "7.2.3",
   "releaseNotes": [
-"Fix bug serietv su continua a guardare",
-"Aggiornamento provider AnimeUnity",
-"Aggiunto animazione quando il focus è sulla timeline",
-"Fix Vavoo sui canali tv",
-"Rimpaginazione canali tv"
+"Fix schermo nero",
+"Fix selezione episodio su googletv",
+"Fix accenti sui sottotitoli"
   ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.2.2/CineSearch-universal-release.apk",
-  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.2.2/CineSearch-universal-release.apk",
-  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.2.2/CineSearch-tv-release.apk",
-  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.2.2/CineSearch-mobile-release.apk"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.2.3/CineSearch-universal-release.apk",
+  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.2.3/CineSearch-universal-release.apk",
+  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.2.3/CineSearch-tv-release.apk",
+  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.2.3/CineSearch-mobile-release.apk"
 }
