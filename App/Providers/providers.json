@@ -1,9 +1,9 @@
 {
   "providers": {
     "CB01": {
-      "baseUrl": "https://cb01one.uno",
+      "baseUrl": "https://cb01one.watch",
       "logo": "{base}/apple-icon-180x180px.png",
-      "logoUrl": "https://cb01one.uno/apple-icon-180x180px.png"
+      "logoUrl": "https://cb01one.watch/apple-icon-180x180px.png"
     },
     "StreamingCommunity": {
       "baseUrl": "https://streamingunity.day",
@@ -18,12 +18,12 @@
     "CBUno": {
       "baseUrl": "https://cb01primo.bar",
       "logo": "{base}/templates/CINEBLOG01/img/favicon.ico",
-      "logoUrl": "https://cb01primo.bar/templates/CINEBLOG01/img/favicon.ico"
+      "logoUrl": "https://cb01primo.lat/templates/CINEBLOG01/img/favicon.ico"
     },
     "AltadefinizioneALT": {
-      "baseUrl": "https://altadefinizionew.asia",
+      "baseUrl": "https://altadefinizionew.bar",
       "logo": "{base}/favicon.ico?v=11",
-      "logoUrl": "https://altadefinizionew.asia/favicon.ico?v=11"
+      "logoUrl": "https://altadefinizionew.bar/favicon.ico?v=11"
     },
     "Altadefinizione01": {
       "baseUrl": "https://altadefinizione-01.best",
