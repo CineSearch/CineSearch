@@ -26,14 +26,9 @@
       "logoUrl": "https://altadefinizionew.bar/favicon.ico?v=11"
     },
     "Altadefinizione01": {
-      "baseUrl": "https://altadefinizione-01.bar",
+      "baseUrl": "https://altadefinizione-01.ws",
       "logo": "{base}/favicon.ico",
-      "logoUrl": "https://altadefinizione-01.bar/favicon.ico"
-    },
-    "Altadefinizione01Alt": {
-      "baseUrl": "https://altadefinizionex.ink",
-      "logo": "{base}/theme-altadefinizione/images/favicon/favicon-32x32.png",
-      "logoUrl": "https://altadefinizionex.ink/theme-altadefinizione/images/favicon/favicon-32x32.png"
+      "logoUrl": "https://altadefinizione-01.ws/favicon.ico"
     },
     "Eurostreaming": {
       "baseUrl": "https://eurostream.skin",
