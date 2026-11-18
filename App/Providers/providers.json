@@ -30,6 +30,11 @@
       "logo": "{base}/favicon.ico",
       "logoUrl": "https://altadefinizione-01.best/favicon.ico"
     },
+    "Altadefinizione01Alt": {
+      "baseUrl": "https://altadefinizionex.ink",
+      "logo": "{base}/theme-altadefinizione/images/favicon/favicon-32x32.png",
+      "logoUrl": "https://altadefinizionex.ink/theme-altadefinizione/images/favicon/favicon-32x32.png"
+    },
     "Eurostreaming": {
       "baseUrl": "https://eurostream.skin",
       "logo": "{base}/wp-content/uploads/2018/09/favicon18.jpg",
