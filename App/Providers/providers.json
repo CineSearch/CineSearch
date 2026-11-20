@@ -1,9 +1,9 @@
 {
   "providers": {
     "CB01": {
-      "baseUrl": "https://cb01one.watch",
+      "baseUrl": "https://cb01one.live",
       "logo": "{base}/apple-icon-180x180px.png",
-      "logoUrl": "https://cb01one.watch/apple-icon-180x180px.png"
+      "logoUrl": "https://cb01one.live/apple-icon-180x180px.png"
     },
     "StreamingCommunity": {
       "baseUrl": "https://streamingunity.day",
