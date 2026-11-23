@@ -1,12 +1,22 @@
 {
-  "version": "7.2.3",
+  "version": "7.3",
   "releaseNotes": [
-"Fix schermo nero",
-"Fix selezione episodio su googletv",
-"Fix accenti sui sottotitoli"
+"Server 1 con 1080p garantito (esclusiva CineSearch)",
+"Implementazione boost audio",
+"Stabilità player migliorata",
+"Allineata logica account cinesear al server per non incombere più a possibili errori",
+"Aggiunto tempo rimasto/orario di fine sul player",
+"Cambiata grafica apertura film/serie/anime per avere meno bottoni da premre e più rapido/semplice per l'utente",
+"Cambiata grafica/migliorata grafica TV LIVE",
+"Fix canali vavoo",
+"Fix orientamento mobile orizzontale",
+"Fix estrattore VidSrc (server3)",
+"Fix timer sincronizzazione su Server 4",
+"Nuova impostazione per cambiare i server vicino opzioni",
+"Avvio delle puntate tramite doppio click sull'episodio"
   ],
-  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.2.3/CineSearch-universal-release.apk",
-  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.2.3/CineSearch-universal-release.apk",
-  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.2.3/CineSearch-tv-release.apk",
-  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.2.3/CineSearch-mobile-release.apk"
+  "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.3/CineSearch-universal-release.apk",
+  "updateUrlUniversal": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.3/CineSearch-universal-release.apk",
+  "updateUrlTV": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.3/CineSearch-tv-release.apk",
+  "updateUrlMobile": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.3/CineSearch-mobile-release.apk"
 }
