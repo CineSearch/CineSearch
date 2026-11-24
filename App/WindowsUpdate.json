@@ -2,7 +2,7 @@
   "version": "7.3",
   "releaseNotes": [
 "Fix canali vavoo",
-"Server 1 con 1080p garantito (esclusiva CineSearch)",
+"Server 1 con cambio server",
 "Allineata logica account Cinesearch al server per non incombere ad eventuali errori"
 ],
   "updateUrl": "https://github.com/CineSearch/CineSearch/releases/download/Release_v7.3/CineSearch.exe"
