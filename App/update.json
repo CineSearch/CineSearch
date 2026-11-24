@@ -1,7 +1,7 @@
 {
   "version": "7.3",
   "releaseNotes": [
-"Server 1 con 1080p garantito (esclusiva CineSearch)",
+"Server 1 con cambio server",
 "Implementazione boost audio",
 "Stabilità player migliorata",
 "Allineata logica account cinesear al server per non incombere più a possibili errori",
